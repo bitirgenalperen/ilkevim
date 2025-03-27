@@ -125,42 +125,49 @@ export default function ListPropertyPage() {
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    
+    const { name, value } = e.target;
+  
     if (name.includes('.')) {
-      const [parent, child] = name.split('.')
+      const [parent, child] = name.split('.') as [
+        keyof Pick<FormData, 'location' | 'features'>,
+        string
+      ];
+  
       setFormData(prev => ({
         ...prev,
         [parent]: {
-          ...(prev as any)[parent],
+          ...prev[parent],
           [child]: value
         }
-      }))
+      }));
     } else {
       setFormData(prev => ({
         ...prev,
         [name]: value
-      }))
+      } as FormData));
     }
-  }
+  };
 
   const handleSelectChange = (name: string, value: string) => {
     if (name.includes('.')) {
-      const [parent, child] = name.split('.')
+      const [parent, child] = name.split('.') as [
+        keyof Pick<FormData, 'location' | 'features'>,
+        string
+      ];
       setFormData(prev => ({
         ...prev,
         [parent]: {
-          ...(prev as any)[parent],
+          ...prev[parent],
           [child]: value
         }
-      }))
+      }));
     } else {
       setFormData(prev => ({
         ...prev,
         [name]: value
-      }))
+      } as FormData));
     }
-  }
+  };
 
   const handleAmenityToggle = (amenity: string) => {
     if (selectedAmenities.includes(amenity)) {
