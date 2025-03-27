@@ -6,16 +6,12 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import {
   Home,
-  Key,
-  Banknote,
   ClipboardCheck,
   Building2,
-  Users,
   ArrowRight,
   CheckCircle2,
   BadgePercent,
   Sparkles,
-  Scale,
   Shield,
   Clock,
   HeartHandshake,

@@ -17,7 +17,6 @@ import {
   Facebook,
   Eye,
   EyeOff,
-  ArrowRight,
   ArrowLeft,
   Home,
   Check,

@@ -21,13 +21,11 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs'
 import {
-  MapPin,
   Home,
   Building2,
   Hotel,
   Castle,
   Upload,
-  Plus,
   Trash2,
   Loader2,
   CheckCircle,

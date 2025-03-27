@@ -21,7 +21,6 @@ import {
   Building,
   Lock as LockIcon,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
@@ -215,7 +214,7 @@ export default function SignInPage() {
             </div>
             
             <div className="mt-8 text-center text-sm">
-              <span className="text-teal-700">Don't have an account?</span>{" "}
+              <span className="text-teal-700">Don&apos;t have an account?</span>{" "}
               <Link 
                 href="/register" 
                 className="font-medium text-teal-600 hover:text-teal-700 inline-flex items-center"

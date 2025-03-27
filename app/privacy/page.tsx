@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { 
   ArrowLeft, 
   ArrowDownToLine, 
@@ -86,7 +85,7 @@ export default function PrivacyPage() {
               6. Third-Party Websites
             </Link>
             <Link href="#section7" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
-              7. Children's Privacy
+              7. Children&apos;s Privacy
             </Link>
             <Link href="#section8" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
               8. Your Rights and Choices
@@ -131,7 +130,7 @@ export default function PrivacyPage() {
                 <ul>
                   <li>Browser name</li>
                   <li>Type of computer or device</li>
-                  <li>Technical information about users' means of connection to our platform, such as the operating system, the Internet service providers utilized, and other similar information</li>
+                  <li>Technical information about users&apos; means of connection to our platform, such as the operating system, the Internet service providers utilized, and other similar information</li>
                   <li>Usage data (such as pages visited, time spent on pages, links clicked)</li>
                 </ul>
 
@@ -173,7 +172,7 @@ export default function PrivacyPage() {
                 
                 <h3>2.3 Analytics and Research</h3>
                 <ul>
-                  <li>To analyze trends, administer the platform, track users' movements around the platform, and gather demographic information about our user base as a whole</li>
+                  <li>To analyze trends, administer the platform, track users&apos; movements around the platform, and gather demographic information about our user base as a whole</li>
                   <li>To monitor and analyze the effectiveness of our platform and marketing activities</li>
                   <li>To conduct research and development to improve our products and services</li>
                 </ul>
@@ -248,7 +247,7 @@ export default function PrivacyPage() {
                 
                 <p>However, please be aware that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security. Therefore, we cannot ensure or warrant the security of any information you transmit to us, and you do so at your own risk.</p>
                 
-                <p>We will make any legally required disclosures of any breach of the security, confidentiality, or integrity of your unencrypted electronically stored "personal data" to you via email or conspicuous posting on this website in the most expedient time possible and without unreasonable delay, consistent with (i) the legitimate needs of law enforcement or (ii) any measures necessary to determine the scope of the breach and restore the reasonable integrity of the data system.</p>
+                <p>We will make any legally required disclosures of any breach of the security, confidentiality, or integrity of your unencrypted electronically stored &quot;personal data&quot; to you via email or conspicuous posting on this website in the most expedient time possible and without unreasonable delay, consistent with (i) the legitimate needs of law enforcement or (ii) any measures necessary to determine the scope of the breach and restore the reasonable integrity of the data system.</p>
               </div>
             </Card>
           </section>
@@ -293,9 +292,9 @@ export default function PrivacyPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
               <div className="prose prose-teal max-w-none">
-                <p>Our platform may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+                <p>Our platform may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
                 
-                <p>We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. These third-party services may have their own privacy policies and customer service policies. For more information about a third party's privacy practices, you should consult the third party's privacy policy.</p>
+                <p>We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. These third-party services may have their own privacy policies and customer service policies. For more information about a third party&apos;s privacy practices, you should consult the third party&apos;s privacy policy.</p>
                 
                 <p>In addition, we are not responsible for the information collection, use, disclosure, or security practices (including the data security practices) of other organizations, such as Facebook, Apple, Google, Microsoft, or any other app developer, app provider, social media platform provider, operating system provider, or device manufacturer.</p>
               </div>
@@ -308,7 +307,7 @@ export default function PrivacyPage() {
               <div className="bg-teal-100 rounded-full p-2 text-teal-700">
                 <AlertCircle size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">7. Children's Privacy</h2>
+              <h2 className="text-2xl font-bold text-teal-950">7. Children&apos;s Privacy</h2>
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
               <div className="prose prose-teal max-w-none">
@@ -341,7 +340,7 @@ export default function PrivacyPage() {
                 <p>You can exercise many of these rights by accessing your account settings or contacting us using the contact information provided below.</p>
                 
                 <h3>8.2 Marketing Communications</h3>
-                <p>You have the right to opt-out of marketing communications we send you at any time. You can exercise this right by clicking on the "unsubscribe" or "opt-out" link in the marketing emails we send you, or by contacting us using the contact information provided below.</p>
+                <p>You have the right to opt-out of marketing communications we send you at any time. You can exercise this right by clicking on the &quot;unsubscribe&quot; or &quot;opt-out&quot; link in the marketing emails we send you, or by contacting us using the contact information provided below.</p>
                 
                 <h3>8.3 Data Retention</h3>
                 <p>We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.</p>
@@ -359,7 +358,7 @@ export default function PrivacyPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
               <div className="prose prose-teal max-w-none">
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top of this Privacy Policy.</p>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Effective Date&quot; at the top of this Privacy Policy.</p>
                 
                 <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. Your continued use of our platform following the posting of changes to this policy will be deemed your acceptance of those changes.</p>
                 

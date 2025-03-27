@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, ArrowDownToLine, FileCheck, ShieldCheck, Scale, MousePointerClick, AlertCircle, BookOpen } from 'lucide-react';
 
 export default function TermsPage() {
@@ -226,7 +225,7 @@ export default function TermsPage() {
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
               <div className="prose prose-teal max-w-none">
                 <h3>6.1 Disclaimer of Warranties</h3>
-                <p>THE ILKEVIM PLATFORM AND ALL CONTENT, FUNCTIONS, AND SERVICES PROVIDED THROUGH THE PLATFORM ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+                <p>THE ILKEVIM PLATFORM AND ALL CONTENT, FUNCTIONS, AND SERVICES PROVIDED THROUGH THE PLATFORM ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE,&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
                 
                 <h3>6.2 Limitation of Liability</h3>
                 <p>IN NO EVENT SHALL ILKEVIM, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>

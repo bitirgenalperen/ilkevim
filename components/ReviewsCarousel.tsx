@@ -1,10 +1,10 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useAnimationControls, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useAnimationControls, useInView } from 'framer-motion';
 import { background } from '@/styles/theme';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 
 // Define customer reviews data
 const reviews = [
@@ -142,7 +142,7 @@ export function ReviewsCarousel() {
                   <div className="relative">
                     <Quote className="absolute -top-4 -left-4 w-8 h-8 text-teal-200" />
                     <p className="text-gray-600 italic">
-                      &quot;{review.review}"
+                      &quot;{review.review}&quot;
                     </p>
                   </div>
                   

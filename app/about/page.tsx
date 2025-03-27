@@ -2,9 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import {
-  Users,
   Trophy,
   Building,
   Heart,
@@ -13,10 +11,7 @@ import {
   HandshakeIcon,
   Globe2,
   MessageSquareMore,
-  ArrowRight,
-  MapPin,
   Star,
-  BadgeCheck,
   TrendingUp
 } from 'lucide-react'
 
@@ -95,7 +90,7 @@ export default function AboutPage() {
             Your Trusted Property Partner
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            With over 15 years of excellence in real estate, we've been helping clients achieve their property dreams through expertise, innovation, and dedication.
+            With over 15 years of excellence in real estate, we have been helping clients achieve their property dreams through expertise, innovation, and dedication.
           </p>
         </div>
 
@@ -215,7 +210,7 @@ export default function AboutPage() {
               Join Our Success Story
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Let's work together to achieve your property goals. Contact us today for a personalized consultation.
+              Let&apos;s work together to achieve your property goals. Contact us today for a personalized consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

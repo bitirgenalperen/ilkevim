@@ -9,7 +9,7 @@ const event = {
   id: '1',
   title: 'Global Real Estate Investment Summit',
   description: 'Join industry experts for an exclusive summit on global real estate investment opportunities, market trends, and future predictions.',
-  longDescription: `The Global Real Estate Investment Summit brings together the world's leading real estate experts, investors, and industry professionals for an unparalleled networking and learning experience.
+  longDescription: `The Global Real Estate Investment Summit brings together the world&apos;s leading real estate experts, investors, and industry professionals for an unparalleled networking and learning experience.
 
 Key Highlights:
 • Expert panel discussions on global market trends
@@ -25,7 +25,7 @@ Who Should Attend:
 • Financial advisors
 • Market analysts
 
-Don't miss this opportunity to gain valuable insights and connect with the global real estate community.`,
+Don&apos;t miss this opportunity to gain valuable insights and connect with the global real estate community.`,
   date: '2024-06-15',
   time: '10:00 AM - 4:00 PM',
   location: 'Istanbul Convention Center',

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Building, Home, MapPin, Phone, Mail, Search, ArrowRight, TrendingUp, Percent, PiggyBank, Calculator, Globe2, Shield, Bath, Bed, Move, Calendar, Loader2 } from "lucide-react"
+import { Building, Home, MapPin, Phone, Mail, Search, ArrowRight, PiggyBank, Calculator, Bath, Bed, Move, Calendar, Loader2 } from "lucide-react"
 import { PartnersCarousel } from "@/components/PartnersCarousel"
 import { ReviewsCarousel } from "@/components/ReviewsCarousel"
 import { cn } from "@/lib/utils"
@@ -179,7 +179,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="bg-gradient-to-r from-teal-600 to-teal-700 p-6 text-white text-center mb-4 rounded-t-lg shadow-lg">
                 <span className="text-2xl font-bold">£19,998</span>
-                <p className="text-sm">Buyer's 5% deposit</p>
+                <p className="text-sm">Buyer&apos;s 5% deposit</p>
               </div>
               <div className="bg-gradient-to-r from-teal-500 to-teal-600 p-6 text-white text-center mb-4 shadow-lg">
                 <span className="text-2xl font-bold">£159,980</span>

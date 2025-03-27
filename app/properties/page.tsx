@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Property, Filters } from '@/types/property'
-import { propertyTypes, priceRanges, commonAmenities } from '@/data/properties'
+import { propertyTypes, commonAmenities } from '@/data/properties'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {

@@ -211,7 +211,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're here to help you with your property needs. Reach out to our team and we'll get back to you as soon as possible.
+            We&apos;re here to help you with your property needs. Reach out to our team and we&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -256,7 +256,7 @@ export default function ContactPage() {
                     Send Us a Message
                   </h2>
                   <p className="text-gray-600">
-                    Fill out the form below and we'll respond as soon as possible.
+                    Fill out the form below and we&apos;ll respond as soon as possible.
                   </p>
                 </div>
 

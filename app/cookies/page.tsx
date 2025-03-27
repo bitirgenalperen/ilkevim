@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { useState } from 'react';
 import { 
   ArrowLeft, 
   ArrowDownToLine, 
@@ -12,12 +10,9 @@ import {
   ShieldCheck, 
   Settings2, 
   Info, 
-  CheckCircle, 
   BookOpen,
   AlertCircle,
   Lock,
-  BarChart3,
-  User
 } from 'lucide-react';
 
 export default function CookiePolicyPage() {
@@ -54,7 +49,7 @@ export default function CookiePolicyPage() {
               <Cookie className="text-amber-500 shrink-0 mt-1" size={24} />
               <div>
                 <p className="font-medium text-gray-900">This Cookie Policy explains how Ilkevim uses cookies and similar technologies on our website.</p>
-                <p className="text-gray-600 mt-1">We've created this policy to provide you with clear and explicit information about the technologies we use, helping you make informed decisions about your browsing experience.</p>
+                <p className="text-gray-600 mt-1">We have created this policy to provide you with clear and explicit information about the technologies we use, helping you make informed decisions about your browsing experience.</p>
               </div>
             </div>
           </Card>
@@ -166,7 +161,7 @@ export default function CookiePolicyPage() {
                 
                 <h3>3.1 Website Functionality</h3>
                 <ul>
-                  <li>Remembering your login details so you don't have to re-enter them</li>
+                  <li>Remembering your login details so you don&apos;t have to re-enter them</li>
                   <li>Storing your property search preferences and criteria</li>
                   <li>Maintaining your session information when navigating between pages</li>
                   <li>Enabling features such as property comparison and favorites</li>
@@ -231,7 +226,7 @@ export default function CookiePolicyPage() {
                 </ul>
                 
                 <div className="bg-amber-50 p-4 rounded-lg mt-4 border border-amber-100">
-                  <p className="text-sm text-amber-700 mb-0"><strong>Important:</strong> Third-party cookies are governed by the respective third parties' privacy policies, not Ilkevim's Privacy Policy. We encourage you to review the privacy policies of these third parties for more information on how they process your data.</p>
+                  <p className="text-sm text-amber-700 mb-0"><strong>Important:</strong> Third-party cookies are governed by the respective third parties&apos; privacy policies, not Ilkevim&apos;s Privacy Policy. We encourage you to review the privacy policies of these third parties for more information on how they process your data.</p>
                 </div>
               </div>
             </Card>
@@ -253,7 +248,7 @@ export default function CookiePolicyPage() {
                 <p>You can use our Cookie Preferences Manager at the top of this page to customize your cookie settings on our website. Your preferences will be saved and remembered for future visits.</p>
                 
                 <h3>5.2 Browser Settings</h3>
-                <p>Most web browsers allow you to manage your cookie preferences. You can set your browser to refuse cookies, delete cookies, or alert you when cookies are being sent. The methods for doing so vary from browser to browser, but you can typically find these settings in the "Options," "Preferences," or "Settings" menu.</p>
+                <p>Most web browsers allow you to manage your cookie preferences. You can set your browser to refuse cookies, delete cookies, or alert you when cookies are being sent. The methods for doing so vary from browser to browser, but you can typically find these settings in the &quot;Options&quot;, &quot;Preferences&quot; or &quot;Settings&quot; menu.</p>
                 
                 <p>Here are links to instructions for managing cookies in common browsers:</p>
                 <ul>
