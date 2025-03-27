@@ -1,26 +1,44 @@
 import { NextResponse } from 'next/server'
 import { DatabaseService } from '@/lib/db'
+import { Property } from '@/types/database'
+import { Filter } from 'mongodb'
+
+type MongoQuery<T> = {
+  [K in keyof T]?: T[K] | { $regex?: string; $options?: string; $gte?: number; $lte?: number; $all?: string[] };
+} & {
+  $or?: Array<{ [key: string]: { $regex: string; $options: string } }>;
+};
+
+interface PropertyQuery extends Omit<MongoQuery<Property>, '_id' | 'createdAt' | 'updatedAt'> {
+  'features.propertyType'?: string;
+  'location.city'?: string;
+  'features.bedrooms'?: number;
+  'features.bathrooms'?: number;
+  'features.squareFootage'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  amenities?: string[] | { $all: string[] };
+  listingType?: 'standard' | 'featured';
+}
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
-    
-    // Initialize MongoDB query
-    const query: any = {}
+    const query: Filter<Property> = {}
 
     // Listing type filter
     const listingType = searchParams.get('listingType')
     if (listingType) {
-      query.listingType = listingType
+      query.listingType = listingType as 'standard' | 'featured'
     }
 
-    // Text search filter
+    // Search term filter
     const searchTerm = searchParams.get('searchTerm')
     if (searchTerm) {
       query.$or = [
         { title: { $regex: searchTerm, $options: 'i' } },
-        { description: { $regex: searchTerm, $options: 'i' } },
-        { 'location.area': { $regex: searchTerm, $options: 'i' } }
+        { description: { $regex: searchTerm, $options: 'i' } }
       ]
     }
 
@@ -40,18 +58,16 @@ export async function GET(request: Request) {
     const minPrice = searchParams.get('minPrice')
     const maxPrice = searchParams.get('maxPrice')
     if (minPrice || maxPrice) {
-      query.price = {}
-      if (minPrice) query.price.$gte = parseInt(minPrice)
-      if (maxPrice) query.price.$lte = parseInt(maxPrice)
+      query.price = {
+        ...(minPrice && { $gte: Number(minPrice) }),
+        ...(maxPrice && { $lte: Number(maxPrice) })
+      }
     }
 
-    // Bedrooms range filter
-    const minBedrooms = searchParams.get('minBedrooms')
-    const maxBedrooms = searchParams.get('maxBedrooms')
-    if (minBedrooms || maxBedrooms) {
-      query['features.bedrooms'] = {}
-      if (minBedrooms) query['features.bedrooms'].$gte = parseInt(minBedrooms)
-      if (maxBedrooms) query['features.bedrooms'].$lte = parseInt(maxBedrooms)
+    // Bedrooms filter
+    const bedrooms = searchParams.get('bedrooms')
+    if (bedrooms) {
+      query['features.bedrooms'] = Number(bedrooms)
     }
 
     // Bathrooms range filter

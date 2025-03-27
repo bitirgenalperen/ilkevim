@@ -19,8 +19,35 @@ import {
 } from "lucide-react";
 import { badge as badgeStyles, button as buttonStyles, formElements } from "@/styles/theme";
 
+interface Cookie {
+  name: string;
+  purpose: string;
+  expires: string;
+  essential: boolean;
+}
+
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  joinDate: string;
+  avatar: string;
+  location: string;
+  role: string;
+  favoriteCount: number;
+  viewedCount: number;
+  notifications: {
+    email: boolean;
+    sms: boolean;
+    app: boolean;
+  };
+  verifiedAccount: boolean;
+  cookies: Cookie[];
+}
+
 // Mock user data
-const userData = {
+const userData: UserData = {
   id: "u123456",
   name: "John Doe",
   email: "john.doe@example.com",
@@ -131,7 +158,7 @@ export default function UserDetailsPage() {
   );
 }
 
-function ProfileTab({ userData }: { userData: any }) {
+function ProfileTab({ userData }: { userData: UserData }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -166,7 +193,7 @@ function ProfileTab({ userData }: { userData: any }) {
   );
 }
 
-function CookiesTab({ userData }: { userData: any }) {
+function CookiesTab({ userData }: { userData: UserData }) {
   const [essentialCookies, setEssentialCookies] = useState(true);
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
