@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Property, Filters } from '@/types/property'
 import { propertyTypes, commonAmenities } from '@/data/properties'
 import { Card, CardContent } from '@/components/ui/card'
@@ -71,16 +71,7 @@ export default function PropertiesPage() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [isFiltersOpen])
 
-  useEffect(() => {
-    fetchProperties()
-  }, [filters])
-
-  // Fetch cities on initial page load
-  useEffect(() => {
-    fetchAvailableCities()
-  }, [])
-
-  const fetchProperties = async () => {
+  const fetchProperties = useCallback(async () => {
     setLoading(true)
     try {
       const params = new URLSearchParams()
@@ -120,7 +111,16 @@ export default function PropertiesPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [filters])
+
+  useEffect(() => {
+    fetchProperties()
+  }, [fetchProperties])
+
+  // Fetch cities on initial page load
+  useEffect(() => {
+    fetchAvailableCities()
+  }, [])
 
   const fetchAvailableCities = async () => {
     setCitiesLoading(true)

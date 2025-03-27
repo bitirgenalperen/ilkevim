@@ -1,4 +1,4 @@
-import { MongoClient, Db, ObjectId, Filter } from 'mongodb'
+import { MongoClient, Db, ObjectId } from 'mongodb'
 import clientPromise from './mongodb'
 import { Property, User, Enquiry } from '@/types/database'
 
@@ -16,7 +16,7 @@ export class DatabaseService {
   }
 
   // Properties
-  async getProperties(query: Filter<Property> = {}, limit?: number) {
+  async getProperties(query: Partial<Property> = {}, limit?: number) {
     console.log('DB Service - Getting properties with query:', JSON.stringify(query, null, 2))
     const db = await this.connect()
     let find = db.collection<Property>('properties').find(query)
