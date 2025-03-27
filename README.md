@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IlkEvim Real Estate Platform
 
-## Getting Started
+A modern real estate platform built with Next.js for browsing and listing properties in the UK.
 
-First, run the development server:
+## Running the Project
+
+### Development Mode
+
+To run the project in development mode:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application will automatically update as you edit the source files.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Production Mode
 
-## Learn More
+To build and run the project in production mode:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install dependencies (if not already installed)
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Build the project
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Start the production server
+npm start
+```
 
-## Deploy on Vercel
+For optimal performance in production, consider deploying on Vercel or another hosting platform that supports Next.js applications.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Upcoming Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [X] Provide tax payment rates on Property Details page
+- [X] Integrate a mortgage calculator where users can estimate monthly payments based on the property price, down payment, interest rate, and loan term.
+- [ ] Provide recommendations for properties based on user preferences and location, such as nearby schools, amenities, public transportation, etc.
+- [ ] Image upload and priority
+- [ ] Map location API integration
+- [ ] Provide detailed neighborhood insights, including schools, restaurants, crime rates, and public transportation
+
+## After User Login Functionality Implemented
+
+- [ ] Allow users to "favorite" properties and save them for easy access later
+- [ ] Send notification via email and website when a new listing available
