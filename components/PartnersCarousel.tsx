@@ -50,10 +50,33 @@ export function PartnersCarousel() {
           <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-4 py-2 rounded-full mb-6 inline-block">
             Trusted Partners
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Partners</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Working with the industry's finest to deliver exceptional real estate services
-          </p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            <span className="text-sm font-medium">Our Partners</span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            Trusted by Industry Leaders
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+          >
+            We&apos;re proud to work with the best in the industry
+          </motion.p>
         </div>
         
         <div 

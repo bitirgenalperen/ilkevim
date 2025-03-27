@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, MapPin, Users, Clock, Building2, Globe, Video, ArrowLeft, Share2, Bookmark } from 'lucide-react'
+import { Calendar, MapPin, Users, Clock, Globe, ArrowLeft, Share2, Bookmark } from 'lucide-react'
 import Link from 'next/link'
 
 // This would typically come from an API or database

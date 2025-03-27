@@ -139,9 +139,12 @@ export function ReviewsCarousel() {
                   </div>
                   
                   {/* Review Text */}
-                  <p className="text-gray-700 mb-8 italic leading-relaxed min-h-[120px]">
-                    "{review.review}"
-                  </p>
+                  <div className="relative">
+                    <Quote className="absolute -top-4 -left-4 w-8 h-8 text-teal-200" />
+                    <p className="text-gray-600 italic">
+                      &quot;{review.review}"
+                    </p>
+                  </div>
                   
                   {/* Reviewer Info */}
                   <div className="border-t border-gray-100 pt-6">

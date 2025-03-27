@@ -110,7 +110,7 @@ export default function EventsPage() {
               transition={{ delay: 0.2 }}
               className="text-3xl md:text-4xl font-bold mt-4"
             >
-              Don't Miss Out on These Opportunities
+              Don&apos;t Miss Out on These Opportunities
             </motion.h2>
           </div>
 
