@@ -1,12 +1,38 @@
 import { NextResponse } from 'next/server'
 import { DatabaseService } from '@/lib/db'
 
+interface PropertyQuery {
+  listingType?: string;
+  $or?: Array<{
+    [key: string]: { $regex: string; $options: string };
+  }>;
+  'features.propertyType'?: string;
+  'location.city'?: string;
+  price?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.bedrooms'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.bathrooms'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.squareFootage'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  amenities?: { $all: string[] };
+}
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
     
     // Initialize MongoDB query
-    const query: any = {}
+    const query: PropertyQuery = {}
 
     // Listing type filter
     const listingType = searchParams.get('listingType')

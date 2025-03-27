@@ -2,6 +2,32 @@ import { MongoClient, Db, ObjectId } from 'mongodb'
 import clientPromise from './mongodb'
 import { Property, User, Enquiry } from '@/types/database'
 
+interface PropertyQuery {
+  listingType?: string;
+  $or?: Array<{
+    [key: string]: { $regex: string; $options: string };
+  }>;
+  'features.propertyType'?: string;
+  'location.city'?: string;
+  price?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.bedrooms'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.bathrooms'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  'features.squareFootage'?: {
+    $gte?: number;
+    $lte?: number;
+  };
+  amenities?: { $all: string[] };
+}
+
 export class DatabaseService {
   private client: MongoClient | null = null
   private db: Db | null = null
@@ -16,19 +42,13 @@ export class DatabaseService {
   }
 
   // Properties
-  async getProperties(query: Partial<Property> = {}, limit?: number) {
-    console.log('DB Service - Getting properties with query:', JSON.stringify(query, null, 2))
+  async getProperties(query: PropertyQuery = {}, limit?: number) {
     const db = await this.connect()
     let find = db.collection<Property>('properties').find(query)
-    
-    // Apply limit if specified
     if (limit) {
       find = find.limit(limit)
     }
-    
-    const properties = await find.toArray()
-    console.log(`DB Service - Found ${properties.length} properties`)
-    return properties
+    return find.toArray()
   }
 
   async getCities() {
