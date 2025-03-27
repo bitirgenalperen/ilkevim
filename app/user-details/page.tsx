@@ -131,7 +131,7 @@ export default function UserDetailsPage() {
   );
 }
 
-function ProfileTab({ userData }: { userData: any }) {
+function ProfileTab({ userData }: { userData: unknown }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -166,7 +166,7 @@ function ProfileTab({ userData }: { userData: any }) {
   );
 }
 
-function CookiesTab({ userData }: { userData: any }) {
+function CookiesTab({ userData }: { userData: unknown }) {
   const [essentialCookies, setEssentialCookies] = useState(true);
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
@@ -281,7 +281,7 @@ function CookiesTab({ userData }: { userData: any }) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
-                  {userData.cookies.map((cookie: any, index: number) => (
+                  {userData.cookies.map((cookie: unknown, index: number) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                       <td className="px-4 py-3 font-medium">{cookie.name}</td>
                       <td className="px-4 py-3 text-slate-600">{cookie.purpose}</td>
