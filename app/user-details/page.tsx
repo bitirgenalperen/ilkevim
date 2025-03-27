@@ -19,8 +19,34 @@ import {
 } from "lucide-react";
 import { badge as badgeStyles, button as buttonStyles, formElements } from "@/styles/theme";
 
-// Mock user data
-const userData = {
+// Define the UserData type
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  joinDate: string;
+  avatar: string;
+  location: string;
+  role: string;
+  favoriteCount: number;
+  viewedCount: number;
+  notifications: {
+    email: boolean;
+    sms: boolean;
+    app: boolean;
+  };
+  verifiedAccount: boolean;
+  cookies: {
+    name: string;
+    purpose: string;
+    expires: string;
+    essential: boolean;
+  }[];
+}
+
+// Mock user data with explicit type
+const userData: UserData = {
   id: "u123456",
   name: "John Doe",
   email: "john.doe@example.com",
@@ -50,7 +76,6 @@ export default function UserDetailsPage() {
   const searchParams = useSearchParams();
   
   useEffect(() => {
-    // Check if there's a tab specified in the URL
     const tabParam = searchParams.get('tab');
     if (tabParam && ['profile', 'cookies'].includes(tabParam)) {
       setActiveTab(tabParam);
@@ -60,7 +85,6 @@ export default function UserDetailsPage() {
   return (
     <div className="container pt-24 pb-10 mx-auto">
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Left sidebar with user info and tab selection */}
         <div className="md:w-1/4">
           <Card className="sticky top-24">
             <CardHeader className="flex flex-col items-center text-center">
@@ -71,7 +95,7 @@ export default function UserDetailsPage() {
                   fill
                   className="object-cover"
                   priority
-                  unoptimized // For placeholder
+                  unoptimized
                 />
               </div>
               <CardTitle className="text-2xl">{userData.name}</CardTitle>
@@ -115,7 +139,6 @@ export default function UserDetailsPage() {
           </Card>
         </div>
 
-        {/* Right content area */}
         <div className="md:w-3/4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsContent value="profile" className="mt-0">
@@ -131,7 +154,7 @@ export default function UserDetailsPage() {
   );
 }
 
-function ProfileTab({ userData }: { userData: unknown }) {
+function ProfileTab({ userData }: { userData: UserData }) { // Use UserData type instead of unknown
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -166,20 +189,17 @@ function ProfileTab({ userData }: { userData: unknown }) {
   );
 }
 
-function CookiesTab({ userData }: { userData: unknown }) {
+function CookiesTab({ userData }: { userData: UserData }) { // Use UserData type instead of unknown
   const essentialCookies = true;
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
   
   const handleSavePreferences = () => {
-    // This would save cookie preferences in a real implementation
     console.log('Cookie preferences saved:', {
       essential: essentialCookies, 
       functional: functionalCookies,
       analytics: analyticsCookies
     });
-    
-    // Show a confirmation message (in a real implementation)
     alert('Your cookie preferences have been saved.');
   };
   
@@ -203,7 +223,6 @@ function CookiesTab({ userData }: { userData: unknown }) {
               login status, and other browsing activity. Below is a list of cookies we use.
             </p>
             
-            {/* Cookie Preferences Manager */}
             <div className="bg-white rounded-lg border border-teal-100 p-5">
               <h3 className="text-lg font-semibold text-teal-900 mb-4 flex items-center">
                 <Settings2 size={20} className="mr-2 text-teal-600" />
@@ -281,7 +300,7 @@ function CookiesTab({ userData }: { userData: unknown }) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
-                  {userData.cookies.map((cookie: unknown, index: number) => (
+                  {userData.cookies.map((cookie, index) => (  // Type inference works now with UserData
                     <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                       <td className="px-4 py-3 font-medium">{cookie.name}</td>
                       <td className="px-4 py-3 text-slate-600">{cookie.purpose}</td>
@@ -328,4 +347,4 @@ function InfoCard({ title, items }: { title: string, items: { label: string, val
       </div>
     </div>
   );
-} 
+}

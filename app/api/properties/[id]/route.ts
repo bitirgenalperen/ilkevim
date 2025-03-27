@@ -4,10 +4,10 @@ import { ObjectId } from 'mongodb'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params; // Changed from "await params" to direct destructuring
+    const { id } = await params
     
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -34,4 +34,4 @@ export async function GET(
       { status: 500 }
     )
   }
-}
+} 
