@@ -205,6 +205,11 @@ export default function ListPropertyPage() {
       return
     }
     
+    if (imageFiles.length === 0) {
+      alert('There occurred an error while uploading images')
+      return
+    }
+
     setIsSubmitting(true)
     
     try {

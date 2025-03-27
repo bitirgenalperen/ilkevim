@@ -386,7 +386,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
+                  {contactInfo.map((info) => (
                     <div key={info.title} className="flex items-start space-x-4">
                       <div className={`p-2 rounded-lg bg-gradient-to-br ${info.color} flex-shrink-0`}>
                         <info.icon className="h-5 w-5 text-white" />

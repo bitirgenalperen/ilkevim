@@ -167,7 +167,7 @@ function ProfileTab({ userData }: { userData: unknown }) {
 }
 
 function CookiesTab({ userData }: { userData: unknown }) {
-  const [essentialCookies, setEssentialCookies] = useState(true);
+  const essentialCookies = true;
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
   
