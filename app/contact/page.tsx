@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Card } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { companyInfo } from '@/data/company-info'
 import {
   MapPin,
@@ -385,23 +385,28 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={info.title} className="flex items-start space-x-4">
-                      <div className={`p-2 rounded-lg bg-gradient-to-br ${info.color} flex-shrink-0`}>
-                        <info.icon className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">{info.title}</h3>
-                        <div className="mt-1 space-y-1">
-                          {info.details.map((detail, i) => (
-                            <p key={i} className="text-gray-600 text-sm">
-                              {detail}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {contactInfo.map((info) => (
+                    <motion.div
+                      key={info.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Card className="h-full bg-gradient-to-br from-white to-gray-50/50 border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
+                        <CardContent className="p-6">
+                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center mb-4`}>
+                            <info.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+                          <ul className="space-y-1">
+                            {info.details.map((detail, i) => (
+                              <li key={i} className="text-gray-600">{detail}</li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   ))}
                 </div>
 

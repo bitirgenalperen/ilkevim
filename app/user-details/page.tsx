@@ -46,6 +46,16 @@ interface UserData {
   cookies: Cookie[];
 }
 
+interface InfoItem {
+  label: string;
+  value: string;
+}
+
+interface InfoCardProps {
+  title: string;
+  items: InfoItem[];
+}
+
 // Mock user data
 const userData: UserData = {
   id: "u123456",
@@ -193,15 +203,32 @@ function ProfileTab({ userData }: { userData: UserData }) {
   );
 }
 
+function InfoCard({ title, items }: InfoCardProps) {
+  return (
+    <div className="bg-white rounded-lg border border-teal-100 p-5">
+      <h3 className="text-lg font-semibold text-teal-900 mb-4 flex items-center">
+        <Info size={20} className="mr-2 text-teal-600" />
+        {title}
+      </h3>
+      <div className="space-y-3">
+        {items.map((item, i) => (
+          <div key={i} className="flex justify-between items-center py-2 border-b border-teal-50 last:border-0">
+            <span className="text-gray-600">{item.label}</span>
+            <span className="font-medium text-teal-900">{item.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CookiesTab({ userData }: { userData: UserData }) {
-  const [essentialCookies, setEssentialCookies] = useState(true);
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
   
   const handleSavePreferences = () => {
     // This would save cookie preferences in a real implementation
     console.log('Cookie preferences saved:', {
-      essential: essentialCookies, 
       functional: functionalCookies,
       analytics: analyticsCookies
     });
@@ -250,7 +277,7 @@ function CookiesTab({ userData }: { userData: UserData }) {
                   </div>
                   <Switch 
                     id="essential-cookies" 
-                    checked={essentialCookies} 
+                    checked={true}
                     disabled={true}
                     className={formElements.switch}
                   />
@@ -338,21 +365,5 @@ function CookiesTab({ userData }: { userData: UserData }) {
         </CardContent>
       </Card>
     </motion.div>
-  );
-}
-
-function InfoCard({ title, items }: { title: string, items: { label: string, value: string }[] }) {
-  return (
-    <div className="bg-slate-50 p-5 rounded-lg">
-      <h3 className="text-lg font-medium mb-4">{title}</h3>
-      <div className="space-y-3">
-        {items.map((item, index) => (
-          <div key={index} className="flex flex-col sm:flex-row sm:justify-between">
-            <span className="text-slate-500 font-medium">{item.label}</span>
-            <span className="font-medium">{item.value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 } 

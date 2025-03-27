@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import { DatabaseService } from '@/lib/db'
 import { ObjectId } from 'mongodb'
+import { NextRequest } from 'next/server'
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
-    const { id } = await params
+    const { id } = context.params
     
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json(
