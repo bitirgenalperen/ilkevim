@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await params
+    const { id } = params; // Changed from "await params" to direct destructuring
     
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -34,4 +34,4 @@ export async function GET(
       { status: 500 }
     )
   }
-} 
+}
