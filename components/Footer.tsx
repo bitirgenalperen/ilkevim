@@ -23,10 +23,10 @@ export function Footer() {
         </div>
 
         <div className="container mx-auto px-4 pt-24 pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Company Info */}
-            <div className="relative space-y-6">
-              <div className="flex items-center space-x-2">
+            <div className="relative space-y-6 text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start space-x-2">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">I</span>
                 </div>
@@ -38,7 +38,7 @@ export function Footer() {
                 Your trusted partner in finding the perfect property. With years of experience and dedication,
                 we help you make your dream home a reality.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex justify-center sm:justify-start space-x-4">
                 {[
                   { icon: Facebook, href: companyInfo.socialMedia.facebook },
                   { icon: Twitter, href: companyInfo.socialMedia.twitter },
@@ -57,7 +57,7 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center sm:text-left">
               <h3 className="text-lg font-semibold text-white">Quick Links</h3>
               <ul className="space-y-3">
                 {[
@@ -71,7 +71,7 @@ export function Footer() {
                   <li key={index}>
                     <Link 
                       href={link.href}
-                      className="group flex items-center text-gray-400 hover:text-white transition-colors"
+                      className="group flex items-center justify-center sm:justify-start text-gray-400 hover:text-white transition-colors"
                     >
                       <ArrowRight size={16} className="mr-2 opacity-0 -ml-4 group-hover:ml-0 group-hover:opacity-100 transition-all" />
                       {link.text}
@@ -82,7 +82,7 @@ export function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center sm:text-left">
               <h3 className="text-lg font-semibold text-white">Contact Us</h3>
               <ul className="space-y-4">
                 {[
@@ -90,7 +90,7 @@ export function Footer() {
                   { icon: Phone, text: companyInfo.phone },
                   { icon: Mail, text: companyInfo.email }
                 ].map((contact, index) => (
-                  <li key={index} className="flex items-center space-x-3 group">
+                  <li key={index} className="flex items-center justify-center sm:justify-start space-x-3 group">
                     <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center group-hover:bg-primary transition-colors">
                       <contact.icon size={18} className="text-gray-400 group-hover:text-white transition-colors" />
                     </div>
@@ -103,11 +103,11 @@ export function Footer() {
 
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-gray-800">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+              <p className="text-gray-400 text-center sm:text-left">
                 © {currentYear} <span className="text-white font-medium">IlkEvim</span>. All rights reserved.
               </p>
-              <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
                 {[
                   { text: 'Privacy Policy', href: '/privacy' },
                   { text: 'Terms of Service', href: '/terms' },
