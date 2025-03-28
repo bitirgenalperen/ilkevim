@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -15,44 +14,19 @@ import {
   CheckCircle, 
   Info, 
   BarChart3, 
-  Settings2
+  Settings2,
 } from "lucide-react";
 import { badge as badgeStyles, button as buttonStyles, formElements } from "@/styles/theme";
+import { User } from '@/types/user'
 
-// Define the UserData type
-interface UserData {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  joinDate: string;
-  avatar: string;
-  location: string;
-  role: string;
-  favoriteCount: number;
-  viewedCount: number;
-  notifications: {
-    email: boolean;
-    sms: boolean;
-    app: boolean;
-  };
-  verifiedAccount: boolean;
-  cookies: {
-    name: string;
-    purpose: string;
-    expires: string;
-    essential: boolean;
-  }[];
-}
 
 // Mock user data with explicit type
-const userData: UserData = {
+const exampleUserData: User = {
   id: "u123456",
   name: "John Doe",
   email: "john.doe@example.com",
   phone: "+90 555 123 4567",
   joinDate: "March 15, 2023",
-  avatar: "/images/avatar-placeholder.svg",
   location: "Istanbul, Turkey",
   role: "Tenant",
   favoriteCount: 12,
@@ -71,10 +45,12 @@ const userData: UserData = {
   ]
 };
 
-export default function UserDetailsPage() {
+function UserDetailsContent() {
   const [activeTab, setActiveTab] = useState("profile");
   const searchParams = useSearchParams();
   
+  const userData = exampleUserData;
+
   useEffect(() => {
     const tabParam = searchParams.get('tab');
     if (tabParam && ['profile', 'cookies'].includes(tabParam)) {
@@ -88,21 +64,11 @@ export default function UserDetailsPage() {
         <div className="md:w-1/4">
           <Card className="sticky top-24">
             <CardHeader className="flex flex-col items-center text-center">
-              <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-teal-500">
-                <Image
-                  src={userData.avatar}
-                  alt={userData.name}
-                  fill
-                  className="object-cover"
-                  priority
-                  unoptimized
-                />
-              </div>
               <CardTitle className="text-2xl">{userData.name}</CardTitle>
               <CardDescription className="text-lg">{userData.email}</CardDescription>
               <div className="mt-2">
                 <Badge variant="outline" className={badgeStyles.outline()}>
-                  {userData.role}
+                  {userData.role.toUpperCase()}
                 </Badge>
                 {userData.verifiedAccount && (
                   <Badge className={badgeStyles.primary("ml-2")}>
@@ -154,7 +120,7 @@ export default function UserDetailsPage() {
   );
 }
 
-function ProfileTab({ userData }: { userData: UserData }) { // Use UserData type instead of unknown
+function ProfileTab({ userData }: { userData: User }) { // Use UserData type instead of unknown
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -189,7 +155,7 @@ function ProfileTab({ userData }: { userData: UserData }) { // Use UserData type
   );
 }
 
-function CookiesTab({ userData }: { userData: UserData }) { // Use UserData type instead of unknown
+function CookiesTab({ userData }: { userData: User }) { // Use UserData type instead of unknown
   const essentialCookies = true;
   const [functionalCookies, setFunctionalCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(true);
@@ -346,5 +312,13 @@ function InfoCard({ title, items }: { title: string, items: { label: string, val
         ))}
       </div>
     </div>
+  );
+}
+
+export default function UserDetailsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <UserDetailsContent />
+    </Suspense>
   );
 }

@@ -1,4 +1,4 @@
-import { DatabaseService } from '../lib/db.ts'
+import { DatabaseService } from '../lib/db'
 
 async function testConnection() {
   console.log('Testing database connection...')
