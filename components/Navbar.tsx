@@ -9,7 +9,8 @@ import {
   ChevronDown,
   Check,
   Menu,
-  X
+  X,
+  Home
 } from "lucide-react"
 import {
   DropdownMenu,
@@ -58,8 +59,10 @@ export function Navbar() {
   return (
     <header className="fixed w-full bg-[#1A2A44]/95 backdrop-blur-md z-50 border-b border-[#D4AF37]/20">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-white">
-          IlkEvim
+        <Link href="/" className="text-xl font-bold text-white flex items-center gap-2">
+          <span>ilk</span>
+          <Home className="w-5 h-5 text-[#D4AF37]" />
+          <span>evim</span>
         </Link>
 
 

@@ -67,7 +67,7 @@ Don&apos;t miss this opportunity to gain valuable insights and connect with the 
 
 export default function EventDetailsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[60vh] bg-gray-900">
         <div 

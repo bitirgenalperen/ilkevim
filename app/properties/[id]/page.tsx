@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { Property } from '@/types/property'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { 
   MapPin, 
@@ -16,7 +16,12 @@ import {
   ArrowLeft,
   Check,
   Info,
-  Calculator
+  Calculator,
+  Calendar,
+  ParkingCircle,
+  Wifi,
+  Snowflake,
+  Shield
 } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -493,18 +498,124 @@ export default function PropertyDetailsPage() {
             </p>
           </Card>
 
-          {/* Amenities */}
-          <Card className="p-6 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20">
-            <h2 className="text-xl font-bold mb-4 text-[#1A2A44]">Amenities</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {property.amenities.map((amenity, index) => (
-                <div key={index} className="flex items-center">
-                  <Check size={18} className="text-[#D4AF37] mr-2" />
-                  <span className="text-[#1A2A44]/80">{amenity}</span>
+          {/* Amenities Section */}
+          <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <span className="text-sm font-semibold text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 inline-block">
+                  Property Features
+                </span>
+                <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">Amenities & Features</h2>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Discover what makes this property special with our comprehensive list of amenities
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                {[
+                  {
+                    icon: <Bed className="w-6 h-6" />,
+                    title: "Bedrooms",
+                    value: `${property.features.bedrooms} Bedrooms`,
+                    description: "Spacious and well-lit bedrooms"
+                  },
+                  {
+                    icon: <Bath className="w-6 h-6" />,
+                    title: "Bathrooms",
+                    value: `${property.features.bathrooms} Bathrooms`,
+                    description: "Modern and luxurious bathrooms"
+                  },
+                  {
+                    icon: <Move className="w-6 h-6" />,
+                    title: "Square Footage",
+                    value: `${property.features.squareFootage} sq ft`,
+                    description: "Generous living space"
+                  },
+                  {
+                    icon: <Calendar className="w-6 h-6" />,
+                    title: "Year Built",
+                    value: property.features.yearBuilt,
+                    description: "Quality construction"
+                  },
+                  {
+                    icon: <ParkingCircle className="w-6 h-6" />,
+                    title: "Parking",
+                    value: "2 Spaces",
+                    description: "Secure parking available"
+                  },
+                  {
+                    icon: <Wifi className="w-6 h-6" />,
+                    title: "Internet",
+                    value: "High-Speed",
+                    description: "Fiber optic connection"
+                  },
+                  {
+                    icon: <Snowflake className="w-6 h-6" />,
+                    title: "Air Conditioning",
+                    value: "Central AC",
+                    description: "Climate control system"
+                  },
+                  {
+                    icon: <Shield className="w-6 h-6" />,
+                    title: "Security",
+                    value: "24/7",
+                    description: "Advanced security system"
+                  }
+                ].map((amenity, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    <Card className="border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-xl flex items-center justify-center mb-4 transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
+                            <div className="text-[#D4AF37]">
+                              {amenity.icon}
+                            </div>
+                          </div>
+                          <h3 className="text-lg font-semibold text-[#1A2A44] mb-2">{amenity.title}</h3>
+                          <p className="text-2xl font-bold text-[#D4AF37] mb-2">{amenity.value}</p>
+                          <p className="text-sm text-gray-600">{amenity.description}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Additional Amenities Grid */}
+              <div className="mt-16 max-w-4xl mx-auto">
+                <h3 className="text-2xl font-bold text-[#1A2A44] mb-8 text-center">Additional Features</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {[
+                    "Swimming Pool",
+                    "Gym",
+                    "Tennis Court",
+                    "Playground",
+                    "Concierge Service",
+                    "Pet Friendly"
+                  ].map((feature, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-2 text-[#1A2A44] bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                    >
+                      <Check className="w-4 h-4 text-[#D4AF37]" />
+                      <span>{feature}</span>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </Card>
+          </section>
 
           {/* Calculators Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

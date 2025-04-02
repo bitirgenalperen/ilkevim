@@ -196,25 +196,42 @@ export default function HomePage() {
                   <p className="text-xl text-white/90 mb-12">
                     {slide.subtitle}
                   </p>
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <Link href="/properties">
-                      <Button size="lg" className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44] px-8 py-6 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#D4AF37]/40">
-                        Browse Properties
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                    </Link>
-                    <Link href="/contact">
-                      <Button size="lg" variant="outline" className="border-2 border-[#D4AF37]/80 bg-[#1A2A44]/30 backdrop-blur-sm hover:bg-[#D4AF37]/10 text-white px-8 py-6 text-lg rounded-full transition-all duration-300">
-                        Book a Consultation
-                        <Phone className="ml-2 h-5 w-5" />
-                      </Button>
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
+
+        {/* Buttons - Moved outside of slides mapping */}
+        <div className="absolute bottom-32 left-0 right-0 z-30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <div className="flex flex-col md:flex-row gap-6">
+                <Button 
+                  size="lg" 
+                  className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44] px-8 py-6 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#D4AF37]/40"
+                  asChild
+                >
+                  <Link href="/properties">
+                    Browse Properties
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-[#D4AF37]/80 bg-[#1A2A44]/30 backdrop-blur-sm hover:bg-[#D4AF37]/10 text-white px-8 py-6 text-lg rounded-full transition-all duration-300"
+                  asChild
+                >
+                  <Link href="/contact">
+                    Book a Consultation
+                    <Phone className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Navigation Dots */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
