@@ -2,9 +2,9 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useAnimationControls, useInView } from 'framer-motion';
-import { background } from '@/styles/theme';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, Star } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 // Define customer reviews data
 const reviews = [
@@ -93,15 +93,13 @@ export function ReviewsCarousel() {
   const handleMouseLeave = () => setIsPaused(false);
 
   return (
-    <section className={background.tealLight("py-24")}>
+    <section className="py-20 bg-[#1A2A44]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-4 py-2 rounded-full mb-6 inline-block">
-            Client Testimonials
-          </span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Read about the experiences of clients who have found their dream properties with us
+        <div className="text-center mb-12">
+          <Badge variant="outline" className="mb-4 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">Client Testimonials</Badge>
+          <h2 className="text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Hear from satisfied clients who have found their perfect property through IlkEvim
           </p>
         </div>
         
@@ -120,12 +118,18 @@ export function ReviewsCarousel() {
             {allReviews.map((review, index) => (
               <Card 
                 key={`${review.name}-${index}`} 
-                className="flex-shrink-0 w-[380px] border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white/90 backdrop-blur-sm rounded-xl"
+                className="flex-shrink-0 w-[380px] border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white/95 backdrop-blur-sm rounded-xl group"
               >
-                <CardContent className="p-8">
+                <CardContent className="p-8 relative">
+                  {/* Decorative Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full filter blur-3xl transform translate-x-16 -translate-y-16" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1A2A44] rounded-full filter blur-3xl transform -translate-x-16 translate-y-16" />
+                  </div>
+
                   {/* Quote Icon */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mb-6 -rotate-12 shadow-md">
-                    <Quote className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#D4AF37]/80 rounded-full flex items-center justify-center mb-6 -rotate-12 shadow-lg group-hover:rotate-0 transition-transform duration-300">
+                    <Quote className="w-6 h-6 text-[#1A2A44]" />
                   </div>
                   
                   {/* Review Stars */}
@@ -133,23 +137,23 @@ export function ReviewsCarousel() {
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star 
                         key={i} 
-                        className={`w-4 h-4 ${i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} 
+                        className={`w-4 h-4 ${i < review.rating ? 'text-[#D4AF37] fill-[#D4AF37]' : 'text-gray-200'}`} 
                       />
                     ))}
                   </div>
                   
                   {/* Review Text */}
                   <div className="relative">
-                    <Quote className="absolute -top-4 -left-4 w-8 h-8 text-teal-200" />
-                    <p className="text-gray-600 italic">
+                    <Quote className="absolute -top-4 -left-4 w-8 h-8 text-[#D4AF37]/20" />
+                    <p className="text-gray-600 italic leading-relaxed">
                       &quot;{review.review}&quot;
                     </p>
                   </div>
                   
                   {/* Reviewer Info */}
-                  <div className="border-t border-gray-100 pt-6">
-                    <h4 className="font-bold text-gray-900 text-lg">{review.name}</h4>
-                    <p className="text-teal-600 text-sm font-medium">{review.role}</p>
+                  <div className="border-t border-[#D4AF37]/10 pt-6 mt-6">
+                    <h4 className="font-bold text-[#1A2A44] text-lg">{review.name}</h4>
+                    <p className="text-[#D4AF37] text-sm font-medium">{review.role}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -157,8 +161,8 @@ export function ReviewsCarousel() {
           </motion.div>
           
           {/* Gradient fade on sides */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-teal-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-teal-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1A2A44] to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1A2A44] to-transparent z-10"></div>
         </div>
         
         {/* Review indicator dots */}
@@ -166,7 +170,11 @@ export function ReviewsCarousel() {
           {reviews.map((_, i) => (
             <button 
               key={i} 
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${i === activeIndex % reviews.length ? 'bg-teal-500 scale-125' : 'bg-teal-200 hover:bg-teal-300'}`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                i === activeIndex % reviews.length 
+                  ? 'bg-[#D4AF37] scale-125 shadow-lg shadow-[#D4AF37]/30' 
+                  : 'bg-[#D4AF37]/20 hover:bg-[#D4AF37]/40'
+              }`}
               onClick={() => {
                 setActiveIndex(i);
                 const offset = -i * 400; // Approximate width of a card plus gap

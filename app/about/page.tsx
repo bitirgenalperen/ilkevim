@@ -82,11 +82,11 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center rounded-lg bg-teal-50 px-3 py-1 text-sm font-medium text-teal-700 ring-1 ring-inset ring-teal-600/20">
+            <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               About Us
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
             Your Trusted Property Partner
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -102,13 +102,13 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-teal-100/50 hover:shadow-xl hover:border-teal-200/50 transition-all duration-300"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="p-3 rounded-lg bg-gradient-to-br from-teal-50 to-emerald-50 mb-4">
-                  <stat.icon className="w-6 h-6 text-teal-600" />
+                <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 mb-4">
+                  <stat.icon className="w-6 h-6 text-[#D4AF37]" />
                 </div>
-                <span className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                <span className="text-3xl font-bold text-[#1A2A44]">
                   {stat.number}
                 </span>
                 <span className="text-gray-600 mt-1">{stat.label}</span>
@@ -120,7 +120,7 @@ export default function AboutPage() {
         {/* Values Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold text-[#1A2A44]">
               Our Core Values
             </h2>
           </div>
@@ -131,13 +131,13 @@ export default function AboutPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-teal-100/50 hover:shadow-xl hover:border-teal-200/50 transition-all duration-300"
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="p-3 rounded-lg bg-gradient-to-br from-teal-50 to-emerald-50 mb-4">
-                    <value.icon className="w-6 h-6 text-teal-600" />
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 mb-4">
+                    <value.icon className="w-6 h-6 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">{value.title}</h3>
                   <p className="text-gray-600">{value.description}</p>
                 </div>
               </motion.div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
         {/* Team Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold text-[#1A2A44]">
               Meet Our Team
             </h2>
           </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50 hover:shadow-xl hover:border-teal-200/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
               >
                 <div className="aspect-square overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
@@ -170,7 +170,7 @@ export default function AboutPage() {
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
                     <h3 className="text-xl font-semibold">{member.name}</h3>
-                    <p className="text-teal-100">{member.role}</p>
+                    <p className="text-[#D4AF37]">{member.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
         {/* Achievements Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold text-[#1A2A44]">
               Our Achievements
             </h2>
           </div>
@@ -192,9 +192,9 @@ export default function AboutPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-teal-100/50"
+                className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-[#D4AF37]/20"
               >
-                <Star className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                <Star className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
                 <span className="text-gray-700 text-sm">{achievement}</span>
               </motion.div>
             ))}
@@ -203,7 +203,7 @@ export default function AboutPage() {
 
         {/* CTA Section */}
         <div className="relative rounded-2xl overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/90 opacity-95" />
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-20" />
           <div className="relative p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -216,7 +216,7 @@ export default function AboutPage() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-teal-600 hover:bg-white/90 hover:text-teal-700"
+                className="bg-[#D4AF37] text-white hover:bg-[#D4AF37]/90 hover:text-white"
               >
                 <MessageSquareMore className="w-5 h-5 mr-2" />
                 Get in Touch
@@ -224,7 +224,7 @@ export default function AboutPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] hover:border-[#D4AF37]"
               >
                 <Globe2 className="w-5 h-5 mr-2" />
                 View Our Properties

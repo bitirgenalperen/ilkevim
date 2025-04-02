@@ -39,7 +39,7 @@ import { cn } from "@/lib/utils"
 import Link from 'next/link'
 
 export default function PropertiesPage() {
-  const [isFiltersOpen, setIsFiltersOpen] = useState(true)
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false)
   const [properties, setProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [availableCities, setAvailableCities] = useState<string[]>([])
@@ -223,15 +223,15 @@ export default function PropertiesPage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24">
       <div className="container mx-auto px-4">
         {/* Filters Section */}
-        <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl shadow-lg mb-8 overflow-hidden border border-teal-100">
+        <div className="bg-gradient-to-br from-white to-[#1A2A44]/5 rounded-xl shadow-lg mb-8 overflow-hidden border border-[#D4AF37]/20">
           {/* Search Bar and Toggle */}
-          <div className="p-4 border-b border-teal-100/50 bg-gradient-to-r from-teal-50/50 to-white">
+          <div className="p-4 border-b border-[#D4AF37]/10 bg-gradient-to-r from-[#1A2A44]/5 to-white">
             <div className="flex items-center gap-4">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#D4AF37]" />
                 <Input
                   placeholder="Search by location, property name, or features..."
-                  className="pl-9 pr-4 h-11 bg-white/80 backdrop-blur-sm border-teal-200 focus:border-teal-400 focus:ring-teal-400"
+                  className="pl-9 pr-4 h-11 bg-white/80 backdrop-blur-sm border-[#D4AF37]/20 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                   value={filters.searchTerm}
                   onChange={(e) =>
                     setFilters({ ...filters, searchTerm: e.target.value })
@@ -241,7 +241,7 @@ export default function PropertiesPage() {
               <Button
                 variant="outline"
                 size="sm"
-                className="gap-2 min-w-[100px] border-teal-200 hover:bg-teal-50/80 hover:border-teal-300 text-teal-700"
+                className="gap-2 min-w-[100px] border-[#D4AF37]/20 hover:bg-[#1A2A44]/5 hover:border-[#D4AF37] text-[#1A2A44]"
                 onClick={() => setIsFiltersOpen(!isFiltersOpen)}
                 aria-expanded={isFiltersOpen}
                 aria-controls="filter-section"
@@ -255,7 +255,7 @@ export default function PropertiesPage() {
                   )} 
                 />
                 {hasActiveFilters() && (
-                  <Badge className="ml-1 bg-teal-100 text-teal-800 hover:bg-teal-200">
+                  <Badge className="ml-1 bg-[#D4AF37]/10 text-[#1A2A44] hover:bg-[#D4AF37]/20">
                     {[
                       filters.propertyType,
                       filters.city,
@@ -274,7 +274,7 @@ export default function PropertiesPage() {
                   variant="ghost"
                   size="sm"
                   onClick={resetFilters}
-                  className="text-teal-600 hover:text-teal-800 hover:bg-teal-50 gap-2"
+                  className="text-[#1A2A44] hover:text-[#1A2A44] hover:bg-[#1A2A44]/5 gap-2"
                 >
                   <X className="w-4 h-4" />
                   Clear
@@ -298,8 +298,8 @@ export default function PropertiesPage() {
                 <div className="space-y-6">
                   {/* Property Type Filter */}
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                      <Home className="w-4 h-4 text-teal-600" />
+                    <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                      <Home className="w-4 h-4 text-[#D4AF37]" />
                       Property Type
                     </label>
                     <Select
@@ -308,7 +308,7 @@ export default function PropertiesPage() {
                         setFilters({ ...filters, propertyType: value === "_any" ? null : value })
                       }
                     >
-                      <SelectTrigger className="bg-white border-teal-200 focus:ring-teal-400 focus:border-teal-400">
+                      <SelectTrigger className="bg-white border-[#D4AF37]/20 focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         <SelectValue placeholder="Any type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -324,8 +324,8 @@ export default function PropertiesPage() {
 
                   {/* City Filter - Desktop */}
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                      <MapPinned className="w-4 h-4 text-teal-600" />
+                    <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                      <MapPinned className="w-4 h-4 text-[#D4AF37]" />
                       City
                     </label>
                     <Select
@@ -335,10 +335,10 @@ export default function PropertiesPage() {
                       }
                       disabled={citiesLoading}
                     >
-                      <SelectTrigger className="bg-white border-teal-200 focus:ring-teal-400 focus:border-teal-400">
+                      <SelectTrigger className="bg-white border-[#D4AF37]/20 focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         {citiesLoading ? (
                           <div className="flex items-center">
-                            <Loader2 className="h-4 w-4 animate-spin mr-2 text-teal-600" />
+                            <Loader2 className="h-4 w-4 animate-spin mr-2 text-[#D4AF37]" />
                             <span>Loading cities...</span>
                           </div>
                         ) : (
@@ -363,8 +363,8 @@ export default function PropertiesPage() {
                 
                 {/* Amenities Filter - Desktop */}
                 <div className="space-y-2 lg:col-span-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <Star className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <Star className="w-4 h-4 text-[#D4AF37]" />
                     Amenities
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -381,8 +381,8 @@ export default function PropertiesPage() {
                         className={cn(
                           "text-sm justify-start h-auto py-1.5 text-xs",
                           filters.amenities.includes(amenity) 
-                            ? "bg-teal-600 hover:bg-teal-700 text-white border-teal-600" 
-                            : "border-teal-200 text-teal-700 hover:bg-teal-50 hover:border-teal-300"
+                            ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]" 
+                            : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
                         )}
                       >
                         {amenity}
@@ -392,11 +392,11 @@ export default function PropertiesPage() {
                 </div>
               </div>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-teal-100/50 pt-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-[#D4AF37]/10 pt-6">
                 {/* Price Range Slider */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <PoundSterling className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <PoundSterling className="w-4 h-4 text-[#D4AF37]" />
                     Price Range
                   </label>
                   <div className="px-2">
@@ -411,10 +411,10 @@ export default function PropertiesPage() {
                       className="py-4"
                     />
                     <div className="flex justify-between mt-2">
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatPriceLabel(filters.priceRange[0])}
                       </span>
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatPriceLabel(filters.priceRange[1])}
                       </span>
                     </div>
@@ -423,8 +423,8 @@ export default function PropertiesPage() {
                 
                 {/* Square Footage Filter */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <Move className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <Move className="w-4 h-4 text-[#D4AF37]" />
                     Square Footage
                   </label>
                   <div className="px-2">
@@ -439,10 +439,10 @@ export default function PropertiesPage() {
                       className="py-4"
                     />
                     <div className="flex justify-between mt-2">
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatSquareFootageLabel(filters.squareFootage[0])}
                       </span>
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatSquareFootageLabel(filters.squareFootage[1])}
                       </span>
                     </div>
@@ -451,8 +451,8 @@ export default function PropertiesPage() {
 
                 {/* Bedrooms Filter */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <BedDouble className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <BedDouble className="w-4 h-4 text-[#D4AF37]" />
                     Bedrooms
                   </label>
                   <div className="px-2">
@@ -467,10 +467,10 @@ export default function PropertiesPage() {
                       className="py-4"
                     />
                     <div className="flex justify-between mt-2">
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatBedroomsLabel(filters.bedrooms[0])}
                       </span>
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatBedroomsLabel(filters.bedrooms[1])}
                       </span>
                     </div>
@@ -479,8 +479,8 @@ export default function PropertiesPage() {
 
                 {/* Bathrooms Filter */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <Bath className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <Bath className="w-4 h-4 text-[#D4AF37]" />
                     Bathrooms
                   </label>
                   <div className="px-2">
@@ -495,10 +495,10 @@ export default function PropertiesPage() {
                       className="py-4"
                     />
                     <div className="flex justify-between mt-2">
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatBathroomsLabel(filters.bathrooms[0])}
                       </span>
-                      <span className="text-sm text-teal-700">
+                      <span className="text-sm text-[#1A2A44]">
                         {formatBathroomsLabel(filters.bathrooms[1])}
                       </span>
                     </div>
@@ -510,11 +510,11 @@ export default function PropertiesPage() {
             {/* Mobile Filters */}
             <div className="md:hidden space-y-6">
               {/* Property Type & City Group - Mobile */}
-              <div className="space-y-4 bg-white/70 p-4 rounded-lg border border-teal-100/70">
+              <div className="space-y-4 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                 {/* Property Type - Mobile */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <Home className="w-4 h-4 text-teal-600" />
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <Home className="w-4 h-4 text-[#D4AF37]" />
                     Property Type
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -525,8 +525,8 @@ export default function PropertiesPage() {
                         className={cn(
                           "justify-start h-auto py-2",
                           filters.propertyType === type 
-                            ? "bg-teal-600 hover:bg-teal-700 text-white border-teal-600" 
-                            : "border-teal-200 text-teal-700 hover:bg-teal-50 hover:border-teal-300"
+                            ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]" 
+                            : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
                         )}
                         onClick={() =>
                           setFilters({
@@ -543,19 +543,19 @@ export default function PropertiesPage() {
                 </div>
                 
                 {/* City Filter - Mobile */}
-                <div className="space-y-2 pt-2 border-t border-teal-100/50">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <MapPinned className="w-4 h-4 text-teal-600" />
+                <div className="space-y-2 pt-2 border-t border-[#D4AF37]/10">
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <MapPinned className="w-4 h-4 text-[#D4AF37]" />
                     City
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {citiesLoading ? (
-                      <div className="col-span-2 flex items-center justify-center py-4 bg-white/90 rounded-md border border-teal-100">
-                        <Loader2 className="h-5 w-5 animate-spin mr-2 text-teal-600" />
-                        <span className="text-teal-700">Loading cities...</span>
+                      <div className="col-span-2 flex items-center justify-center py-4 bg-white/90 rounded-md border border-[#D4AF37]/20">
+                        <Loader2 className="h-5 w-5 animate-spin mr-2 text-[#D4AF37]" />
+                        <span className="text-[#1A2A44]">Loading cities...</span>
                       </div>
                     ) : availableCities.length === 0 ? (
-                      <div className="col-span-2 text-center py-4 text-teal-600 bg-white/90 rounded-md border border-teal-100">
+                      <div className="col-span-2 text-center py-4 text-[#1A2A44] bg-white/90 rounded-md border border-[#D4AF37]/20">
                         No cities available
                       </div>
                     ) : (
@@ -566,8 +566,8 @@ export default function PropertiesPage() {
                           className={cn(
                             "justify-start h-auto py-2",
                             filters.city === city 
-                              ? "bg-teal-600 hover:bg-teal-700 text-white border-teal-600" 
-                              : "border-teal-200 text-teal-700 hover:bg-teal-50 hover:border-teal-300"
+                              ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]" 
+                              : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
                           )}
                           onClick={() =>
                             setFilters({
@@ -585,9 +585,9 @@ export default function PropertiesPage() {
               </div>
               
               {/* Amenities - Mobile */}
-              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-teal-100/70">
-                <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                  <Star className="w-4 h-4 text-teal-600" />
+              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
+                <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                  <Star className="w-4 h-4 text-[#D4AF37]" />
                   Amenities
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -598,8 +598,8 @@ export default function PropertiesPage() {
                       className={cn(
                         "justify-start h-auto py-2 text-sm",
                         filters.amenities.includes(amenity) 
-                          ? "bg-teal-600 hover:bg-teal-700 text-white border-teal-600" 
-                          : "border-teal-200 text-teal-700 hover:bg-teal-50 hover:border-teal-300"
+                          ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]" 
+                          : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
                       )}
                       onClick={() => 
                         setFilters(prev => ({
@@ -617,9 +617,9 @@ export default function PropertiesPage() {
               </div>
               
               {/* Price Range - Mobile */}
-              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-teal-100/70">
-                <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                  <PoundSterling className="w-4 h-4 text-teal-600" />
+              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
+                <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                  <PoundSterling className="w-4 h-4 text-[#D4AF37]" />
                   Price Range
                 </label>
                 <div className="pt-2 px-2">
@@ -634,7 +634,7 @@ export default function PropertiesPage() {
                     }
                     className="my-4"
                   />
-                  <div className="flex justify-between text-sm text-teal-700">
+                  <div className="flex justify-between text-sm text-[#1A2A44]">
                     <span>{formatPriceLabel(filters.priceRange[0])}</span>
                     <span>{formatPriceLabel(filters.priceRange[1])}</span>
                   </div>
@@ -642,9 +642,9 @@ export default function PropertiesPage() {
               </div>
               
               {/* Square Footage - Mobile */}
-              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-teal-100/70">
-                <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                  <Move className="w-4 h-4 text-teal-600" />
+              <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
+                <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                  <Move className="w-4 h-4 text-[#D4AF37]" />
                   Square Footage
                 </label>
                 <div className="pt-2 px-2">
@@ -659,7 +659,7 @@ export default function PropertiesPage() {
                     }
                     className="my-4"
                   />
-                  <div className="flex justify-between text-sm text-teal-700">
+                  <div className="flex justify-between text-sm text-[#1A2A44]">
                     <span>{formatSquareFootageLabel(filters.squareFootage[0])}</span>
                     <span>{formatSquareFootageLabel(filters.squareFootage[1])}</span>
                   </div>
@@ -668,9 +668,9 @@ export default function PropertiesPage() {
               
               <div className="grid grid-cols-2 gap-4">
                 {/* Bedrooms - Mobile */}
-                <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-teal-100/70">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <BedDouble className="w-4 h-4 text-teal-600" />
+                <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <BedDouble className="w-4 h-4 text-[#D4AF37]" />
                     Bedrooms
                   </label>
                   <div className="pt-2 px-2">
@@ -685,7 +685,7 @@ export default function PropertiesPage() {
                       }
                       className="my-4"
                     />
-                    <div className="flex justify-between text-sm text-teal-700">
+                    <div className="flex justify-between text-sm text-[#1A2A44]">
                       <span>{formatBedroomsLabel(filters.bedrooms[0])}</span>
                       <span>{formatBedroomsLabel(filters.bedrooms[1])}</span>
                     </div>
@@ -693,9 +693,9 @@ export default function PropertiesPage() {
                 </div>
                 
                 {/* Bathrooms - Mobile */}
-                <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-teal-100/70">
-                  <label className="text-sm font-medium text-teal-800 flex items-center gap-2">
-                    <Bath className="w-4 h-4 text-teal-600" />
+                <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
+                  <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
+                    <Bath className="w-4 h-4 text-[#D4AF37]" />
                     Bathrooms
                   </label>
                   <div className="pt-2 px-2">
@@ -710,7 +710,7 @@ export default function PropertiesPage() {
                       }
                       className="my-4"
                     />
-                    <div className="flex justify-between text-sm text-teal-700">
+                    <div className="flex justify-between text-sm text-[#1A2A44]">
                       <span>{formatBathroomsLabel(filters.bathrooms[0])}</span>
                       <span>{formatBathroomsLabel(filters.bathrooms[1])}</span>
                     </div>
@@ -723,22 +723,22 @@ export default function PropertiesPage() {
 
         {/* Results Section */}
         <div className="mb-6">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
             {loading ? 'Loading...' : `${properties.length} Properties Found`}
           </h2>
         </div>
 
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-teal-600" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#D4AF37]" />
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
               {properties.map((property) => (
                 <Card
                   key={property._id}
-                  className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-teal-100 bg-white/80 backdrop-blur-sm flex flex-col !py-0"
+                  className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/20 bg-white/80 backdrop-blur-sm flex flex-col !py-0"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -751,46 +751,46 @@ export default function PropertiesPage() {
                       className={cn(
                         "absolute top-4 right-4",
                         property.listingType === 'featured' 
-                          ? "bg-teal-600/90 hover:bg-teal-600/90 text-white" 
-                          : "bg-white/90 hover:bg-white/90 text-teal-700"
+                          ? "bg-[#D4AF37]/90 hover:bg-[#D4AF37]/90 text-white" 
+                          : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
                       )}
                     >
                       {property.listingType === 'featured' ? 'Featured' : 'Standard'}
                     </Badge>
                   </div>
                   <CardContent className="pt-3 px-6 pb-6 flex-grow">
-                    <div className="flex items-center gap-2 text-teal-600 mb-2">
-                      <MapPin size={16} className="text-teal-600" />
+                    <div className="flex items-center gap-2 text-[#1A2A44] mb-2">
+                      <MapPin size={16} className="text-[#D4AF37]" />
                       <span>{property.location.area}, {property.location.city}</span>
                     </div>
                     <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
                     <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="flex items-center gap-2 text-teal-700">
-                        <Bed size={16} className="text-teal-600" />
+                      <div className="flex items-center gap-2 text-[#1A2A44]">
+                        <Bed size={16} className="text-[#D4AF37]" />
                         <span>{property.features.bedrooms} Beds</span>
                       </div>
-                      <div className="flex items-center gap-2 text-teal-700">
-                        <Bath size={16} className="text-teal-600" />
+                      <div className="flex items-center gap-2 text-[#1A2A44]">
+                        <Bath size={16} className="text-[#D4AF37]" />
                         <span>{property.features.bathrooms} Baths</span>
                       </div>
-                      <div className="flex items-center gap-2 text-teal-700">
-                        <Move size={16} className="text-teal-600" />
+                      <div className="flex items-center gap-2 text-[#1A2A44]">
+                        <Move size={16} className="text-[#D4AF37]" />
                         <span>{property.features.squareFootage} sq ft</span>
                       </div>
-                      <div className="flex items-center gap-2 text-teal-700">
-                        <Calendar size={16} className="text-teal-600" />
+                      <div className="flex items-center gap-2 text-[#1A2A44]">
+                        <Calendar size={16} className="text-[#D4AF37]" />
                         <span>{property.features.yearBuilt}</span>
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                      <span className="text-2xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
                         {formatPrice(property.price)}
                       </span>
                       <Link href={`/properties/${property._id}`}>
                         <Button 
                           variant="outline"
-                          className="border-teal-200 hover:border-teal-400 hover:bg-teal-50 text-teal-700 hover:text-teal-800"
+                          className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
                         >
                           View Details
                         </Button>
@@ -802,20 +802,20 @@ export default function PropertiesPage() {
             </div>
 
             {properties.length === 0 && (
-              <div className="text-center py-12 bg-white/80 backdrop-blur-sm rounded-xl border border-teal-100 shadow-lg">
+              <div className="text-center py-12 bg-white/80 backdrop-blur-sm rounded-xl border border-[#D4AF37]/20 shadow-lg">
                 <div className="flex flex-col items-center gap-3">
-                  <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center mb-2">
-                    <Search className="w-8 h-8 text-teal-600" />
+                  <div className="w-16 h-16 rounded-full bg-[#1A2A44]/5 flex items-center justify-center mb-2">
+                    <Search className="w-8 h-8 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                  <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
                     No properties found
                   </h3>
-                  <p className="text-teal-700 max-w-md mx-auto">
+                  <p className="text-[#1A2A44] max-w-md mx-auto">
                     Try adjusting your filters or broadening your search criteria to see more results
                   </p>
                   <Button 
                     variant="outline" 
-                    className="mt-4 border-teal-200 hover:border-teal-400 hover:bg-teal-50 text-teal-700 hover:text-teal-800"
+                    className="mt-4 border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
                     onClick={resetFilters}
                   >
                     <X className="mr-2 h-4 w-4" />

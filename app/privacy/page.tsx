@@ -21,13 +21,13 @@ import {
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-teal-50 to-white pt-24 pb-16">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24 pb-16">
       <div className="container max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
           <Link 
             href="/register"
-            className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium mb-6"
+            className="inline-flex items-center text-[#D4AF37] hover:text-[#D4AF37]/80 font-medium mb-6"
           >
             <ArrowLeft size={16} className="mr-2" />
             Back to Registration
@@ -35,12 +35,12 @@ export default function PrivacyPage() {
           
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-teal-950">Privacy Policy</h1>
-              <p className="text-teal-700 mt-2">Effective Date: June 1, 2024</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-[#1A2A44]">Privacy Policy</h1>
+              <p className="text-[#1A2A44]/80 mt-2">Effective Date: June 1, 2024</p>
             </div>
             <Button
               variant="outline"
-              className="group inline-flex items-center border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700 self-start"
+              className="group inline-flex items-center border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37] self-start"
               onClick={() => window.print()}
             >
               <ArrowDownToLine size={16} className="mr-2 group-hover:animate-bounce" />
@@ -48,11 +48,11 @@ export default function PrivacyPage() {
             </Button>
           </div>
           
-          <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md mb-8">
+          <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md mb-8">
             <div className="flex flex-col md:flex-row gap-4 items-start">
-              <Shield className="text-teal-500 shrink-0 mt-1" />
+              <Shield className="text-[#D4AF37] shrink-0 mt-1" />
               <div>
-                <p className="font-medium text-gray-900">Your privacy is important to us.</p>
+                <p className="font-medium text-[#1A2A44]">Your privacy is important to us.</p>
                 <p className="text-gray-600 mt-1">This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
               </div>
             </div>
@@ -60,40 +60,40 @@ export default function PrivacyPage() {
         </div>
         
         {/* Table of Contents */}
-        <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md mb-8">
-          <h2 className="text-xl font-semibold text-teal-900 mb-4 flex items-center">
-            <BookOpen size={20} className="mr-2 text-teal-600" />
+        <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md mb-8">
+          <h2 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center">
+            <BookOpen size={20} className="mr-2 text-[#D4AF37]" />
             Table of Contents
           </h2>
           <div className="grid md:grid-cols-2 gap-3">
-            <Link href="#section1" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section1" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               1. Information We Collect
             </Link>
-            <Link href="#section2" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section2" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               2. How We Use Your Information
             </Link>
-            <Link href="#section3" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section3" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               3. Disclosure of Your Information
             </Link>
-            <Link href="#section4" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section4" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               4. Security of Your Information
             </Link>
-            <Link href="#section5" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section5" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               5. Cookies and Tracking Technologies
             </Link>
-            <Link href="#section6" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section6" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               6. Third-Party Websites
             </Link>
-            <Link href="#section7" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section7" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               7. Children&apos;s Privacy
             </Link>
-            <Link href="#section8" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section8" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               8. Your Rights and Choices
             </Link>
-            <Link href="#section9" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section9" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               9. Changes to This Privacy Policy
             </Link>
-            <Link href="#section10" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section10" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               10. Contact Us
             </Link>
           </div>
@@ -104,13 +104,13 @@ export default function PrivacyPage() {
           {/* Section 1 */}
           <section id="section1" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <FileText size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">1. Information We Collect</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">1. Information We Collect</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>We collect several types of information from and about users of our platform, including:</p>
                 
                 <h3>1.1 Personal Information</h3>
@@ -143,13 +143,13 @@ export default function PrivacyPage() {
           {/* Section 2 */}
           <section id="section2" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Eye size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">2. How We Use Your Information</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">2. How We Use Your Information</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>We may use the information we collect from you for the following purposes:</p>
                 
                 <h3>2.1 Provide and Improve Services</h3>
@@ -191,13 +191,13 @@ export default function PrivacyPage() {
           {/* Section 3 */}
           <section id="section3" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Share2 size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">3. Disclosure of Your Information</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">3. Disclosure of Your Information</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>We may disclose personal information that we collect or you provide as described in this privacy policy:</p>
                 
                 <h3>3.1 Service Providers</h3>
@@ -229,13 +229,13 @@ export default function PrivacyPage() {
           {/* Section 4 */}
           <section id="section4" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Lock size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">4. Security of Your Information</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">4. Security of Your Information</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. These measures include:</p>
                 <ul>
                   <li>Encryption of sensitive data both in transit and at rest</li>
@@ -255,13 +255,13 @@ export default function PrivacyPage() {
           {/* Section 5 */}
           <section id="section5" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Cookie size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">5. Cookies and Tracking Technologies</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">5. Cookies and Tracking Technologies</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>5.1 Cookies</h3>
                 <p>We use cookies and similar tracking technologies to track activity on our platform and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device.</p>
                 
@@ -285,13 +285,13 @@ export default function PrivacyPage() {
           {/* Section 6 */}
           <section id="section6" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Globe size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">6. Third-Party Websites</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">6. Third-Party Websites</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>Our platform may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
                 
                 <p>We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. These third-party services may have their own privacy policies and customer service policies. For more information about a third party&apos;s privacy practices, you should consult the third party&apos;s privacy policy.</p>
@@ -304,13 +304,13 @@ export default function PrivacyPage() {
           {/* Section 7 */}
           <section id="section7" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <AlertCircle size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">7. Children&apos;s Privacy</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">7. Children&apos;s Privacy</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>Our platform is not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us. If we discover that a child under 18 has provided us with personal information, we will delete such information from our servers immediately.</p>
               </div>
             </Card>
@@ -319,13 +319,13 @@ export default function PrivacyPage() {
           {/* Section 8 */}
           <section id="section8" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Shield size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">8. Your Rights and Choices</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">8. Your Rights and Choices</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>8.1 Access and Control</h3>
                 <p>You have certain rights regarding your personal information. These may include the rights to:</p>
                 <ul>
@@ -351,13 +351,13 @@ export default function PrivacyPage() {
           {/* Section 9 */}
           <section id="section9" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Clock size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">9. Changes to This Privacy Policy</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">9. Changes to This Privacy Policy</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Effective Date&quot; at the top of this Privacy Policy.</p>
                 
                 <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. Your continued use of our platform following the posting of changes to this policy will be deemed your acceptance of those changes.</p>
@@ -370,13 +370,13 @@ export default function PrivacyPage() {
           {/* Section 10 */}
           <section id="section10" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Mail size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">10. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">10. Contact Us</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>If you have any questions about this Privacy Policy, please contact us:</p>
                 <ul>
                   <li><strong>By email:</strong> privacy@ilkevim.co.uk</li>
@@ -391,9 +391,9 @@ export default function PrivacyPage() {
         </div>
         
         {/* EEA and UK Rights */}
-        <div className="mt-12 bg-teal-50 border border-teal-100 rounded-lg p-6">
-          <h2 className="text-xl font-bold text-teal-900 mb-4">Additional Information for EEA and UK Residents</h2>
-          <div className="prose prose-teal max-w-none">
+        <div className="mt-12 bg-[#D4AF37]/5 border border-[#D4AF37]/20 rounded-lg p-6">
+          <h2 className="text-xl font-bold text-[#1A2A44] mb-4">Additional Information for EEA and UK Residents</h2>
+          <div className="prose prose-[#1A2A44] max-w-none">
             <p>If you are a resident of the European Economic Area (EEA) or the United Kingdom, you have certain additional rights under the General Data Protection Regulation (GDPR) and the UK GDPR.</p>
             
             <p><strong>Legal Basis for Processing:</strong> We will only process your personal data when we have a legal basis to do so. The legal bases we rely on include:</p>
@@ -415,19 +415,19 @@ export default function PrivacyPage() {
         {/* Related Links */}
         <div className="mt-8 flex flex-col md:flex-row gap-4">
           <Link href="/terms">
-            <Button variant="outline" className="w-full md:w-auto border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700">
+            <Button variant="outline" className="w-full md:w-auto border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37]">
               View Terms and Conditions
             </Button>
           </Link>
           <Link href="/register">
-            <Button variant="outline" className="w-full md:w-auto border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700">
+            <Button variant="outline" className="w-full md:w-auto border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37]">
               Return to Registration
             </Button>
           </Link>
         </div>
         
         {/* Last Updated */}
-        <div className="mt-8 border-t border-teal-100 pt-4 text-sm text-teal-600 text-center">
+        <div className="mt-8 border-t border-[#D4AF37]/20 pt-4 text-sm text-[#1A2A44]/80 text-center">
           This Privacy Policy was last updated on June 1, 2024.
         </div>
       </div>

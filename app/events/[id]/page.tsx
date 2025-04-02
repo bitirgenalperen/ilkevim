@@ -93,12 +93,12 @@ export default function EventDetailsPage() {
             <div className="flex items-center gap-4 mb-6">
               <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                 event.type === 'online' 
-                  ? 'bg-blue-100 text-blue-800' 
-                  : 'bg-green-100 text-green-800'
+                  ? 'bg-[#D4AF37]/10 text-[#D4AF37]' 
+                  : 'bg-[#D4AF37]/10 text-[#D4AF37]'
               }`}>
                 {event.type === 'online' ? 'Online Event' : 'Onsite Event'}
               </span>
-              <span className="px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800">
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-[#D4AF37]/10 text-[#D4AF37]">
                 {event.category}
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function EventDetailsPage() {
               className="bg-white rounded-2xl shadow-sm p-8"
             >
               <h2 className="text-2xl font-bold mb-6">About This Event</h2>
-              <div className="prose prose-teal max-w-none">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 {event.longDescription.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-gray-600 mb-4">{paragraph}</p>
                 ))}
@@ -161,9 +161,9 @@ export default function EventDetailsPage() {
               <h2 className="text-2xl font-bold mb-6">Event Agenda</h2>
               <div className="space-y-4">
                 {event.agenda.map((item, index) => (
-                  <div key={index} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-24 text-teal-600 font-medium">{item.time}</div>
-                    <div className="flex-1">{item.title}</div>
+                  <div key={index} className="flex gap-4 p-4 bg-[#D4AF37]/5 rounded-lg">
+                    <div className="w-24 text-[#D4AF37] font-medium">{item.time}</div>
+                    <div className="flex-1 text-[#1A2A44]">{item.title}</div>
                   </div>
                 ))}
               </div>
@@ -186,8 +186,8 @@ export default function EventDetailsPage() {
                         style={{ backgroundImage: `url('${speaker.image}')` }}
                       />
                     </div>
-                    <h3 className="font-bold text-lg mb-1">{speaker.name}</h3>
-                    <p className="text-teal-600 mb-1">{speaker.role}</p>
+                    <h3 className="font-bold text-lg mb-1 text-[#1A2A44]">{speaker.name}</h3>
+                    <p className="text-[#D4AF37] mb-1">{speaker.role}</p>
                     <p className="text-gray-600 text-sm">{speaker.company}</p>
                   </div>
                 ))}
@@ -236,7 +236,7 @@ export default function EventDetailsPage() {
 
               <a
                 href={event.registrationLink}
-                className="block w-full py-4 px-6 bg-teal-600 text-white text-center rounded-xl hover:bg-teal-700 transition-colors font-medium"
+                className="block w-full py-4 px-6 bg-[#D4AF37] text-white text-center rounded-xl hover:bg-[#D4AF37]/90 transition-colors font-medium"
               >
                 Register for Free
               </a>

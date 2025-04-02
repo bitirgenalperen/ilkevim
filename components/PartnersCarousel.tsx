@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, useAnimationControls, useInView } from 'framer-motion';
-import { background } from '@/styles/theme';
+import { Badge } from '@/components/ui/badge';
 
 // Define partner logos data
 const partners = [
@@ -19,71 +19,68 @@ const partners = [
 
 export function PartnersCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const motionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, margin: '-100px' });
   const controls = useAnimationControls();
+  const [isPaused, setIsPaused] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
   
   // Duplicate partners for the infinite scroll effect
   const allPartners = [...partners, ...partners];
   
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !isPaused) {
+      // Calculate remaining duration based on current position
+      const totalDistance = 1920;
+      const remainingDistance = totalDistance + currentPosition;
+      const totalDuration = 30; // seconds
+      const remainingDuration = totalDuration * (remainingDistance / totalDistance);
+      
       controls.start({
-        x: [0, -1920],
+        x: [currentPosition, -1920],
         transition: {
           x: {
             repeat: Infinity,
             repeatType: 'loop',
-            duration: 30,
+            duration: remainingDuration > 0 ? remainingDuration : totalDuration,
             ease: 'linear',
           },
         },
       });
     } else {
+      // When paused, get the computed transform style to determine current position
+      if (motionRef.current) {
+        const style = window.getComputedStyle(motionRef.current);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+        setCurrentPosition(matrix.m41); // Extract X transform from matrix
+      }
       controls.stop();
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, isPaused, currentPosition]);
+
+  // Pause animation on hover or focus
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
 
   return (
-    <section className={background.tealLight("py-20")}>
+    <section className="py-20 bg-[#1A2A44]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-4 py-2 rounded-full mb-6 inline-block">
-            Trusted Partners
-          </span>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            <span className="text-sm font-medium">Our Partners</span>
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            Trusted by Industry Leaders
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-          >
+          <Badge variant="outline" className="mb-4 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">Our Partners</Badge>
+          <h2 className="text-4xl font-bold text-white mb-4">Trusted by Industry Leaders</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             We&apos;re proud to work with the best in the industry
-          </motion.p>
+          </p>
         </div>
         
         <div 
           ref={containerRef} 
           className="w-full overflow-hidden relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <motion.div 
+            ref={motionRef}
             className="flex items-center gap-16 py-6"
             animate={controls}
             initial={{ x: 0 }}
@@ -106,8 +103,8 @@ export function PartnersCarousel() {
           </motion.div>
           
           {/* Gradient fade on sides */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-teal-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-teal-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1A2A44] to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1A2A44] to-transparent z-10"></div>
         </div>
       </div>
     </section>

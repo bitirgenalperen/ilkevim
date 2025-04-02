@@ -265,17 +265,17 @@ export default function ListPropertyPage() {
 
   if (submitSuccess) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50/50 pt-24 pb-16 flex items-center justify-center">
-        <Card className="w-full max-w-md p-8 text-center">
+      <div className="min-h-screen bg-gradient-to-b from-[#1A2A44]/5 via-white to-[#1A2A44]/5 pt-24 pb-16 flex items-center justify-center">
+        <Card className="w-full max-w-md p-8 text-center border-[#D4AF37]/20">
           <div className="flex justify-center mb-4">
-            <CheckCircle className="w-16 h-16 text-green-500" />
+            <CheckCircle className="w-16 h-16 text-[#D4AF37]" />
           </div>
-          <h1 className="text-2xl font-bold mb-2">Property Listed Successfully!</h1>
-          <p className="text-gray-600 mb-6">
+          <h1 className="text-2xl font-bold mb-2 text-[#1A2A44]">Property Listed Successfully!</h1>
+          <p className="text-[#1A2A44]/80 mb-6">
             Your property has been successfully listed and is now available for viewing.
           </p>
           <Button
-            className="bg-teal-600 hover:bg-teal-700 text-white"
+            className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white"
             onClick={() => router.push('/properties')}
           >
             View All Properties
@@ -286,45 +286,45 @@ export default function ListPropertyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50/50 pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A2A44]/5 via-white to-[#1A2A44]/5 pt-24 pb-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center rounded-lg bg-teal-50 px-3 py-1 text-sm font-medium text-teal-700 ring-1 ring-inset ring-teal-600/20">
+            <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               List Your Property
             </span>
           </div>
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
             List Your Property
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[#1A2A44]/80 max-w-2xl mx-auto">
             Complete the form below to list your property. Provide detailed information to attract potential buyers or renters.
           </p>
         </div>
 
-        <Card className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50">
+        <Card className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20">
           <Tabs 
             defaultValue="details" 
             value={activeTab} 
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-3 p-0 h-auto bg-gray-100/50">
+            <TabsList className="grid grid-cols-3 p-0 h-auto bg-[#1A2A44]/5">
               <TabsTrigger 
                 value="details" 
-                className={`py-3 ${activeTab === 'details' ? 'bg-white text-teal-600' : ''}`}
+                className={`py-3 ${activeTab === 'details' ? 'bg-white text-[#D4AF37]' : 'text-[#1A2A44]/80 hover:text-[#D4AF37]'}`}
               >
                 Property Details
               </TabsTrigger>
               <TabsTrigger 
                 value="features" 
-                className={`py-3 ${activeTab === 'features' ? 'bg-white text-teal-600' : ''}`}
+                className={`py-3 ${activeTab === 'features' ? 'bg-white text-[#D4AF37]' : 'text-[#1A2A44]/80 hover:text-[#D4AF37]'}`}
               >
                 Features & Amenities
               </TabsTrigger>
               <TabsTrigger 
                 value="images" 
-                className={`py-3 ${activeTab === 'images' ? 'bg-white text-teal-600' : ''}`}
+                className={`py-3 ${activeTab === 'images' ? 'bg-white text-[#D4AF37]' : 'text-[#1A2A44]/80 hover:text-[#D4AF37]'}`}
               >
                 Images
               </TabsTrigger>
@@ -425,7 +425,7 @@ export default function ListPropertyPage() {
                   <div className="flex justify-end">
                     <Button
                       type="button"
-                      className="bg-teal-600 hover:bg-teal-700 text-white"
+                      className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white"
                       onClick={() => setActiveTab('features')}
                     >
                       Next: Features & Amenities
@@ -570,13 +570,14 @@ export default function ListPropertyPage() {
                     <Button
                       type="button"
                       variant="outline"
+                      className="border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#1A2A44]"
                       onClick={() => setActiveTab('details')}
                     >
                       Back: Property Details
                     </Button>
                     <Button
                       type="button"
-                      className="bg-teal-600 hover:bg-teal-700 text-white"
+                      className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white"
                       onClick={() => setActiveTab('images')}
                     >
                       Next: Images
@@ -589,7 +590,7 @@ export default function ListPropertyPage() {
                 <div className="space-y-6">
                   <div>
                     <Label className="mb-3 block">Property Images</Label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <div className="border-2 border-dashed border-[#D4AF37]/20 rounded-lg p-6 text-center">
                       <input
                         type="file"
                         id="images"
@@ -602,11 +603,11 @@ export default function ListPropertyPage() {
                         htmlFor="images"
                         className="cursor-pointer flex flex-col items-center justify-center"
                       >
-                        <Upload className="h-12 w-12 text-gray-400 mb-2" />
-                        <p className="text-sm text-gray-600 mb-1">
+                        <Upload className="h-12 w-12 text-[#D4AF37] mb-2" />
+                        <p className="text-sm text-[#1A2A44]/80 mb-1">
                           Drag and drop images or click to browse
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-[#1A2A44]/60">
                           (Recommended: upload at least 5 high-quality images)
                         </p>
                       </label>
@@ -641,13 +642,14 @@ export default function ListPropertyPage() {
                     <Button
                       type="button"
                       variant="outline"
+                      className="border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#1A2A44]"
                       onClick={() => setActiveTab('features')}
                     >
                       Back: Features & Amenities
                     </Button>
                     <Button
                       type="submit"
-                      className="bg-teal-600 hover:bg-teal-700 text-white"
+                      className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (

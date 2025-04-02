@@ -35,18 +35,3 @@ npm run build
 npm start
 ```
 
-For optimal performance in production, consider deploying on Vercel or another hosting platform that supports Next.js applications.
-
-## Upcoming Features
-
-- [X] Provide tax payment rates on Property Details page
-- [X] Integrate a mortgage calculator where users can estimate monthly payments based on the property price, down payment, interest rate, and loan term.
-- [ ] Provide recommendations for properties based on user preferences and location, such as nearby schools, amenities, public transportation, etc.
-- [ ] Image upload and priority
-- [ ] Map location API integration
-- [ ] Provide detailed neighborhood insights, including schools, restaurants, crime rates, and public transportation
-
-## After User Login Functionality Implemented
-
-- [ ] Allow users to "favorite" properties and save them for easy access later
-- [ ] Send notification via email and website when a new listing available

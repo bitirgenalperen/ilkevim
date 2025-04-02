@@ -7,13 +7,13 @@ import { ArrowLeft, ArrowDownToLine, FileCheck, ShieldCheck, Scale, MousePointer
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-teal-50 to-white pt-24 pb-16">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24 pb-16">
       <div className="container max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
           <Link 
             href="/register"
-            className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium mb-6"
+            className="inline-flex items-center text-[#D4AF37] hover:text-[#D4AF37]/80 font-medium mb-6"
           >
             <ArrowLeft size={16} className="mr-2" />
             Back to Registration
@@ -21,12 +21,12 @@ export default function TermsPage() {
           
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-teal-950">Terms and Conditions</h1>
-              <p className="text-teal-700 mt-2">Effective Date: June 1, 2024</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-[#1A2A44]">Terms and Conditions</h1>
+              <p className="text-[#1A2A44]/80 mt-2">Effective Date: June 1, 2024</p>
             </div>
             <Button
               variant="outline"
-              className="group inline-flex items-center border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700 self-start"
+              className="group inline-flex items-center border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37] self-start"
               onClick={() => window.print()}
             >
               <ArrowDownToLine size={16} className="mr-2 group-hover:animate-bounce" />
@@ -34,11 +34,11 @@ export default function TermsPage() {
             </Button>
           </div>
           
-          <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md mb-8">
+          <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md mb-8">
             <div className="flex flex-col md:flex-row gap-4 items-start">
-              <AlertCircle className="text-amber-500 shrink-0 mt-1" />
+              <AlertCircle className="text-[#D4AF37] shrink-0 mt-1" />
               <div>
-                <p className="font-medium text-gray-900">Please read these Terms and Conditions carefully before using our platform.</p>
+                <p className="font-medium text-[#1A2A44]">Please read these Terms and Conditions carefully before using our platform.</p>
                 <p className="text-gray-600 mt-1">By accessing or using the Ilkevim website and services, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access the service.</p>
               </div>
             </div>
@@ -46,34 +46,34 @@ export default function TermsPage() {
         </div>
         
         {/* Table of Contents */}
-        <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md mb-8">
-          <h2 className="text-xl font-semibold text-teal-900 mb-4 flex items-center">
-            <BookOpen size={20} className="mr-2 text-teal-600" />
+        <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md mb-8">
+          <h2 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center">
+            <BookOpen size={20} className="mr-2 text-[#D4AF37]" />
             Table of Contents
           </h2>
           <div className="grid md:grid-cols-2 gap-3">
-            <Link href="#section1" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section1" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               1. Acceptance of Terms
             </Link>
-            <Link href="#section2" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section2" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               2. Registration and Account
             </Link>
-            <Link href="#section3" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section3" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               3. Property Listings
             </Link>
-            <Link href="#section4" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section4" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               4. User Conduct
             </Link>
-            <Link href="#section5" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section5" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               5. Intellectual Property
             </Link>
-            <Link href="#section6" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section6" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               6. Limitation of Liability
             </Link>
-            <Link href="#section7" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section7" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               7. Termination
             </Link>
-            <Link href="#section8" className="p-3 bg-teal-50 hover:bg-teal-100 rounded-md text-teal-700 transition-colors">
+            <Link href="#section8" className="p-3 bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10 rounded-md text-[#1A2A44] transition-colors">
               8. Governing Law
             </Link>
           </div>
@@ -84,13 +84,13 @@ export default function TermsPage() {
           {/* Section 1 */}
           <section id="section1" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <FileCheck size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">1. Acceptance of Terms</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">1. Acceptance of Terms</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>By accessing or using the Ilkevim platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, along with our Privacy Policy.</p>
                 
                 <p>These terms constitute a legally binding agreement between you and Ilkevim regarding your use of our website, mobile applications, and related services. We reserve the right to modify these terms at any time, and such modifications shall be effective immediately upon posting the modified terms on the platform.</p>
@@ -103,13 +103,13 @@ export default function TermsPage() {
           {/* Section 2 */}
           <section id="section2" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <ShieldCheck size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">2. Registration and Account</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">2. Registration and Account</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>2.1 Account Creation</h3>
                 <p>To access certain features of our platform, you may be required to register for an account. When you register, you agree to provide accurate, current, and complete information about yourself as prompted by our registration forms.</p>
                 
@@ -132,13 +132,13 @@ export default function TermsPage() {
           {/* Section 3 */}
           <section id="section3" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <FileCheck size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">3. Property Listings</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">3. Property Listings</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>3.1 Accuracy of Information</h3>
                 <p>Information about properties is provided by property owners, agents, or other third parties. While we strive to ensure the accuracy of all information on our platform, Ilkevim does not guarantee the accuracy, completeness, or reliability of any property listings, descriptions, or related information.</p>
                 
@@ -162,13 +162,13 @@ export default function TermsPage() {
           {/* Section 4 */}
           <section id="section4" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <MousePointerClick size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">4. User Conduct</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">4. User Conduct</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>4.1 Prohibited Activities</h3>
                 <p>When using our platform, you agree not to:</p>
                 <ul>
@@ -192,13 +192,13 @@ export default function TermsPage() {
           {/* Section 5 */}
           <section id="section5" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <FileCheck size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">5. Intellectual Property</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">5. Intellectual Property</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>5.1 Ilkevim Content</h3>
                 <p>All content provided on the platform, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of Ilkevim or its content suppliers and is protected by international copyright laws.</p>
                 
@@ -217,13 +217,13 @@ export default function TermsPage() {
           {/* Section 6 */}
           <section id="section6" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Scale size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">6. Limitation of Liability</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">6. Limitation of Liability</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>6.1 Disclaimer of Warranties</h3>
                 <p>THE ILKEVIM PLATFORM AND ALL CONTENT, FUNCTIONS, AND SERVICES PROVIDED THROUGH THE PLATFORM ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE,&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
                 
@@ -244,13 +244,13 @@ export default function TermsPage() {
           {/* Section 7 */}
           <section id="section7" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <AlertCircle size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">7. Termination</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">7. Termination</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>Ilkevim reserves the right to terminate or suspend your account and access to the platform immediately, without prior notice or liability, for any reason, including, without limitation, if you breach these Terms and Conditions.</p>
                 
                 <p>Upon termination, your right to use the platform will immediately cease. If you wish to terminate your account, you may simply discontinue using the platform or contact us to request account deletion.</p>
@@ -263,13 +263,13 @@ export default function TermsPage() {
           {/* Section 8 */}
           <section id="section8" className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-teal-100 rounded-full p-2 text-teal-700">
+              <div className="bg-[#D4AF37]/10 rounded-full p-2 text-[#D4AF37]">
                 <Scale size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-teal-950">8. Governing Law</h2>
+              <h2 className="text-2xl font-bold text-[#1A2A44]">8. Governing Law</h2>
             </div>
-            <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
-              <div className="prose prose-teal max-w-none">
+            <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
+              <div className="prose prose-[#1A2A44] max-w-none">
                 <p>These Terms shall be governed and construed in accordance with the laws of the United Kingdom, without regard to its conflict of law provisions.</p>
                 
                 <p>Any dispute arising out of or relating to these Terms shall be subject to the exclusive jurisdiction of the courts located within the United Kingdom.</p>
@@ -281,33 +281,33 @@ export default function TermsPage() {
         </div>
         
         {/* Contact Us */}
-        <div className="mt-12 bg-teal-50 border border-teal-100 rounded-lg p-6">
-          <h2 className="text-xl font-bold text-teal-900 mb-4">Have Questions?</h2>
-          <p className="text-teal-700 mb-4">If you have any questions about these Terms and Conditions, please contact us at:</p>
+        <div className="mt-12 bg-[#D4AF37]/5 border border-[#D4AF37]/20 rounded-lg p-6">
+          <h2 className="text-xl font-bold text-[#1A2A44] mb-4">Have Questions?</h2>
+          <p className="text-[#1A2A44]/80 mb-4">If you have any questions about these Terms and Conditions, please contact us at:</p>
           <div className="space-y-2">
-            <p className="font-medium">Ilkevim UK Limited</p>
-            <p>123 Property Lane, London, SW1A 1AA</p>
-            <p>Email: legal@ilkevim.co.uk</p>
-            <p>Phone: +44 20 1234 5678</p>
+            <p className="font-medium text-[#1A2A44]">Ilkevim UK Limited</p>
+            <p className="text-[#1A2A44]/80">123 Property Lane, London, SW1A 1AA</p>
+            <p className="text-[#1A2A44]/80">Email: legal@ilkevim.co.uk</p>
+            <p className="text-[#1A2A44]/80">Phone: +44 20 1234 5678</p>
           </div>
         </div>
         
         {/* Related Links */}
         <div className="mt-8 flex flex-col md:flex-row gap-4">
           <Link href="/privacy">
-            <Button variant="outline" className="w-full md:w-auto border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700">
+            <Button variant="outline" className="w-full md:w-auto border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37]">
               View Privacy Policy
             </Button>
           </Link>
           <Link href="/register">
-            <Button variant="outline" className="w-full md:w-auto border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700">
+            <Button variant="outline" className="w-full md:w-auto border-[#D4AF37]/20 hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/40 text-[#D4AF37]">
               Return to Registration
             </Button>
           </Link>
         </div>
         
         {/* Last Updated */}
-        <div className="mt-8 border-t border-teal-100 pt-4 text-sm text-teal-600 text-center">
+        <div className="mt-8 border-t border-[#D4AF37]/20 pt-4 text-sm text-[#1A2A44]/80 text-center">
           These Terms and Conditions were last updated on June 1, 2024.
         </div>
       </div>

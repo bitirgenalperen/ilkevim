@@ -101,14 +101,14 @@ export default function EventsPage() {
               viewport={{ once: true }}
               className="inline-block"
             >
-              <span className="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Upcoming Events</span>
+              <span className="bg-[#D4AF37]/10 text-[#D4AF37] px-3 py-1 rounded-full text-sm font-medium">Upcoming Events</span>
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold mt-4"
+              className="text-3xl md:text-4xl font-bold mt-4 text-[#1A2A44]"
             >
               Don&apos;t Miss Out on These Opportunities
             </motion.h2>
@@ -143,11 +143,11 @@ export default function EventsPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-teal-600 mb-2">
+                  <div className="flex items-center gap-2 text-[#D4AF37] mb-2">
                     <Building2 className="w-4 h-4" />
                     <span className="text-sm font-medium">{event.category}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#1A2A44]">{event.title}</h3>
                   <p className="text-gray-600 mb-4">{event.description}</p>
                   
                   <div className="space-y-2 mb-4">
@@ -176,7 +176,7 @@ export default function EventsPage() {
                   <div className="flex justify-end">
                     <Link
                       href={`/events/${event.id}`}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#D4AF37]/90 transition-colors"
                     >
                       Register Now
                       <Video className="w-4 h-4" />

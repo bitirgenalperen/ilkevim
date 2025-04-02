@@ -27,28 +27,28 @@ import {
 // Contact info data
 const contactInfo = [
   {
-    icon: MapPin,
-    title: 'Visit Us',
-    details: [companyInfo.address.split(', ')[0] + ', ' + companyInfo.address.split(', ')[1], companyInfo.address.split(', ')[2] + ', ' + companyInfo.address.split(', ')[3] + ', ' + companyInfo.address.split(', ')[4]],
-    color: 'from-teal-500 to-teal-400'
-  },
-  {
     icon: Phone,
     title: 'Call Us',
     details: [companyInfo.phone],
-    color: 'from-teal-600 to-teal-500'
+    color: 'from-[#D4AF37] to-[#D4AF37]/80'
   },
   {
-    icon: Mail,
-    title: 'Email Us',
-    details: [companyInfo.email],
-    color: 'from-teal-500 to-emerald-400'
+    icon: MapPin,
+    title: 'Visit Us',
+    details: [companyInfo.address.split(', ')[0] + ', ' + companyInfo.address.split(', ')[1], companyInfo.address.split(', ')[2] + ', ' + companyInfo.address.split(', ')[3] + ', ' + companyInfo.address.split(', ')[4]],
+    color: 'from-[#D4AF37] to-[#D4AF37]/80'
   },
   {
     icon: Clock,
     title: 'Working Hours',
     details: ['Monday-Friday: 9AM-6PM', 'Saturday: 10AM-4PM', 'Sunday: Closed'],
-    color: 'from-emerald-500 to-teal-400'
+    color: 'from-[#D4AF37] to-[#D4AF37]/80'
+  },
+  {
+    icon: Mail,
+    title: 'Email Us',
+    details: [companyInfo.email],
+    color: 'from-[#D4AF37] to-[#D4AF37]/80'
   }
 ]
 
@@ -168,6 +168,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [activeTab, setActiveTab] = useState('contact')
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
+  const [showOptionalDetails, setShowOptionalDetails] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -203,11 +204,11 @@ export default function ContactPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center rounded-lg bg-teal-50 px-3 py-1 text-sm font-medium text-teal-700 ring-1 ring-inset ring-teal-600/20">
+            <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               Get In Touch
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -222,8 +223,8 @@ export default function ContactPage() {
               onClick={() => setActiveTab('contact')}
               className={`px-4 py-2 rounded-md text-sm font-medium ${
                 activeTab === 'contact'
-                  ? 'bg-white text-teal-600 shadow-sm'
-                  : 'text-gray-600 hover:text-teal-600'
+                  ? 'bg-white text-[#D4AF37] shadow-sm'
+                  : 'text-gray-600 hover:text-[#D4AF37]'
               } transition-all duration-200`}
             >
               Contact Form
@@ -232,8 +233,8 @@ export default function ContactPage() {
               onClick={() => setActiveTab('faq')}
               className={`px-4 py-2 rounded-md text-sm font-medium ${
                 activeTab === 'faq'
-                  ? 'bg-white text-teal-600 shadow-sm'
-                  : 'text-gray-600 hover:text-teal-600'
+                  ? 'bg-white text-[#D4AF37] shadow-sm'
+                  : 'text-gray-600 hover:text-[#D4AF37]'
               } transition-all duration-200`}
             >
               FAQs
@@ -250,13 +251,13 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50">
+              <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20">
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
-                    Send Us a Message
+                  <h2 className="text-2xl font-bold text-[#1A2A44]">
+                    Have questions?
                   </h2>
                   <p className="text-gray-600">
-                    Fill out the form below and we&apos;ll respond as soon as possible.
+                    Fill out the form below and we&apos;ll call as soon as possible.
                   </p>
                 </div>
 
@@ -273,27 +274,9 @@ export default function ContactPage() {
                         value={formState.name}
                         onChange={handleChange}
                         required
-                        className="border-gray-200 focus:border-teal-500 focus:ring-teal-500"
+                        className="border-gray-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formState.email}
-                        onChange={handleChange}
-                        required
-                        className="border-gray-200 focus:border-teal-500 focus:ring-teal-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                         Phone Number
@@ -304,46 +287,75 @@ export default function ContactPage() {
                         placeholder="+44 1234 567890"
                         value={formState.phone}
                         onChange={handleChange}
-                        className="border-gray-200 focus:border-teal-500 focus:ring-teal-500"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                        Subject
-                      </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        placeholder="Property Inquiry"
-                        value={formState.subject}
-                        onChange={handleChange}
                         required
-                        className="border-gray-200 focus:border-teal-500 focus:ring-teal-500"
+                        className="border-gray-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                       />
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="How can we help you?"
-                      rows={5}
-                      value={formState.message}
-                      onChange={handleChange}
-                      required
-                      className="border-gray-200 focus:border-teal-500 focus:ring-teal-500"
-                    />
+                  <div className="flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={() => setShowOptionalDetails(!showOptionalDetails)}
+                      className="flex items-center gap-2 text-[#D4AF37] hover:text-[#D4AF37]/80 transition-colors duration-200"
+                    >
+                      <span className="text-sm font-medium">Optional Details</span>
+                      <ArrowRight className={`h-4 w-4 transition-transform duration-200 ${showOptionalDetails ? '-rotate-90' : 'rotate-90'}`} />
+                    </button>
+                  </div>
+
+                  <div className={`space-y-4 transition-all duration-300 ${showOptionalDetails ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                          Email Address
+                        </label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="john@example.com"
+                          value={formState.email}
+                          onChange={handleChange}
+                          className="border-gray-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                          Subject
+                        </label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          placeholder="Property Inquiry"
+                          value={formState.subject}
+                          onChange={handleChange}
+                          className="border-gray-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Your Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="How can we help you?"
+                        rows={5}
+                        value={formState.message}
+                        onChange={handleChange}
+                        className="border-gray-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
+                      />
+                    </div>
                   </div>
 
                   <div>
                     <Button
                       type="submit"
                       disabled={isSubmitting || isSubmitted}
-                      className={`w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white transition-all duration-200 hover:from-teal-700 hover:to-emerald-700 ${
+                      className={`w-full bg-[#D4AF37] text-white transition-all duration-200 hover:bg-[#D4AF37]/90 ${
                         isSubmitted ? 'bg-green-600' : ''
                       }`}
                     >
@@ -375,9 +387,9 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
             >
-              <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50 h-full">
+              <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20 h-full">
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                  <h2 className="text-2xl font-bold text-[#1A2A44]">
                     Contact Information
                   </h2>
                   <p className="text-gray-600">
@@ -417,7 +429,7 @@ export default function ContactPage() {
                       <a
                         key={i}
                         href={item.href}
-                        className="p-2 rounded-full bg-gray-100 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200"
+                        className="p-2 rounded-full bg-gray-100 hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition-colors duration-200"
                       >
                         <item.Icon className="h-5 w-5" />
                       </a>
@@ -435,9 +447,9 @@ export default function ContactPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50">
+            <Card className="p-6 md:p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20">
               <div className="mb-8">
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold text-[#1A2A44]">
                   Simplify Your Real Estate Processes with Frequently Asked Questions
                 </h2>
                 <p className="text-gray-600">
@@ -445,59 +457,65 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Freehold Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Freehold</h3>
-                  <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Freehold
+                  </h3>
+              <div className="space-y-4">
                     {faqs.slice(0, 1).map((faq, index) => (
-                      <div 
-                        key={index}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
-                      >
-                        <button
-                          onClick={() => setActiveFaq(activeFaq === index ? null : index)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
-                            activeFaq === index ? 'rotate-90' : ''
-                          }`} />
-                        </button>
-                        <div className={`overflow-hidden transition-all duration-300 ${
-                          activeFaq === index ? 'max-h-40' : 'max-h-0'
-                        }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
-                            <p className="text-gray-600">{faq.answer}</p>
-                          </div>
-                        </div>
+                  <div 
+                    key={index}
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
+                  >
+                    <button
+                      onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
+                    >
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
+                        activeFaq === index ? 'rotate-90' : ''
+                      }`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${
+                      activeFaq === index ? 'max-h-40' : 'max-h-0'
+                    }`}>
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
+                        <p className="text-gray-600">{faq.answer}</p>
                       </div>
-                    ))}
+                    </div>
+                  </div>
+                ))}
                   </div>
                 </div>
 
                 {/* Leasehold Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Leasehold</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Leasehold
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(1, 4).map((faq, index) => (
                       <div 
                         key={index + 1}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 1 ? null : index + 1)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 1 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 1 ? 'max-h-40' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -508,26 +526,29 @@ export default function ContactPage() {
 
                 {/* Mortgage Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Mortgage</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Mortgage
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(4, 6).map((faq, index) => (
                       <div 
                         key={index + 4}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 4 ? null : index + 4)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 4 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 4 ? 'max-h-40' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -538,26 +559,29 @@ export default function ContactPage() {
 
                 {/* Agreement in Principle Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Agreement in Principle (AIP)</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Agreement in Principle (AIP)
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(6, 7).map((faq, index) => (
                       <div 
                         key={index + 6}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 6 ? null : index + 6)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 6 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 6 ? 'max-h-40' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -568,26 +592,29 @@ export default function ContactPage() {
 
                 {/* Exchange of Contracts Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Exchange of Contracts</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Exchange of Contracts
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(7, 8).map((faq, index) => (
                       <div 
                         key={index + 7}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 7 ? null : index + 7)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 7 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 7 ? 'max-h-40' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -598,26 +625,29 @@ export default function ContactPage() {
 
                 {/* Completion Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Completion</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Completion
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(8, 9).map((faq, index) => (
                       <div 
                         key={index + 8}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 8 ? null : index + 8)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 8 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 8 ? 'max-h-40' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -628,26 +658,29 @@ export default function ContactPage() {
 
                 {/* Additional Information Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Additional Information</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Additional Information
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(9, 12).map((faq, index) => (
                       <div 
                         key={index + 9}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 9 ? null : index + 9)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 9 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 9 ? 'max-h-80' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -658,26 +691,29 @@ export default function ContactPage() {
 
                 {/* Property Viewing Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Property Viewing</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Property Viewing
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(12, 15).map((faq, index) => (
                       <div 
                         key={index + 12}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 12 ? null : index + 12)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 12 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 12 ? 'max-h-60' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -688,26 +724,29 @@ export default function ContactPage() {
 
                 {/* Making an Offer Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Making an Offer</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Making an Offer
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(15, 18).map((faq, index) => (
                       <div 
                         key={index + 15}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 15 ? null : index + 15)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 15 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 15 ? 'max-h-60' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -718,26 +757,29 @@ export default function ContactPage() {
 
                 {/* Property Surveys Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Property Surveys</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Property Surveys
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(18, 21).map((faq, index) => (
                       <div 
                         key={index + 18}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 18 ? null : index + 18)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 18 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 18 ? 'max-h-60' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -748,26 +790,29 @@ export default function ContactPage() {
 
                 {/* International Buyers Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">UK Market for International Buyers</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    UK Market for International Buyers
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(21, 23).map((faq, index) => (
                       <div 
                         key={index + 21}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 21 ? null : index + 21)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 21 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 21 ? 'max-h-60' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
@@ -778,46 +823,49 @@ export default function ContactPage() {
 
                 {/* Rental Investment Section */}
                 <div>
-                  <h3 className="text-xl font-semibold text-teal-800 mb-3">Rental Investment</h3>
+                  <h3 className="text-xl font-semibold text-[#1A2A44] mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-[#D4AF37] rounded-full"></div>
+                    Rental Investment
+                  </h3>
                   <div className="space-y-4">
                     {faqs.slice(23, 25).map((faq, index) => (
                       <div 
                         key={index + 23}
-                        className="border border-gray-200 rounded-lg overflow-hidden"
+                        className="border border-[#D4AF37]/20 rounded-lg overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-300"
                       >
                         <button
                           onClick={() => setActiveFaq(activeFaq === index + 23 ? null : index + 23)}
-                          className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                          className="flex justify-between items-center w-full p-4 text-left hover:bg-[#D4AF37]/5 transition-colors duration-200"
                         >
-                          <span className="font-medium text-gray-900">{faq.question}</span>
-                          <ArrowRight className={`h-5 w-5 text-teal-600 transition-transform duration-200 ${
+                          <span className="font-medium text-[#1A2A44]">{faq.question}</span>
+                          <ArrowRight className={`h-5 w-5 text-[#D4AF37] transition-transform duration-200 ${
                             activeFaq === index + 23 ? 'rotate-90' : ''
                           }`} />
                         </button>
                         <div className={`overflow-hidden transition-all duration-300 ${
                           activeFaq === index + 23 ? 'max-h-60' : 'max-h-0'
                         }`}>
-                          <div className="p-4 pt-0 bg-gray-50">
+                          <div className="p-4 pt-0 bg-[#D4AF37]/5">
                             <p className="text-gray-600">{faq.answer}</p>
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
-                </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+                <div className="mt-8 pt-6 border-t border-[#D4AF37]/20 text-center">
                 <p className="text-gray-600 mb-4">
                   Still have questions? Contact our support team directly.
                 </p>
                 <Button 
                   onClick={() => setActiveTab('contact')}
-                  className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white hover:from-teal-700 hover:to-emerald-700"
+                    className="bg-[#D4AF37] text-white hover:bg-[#D4AF37]/90 transition-all duration-200"
                 >
                   <MessageSquareText className="mr-2 h-4 w-4" />
                   Contact Support
                 </Button>
+                </div>
               </div>
             </Card>
           </motion.div>
@@ -839,14 +887,24 @@ export default function ContactPage() {
               />
             </div>
 
-            <div className="p-6 bg-gradient-to-r from-teal-600 to-emerald-600 text-white">
-              <div className="flex items-center space-x-2">
-                <Building className="h-5 w-5" />
-                <h3 className="font-semibold">Our Office</h3>
+            <div className="p-6 bg-gradient-to-br from-[#1A2A44] to-[#1A2A44]/90 text-white relative overflow-hidden">
+              {/* Decorative elements */}
+              <div className="absolute inset-0 bg-[#D4AF37]/5 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#D4AF37]/10 rounded-full translate-y-12 -translate-x-12"></div>
+              
+              {/* Content */}
+              <div className="relative">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="p-2 rounded-lg bg-[#D4AF37]/20 backdrop-blur-sm">
+                    <Building className="h-5 w-5 text-[#D4AF37]" />
+                  </div>
+                  <h3 className="font-semibold text-lg">Our Office</h3>
+                </div>
+                <p className="text-white/90 leading-relaxed">
+                  {companyInfo.address}
+                </p>
               </div>
-              <p className="mt-2">
-                {companyInfo.address}
-              </p>
             </div>
           </Card>
         </div>

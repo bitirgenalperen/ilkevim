@@ -32,7 +32,7 @@ const services = [
       'Virtual tours',
       'Targeted marketing campaigns'
     ],
-    color: 'from-teal-500 to-teal-400'
+    color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const services = [
       'Regular inspections',
       '24/7 emergency support'
     ],
-    color: 'from-teal-600 to-teal-500'
+    color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ const services = [
       'ROI calculations',
       'Risk assessment'
     ],
-    color: 'from-teal-500 to-emerald-400'
+    color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const services = [
       'Documentation review',
       'Regulatory guidance'
     ],
-    color: 'from-emerald-500 to-teal-400'
+    color: 'from-[#D4AF37] to-[#D4AF37]/90'
   }
 ]
 
@@ -110,11 +110,11 @@ export default function ServicesPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center rounded-lg bg-teal-50 px-3 py-1 text-sm font-medium text-teal-700 ring-1 ring-inset ring-teal-600/20">
+            <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               Our Services
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
             Our Comprehensive Services
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -130,14 +130,14 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-teal-100/50 hover:shadow-xl hover:border-teal-200/50 transition-all duration-300"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-gradient-to-br from-teal-50 to-emerald-50">
-                  <benefit.icon className="w-6 h-6 text-teal-600" />
+                <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5">
+                  <benefit.icon className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">{benefit.title}</h3>
+                  <h3 className="font-semibold mb-1 text-[#1A2A44]">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.2 }}
             >
               <Card 
-                className="relative overflow-hidden group cursor-pointer border-teal-100/50 hover:border-teal-200/50 bg-white/80 backdrop-blur-sm"
+                className="relative overflow-hidden group cursor-pointer border-[#D4AF37]/20 hover:border-[#D4AF37]/30 bg-white/80 backdrop-blur-sm"
                 onClick={() => setSelectedService(selectedService === service.id ? null : service.id)}
               >
                 <div className="p-6">
@@ -165,7 +165,7 @@ export default function ServicesPage() {
                       <service.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">{service.title}</h3>
                       <p className="text-gray-600">{service.description}</p>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export default function ServicesPage() {
                     selectedService === service.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}>
                     <div className="overflow-hidden">
-                      <ul className="space-y-3 pt-4 border-t border-teal-100/50">
+                      <ul className="space-y-3 pt-4 border-t border-[#D4AF37]/10">
                         {service.features.map((feature, index) => (
                           <motion.li
                             key={index}
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                             transition={{ delay: index * 0.1 }}
                             className="flex items-center gap-2 text-gray-600"
                           >
-                            <CheckCircle2 className="w-5 h-5 text-teal-600" />
+                            <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
                             {feature}
                           </motion.li>
                         ))}
@@ -196,7 +196,7 @@ export default function ServicesPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-teal-600 hover:text-teal-700 hover:bg-teal-50"
+                    className="text-[#D4AF37] hover:text-[#D4AF37]/90 hover:bg-[#D4AF37]/10"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -209,7 +209,7 @@ export default function ServicesPage() {
 
         {/* CTA Section */}
         <div className="relative rounded-2xl overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/90 opacity-95" />
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-20" />
           <div className="relative p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -222,7 +222,7 @@ export default function ServicesPage() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-teal-600 hover:bg-white/90 hover:text-teal-700"
+                className="bg-[#D4AF37] text-white hover:bg-[#D4AF37]/90 hover:text-white"
               >
                 <MessageSquareMore className="w-5 h-5 mr-2" />
                 Schedule a Consultation
@@ -230,7 +230,7 @@ export default function ServicesPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] hover:border-[#D4AF37]"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 View Our Portfolio
