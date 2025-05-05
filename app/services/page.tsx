@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import Link from 'next/link'
 import {
   Home,
   ClipboardCheck,
@@ -109,17 +110,32 @@ export default function ServicesPage() {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-6"
+          >
             <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               Our Services
             </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
+          >
             Our Comprehensive Services
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
             Discover our range of professional real estate services designed to make your property journey seamless and successful.
-          </p>
+          </motion.p>
         </div>
 
         {/* Benefits Section */}
@@ -223,17 +239,23 @@ export default function ServicesPage() {
                 size="lg"
                 variant="secondary"
                 className="bg-[#D4AF37] text-white hover:bg-[#D4AF37]/90 hover:text-white"
+                asChild
               >
-                <MessageSquareMore className="w-5 h-5 mr-2" />
-                Schedule a Consultation
+                <Link href="/contact">
+                  <MessageSquareMore className="w-5 h-5 mr-2" />
+                  Schedule a Consultation
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] hover:border-[#D4AF37]"
+                asChild
               >
-                <Sparkles className="w-5 h-5 mr-2" />
-                View Our Portfolio
+                <Link href="/properties">
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  View Our Portfolio
+                </Link>
               </Button>
             </div>
           </div>

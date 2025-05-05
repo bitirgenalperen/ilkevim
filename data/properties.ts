@@ -11,16 +11,24 @@ export const priceRanges = [
 
 // Add common amenities for filtering
 export const commonAmenities = [
-  "Parking",
-  "Garden",
-  "Gym",
   "Concierge",
-  "Swimming Pool",
-  "Home Cinema",
-  "Wine Cellar",
-  "Smart Home System",
-  "Period Features",
+  "Parking",
+  "EV Charging",
+  "Garden",
   "Balcony",
   "Roof Terrace",
-  "EV Charging"
+  "Private Elevator",
+  "Gym",
+  "Swimming Pool",
+  "Spa/Sauna",
+  "Smart Home System",
+  "Security System",
+  "High-Speed Internet",
+  "Home Cinema",
+  "Wine Cellar",
+  "Chef’s Kitchen",
+  "Walk-In Closet",
+  "Panoramic Views",
+  "Fireplace",
+  "Outdoor Kitchen/BBQ",
 ] as const 

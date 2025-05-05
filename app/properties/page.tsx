@@ -37,6 +37,7 @@ import {
 import { Slider } from "@/components/ui/slider"
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
+import { getSignedUrlsForImages } from '@/lib/s3-client'
 
 export default function PropertiesPage() {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
@@ -52,8 +53,10 @@ export default function PropertiesPage() {
     bathrooms: [0, 5],
     amenities: [],
     searchTerm: '',
-    squareFootage: [0, 10000]
+    squareFootage: [0, 10000],
+    stayType: 'buy'
   })
+  const [error, setError] = useState<string | null>(null)
 
   const MAX_PRICE = 5000000
   const MAX_BEDROOMS = 6
@@ -71,6 +74,19 @@ export default function PropertiesPage() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [isFiltersOpen])
 
+  // Function to generate signed URLs for property images
+  const generateSignedUrlsForPropertyImages = async (imageKeys: string[]) => {
+    try {
+      console.log('Generating signed URLs for property images:', imageKeys);
+      const imagesWithUrls = await getSignedUrlsForImages(imageKeys);
+      console.log('Generated signed URLs:', imagesWithUrls);
+      return imagesWithUrls.map(img => img.url);
+    } catch (error) {
+      console.error('Error generating signed URLs for property images:', error);
+      return imageKeys; // Return original keys if there's an error
+    }
+  };
+
   const fetchProperties = useCallback(async () => {
     setLoading(true)
     try {
@@ -81,6 +97,7 @@ export default function PropertiesPage() {
       if (filters.city) params.append('city', filters.city)
       if (filters.searchTerm) params.append('searchTerm', filters.searchTerm)
       if (filters.amenities.length) params.append('amenities', filters.amenities.join(','))
+      if (filters.stayType) params.append('stayType', filters.stayType)
       
       // Add range filters only if they're different from default values
       if (filters.priceRange[0] !== 0) params.append('minPrice', filters.priceRange[0].toString())
@@ -105,9 +122,22 @@ export default function PropertiesPage() {
       
       const data = await response.json()
       console.log('Received properties:', data.properties)
-      setProperties(data.properties)
+      
+      // Generate signed URLs for all property images
+      const propertiesWithSignedUrls = await Promise.all(
+        data.properties.map(async (property: Property) => {
+          if (property.images && property.images.length > 0) {
+            const signedImageUrls = await generateSignedUrlsForPropertyImages(property.images);
+            return { ...property, images: signedImageUrls };
+          }
+          return property;
+        })
+      );
+      
+      setProperties(propertiesWithSignedUrls)
     } catch (error) {
       console.error('Error fetching properties:', error)
+      setError('There was an error loading the properties. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -165,7 +195,8 @@ export default function PropertiesPage() {
       bathrooms: [0, MAX_BATHROOMS],
       amenities: [],
       searchTerm: '',
-      squareFootage: [0, MAX_SQFT]
+      squareFootage: [0, MAX_SQFT],
+      stayType: 'buy'
     })
   }
 
@@ -182,7 +213,8 @@ export default function PropertiesPage() {
       filters.amenities.length > 0 ||
       filters.searchTerm !== '' ||
       filters.squareFootage[0] !== 0 ||
-      filters.squareFootage[1] !== MAX_SQFT
+      filters.squareFootage[1] !== MAX_SQFT ||
+      filters.stayType !== 'buy'
     )
   }
 
@@ -219,6 +251,137 @@ export default function PropertiesPage() {
     }).format(price)
   }
 
+  function PropertyCard({ property }: { property: Property }) {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [imageLoadError, setImageLoadError] = useState(false);
+    const images = property.images.slice(0, 3); // Limit to 3 images
+
+    const nextImage = (e: React.MouseEvent) => {
+      e.preventDefault(); // Prevent navigation when clicking arrows
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setImageLoadError(false); // Reset error state when changing images
+    };
+
+    const previousImage = (e: React.MouseEvent) => {
+      e.preventDefault(); // Prevent navigation when clicking arrows
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+      setImageLoadError(false); // Reset error state when changing images
+    };
+
+    const handleImageError = () => {
+      setImageLoadError(true);
+      // Try to load the next image if available
+      if (images.length > 1) {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      }
+    };
+
+    return (
+      <Link href={`/properties/${property._id}`} className="block">
+        <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/20 bg-white/80 backdrop-blur-sm flex flex-col !py-0 cursor-pointer">
+          <div className="relative h-48 overflow-hidden">
+            {imageLoadError ? (
+              <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                <div className="text-center p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p className="text-sm text-gray-500">Image not available</p>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={images[currentImageIndex]}
+                alt={property.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onError={handleImageError}
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            
+            {/* Navigation Arrows - Only visible on hover */}
+            {images.length > 1 && !imageLoadError && (
+              <>
+                <button
+                  onClick={previousImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#1A2A44] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#1A2A44] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Image Counter */}
+            {images.length > 1 && !imageLoadError && (
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white px-2 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {currentImageIndex + 1} / {images.length}
+              </div>
+            )}
+
+            <Badge
+              className={cn(
+                "absolute top-4 right-4",
+                property.listingType === 'featured' 
+                  ? "bg-[#D4AF37]/90 hover:bg-[#D4AF37]/90 text-white" 
+                  : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
+              )}
+            >
+              {property.listingType === 'featured' ? 'Featured' : 'Standard'}
+            </Badge>
+          </div>
+          <CardContent className="pt-3 px-6 pb-6 flex-grow">
+            <div className="flex items-center gap-2 text-[#1A2A44] mb-2">
+              <MapPin size={16} className="text-[#D4AF37]" />
+              <span>{property.location.area}, {property.location.city}</span>
+            </div>
+            <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
+            <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Bed size={16} className="text-[#D4AF37]" />
+                <span>{property.features.bedrooms} Beds</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Bath size={16} className="text-[#D4AF37]" />
+                <span>{property.features.bathrooms} Baths</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Move size={16} className="text-[#D4AF37]" />
+                <span>{property.features.squareFootage} sq ft</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Calendar size={16} className="text-[#D4AF37]" />
+                <span>{property.features.yearBuilt}</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
+                {formatPrice(property.price)}
+              </span>
+              <Button 
+                variant="outline"
+                className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                View Details
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24">
       <div className="container mx-auto px-4">
@@ -227,8 +390,36 @@ export default function PropertiesPage() {
           {/* Search Bar and Toggle */}
           <div className="p-4 border-b border-[#D4AF37]/10 bg-gradient-to-r from-[#1A2A44]/5 to-white">
             <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Button
+                  variant={filters.stayType === 'buy' ? 'default' : 'outline'}
+                  size="sm"
+                  className={cn(
+                    "min-w-[80px]",
+                    filters.stayType === 'buy'
+                      ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]"
+                      : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
+                  )}
+                  onClick={() => setFilters({ ...filters, stayType: 'buy' })}
+                >
+                  Buy
+                </Button>
+                <Button
+                  variant={filters.stayType === 'rent' ? 'default' : 'outline'}
+                  size="sm"
+                  className={cn(
+                    "min-w-[80px]",
+                    filters.stayType === 'rent'
+                      ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]"
+                      : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
+                  )}
+                  onClick={() => setFilters({ ...filters, stayType: 'rent' })}
+                >
+                  Rent
+                </Button>
+              </div>
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#D4AF37]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#D4AF37] z-10" />
                 <Input
                   placeholder="Search by location, property name, or features..."
                   className="pl-9 pr-4 h-11 bg-white/80 backdrop-blur-sm border-[#D4AF37]/20 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
@@ -730,74 +921,42 @@ export default function PropertiesPage() {
 
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-[#D4AF37]" />
+            <div className="flex flex-col items-center">
+              {/* Main spinner with decorative elements */}
+              <div className="relative mb-8">
+                {/* Main spinner */}
+                <div className="animate-spin h-16 w-16 border-4 border-[#D4AF37] rounded-full border-t-transparent"></div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-2 -left-2 h-20 w-20 border-2 border-[#1A2A44]/20 rounded-full animate-pulse" style={{ animationDuration: '2s' }}></div>
+                <div className="absolute -bottom-2 -right-2 h-20 w-20 border-2 border-[#1A2A44]/20 rounded-full animate-pulse" style={{ animationDuration: '2.5s' }}></div>
+                
+                {/* Gold accent dots */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+                  <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+                <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                </div>
+                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                  <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
+                </div>
+              </div>
+              
+              {/* Loading text - shorter and below the animation */}
+              <div className="text-[#1A2A44] font-medium">
+                Loading...
+              </div>
+            </div>
           </div>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
               {properties.map((property) => (
-                <Card
-                  key={property._id}
-                  className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/20 bg-white/80 backdrop-blur-sm flex flex-col !py-0"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={property.images[0]}
-                      alt={property.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    <Badge
-                      className={cn(
-                        "absolute top-4 right-4",
-                        property.listingType === 'featured' 
-                          ? "bg-[#D4AF37]/90 hover:bg-[#D4AF37]/90 text-white" 
-                          : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
-                      )}
-                    >
-                      {property.listingType === 'featured' ? 'Featured' : 'Standard'}
-                    </Badge>
-                  </div>
-                  <CardContent className="pt-3 px-6 pb-6 flex-grow">
-                    <div className="flex items-center gap-2 text-[#1A2A44] mb-2">
-                      <MapPin size={16} className="text-[#D4AF37]" />
-                      <span>{property.location.area}, {property.location.city}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="flex items-center gap-2 text-[#1A2A44]">
-                        <Bed size={16} className="text-[#D4AF37]" />
-                        <span>{property.features.bedrooms} Beds</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-[#1A2A44]">
-                        <Bath size={16} className="text-[#D4AF37]" />
-                        <span>{property.features.bathrooms} Baths</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-[#1A2A44]">
-                        <Move size={16} className="text-[#D4AF37]" />
-                        <span>{property.features.squareFootage} sq ft</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-[#1A2A44]">
-                        <Calendar size={16} className="text-[#D4AF37]" />
-                        <span>{property.features.yearBuilt}</span>
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
-                        {formatPrice(property.price)}
-                      </span>
-                      <Link href={`/properties/${property._id}`}>
-                        <Button 
-                          variant="outline"
-                          className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
-                        >
-                          View Details
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                <PropertyCard key={property._id} property={property} />
               ))}
             </div>
 

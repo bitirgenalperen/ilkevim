@@ -8,7 +8,7 @@ import { ChatButton } from "@/components/ChatButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "İlk Evim | Premium Real Estate Agency",
+  title: "ilkevim | Premium Real Estate Agency",
   description: "Find your dream property in the UK with our expert real estate services.",
 };
 

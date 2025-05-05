@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import {
   Trophy,
   Building,
@@ -81,17 +82,32 @@ export default function AboutPage() {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-6"
+          >
             <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               About Us
             </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
-            Your Trusted Property Partner
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            With over 15 years of excellence in real estate, we have been helping clients achieve their property dreams through expertise, innovation, and dedication.
-          </p>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
+          >
+            Our Story
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
+            Learn about our journey, our values, and our commitment to excellence in real estate.
+          </motion.p>
         </div>
 
         {/* Stats Section */}
@@ -217,17 +233,23 @@ export default function AboutPage() {
                 size="lg"
                 variant="secondary"
                 className="bg-[#D4AF37] text-white hover:bg-[#D4AF37]/90 hover:text-white"
+                asChild
               >
-                <MessageSquareMore className="w-5 h-5 mr-2" />
-                Get in Touch
+                <Link href="/contact">
+                  <MessageSquareMore className="w-5 h-5 mr-2" />
+                  Get in Touch
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] hover:border-[#D4AF37]"
+                asChild
               >
-                <Globe2 className="w-5 h-5 mr-2" />
-                View Our Properties
+                <Link href="/properties">
+                  <Globe2 className="w-5 h-5 mr-2" />
+                  View Our Properties
+                </Link>
               </Button>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { Property } from '@/types/property'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { 
   MapPin, 
@@ -20,11 +20,133 @@ import {
   Calendar,
   ParkingCircle,
   Wifi,
-  Snowflake,
-  Shield
+  Shield,
+  Flame,
+  Wine,
+  UtensilsCrossed,
+  Tv,
+  ChefHat,
+  ArrowUpDown,
+  Flower,
+  Car,
+  BatteryCharging,
+  HeartPulse,
+  WavesLadder,
+  Heater,
+  TabletSmartphone,
+  Binoculars,
+  Shirt,
+  TowerControl,
+  Eclipse
 } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { PropertyMap } from '@/components/PropertyMap'
+import { getSignedUrlsForImages } from '@/lib/s3-client'
+
+// Define amenity icons and descriptions mapping
+const amenityDetails = {
+  "Concierge": {
+    icon: Car,
+    title: "Concierge",
+    description: "24/7 dedicated concierge service"
+  },
+  "Parking": {
+    icon: ParkingCircle,
+    title: "Parking",
+    description: "Secure parking available"
+  },
+  "EV Charging": {
+    icon: BatteryCharging,
+    title: "EV Charging",
+    description: "Electric vehicle charging stations"
+  },
+  "Garden": {
+    icon: Flower,
+    title: "Garden",
+    description: "Beautiful landscaped garden"
+  },
+  "Balcony": {
+    icon: Eclipse,
+    title: "Balcony",
+    description: "Private outdoor space"
+  },
+  "Roof Terrace": {
+    icon: TowerControl,
+    title: "Roof Terrace",
+    description: "Stunning rooftop views"
+  },
+  "Private Elevator": {
+    icon: ArrowUpDown,
+    title: "Private Elevator",
+    description: "Direct elevator access"
+  },
+  "Gym": {
+    icon: HeartPulse,
+    title: "Gym",
+    description: "State-of-the-art fitness center"
+  },
+  "Swimming Pool": {
+    icon: WavesLadder,
+    title: "Swimming Pool",
+    description: "Indoor/outdoor swimming facilities"
+  },
+  "Spa/Sauna": {
+    icon: Heater,
+    title: "Spa/Sauna",
+    description: "Relaxation and wellness area"
+  },
+  "Smart Home System": {
+    icon: TabletSmartphone,
+    title: "Smart Home",
+    description: "Integrated smart home technology"
+  },
+  "Security System": {
+    icon: Shield,
+    title: "Security System",
+    description: "Advanced security systems"
+  },
+  "High-Speed Internet": {
+    icon: Wifi,
+    title: "High-Speed Internet",
+    description: "Fiber optic connection"
+  },
+  "Home Cinema": {
+    icon: Tv,
+    title: "Home Cinema",
+    description: "Premium entertainment space"
+  },
+  "Wine Cellar": {
+    icon: Wine,
+    title: "Wine Cellar",
+    description: "Temperature-controlled wine storage"
+  },
+  "Chef Kitchen": {
+    icon: ChefHat,
+    title: "Chef's Kitchen",
+    description: "Professional-grade kitchen"
+  },
+  "Walk-In Closet": {
+    icon: Shirt,
+    title: "Walk-In Closet",
+    description: "Spacious storage solutions"
+  },
+  "Panoramic Views": {
+    icon: Binoculars,
+    title: "Panoramic Views",
+    description: "Breathtaking scenery"
+  },
+  "Fireplace": {
+    icon: Flame,
+    title: "Fireplace",
+    description: "Cozy indoor fireplace"
+  },
+  "Outdoor Kitchen/BBQ": {
+    icon: UtensilsCrossed,
+    title: "Outdoor Kitchen",
+    description: "Outdoor cooking and dining area"
+  }
+};
 
 // Improved SDLT calculation function
 interface SDLTResult {
@@ -152,6 +274,19 @@ export default function PropertyDetailsPage() {
   const [loanTerm, setLoanTerm] = useState(25)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
 
+  // Function to generate signed URLs for property images
+  const generateSignedUrlsForPropertyImages = async (imageKeys: string[]) => {
+    try {
+      console.log('Generating signed URLs for property images:', imageKeys);
+      const imagesWithUrls = await getSignedUrlsForImages(imageKeys);
+      console.log('Generated signed URLs:', imagesWithUrls);
+      return imagesWithUrls.map(img => img.url);
+    } catch (error) {
+      console.error('Error generating signed URLs for property images:', error);
+      return imageKeys; // Return original keys if there's an error
+    }
+  };
+
   // Fetch property data
   useEffect(() => {
     async function fetchProperty() {
@@ -162,7 +297,15 @@ export default function PropertyDetailsPage() {
           throw new Error('Failed to fetch property details')
         }
         const data = await response.json()
+        
+        // Generate signed URLs for property images
+        if (data.property && data.property.images && data.property.images.length > 0) {
+          const signedImageUrls = await generateSignedUrlsForPropertyImages(data.property.images);
+          data.property.images = signedImageUrls;
+        }
+        
         setProperty(data.property)
+        
       } catch (err) {
         console.error('Error fetching property:', err)
         setError('There was an error loading the property details. Please try again.')
@@ -281,8 +424,37 @@ export default function PropertyDetailsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24 flex items-center justify-center">
-        <div className="animate-spin h-12 w-12 border-4 border-teal-500 rounded-full border-t-transparent"></div>
+      <div className="min-h-screen bg-gradient-to-b from-white via-white to-[#1A2A44]/5 pt-24 flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          {/* Main spinner with decorative elements */}
+          <div className="relative mb-8">
+            {/* Main spinner */}
+            <div className="animate-spin h-16 w-16 border-4 border-[#D4AF37] rounded-full border-t-transparent"></div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-2 -left-2 h-20 w-20 border-2 border-[#1A2A44]/20 rounded-full animate-pulse" style={{ animationDuration: '2s' }}></div>
+            <div className="absolute -bottom-2 -right-2 h-20 w-20 border-2 border-[#1A2A44]/20 rounded-full animate-pulse" style={{ animationDuration: '2.5s' }}></div>
+            
+            {/* Gold accent dots */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+            </div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+              <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            </div>
+            <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+            </div>
+            <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+              <div className="h-3 w-3 bg-[#D4AF37] rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
+            </div>
+          </div>
+          
+          {/* Loading text - shorter and below the animation */}
+          <div className="text-[#1A2A44] font-medium">
+            Loading...
+          </div>
+        </div>
       </div>
     )
   }
@@ -443,7 +615,7 @@ export default function PropertyDetailsPage() {
                     scrollThumbnailIntoView(index);
                   }}
                   id={`thumbnail-${index}`}
-                  className={`relative aspect-square rounded-lg overflow-hidden group ${
+                  className={`relative aspect-[2/1] rounded-lg overflow-hidden group ${
                     activeImage === index ? 'ring-2 ring-[#D4AF37]' : 'hover:ring-2 hover:ring-[#D4AF37]/50'
                   }`}
                 >
@@ -462,30 +634,44 @@ export default function PropertyDetailsPage() {
         </div>
 
         {/* Property Details */}
-        <div className="space-y-6">
+        <div className="space-y-6 mb-18">
           {/* Features */}
           <Card className="p-6 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20">
-            <h2 className="text-xl font-bold mb-4 text-[#1A2A44]">Property Features</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="flex flex-col items-center p-4 bg-[#1A2A44]/5 rounded-lg border border-[#D4AF37]/10">
-                <Bed size={24} className="text-[#D4AF37] mb-2" />
-                <span className="text-lg font-semibold text-[#1A2A44]">{property.features.bedrooms}</span>
-                <span className="text-sm text-[#1A2A44]/70">Bedrooms</span>
+            <h2 className="text-xl font-bold mb-4 text-[#1A2A44] text-center">Property Features</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center">
+                <Bed className="w-10 h-10 text-[#D4AF37] mb-4" />
+                <h3 className="text-lg font-bold text-[#1A2A44] mb-1">Bedrooms</h3>
+                <p className="text-[#D4AF37] font-semibold mb-2">{property.features.bedrooms} Bedrooms</p>
+                <p className="text-sm text-[#1A2A44]/70">Spacious and well-lit bedrooms</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1A2A44]/5 rounded-lg border border-[#D4AF37]/10">
-                <Bath size={24} className="text-[#D4AF37] mb-2" />
-                <span className="text-lg font-semibold text-[#1A2A44]">{property.features.bathrooms}</span>
-                <span className="text-sm text-[#1A2A44]/70">Bathrooms</span>
+
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center">
+                <Bath className="w-10 h-10 text-[#D4AF37] mb-4" />
+                <h3 className="text-lg font-bold text-[#1A2A44] mb-1">Bathrooms</h3>
+                <p className="text-[#D4AF37] font-semibold mb-2">{property.features.bathrooms} Bathrooms</p>
+                <p className="text-sm text-[#1A2A44]/70">Modern and luxurious bathrooms</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1A2A44]/5 rounded-lg border border-[#D4AF37]/10">
-                <Move size={24} className="text-[#D4AF37] mb-2" />
-                <span className="text-lg font-semibold text-[#1A2A44]">{property.features.squareFootage}</span>
-                <span className="text-sm text-[#1A2A44]/70">Sq Ft</span>
+
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center">
+                <Move className="w-10 h-10 text-[#D4AF37] mb-4" />
+                <h3 className="text-lg font-bold text-[#1A2A44] mb-1">Square Footage</h3>
+                <p className="text-[#D4AF37] font-semibold mb-2">{property.features.squareFootage} sq ft</p>
+                <p className="text-sm text-[#1A2A44]/70">Generous living space</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1A2A44]/5 rounded-lg border border-[#D4AF37]/10">
-                <Home size={24} className="text-[#D4AF37] mb-2" />
-                <span className="text-lg font-semibold text-[#1A2A44]">{property.features.propertyType.charAt(0).toUpperCase() + property.features.propertyType.slice(1)}</span>
-                <span className="text-sm text-[#1A2A44]/70">Type</span>
+
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center">
+                <Home className="w-10 h-10 text-[#D4AF37] mb-4" />
+                <h3 className="text-lg font-bold text-[#1A2A44] mb-1">Property Type</h3>
+                <p className="text-[#D4AF37] font-semibold mb-2">{property.features.propertyType.charAt(0).toUpperCase() + property.features.propertyType.slice(1)}</p>
+                <p className="text-sm text-[#1A2A44]/70">Premium residential property</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center">
+                <Calendar className="w-10 h-10 text-[#D4AF37] mb-4" />
+                <h3 className="text-lg font-bold text-[#1A2A44] mb-1">Year Built</h3>
+                <p className="text-[#D4AF37] font-semibold mb-2">{property.features.yearBuilt}</p>
+                <p className="text-sm text-[#1A2A44]/70">Quality construction</p>
               </div>
             </div>
           </Card>
@@ -503,116 +689,36 @@ export default function PropertyDetailsPage() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <span className="text-sm font-semibold text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 inline-block">
-                  Property Features
+                  Property Spotlight
                 </span>
-                <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">Amenities & Features</h2>
+                <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">Amenities</h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Discover what makes this property special with our comprehensive list of amenities
+                  Discover what makes this property special
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                {[
-                  {
-                    icon: <Bed className="w-6 h-6" />,
-                    title: "Bedrooms",
-                    value: `${property.features.bedrooms} Bedrooms`,
-                    description: "Spacious and well-lit bedrooms"
-                  },
-                  {
-                    icon: <Bath className="w-6 h-6" />,
-                    title: "Bathrooms",
-                    value: `${property.features.bathrooms} Bathrooms`,
-                    description: "Modern and luxurious bathrooms"
-                  },
-                  {
-                    icon: <Move className="w-6 h-6" />,
-                    title: "Square Footage",
-                    value: `${property.features.squareFootage} sq ft`,
-                    description: "Generous living space"
-                  },
-                  {
-                    icon: <Calendar className="w-6 h-6" />,
-                    title: "Year Built",
-                    value: property.features.yearBuilt,
-                    description: "Quality construction"
-                  },
-                  {
-                    icon: <ParkingCircle className="w-6 h-6" />,
-                    title: "Parking",
-                    value: "2 Spaces",
-                    description: "Secure parking available"
-                  },
-                  {
-                    icon: <Wifi className="w-6 h-6" />,
-                    title: "Internet",
-                    value: "High-Speed",
-                    description: "Fiber optic connection"
-                  },
-                  {
-                    icon: <Snowflake className="w-6 h-6" />,
-                    title: "Air Conditioning",
-                    value: "Central AC",
-                    description: "Climate control system"
-                  },
-                  {
-                    icon: <Shield className="w-6 h-6" />,
-                    title: "Security",
-                    value: "24/7",
-                    description: "Advanced security system"
-                  }
-                ].map((amenity, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="group"
-                  >
-                    <Card className="border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden">
-                      <CardContent className="p-6">
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-xl flex items-center justify-center mb-4 transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
-                            <div className="text-[#D4AF37]">
-                              {amenity.icon}
-                            </div>
-                          </div>
-                          <h3 className="text-lg font-semibold text-[#1A2A44] mb-2">{amenity.title}</h3>
-                          <p className="text-2xl font-bold text-[#D4AF37] mb-2">{amenity.value}</p>
-                          <p className="text-sm text-gray-600">{amenity.description}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Additional Amenities Grid */}
-              <div className="mt-16 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-[#1A2A44] mb-8 text-center">Additional Features</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[
-                    "Swimming Pool",
-                    "Gym",
-                    "Tennis Court",
-                    "Playground",
-                    "Concierge Service",
-                    "Pet Friendly"
-                  ].map((feature, index) => (
+                {/* Property specific amenities */}
+                {property.amenities.map((amenity, index) => {
+                  const details = amenityDetails[amenity as keyof typeof amenityDetails];
+                  if (!details) return null;
+                  
+                  const IconComponent = details.icon;
+                  return (
                     <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-center gap-2 text-[#1A2A44] bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                      key={amenity}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 + (index * 0.05) }}
+                      viewport={{ once: true, margin: "50px" }}
+                      className="bg-white p-6 rounded-lg shadow-md border border-[#D4AF37]/10 flex flex-col items-center text-center"
                     >
-                      <Check className="w-4 h-4 text-[#D4AF37]" />
-                      <span>{feature}</span>
+                      <IconComponent className="w-10 h-10 text-[#D4AF37] mb-4" />
+                      <h3 className="text-lg font-bold text-[#1A2A44] mb-1">{details.title}</h3>
+                      <p className="text-sm text-[#1A2A44]/70">{details.description}</p>
                     </motion.div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -981,22 +1087,12 @@ export default function PropertyDetailsPage() {
         </div>
 
         {/* Location */}
-        <Card className="p-6 bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20 mt-6">
-          <h2 className="text-xl font-bold mb-4 text-[#1A2A44]">Location</h2>
-          <div className="aspect-video rounded-lg overflow-hidden border border-[#D4AF37]/10">
-            <iframe
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API}&q=${encodeURIComponent(
-                `${property.location.area}, ${property.location.city}`
-              )}`}
-              allowFullScreen
-              className="rounded-lg"
-            ></iframe>
-          </div>
-        </Card>
+        <PropertyMap 
+          area={property.location.area} 
+          city={property.location.city} 
+          address={property.location.address}
+          title="Location"
+        />
       </div>
     </div>
   )

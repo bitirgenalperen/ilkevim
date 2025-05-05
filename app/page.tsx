@@ -1,49 +1,75 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion } from "framer-motion"
+import { useTranslation } from 'react-i18next'
+import i18n from '@/i18n/config'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Building, Home, MapPin, Phone, Search, ArrowRight, PiggyBank, Calculator, Bath, Bed, Move, Calendar, Loader2 } from "lucide-react"
+import { Building, Home, MapPin, Phone, Search, ArrowRight, Calculator, Bath, Bed, Move, Calendar, Loader2, Receipt, Percent, Check } from "lucide-react"
 import { PartnersCarousel } from "@/components/PartnersCarousel"
 import { ReviewsCarousel } from "@/components/ReviewsCarousel"
 import { cn } from "@/lib/utils"
 import { Property } from '@/types/property'
-
+import { getSignedUrlsForImages } from '@/lib/s3-client'
 
 export default function HomePage() {
+  const { t, i18n: i18nInstance } = useTranslation('homepage')
   const [featuredProperties, setFeaturedProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [error, setError] = useState<string | null>(null)
+
+  // Initialize language from localStorage
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language')
+    if (storedLanguage) {
+      i18nInstance.changeLanguage(storedLanguage)
+    }
+  }, [i18nInstance])
 
   const slides = [
     {
       image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053",
-      title: "Luxury Living in London",
-      subtitle: "Discover premium properties in the heart of the city"
+      title: t('hero.slides.luxury.title'),
+      subtitle: t('hero.slides.luxury.subtitle')
     },
     {
       image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070",
-      title: "Modern Architecture",
-      subtitle: "Contemporary homes with stunning designs"
+      title: t('hero.slides.modern.title'),
+      subtitle: t('hero.slides.modern.subtitle')
     },
     {
       image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053",
-      title: "Investment Opportunities",
-      subtitle: "Prime real estate for smart investors"
+      title: t('hero.slides.investment.title'),
+      subtitle: t('hero.slides.investment.subtitle')
     },
     {
       image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070",
-      title: "Premium Locations",
-      subtitle: "Exclusive properties in sought-after areas"
+      title: t('hero.slides.premium.title'),
+      subtitle: t('hero.slides.premium.subtitle')
     },
     {
       image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053",
-      title: "Smart Investment",
-      subtitle: "Strategic property investments for long-term growth"
+      title: t('hero.slides.smart.title'),
+      subtitle: t('hero.slides.smart.subtitle')
     }
   ]
+
+  // Function to generate signed URLs for property images
+  const generateSignedUrlsForPropertyImages = async (imageKeys: string[]) => {
+    try {
+      console.log('Generating signed URLs for property images:', imageKeys);
+      const imagesWithUrls = await getSignedUrlsForImages(imageKeys);
+      console.log('Generated signed URLs:', imagesWithUrls);
+      return imagesWithUrls.map(img => img.url);
+    } catch (error) {
+      console.error('Error generating signed URLs for property images:', error);
+      return imageKeys; // Return original keys if there's an error
+    }
+  };
 
   useEffect(() => {
     const fetchFeaturedProperties = async () => {
@@ -53,9 +79,22 @@ export default function HomePage() {
           throw new Error('Failed to fetch featured properties')
         }
         const data = await response.json()
-        setFeaturedProperties(data.properties)
+        
+        // Generate signed URLs for all property images
+        const propertiesWithSignedUrls = await Promise.all(
+          data.properties.map(async (property: Property) => {
+            if (property.images && property.images.length > 0) {
+              const signedImageUrls = await generateSignedUrlsForPropertyImages(property.images);
+              return { ...property, images: signedImageUrls };
+            }
+            return property;
+          })
+        );
+        
+        setFeaturedProperties(propertiesWithSignedUrls)
       } catch (error) {
         console.error('Error fetching featured properties:', error)
+        setError('Failed to load featured properties')
       } finally {
         setLoading(false)
       }
@@ -67,7 +106,7 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000) // Change slide every 5 seconds
+    }, 4000) // Change slide every 4 seconds
 
     return () => clearInterval(timer)
   }, [])
@@ -81,66 +120,132 @@ export default function HomePage() {
   }
 
   function PropertyCard({ property }: { property: Property }) {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [imageLoadError, setImageLoadError] = useState(false);
+    const images = property.images.slice(0, 3); // Limit to 3 images
+
+    const nextImage = (e: React.MouseEvent) => {
+      e.preventDefault(); // Prevent navigation when clicking arrows
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setImageLoadError(false); // Reset error state when changing images
+    };
+
+    const previousImage = (e: React.MouseEvent) => {
+      e.preventDefault(); // Prevent navigation when clicking arrows
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+      setImageLoadError(false); // Reset error state when changing images
+    };
+
+    const handleImageError = () => {
+      setImageLoadError(true);
+      // Try to load the next image if available
+      if (images.length > 1) {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      }
+    };
+
     return (
-      <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/20 bg-white/80 backdrop-blur-sm flex flex-col !py-0">
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={property.images[0]}
-            alt={property.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          <Badge
-            className={cn(
-              "absolute top-4 right-4",
-              property.listingType === 'featured' 
-                ? "bg-[#D4AF37]/90 hover:bg-[#D4AF37]/90 text-white" 
-                : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
+      <Link href={`/properties/${property._id}`} className="block">
+        <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/20 bg-white/80 backdrop-blur-sm flex flex-col !py-0 cursor-pointer">
+          <div className="relative h-48 overflow-hidden">
+            {imageLoadError ? (
+              <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                <div className="text-center p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p className="text-sm text-gray-500">Image not available</p>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={images[currentImageIndex]}
+                alt={property.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onError={handleImageError}
+              />
             )}
-          >
-            {property.listingType === 'featured' ? 'Featured' : 'Standard'}
-          </Badge>
-        </div>
-        <CardContent className="pt-3 px-6 pb-6 flex-grow">
-          <div className="flex items-center gap-2 text-[#1A2A44] mb-2">
-            <MapPin size={16} className="text-[#D4AF37]" />
-            <span>{property.location.area}, {property.location.city}</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            
+            {/* Navigation Arrows - Only visible on hover */}
+            {images.length > 1 && !imageLoadError && (
+              <>
+                <button
+                  onClick={previousImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#1A2A44] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#1A2A44] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Image Counter */}
+            {images.length > 1 && !imageLoadError && (
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white px-2 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {currentImageIndex + 1} / {images.length}
+              </div>
+            )}
+            <Badge
+              className={cn(
+                "absolute top-4 right-4",
+                property.listingType === 'featured' 
+                  ? "bg-[#D4AF37]/90 hover:bg-[#D4AF37]/90 text-white" 
+                  : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
+              )}
+            >
+              {property.listingType === 'featured' ? 'Featured' : 'Standard'}
+            </Badge>
           </div>
-          <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
-          <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="flex items-center gap-2 text-[#1A2A44]">
-              <Bed size={16} className="text-[#D4AF37]" />
-              <span>{property.features.bedrooms} Beds</span>
+          <CardContent className="pt-3 px-6 pb-6 flex-grow">
+            <div className="flex items-center gap-2 text-[#1A2A44] mb-2">
+              <MapPin size={16} className="text-[#D4AF37]" />
+              <span>{property.location.area}, {property.location.city}</span>
             </div>
-            <div className="flex items-center gap-2 text-[#1A2A44]">
-              <Bath size={16} className="text-[#D4AF37]" />
-              <span>{property.features.bathrooms} Baths</span>
+            <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
+            <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Bed size={16} className="text-[#D4AF37]" />
+                <span>{property.features.bedrooms} Beds</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Bath size={16} className="text-[#D4AF37]" />
+                <span>{property.features.bathrooms} Baths</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Move size={16} className="text-[#D4AF37]" />
+                <span>{property.features.squareFootage} sq ft</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#1A2A44]">
+                <Calendar size={16} className="text-[#D4AF37]" />
+                <span>{property.features.yearBuilt}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-[#1A2A44]">
-              <Move size={16} className="text-[#D4AF37]" />
-              <span>{property.features.squareFootage} sq ft</span>
-            </div>
-            <div className="flex items-center gap-2 text-[#1A2A44]">
-              <Calendar size={16} className="text-[#D4AF37]" />
-              <span>{property.features.yearBuilt}</span>
-            </div>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
-              {formatPrice(property.price)}
-            </span>
-            <Link href={`/properties/${property._id}`}>
+            <div className="flex justify-between items-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
+                {formatPrice(property.price)}
+              </span>
               <Button 
                 variant="outline"
                 className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
+                onClick={(e) => e.stopPropagation()}
               >
                 View Details
               </Button>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
     )
   }
 
@@ -213,7 +318,7 @@ export default function HomePage() {
                   asChild
                 >
                   <Link href="/properties">
-                    Browse Properties
+                    {t('hero.buttons.browseProperties')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -224,7 +329,7 @@ export default function HomePage() {
                   asChild
                 >
                   <Link href="/contact">
-                    Book a Consultation
+                    {t('hero.buttons.bookConsultation')}
                     <Phone className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -274,11 +379,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 inline-block">
-              Featured Listings
+              {t('featured.badge')}
             </span>
-            <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">Featured Properties</h2>
+            <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">{t('featured.title')}</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our handpicked selection of premium properties across the UK
+              {t('featured.subtitle')}
             </p>
           </div>
           
@@ -294,7 +399,7 @@ export default function HomePage() {
               
               {featuredProperties.length === 0 && !loading && (
                 <div className="col-span-3 text-center py-12">
-                  <p className="text-gray-600">No featured properties available at the moment.</p>
+                  <p className="text-gray-600">{t('featured.noProperties')}</p>
                 </div>
               )}
             </div>
@@ -303,7 +408,7 @@ export default function HomePage() {
           <div className="text-center mt-16">
             <Link href="/properties">
               <Button size="lg" className="bg-white text-[#D4AF37] border-2 border-[#D4AF37] hover:bg-[#D4AF37]/10 px-8 py-6 rounded-full">
-                View All Properties
+                {t('featured.viewAll')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -316,29 +421,29 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 inline-block">
-              Our Expertise
+              {t('services.badge')}
             </span>
-            <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold text-[#1A2A44] mb-4">{t('services.title')}</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive real estate services tailored to your needs
+              {t('services.subtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: <Home className="w-8 h-8 text-[#D4AF37]" />,
-                title: "Residential Sales",
-                description: "Find your perfect home with our extensive portfolio of residential properties."
+                title: t('services.items.residential.title'),
+                description: t('services.items.residential.description')
               },
               {
                 icon: <Building className="w-8 h-8 text-[#D4AF37]" />,
-                title: "Commercial Properties",
-                description: "Expert guidance in commercial real estate investments and leasing."
+                title: t('services.items.commercial.title'),
+                description: t('services.items.commercial.description')
               },
               {
                 icon: <Search className="w-8 h-8 text-[#D4AF37]" />,
-                title: "Property Search",
-                description: "Personalized property search service tailored to your specific requirements."
+                title: t('services.items.search.title'),
+                description: t('services.items.search.description')
               }
             ].map((service, i) => (
               <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-none bg-white">
@@ -368,16 +473,16 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <span className="text-sm font-semibold text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 inline-block">
-              Investment Opportunities
+              {t('investment.badge')}
             </span>
             <h2 className="text-4xl font-bold mb-6 text-[#1A2A44]">
-              Real Estate Investment Consultancy in the UK
+              {t('investment.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              The London real estate market has emerged as one of the markets that international investors have been most interested in over the years. The most important reason for this popularity is that the increase in this market has exceeded the real estate returns of other world cities, and even many financial products, for a long time. Another important factor is that London serves as a safe harbor for potential buyers and consistently attracts European and intercontinental capital.
+              {t('investment.description1')}
             </p>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              As you might expect, London has many attraction points. Among these are being a global financial center, having a continuously growing economy, and being one of the primary destination points for international students and working professionals.
+              {t('investment.description2')}
             </p>
           </div>
 
@@ -385,72 +490,96 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto mb-20">
             <div className="relative">
               <div className="bg-[#D4AF37] p-6 text-[#1A2A44] text-center mb-4 rounded-t-lg shadow-lg">
-                <span className="text-2xl font-bold">£19,998</span>
-                <p className="text-sm">Buyer&apos;s 5% deposit</p>
+                <span className="text-2xl font-bold">{t('investment.structure.deposit.amount')}</span>
+                <p className="text-sm">{t('investment.structure.deposit.label')}</p>
               </div>
               <div className="bg-[#D4AF37]/90 p-6 text-[#1A2A44] text-center mb-4 shadow-lg">
-                <span className="text-2xl font-bold">£159,980</span>
-                <p className="text-sm">40% Equity loan</p>
+                <span className="text-2xl font-bold">{t('investment.structure.equity.amount')}</span>
+                <p className="text-sm">{t('investment.structure.equity.label')}</p>
               </div>
               <div className="bg-[#D4AF37]/80 p-6 text-[#1A2A44] text-center mb-4 shadow-lg">
-                <span className="text-2xl font-bold">£219,972</span>
-                <p className="text-sm">55% mortgage</p>
+                <span className="text-2xl font-bold">{t('investment.structure.mortgage.amount')}</span>
+                <p className="text-sm">{t('investment.structure.mortgage.label')}</p>
               </div>
             </div>
           </div>
 
           {/* Key Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* No Stamp Duty */}
-            <Card className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-2xl flex items-center justify-center mb-4 transform -rotate-6">
-                    <PiggyBank className="w-8 h-8 text-[#D4AF37]" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-[#1A2A44]">No Stamp Duty!</h3>
-                  <p className="text-gray-600">
-                    As part of the economic support campaign, stamp duty has been removed until June 2021 for home buyers up to £500,000.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Only 5% Deposit */}
-            <Card className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white">
+            <Card className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white group">
               <CardContent className="p-8">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-2xl flex items-center justify-center mb-4 transform -rotate-6">
-                    <Home className="w-8 h-8 text-[#D4AF37]" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-2xl flex items-center justify-center mb-4 transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
+                    <Percent className="w-8 h-8 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-[#1A2A44]">Only 5% Deposit</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#1A2A44]">{t('investment.benefits.deposit.title')}</h3>
                   <p className="text-gray-600">
-                    For first-time home buyers in the UK, the deposit rate is only 5%.
+                    {t('investment.benefits.deposit.description')}
                   </p>
                 </div>
               </CardContent>
             </Card>
 
             {/* 40% Government Support */}
-            <Card className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white">
+            <Card className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white group">
               <CardContent className="p-8">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-2xl flex items-center justify-center mb-4 transform -rotate-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 rounded-2xl flex items-center justify-center mb-4 transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
                     <Calculator className="w-8 h-8 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-[#1A2A44]">40% Government Support</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#1A2A44]">{t('investment.benefits.support.title')}</h3>
                   <p className="text-gray-600">
-                    Catch the opportunity to become a homeowner with 40% government support in London housing projects, and 20% government support in housing projects outside London!
+                    {t('investment.benefits.support.description')}
                   </p>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          <div className="text-center mt-12">
+          {/* Investment Benefits */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-[#D4AF37]/5 to-[#D4AF37]/10 p-6 rounded-2xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                  <Building className="w-5 h-5 text-[#D4AF37]" />
+                </div>
+                <h4 className="font-semibold text-[#1A2A44]">{t('investment.benefits.locations.title')}</h4>
+              </div>
+              <p className="text-gray-600">
+                {t('investment.benefits.locations.description')}
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#D4AF37]/5 to-[#D4AF37]/10 p-6 rounded-2xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                  <Home className="w-5 h-5 text-[#D4AF37]" />
+                </div>
+                <h4 className="font-semibold text-[#1A2A44]">{t('investment.benefits.rental.title')}</h4>
+              </div>
+              <p className="text-gray-600">
+                {t('investment.benefits.rental.description')}
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#D4AF37]/5 to-[#D4AF37]/10 p-6 rounded-2xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                  <Search className="w-5 h-5 text-[#D4AF37]" />
+                </div>
+                <h4 className="font-semibold text-[#1A2A44]">{t('investment.benefits.guidance.title')}</h4>
+              </div>
+              <p className="text-gray-600">
+                {t('investment.benefits.guidance.description')}
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
             <Link href="/properties">
               <Button size="lg" className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl px-8 py-6 rounded-full">
-                Explore Investment Properties
+                {t('investment.cta')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

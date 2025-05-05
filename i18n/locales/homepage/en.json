@@ -1,0 +1,201 @@
+{
+  "hero": {
+    "slides": {
+      "luxury": {
+        "title": "Luxury Living in London",
+        "subtitle": "Discover premium properties in the heart of the city"
+      },
+      "modern": {
+        "title": "Modern Architecture",
+        "subtitle": "Contemporary homes with stunning designs"
+      },
+      "investment": {
+        "title": "Investment Opportunities",
+        "subtitle": "Prime real estate for smart investors"
+      },
+      "premium": {
+        "title": "Premium Locations",
+        "subtitle": "Exclusive properties in sought-after areas"
+      },
+      "smart": {
+        "title": "Smart Investment",
+        "subtitle": "Strategic property investments for long-term growth"
+      }
+    },
+    "buttons": {
+      "browseProperties": "Browse Properties",
+      "bookConsultation": "Book a Consultation"
+    }
+  },
+  "featured": {
+    "badge": "Featured Listings",
+    "title": "Featured Properties",
+    "subtitle": "Discover our handpicked selection of premium properties across the UK",
+    "noProperties": "No featured properties available at the moment",
+    "viewAll": "View All Properties"
+  },
+  "services": {
+    "badge": "Our Expertise",
+    "title": "Our Services",
+    "subtitle": "Comprehensive real estate services tailored to your needs",
+    "items": {
+      "residential": {
+        "title": "Residential Sales",
+        "description": "Find your perfect home with our extensive portfolio of residential properties."
+      },
+      "commercial": {
+        "title": "Commercial Properties",
+        "description": "Expert guidance in commercial real estate investments and leasing."
+      },
+      "search": {
+        "title": "Property Search",
+        "description": "Personalized property search service tailored to your specific requirements."
+      }
+    }
+  },
+  "investment": {
+    "badge": "Investment Opportunities",
+    "title": "Real Estate Investment Consultancy in the UK",
+    "description1": "The London real estate market has emerged as one of the markets that international investors have been most interested in over the years. The most important reason for this popularity is that the increase in this market has exceeded the real estate returns of other world cities, and even many financial products, for a long time. Another important factor is that London serves as a safe harbor for potential buyers and consistently attracts European and intercontinental capital.",
+    "description2": "As you might expect, London has many attraction points. Among these are being a global financial center, having a continuously growing economy, and being one of the primary destination points for international students and working professionals.",
+    "structure": {
+      "deposit": {
+        "amount": "£19,998",
+        "label": "Buyer's 5% deposit"
+      },
+      "equity": {
+        "amount": "£159,980",
+        "label": "40% Equity loan"
+      },
+      "mortgage": {
+        "amount": "£219,972",
+        "label": "55% mortgage"
+      }
+    },
+    "benefits": {
+      "deposit": {
+        "title": "Only 5% Deposit",
+        "description": "For first-time home buyers in the UK, the deposit rate is only 5%."
+      },
+      "support": {
+        "title": "40% Government Support",
+        "description": "Catch the opportunity to become a homeowner with 40% government support in London housing projects, and 20% government support in housing projects outside London!"
+      },
+      "locations": {
+        "title": "Prime Locations",
+        "description": "Strategic properties in London's most sought-after areas with high growth potential"
+      },
+      "rental": {
+        "title": "Rental Income",
+        "description": "Strong rental yields with professional property management services"
+      },
+      "guidance": {
+        "title": "Expert Guidance",
+        "description": "Comprehensive investment support and market insights from our experienced team"
+      }
+    },
+    "cta": "Explore Investment Properties"
+  },
+  "partners": {
+    "badge": "Our Partners",
+    "title": "Trusted by Leading Organizations",
+    "subtitle": "We collaborate with industry leaders to provide exceptional service"
+  },
+  "testimonials": {
+    "reviews": [
+      {
+        "name": "Ahmet Y.",
+        "role": "International Buyer",
+        "review": "This team made my UK luxury property purchase effortless. Their expertise and tailored service ensured a smooth and stress-free experience.",
+        "rating": 5
+      },
+      {
+        "name": "Fatima A.",
+        "role": "Luxury Property Buyer",
+        "review": "Their exclusive property selection is unparalleled. They found me a stunning Dubai residence that perfectly matches my vision of elegance.",
+        "rating": 5
+      },
+      {
+        "name": "Elchin M.",
+        "role": "Real Estate Investor",
+        "review": "The team’s market knowledge led me to a high-return property in Baku. Their strategic guidance made the investment process seamless.",
+        "rating": 5
+      },
+      {
+        "name": "Zeynep K.",
+        "role": "Relocating Professional",
+        "review": "Relocating to London was a breeze with their help. They found a luxurious home in a prime location, ideal for my career and lifestyle.",
+        "rating": 5
+      },
+      {
+        "name": "Khalid R.",
+        "role": "Commercial Investor",
+        "review": "Their expertise in UAE and UK commercial markets is top-notch. They secured a high-value property that strengthens my portfolio.",
+        "rating": 4
+      },
+      {
+        "name": "Aygun H.",
+        "role": "First-time Buyer",
+        "review": "As a first-time buyer, I felt guided and supported. They found me a beautiful luxury apartment that fits my dreams and budget.",
+        "rating": 5
+      },
+      {
+        "name": "Mohammed S.",
+        "role": "International Buyer",
+        "review": "Purchasing a high-end London property was seamless with their support. Their market insights and attention to detail were exceptional.",
+        "rating": 5
+      },
+      {
+        "name": "Leyla B.",
+        "role": "Luxury Property Buyer",
+        "review": "They understood my need for exclusivity and delivered a breathtaking property. Their service is the gold standard in luxury real estate.",
+        "rating": 5
+      },
+      {
+        "name": "Hassan N.",
+        "role": "Real Estate Investor",
+        "review": "Their ability to spot high-yield properties is impressive. They guided me to a luxury Istanbul asset that’s already growing in value.",
+        "rating": 5
+      },
+      {
+        "name": "Sevda T.",
+        "role": "Luxury Property Buyer",
+        "review": "Their service was flawless from start to finish. They sourced a spectacular property that embodies sophistication and comfort.",
+        "rating": 5
+      },
+      {
+        "name": "Rashid F.",
+        "role": "International Buyer",
+        "review": "The team’s professionalism made my overseas purchase effortless. They found a prestigious UK property that met every expectation.",
+        "rating": 5
+      },
+      {
+        "name": "Nargiz G.",
+        "role": "Relocating Professional",
+        "review": "Moving to the UAE was simplified with their expertise. They secured a luxurious home in a vibrant area, perfect for work and leisure.",
+        "rating": 5
+      },
+      {
+        "name": "Omar D.",
+        "role": "Commercial Investor",
+        "review": "Their insights into Dubai’s commercial market helped me acquire a prime property. A valuable addition to my investment strategy.",
+        "rating": 4
+      },
+      {
+        "name": "Aylin C.",
+        "role": "First-time Buyer",
+        "review": "Buying my first luxury property was daunting, but their patience and knowledge made it a joy. I’m thrilled with my new home!",
+        "rating": 5
+      },
+      {
+        "name": "Tural I.",
+        "role": "Luxury Property Buyer",
+        "review": "Their portfolio of elite properties is extraordinary. They found me a masterpiece in Azerbaijan that defines prestige and elegance.",
+        "rating": 5
+      }
+    ],
+    "badge": "Client Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Hear from our satisfied clients about their experience with us"
+  }
+} 

@@ -2,17 +2,22 @@
 
 ## Implementations
 
+- [X] Our Partners logolarını güncelle
+- [X] Client Testimonials ekle - gerçekçi olsun
 
-- [ ] Update the Amenities list
-- [ ] Update Property Details page
+- [X] Subscribe to newsteller
 
-- [ ] Image upload and priority
-- [ ] Map location API integration
-
-
+- [X] Update the Amenities list
+- [X] Update Property Details page
 - [ ] Chatbot-like button
 
-- [ ] Subscribe to newsteller
-- [ ] Send new listing details via email
 
 - [ ] Language selection for pages
+
+API Integrations
+- [X] Image upload and priority
+- [X] Map location API integration
+- [ ] Send new listing details via email
+
+
+

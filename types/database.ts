@@ -42,4 +42,12 @@ export interface Enquiry {
   status: 'pending' | 'responded' | 'closed'
   createdAt: Date
   updatedAt: Date
+}
+
+export interface Subscriber {
+  _id?: ObjectId
+  name: string
+  email: string
+  createdAt: Date
+  updatedAt: Date
 } 

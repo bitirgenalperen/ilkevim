@@ -181,7 +181,7 @@ export default function PrivacyPage() {
                 <ul>
                   <li>To comply with legal obligations</li>
                   <li>To enforce our terms and conditions and other policies</li>
-                  <li>To protect our rights, privacy, safety or property, and/or that of our affiliates, you or others</li>
+                  <li>To protect the rights, property, or safety of ilkevim, our users, or others</li>
                   <li>To detect, prevent, or otherwise address fraud, security, or technical issues</li>
                 </ul>
               </div>
@@ -218,7 +218,7 @@ export default function PrivacyPage() {
                 <p>If we are involved in a merger, acquisition, financing due diligence, reorganization, bankruptcy, receivership, sale of company assets, or transition of service to another provider, your information may be transferred as part of such a transaction as permitted by law and/or contract.</p>
                 
                 <h3>3.4 Legal Requirements</h3>
-                <p>We may disclose your information where we believe disclosure is necessary or required by law or regulation, to comply with legal process served on us, or to protect the rights, property, or safety of Ilkevim, our users, or others.</p>
+                <p>We may disclose your information where we believe disclosure is necessary or required by law or regulation, to comply with legal process served on us, or to protect the rights, property, or safety of ilkevim, our users, or others.</p>
                 
                 <h3>3.5 With Your Consent</h3>
                 <p>We may disclose your personal information for any other purpose with your consent.</p>
@@ -381,10 +381,10 @@ export default function PrivacyPage() {
                 <ul>
                   <li><strong>By email:</strong> privacy@ilkevim.co.uk</li>
                   <li><strong>By phone:</strong> +44 20 1234 5678</li>
-                  <li><strong>By mail:</strong> Data Protection Officer, Ilkevim UK Limited, 123 Property Lane, London, SW1A 1AA, United Kingdom</li>
+                  <li><strong>By mail:</strong> Data Protection Officer, ilkevim UK Limited, 123 Property Lane, London, SW1A 1AA, United Kingdom</li>
                 </ul>
                 
-                <p>For data subjects in the European Union, please note that we have appointed a Data Protection Officer who can be contacted regarding any issues related to the processing of your personal data. Our Data Protection Officer can be contacted at dpo@ilkevim.co.uk.</p>
+                <p>Our Data Protection Officer can be contacted at dpo@ilkevim.co.uk.</p>
               </div>
             </Card>
           </section>

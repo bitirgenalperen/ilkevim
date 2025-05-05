@@ -30,6 +30,9 @@ import {
   Loader2,
   CheckCircle,
 } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { commonAmenities } from '@/data/properties'
+import { generateUniqueKey } from '@/lib/s3-client'
 
 // Property type options
 const propertyTypes = [
@@ -37,26 +40,6 @@ const propertyTypes = [
   { value: 'house', label: 'House', icon: Home },
   { value: 'penthouse', label: 'Penthouse', icon: Hotel },
   { value: 'villa', label: 'Villa', icon: Castle },
-]
-
-// Common amenities
-const commonAmenities = [
-  'Air Conditioning',
-  'Balcony',
-  'Garden',
-  'Parking',
-  'Swimming Pool',
-  'Gym',
-  'Security System',
-  'Elevator',
-  'Furnished',
-  'Fireplace',
-  'Central Heating',
-  'Wheelchair Access',
-  'Pets Allowed',
-  'Storage',
-  'Washing Machine',
-  'Dishwasher'
 ]
 
 // UK Cities for dropdown
@@ -93,6 +76,7 @@ type FormData = {
   };
   listingType: 'standard' | 'featured';
   status: 'available' | 'pending' | 'sold';
+  stayType: 'buy' | 'rent';
 }
 
 export default function ListPropertyPage() {
@@ -103,6 +87,8 @@ export default function ListPropertyPage() {
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([])
   const [imageFiles, setImageFiles] = useState<File[]>([])
   const [imageUrls, setImageUrls] = useState<string[]>([])
+  const [uploadProgress, setUploadProgress] = useState<{[key: string]: number}>({})
+  const [uploadErrors, setUploadErrors] = useState<{[key: string]: string}>({})
   
   const [formData, setFormData] = useState<FormData>({
     title: '',
@@ -122,6 +108,7 @@ export default function ListPropertyPage() {
     },
     listingType: 'standard',
     status: 'available',
+    stayType: 'buy',
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -195,6 +182,70 @@ export default function ListPropertyPage() {
     
     setImageFiles(prev => prev.filter((_, i) => i !== index))
     setImageUrls(prev => prev.filter((_, i) => i !== index))
+    
+    // Clear any upload progress or errors for this image
+    const newProgress = { ...uploadProgress }
+    const newErrors = { ...uploadErrors }
+    delete newProgress[index.toString()]
+    delete newErrors[index.toString()]
+    setUploadProgress(newProgress)
+    setUploadErrors(newErrors)
+  }
+
+  const uploadImage = async (file: File, index: number) => {
+    try {
+      // Create a unique key for the file
+      const key = generateUniqueKey(file)
+      
+      // Create form data
+      const formData = new FormData()
+      formData.append('file', file)
+      
+      // Update progress to indicate upload started
+      setUploadProgress(prev => ({ ...prev, [index]: 10 }))
+      
+      // Upload the file
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
+      
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.details || errorData.error || 'Failed to upload image')
+      }
+      
+      const data = await response.json()
+      
+      // Update progress to indicate upload complete
+      setUploadProgress(prev => ({ ...prev, [index]: 100 }))
+      
+      // Clear any errors
+      setUploadErrors(prev => {
+        const newErrors = { ...prev }
+        delete newErrors[index]
+        return newErrors
+      })
+      
+      return data.url
+    } catch (error) {
+      console.error(`Error uploading image ${index}:`, error)
+      
+      // Set error message
+      setUploadErrors(prev => ({
+        ...prev,
+        [index]: error instanceof Error ? error.message : 'Failed to upload image'
+      }))
+      
+      // Reset progress
+      setUploadProgress(prev => {
+        const newProgress = { ...prev }
+        delete newProgress[index]
+        return newProgress
+      })
+      
+      return null
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -213,16 +264,21 @@ export default function ListPropertyPage() {
     setIsSubmitting(true)
     
     try {
-      // In a real application, you would upload images to storage
-      // and get back permanent URLs to store in the database
-      const mockImageUrls = imageUrls.map((_, i) => 
-        `https://example.com/property-image-${i}.jpg`
-      )
+      // Upload all images to R2
+      const uploadPromises = imageFiles.map((file, index) => uploadImage(file, index))
+      const uploadedUrls = await Promise.all(uploadPromises)
+      
+      // Filter out any failed uploads
+      const successfulUrls = uploadedUrls.filter(url => url !== null) as string[]
+      
+      if (successfulUrls.length === 0) {
+        throw new Error('Failed to upload any images')
+      }
       
       const propertyData = {
         ...formData,
         amenities: selectedAmenities,
-        images: mockImageUrls,
+        images: successfulUrls,
         price: parseInt(formData.price),
         features: {
           ...formData.features,
@@ -231,6 +287,7 @@ export default function ListPropertyPage() {
           squareFootage: parseInt(formData.features.squareFootage),
           yearBuilt: parseInt(formData.features.yearBuilt),
         },
+        stayType: formData.stayType,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       }
@@ -358,6 +415,38 @@ export default function ListPropertyPage() {
                       className="mt-1"
                       rows={5}
                     />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="stayType">Available For</Label>
+                    <div className="flex mt-1">
+                      <Button
+                        type="button"
+                        variant={formData.stayType === 'buy' ? 'default' : 'outline'}
+                        className={cn(
+                          "flex-1 rounded-r-none",
+                          formData.stayType === 'buy'
+                            ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]"
+                            : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
+                        )}
+                        onClick={() => setFormData({ ...formData, stayType: 'buy' })}
+                      >
+                        Buy
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={formData.stayType === 'rent' ? 'default' : 'outline'}
+                        className={cn(
+                          "flex-1 rounded-l-none",
+                          formData.stayType === 'rent'
+                            ? "bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white border-[#D4AF37]"
+                            : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
+                        )}
+                        onClick={() => setFormData({ ...formData, stayType: 'rent' })}
+                      >
+                        Rent
+                      </Button>
+                    </div>
                   </div>
                   
                   <div>
@@ -547,8 +636,8 @@ export default function ListPropertyPage() {
                           className={`
                             p-3 rounded-lg border cursor-pointer transition-colors
                             ${selectedAmenities.includes(amenity) 
-                              ? 'bg-teal-50 border-teal-200 text-teal-700' 
-                              : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'}
+                              ? 'bg-[#D4AF37]/10 border-[#D4AF37] text-[#D4AF37]' 
+                              : 'bg-white border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]'}
                           `}
                           onClick={() => handleAmenityToggle(amenity)}
                         >
@@ -619,12 +708,28 @@ export default function ListPropertyPage() {
                       <Label className="mb-3 block">Preview</Label>
                       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {imageUrls.map((url, index) => (
-                          <div key={index} className="relative group">
+                          <div 
+                            key={index} 
+                            className={`relative group ${
+                              index === 0 
+                                ? 'ring-2 ring-green-500' 
+                                : index <= 2 
+                                  ? 'ring-2 ring-orange-500' 
+                                  : 'ring-2 ring-red-500'
+                            } rounded-lg overflow-hidden`}
+                          >
                             <img
                               src={url}
                               alt={`Property preview ${index + 1}`}
-                              className="h-32 w-full object-cover rounded-lg"
+                              className="h-32 w-full object-cover"
                             />
+                            <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                              {index === 0 
+                                ? 'Main Image' 
+                                : index <= 2 
+                                  ? 'Secondary Image' 
+                                  : 'Additional Image'}
+                            </div>
                             <button
                               type="button"
                               className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
@@ -632,6 +737,21 @@ export default function ListPropertyPage() {
                             >
                               <Trash2 className="h-4 w-4" />
                             </button>
+                            
+                            {/* Upload Progress Indicator */}
+                            {uploadProgress[index] !== undefined && (
+                              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs p-1 rounded-b-lg">
+                                <div className="w-full bg-gray-200 rounded-full h-1.5">
+                                  <div 
+                                    className="bg-[#D4AF37] h-1.5 rounded-full" 
+                                    style={{ width: `${uploadProgress[index]}%` }}
+                                  ></div>
+                                </div>
+                                <div className="text-center mt-1">
+                                  {uploadProgress[index] === 100 ? 'Uploaded' : 'Uploading...'}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>

@@ -4,7 +4,7 @@ import { DatabaseService } from '@/lib/db'
 interface PropertyQuery {
   listingType?: string;
   $or?: Array<{
-    [key: string]: { $regex: string; $options: string };
+    [key: string]: any;
   }>;
   'features.propertyType'?: string;
   'location.city'?: string;
@@ -25,6 +25,7 @@ interface PropertyQuery {
     $lte?: number;
   };
   amenities?: { $all: string[] };
+  stayType?: string | { $exists: boolean };
 }
 
 export async function GET(request: Request) {
@@ -33,6 +34,19 @@ export async function GET(request: Request) {
     
     // Initialize MongoDB query
     const query: PropertyQuery = {}
+
+    // Stay type filter
+    const stayType = searchParams.get('stayType')
+    if (stayType === 'rent') {
+      // When "Rent" is selected, only show properties with stayType "rent"
+      query.stayType = 'rent'
+    } else if (stayType === 'buy') {
+      // When "Buy" is selected, show properties with stayType "buy" OR no stayType field
+      query.$or = [
+        { stayType: 'buy' },
+        { stayType: { $exists: false } }
+      ]
+    }
 
     // Listing type filter
     const listingType = searchParams.get('listingType')

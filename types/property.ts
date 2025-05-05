@@ -36,4 +36,5 @@ export interface Filters {
   amenities: string[];
   searchTerm: string;
   squareFootage: [number, number];
+  stayType: 'buy' | 'rent' | null;
 } 

@@ -1,0 +1,9 @@
+{
+  "navbar": {
+    "properties": "Properties",
+    "services": "Services",
+    "events": "Events",
+    "about": "About",
+    "contact": "Contact"
+  }
+} 

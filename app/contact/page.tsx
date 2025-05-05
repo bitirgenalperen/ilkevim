@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Card } from '@/components/ui/card'
 import { companyInfo } from '@/data/company-info'
+import { PropertyMap } from '@/components/PropertyMap'
 import {
   MapPin,
   Phone,
@@ -16,7 +17,6 @@ import {
   CheckCircle2,
   Loader2,
   MessageSquareText,
-  Building,
   ArrowRight,
   Facebook,
   Instagram,
@@ -203,17 +203,35 @@ export default function ContactPage() {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "50px", amount: 0.1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-6"
+          >
             <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
               Get In Touch
             </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "50px", amount: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
+          >
             Contact Us
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "50px", amount: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
             We&apos;re here to help you with your property needs. Reach out to our team and we&apos;ll get back to you as soon as possible.
-          </p>
+          </motion.p>
         </div>
 
         {/* Tab Navigation */}
@@ -873,40 +891,12 @@ export default function ContactPage() {
 
         {/* Map Section */}
         <div className="mb-16">
-          <Card className="p-0 overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg border border-teal-100/50">
-            <div className="aspect-video relative">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9931.956205996872!2d-0.09858678968892366!3d51.51756957566538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b56fb64b275%3A0xc2a8afeea114c3a!2sThe%20City%2C%20London!5e0!3m2!1sen!2suk!4v1654123456789!5m2!1sen!2suk" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
-              />
-            </div>
-
-            <div className="p-6 bg-gradient-to-br from-[#1A2A44] to-[#1A2A44]/90 text-white relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute inset-0 bg-[#D4AF37]/5 opacity-50"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#D4AF37]/10 rounded-full translate-y-12 -translate-x-12"></div>
-              
-              {/* Content */}
-              <div className="relative">
-                <div className="flex items-center space-x-3 mb-3">
-                  <div className="p-2 rounded-lg bg-[#D4AF37]/20 backdrop-blur-sm">
-                    <Building className="h-5 w-5 text-[#D4AF37]" />
-                  </div>
-                  <h3 className="font-semibold text-lg">Our Office</h3>
-                </div>
-                <p className="text-white/90 leading-relaxed">
-                  {companyInfo.address}
-                </p>
-              </div>
-            </div>
-          </Card>
+          <PropertyMap 
+            area="Soho"
+            city="London"
+            address={companyInfo.address}
+            title="Our Office Location"
+          />
         </div>
       </div>
     </div>

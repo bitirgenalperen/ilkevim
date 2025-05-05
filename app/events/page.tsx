@@ -90,104 +90,110 @@ const item = {
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
-      {/* Events Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-block"
-            >
-              <span className="bg-[#D4AF37]/10 text-[#D4AF37] px-3 py-1 rounded-full text-sm font-medium">Upcoming Events</span>
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold mt-4 text-[#1A2A44]"
-            >
-              Don&apos;t Miss Out on These Opportunities
-            </motion.h2>
-          </div>
-
-          <motion.div 
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-6"
           >
-            {events.map((event) => (
-              <motion.div
-                key={event.id}
-                variants={item}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative h-48">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${event.image}')` }}
-                  />
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      event.type === 'online' 
-                        ? 'bg-blue-100 text-blue-800' 
-                        : 'bg-green-100 text-green-800'
-                    }`}>
-                      {event.type === 'online' ? 'Online Event' : 'Onsite Event'}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-[#D4AF37] mb-2">
-                    <Building2 className="w-4 h-4" />
-                    <span className="text-sm font-medium">{event.category}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-[#1A2A44]">{event.title}</h3>
-                  <p className="text-gray-600 mb-4">{event.description}</p>
-                  
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{event.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm">{event.time}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      {event.type === 'online' ? (
-                        <Globe className="w-4 h-4" />
-                      ) : (
-                        <MapPin className="w-4 h-4" />
-                      )}
-                      <span className="text-sm">{event.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Users className="w-4 h-4" />
-                      <span className="text-sm">Capacity: {event.capacity} attendees</span>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <Link
-                      href={`/events/${event.id}`}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#D4AF37]/90 transition-colors"
-                    >
-                      Register Now
-                      <Video className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
+              Upcoming Events
+            </span>
           </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
+          >
+            Don&apos;t Miss Out on These Opportunities
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
+            Join our exclusive events to gain valuable insights, network with industry experts, and stay ahead of the latest trends in real estate.
+          </motion.p>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {events.map((event, index) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "50px", amount: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col h-full"
+              onClick={() => window.location.href = `/events/${event.id}`}
+            >
+              <div className="relative h-48">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${event.image}')` }}
+                />
+                <div className="absolute top-4 right-4">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    event.type === 'online' 
+                      ? 'bg-blue-100 text-blue-800' 
+                      : 'bg-green-100 text-green-800'
+                  }`}>
+                    {event.type === 'online' ? 'Online Event' : 'Onsite Event'}
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center gap-2 text-[#D4AF37] mb-2">
+                  <Building2 className="w-4 h-4" />
+                  <span className="text-sm font-medium">{event.category}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-[#1A2A44] line-clamp-2">{event.title}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">{event.description}</p>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">{event.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Clock className="w-4 h-4" />
+                    <span className="text-sm">{event.time}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    {event.type === 'online' ? (
+                      <Globe className="w-4 h-4" />
+                    ) : (
+                      <MapPin className="w-4 h-4" />
+                    )}
+                    <span className="text-sm">{event.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Users className="w-4 h-4" />
+                    <span className="text-sm">Capacity: {event.capacity} attendees</span>
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-gray-100">
+                  <Link
+                    href={`/events/${event.id}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#D4AF37]/90 transition-colors w-full justify-center"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Register Now
+                    <Video className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 } 

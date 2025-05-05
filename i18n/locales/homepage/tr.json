@@ -1,0 +1,201 @@
+{
+  "hero": {
+    "slides": {
+      "luxury": {
+        "title": "Londra'da Lüks Yaşam",
+        "subtitle": "Şehrin kalbinde premium mülkleri keşfedin"
+      },
+      "modern": {
+        "title": "Modern Mimari",
+        "subtitle": "Etkileyici tasarımlara sahip çağdaş evler"
+      },
+      "investment": {
+        "title": "Yatırım Fırsatları",
+        "subtitle": "Akıllı yatırımcılar için prime gayrimenkul"
+      },
+      "premium": {
+        "title": "Seçkin Lokasyonlar",
+        "subtitle": "En çok tercih edilen bölgelerde özel mülkler"
+      },
+      "smart": {
+        "title": "Akıllı Yatırım",
+        "subtitle": "Uzun vadeli büyüme için stratejik mülk yatırımları"
+      }
+    },
+    "buttons": {
+      "browseProperties": "Emlakları Keşfet",
+      "bookConsultation": "Danışmanlık Randevusu Al"
+    }
+  },
+  "featured": {
+    "badge": "Öne Çıkan İlanlar",
+    "title": "Öne Çıkan Mülkler",
+    "subtitle": "Birleşik Krallık genelinde özenle seçilmiş premium mülkleri keşfedin",
+    "noProperties": "Şu anda öne çıkan mülk bulunmamaktadır",
+    "viewAll": "Tüm Mülkleri Gör"
+  },
+  "services": {
+    "badge": "Uzmanlığımız",
+    "title": "Hizmetlerimiz",
+    "subtitle": "İhtiyaçlarınıza özel kapsamlı gayrimenkul hizmetleri",
+    "items": {
+      "residential": {
+        "title": "Konut Satışları",
+        "description": "Kapsamlı konut portföyümüzle mükemmel evinizi bulun."
+      },
+      "commercial": {
+        "title": "Ticari Mülkler",
+        "description": "Ticari gayrimenkul yatırımları ve kiralama konusunda uzman rehberlik."
+      },
+      "search": {
+        "title": "Mülk Arama",
+        "description": "Özel gereksinimlerinize göre kişiselleştirilmiş mülk arama hizmeti."
+      }
+    }
+  },
+  "investment": {
+    "badge": "Yatırım Fırsatları",
+    "title": "Birleşik Krallık'ta Gayrimenkul Yatırım Danışmanlığı",
+    "description1": "Londra gayrimenkul piyasası, yıllar boyunca uluslararası yatırımcıların en çok ilgisini çeken piyasalardan biri olarak öne çıkmıştır. Bu popülerliğin en önemli nedeni, bu piyasadaki artışın uzun süredir diğer dünya şehirlerinin gayrimenkul getirilerini ve hatta birçok finansal ürünü geride bırakmasıdır. Bir diğer önemli faktör ise Londra'nın potansiyel alıcılar için güvenli bir liman olması ve sürekli olarak Avrupa ve kıtalararası sermayeyi çekmesidir.",
+    "description2": "Bekleneceği gibi, Londra'nın birçok çekici noktası bulunmaktadır. Bunlar arasında küresel bir finans merkezi olması, sürekli büyüyen bir ekonomiye sahip olması ve uluslararası öğrenciler ve çalışan profesyoneller için birincil varış noktalarından biri olması yer almaktadır.",
+    "structure": {
+      "deposit": {
+        "amount": "£19,998",
+        "label": "Alıcının %5 depozitosu"
+      },
+      "equity": {
+        "amount": "£159,980",
+        "label": "%40 Eşitlik kredisi"
+      },
+      "mortgage": {
+        "amount": "£219,972",
+        "label": "%55 ipotek"
+      }
+    },
+    "benefits": {
+      "deposit": {
+        "title": "Sadece %5 Depozito",
+        "description": "İngiltere'de ilk kez ev alanlar için depozito oranı sadece %5."
+      },
+      "support": {
+        "title": "%40 Devlet Desteği",
+        "description": "Londra konut projelerinde %40, Londra dışındaki konut projelerinde %20 devlet desteği ile ev sahibi olma fırsatını yakalayın!"
+      },
+      "locations": {
+        "title": "Seçkin Lokasyonlar",
+        "description": "Londra'nın en çok tercih edilen bölgelerinde yüksek büyüme potansiyeline sahip stratejik mülkler"
+      },
+      "rental": {
+        "title": "Kira Geliri",
+        "description": "Profesyonel mülk yönetimi hizmetleriyle güçlü kira getirisi"
+      },
+      "guidance": {
+        "title": "Uzman Rehberlik",
+        "description": "Deneyimli ekibimizden kapsamlı yatırım desteği ve piyasa bilgileri"
+      }
+    },
+    "cta": "Yatırım Mülklerini Keşfet"
+  },
+  "partners": {
+    "badge": "İş Ortaklarımız",
+    "title": "Önde Gelen Kuruluşların Güvencesi",
+    "subtitle": "Olağanüstü hizmet sunmak için sektör liderleriyle iş birliği yapıyoruz"
+  },
+  "testimonials": {
+      "reviews": [
+    {
+      "name": "Ahmet Y.",
+      "role": "Uluslararası Alıcı",
+      "review": "Bu ekip, İngiltere'deki lüks mülk alımımı zahmetsiz hale getirdi. Uzmanlıkları ve kişiye özel hizmetleri sorunsuz ve stressiz bir deneyim sağladı.",
+      "rating": 5
+    },
+    {
+      "name": "Fatima A.",
+      "role": "Lüks Mülk Alıcısı",
+      "review": "Özel mülk seçenekleri benzersiz. Bana zarafet vizyonuma mükemmel şekilde uyan çarpıcı bir Dubai rezidansı buldular.",
+      "rating": 5
+    },
+    {
+      "name": "Elchin M.",
+      "role": "Gayrimenkul Yatırımcısı",
+      "review": "Ekibin piyasa bilgisi beni Bakü'de yüksek getirili bir mülke yönlendirdi. Stratejik rehberlikleri yatırım sürecini sorunsuz hale getirdi.",
+      "rating": 5
+    },
+    {
+      "name": "Zeynep K.",
+      "role": "Yer Değiştiren Profesyonel",
+      "review": "Yardımlarıyla Londra'ya taşınmak çok kolay oldu. Kariyerim ve yaşam tarzım için ideal, merkezi bir konumda lüks bir ev buldular.",
+      "rating": 5
+    },
+    {
+      "name": "Khalid R.",
+      "role": "Ticari Yatırımcı",
+      "review": "BAE ve İngiltere ticari piyasalarındaki uzmanlıkları birinci sınıf. Portföyümü güçlendiren yüksek değerli bir mülk sağladılar.",
+      "rating": 4
+    },
+    {
+      "name": "Aygun H.",
+      "role": "İlk Kez Alıcı",
+      "review": "İlk kez alıcı olarak, rehberlik ve destek gördüm. Hayallerime ve bütçeme uygun güzel bir lüks daire buldular.",
+      "rating": 5
+    },
+    {
+      "name": "Mohammed S.",
+      "role": "Uluslararası Alıcı",
+      "review": "Üst düzey bir Londra mülkünün satın alınması destekleriyle sorunsuz oldu. Piyasa bilgileri ve detaylara verdikleri önem olağanüstüydü.",
+      "rating": 5
+    },
+    {
+      "name": "Leyla B.",
+      "role": "Lüks Mülk Alıcısı",
+      "review": "Seçkinlik ihtiyacımı anladılar ve nefes kesen bir mülk teslim ettiler. Hizmetleri, lüks gayrimenkulde altın standarttır.",
+      "rating": 5
+    },
+    {
+      "name": "Hassan N.",
+      "role": "Gayrimenkul Yatırımcısı",
+      "review": "Yüksek getirili mülkleri tespit etme yetenekleri etkileyici. Beni değeri zaten artan lüks bir İstanbul varlığına yönlendirdiler.",
+      "rating": 5
+    },
+    {
+      "name": "Sevda T.",
+      "role": "Lüks Mülk Alıcısı",
+      "review": "Hizmetleri baştan sona kusursuzdu. Sofistike ve konforu bünyesinde barındıran muhteşem bir mülk buldular.",
+      "rating": 5
+    },
+    {
+      "name": "Rashid F.",
+      "role": "Uluslararası Alıcı",
+      "review": "Ekibin profesyonelliği, denizaşırı alımımı zahmetsiz hale getirdi. Her beklentimi karşılayan prestijli bir İngiltere mülkü buldular.",
+      "rating": 5
+    },
+    {
+      "name": "Nargiz G.",
+      "role": "Yer Değiştiren Profesyonel",
+      "review": "Uzmanlıklarıyla BAE'ye taşınmak kolaylaştı. İş ve eğlence için mükemmel, canlı bir bölgede lüks bir ev sağladılar.",
+      "rating": 5
+    },
+    {
+      "name": "Omar D.",
+      "role": "Ticari Yatırımcı",
+      "review": "Dubai'nin ticari piyasasına dair içgörüleri, birinci sınıf bir mülk edinmeme yardımcı oldu. Yatırım stratejime değerli bir katkı.",
+      "rating": 4
+    },
+    {
+      "name": "Aylin C.",
+      "role": "İlk Kez Alıcı",
+      "review": "İlk lüks mülkümü almak göz korkutucuydu, ancak sabırları ve bilgileri bunu bir keyif haline getirdi. Yeni evimden çok memnunum!",
+      "rating": 5
+    },
+    {
+      "name": "Tural I.",
+      "role": "Lüks Mülk Alıcısı",
+      "review": "Seçkin mülk portföyleri olağanüstü. Bana Azerbaycan'da prestij ve zarafeti tanımlayan bir başyapıt buldular.",
+      "rating": 5
+    }
+  ],
+    "badge": "Müşteri Yorumları",
+    "title": "Müşterilerimizin Yorumları",
+    "subtitle": "İlgili müşterilerimizin bizimle deneyimleri hakkında dinlemek ister misiniz?"
+  }
+} 

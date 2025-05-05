@@ -39,7 +39,7 @@ export default function TermsPage() {
               <AlertCircle className="text-[#D4AF37] shrink-0 mt-1" />
               <div>
                 <p className="font-medium text-[#1A2A44]">Please read these Terms and Conditions carefully before using our platform.</p>
-                <p className="text-gray-600 mt-1">By accessing or using the Ilkevim website and services, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access the service.</p>
+                <p className="text-gray-600 mt-1">By accessing or using the ilkevim website and services, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access the service.</p>
               </div>
             </div>
           </Card>
@@ -91,9 +91,9 @@ export default function TermsPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
               <div className="prose prose-[#1A2A44] max-w-none">
-                <p>By accessing or using the Ilkevim platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, along with our Privacy Policy.</p>
+                <p>By accessing or using the ilkevim platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, along with our Privacy Policy.</p>
                 
-                <p>These terms constitute a legally binding agreement between you and Ilkevim regarding your use of our website, mobile applications, and related services. We reserve the right to modify these terms at any time, and such modifications shall be effective immediately upon posting the modified terms on the platform.</p>
+                <p>These terms constitute a legally binding agreement between you and ilkevim regarding your use of our website, mobile applications, and related services. We reserve the right to modify these terms at any time, and such modifications shall be effective immediately upon posting the modified terms on the platform.</p>
                 
                 <p>Your continued use of our services following any changes to these Terms and Conditions constitutes your acceptance of those changes. It is your responsibility to review these Terms regularly to stay informed of any updates.</p>
               </div>
@@ -121,7 +121,7 @@ export default function TermsPage() {
                   <li>All activities that occur under your account</li>
                 </ul>
                 
-                <p>You agree to notify Ilkevim immediately of any unauthorized use of your account or any other breach of security. Ilkevim will not be liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge.</p>
+                <p>You agree to notify ilkevim immediately of any unauthorized use of your account or any other breach of security. ilkevim will not be liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge.</p>
                 
                 <h3>2.3 User Verification</h3>
                 <p>To ensure the integrity of our platform, we may conduct verification procedures for users, especially for property owners and agents. By creating an account, you consent to these verification procedures, which may include identity verification and credential validation.</p>
@@ -140,13 +140,13 @@ export default function TermsPage() {
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
               <div className="prose prose-[#1A2A44] max-w-none">
                 <h3>3.1 Accuracy of Information</h3>
-                <p>Information about properties is provided by property owners, agents, or other third parties. While we strive to ensure the accuracy of all information on our platform, Ilkevim does not guarantee the accuracy, completeness, or reliability of any property listings, descriptions, or related information.</p>
+                <p>Information about properties is provided by property owners, agents, or other third parties. While we strive to maintain the accuracy of all information on our platform, ilkevim does not guarantee the accuracy, completeness, or reliability of any property listings, descriptions, or related information.</p>
                 
                 <h3>3.2 No Endorsement</h3>
-                <p>The inclusion of any property listings on our platform does not constitute an endorsement or recommendation by Ilkevim. We do not verify the legality, quality, safety, or other aspects of the properties listed on our platform.</p>
+                <p>The inclusion of any property listings on our platform does not constitute an endorsement or recommendation by ilkevim. We do not verify the legality, quality, safety, or other aspects of the properties listed on our platform.</p>
                 
                 <h3>3.3 Property Inquiries and Transactions</h3>
-                <p>Ilkevim acts solely as a platform connecting property seekers with property owners and agents. We are not a party to any agreements or transactions between users. Any transaction, communication, or dispute that may arise between users is solely between those users.</p>
+                <p>ilkevim acts solely as a platform connecting property seekers with property owners and agents. We are not a party to any agreements or transactions between users. Any transaction, communication, or dispute that may arise between users is solely between those users.</p>
                 
                 <p>Before making any decision regarding a property, we strongly recommend:</p>
                 <ul>
@@ -184,7 +184,7 @@ export default function TermsPage() {
                 </ul>
                 
                 <h3>4.2 Content Removal</h3>
-                <p>Ilkevim reserves the right, but has no obligation, to monitor the content posted on our platform. We may remove any content that violates these Terms or is otherwise objectionable, at our sole discretion and without notice.</p>
+                <p>ilkevim reserves the right, but has no obligation, to monitor the content posted on our platform. We may remove any content that violates these Terms or is otherwise objectionable, at our sole discretion and without notice.</p>
               </div>
             </Card>
           </section>
@@ -199,15 +199,15 @@ export default function TermsPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
               <div className="prose prose-[#1A2A44] max-w-none">
-                <h3>5.1 Ilkevim Content</h3>
-                <p>All content provided on the platform, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of Ilkevim or its content suppliers and is protected by international copyright laws.</p>
+                <h3>5.1 ilkevim Content</h3>
+                <p>The content on our platform, including but not limited to text, graphics, logos, images, and software, is the property of ilkevim or its content suppliers and is protected by international copyright laws.</p>
                 
                 <h3>5.2 User Content</h3>
-                <p>By posting, uploading, or otherwise submitting any content to our platform, you grant Ilkevim a non-exclusive, worldwide, royalty-free, perpetual, irrevocable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content in any media.</p>
+                <p>By posting, uploading, or otherwise submitting any content to our platform, you grant ilkevim a non-exclusive, worldwide, royalty-free, perpetual, irrevocable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content in any media.</p>
                 
                 <p>You represent and warrant that:</p>
                 <ul>
-                  <li>You own or have the necessary licenses, rights, consents, and permissions to use and authorize Ilkevim to use all intellectual property rights in and to any content that you submit</li>
+                  <li>You own or have the necessary licenses, rights, consents, and permissions to use and authorize ilkevim to use all intellectual property rights in and to any content that you submit</li>
                   <li>The content does not infringe upon the intellectual property rights of any third party</li>
                 </ul>
               </div>
@@ -251,7 +251,7 @@ export default function TermsPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-[#D4AF37]/20 shadow-md">
               <div className="prose prose-[#1A2A44] max-w-none">
-                <p>Ilkevim reserves the right to terminate or suspend your account and access to the platform immediately, without prior notice or liability, for any reason, including, without limitation, if you breach these Terms and Conditions.</p>
+                <p>ilkevim reserves the right to terminate or suspend your account and access to the platform immediately, without prior notice or liability, for any reason, including, without limitation, if you breach these Terms and Conditions.</p>
                 
                 <p>Upon termination, your right to use the platform will immediately cease. If you wish to terminate your account, you may simply discontinue using the platform or contact us to request account deletion.</p>
                 
@@ -285,7 +285,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold text-[#1A2A44] mb-4">Have Questions?</h2>
           <p className="text-[#1A2A44]/80 mb-4">If you have any questions about these Terms and Conditions, please contact us at:</p>
           <div className="space-y-2">
-            <p className="font-medium text-[#1A2A44]">Ilkevim UK Limited</p>
+            <p className="font-medium text-[#1A2A44]">ilkevim UK Limited</p>
             <p className="text-[#1A2A44]/80">123 Property Lane, London, SW1A 1AA</p>
             <p className="text-[#1A2A44]/80">Email: legal@ilkevim.co.uk</p>
             <p className="text-[#1A2A44]/80">Phone: +44 20 1234 5678</p>

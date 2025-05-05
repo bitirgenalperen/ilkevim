@@ -1,4 +1,4 @@
-# IlkEvim Real Estate Platform
+# ilkevim Real Estate Platform
 
 A modern real estate platform built with Next.js for browsing and listing properties in the UK.
 

@@ -9,15 +9,18 @@ import {
   ChevronDown,
   Check,
   Menu,
-  X,
-  Home
+  X
 } from "lucide-react"
+import Image from "next/image"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { motion, AnimatePresence } from "framer-motion"
+import { useTranslation } from 'react-i18next'
+import '@/i18n/config'
 
 type Language = {
   code: string;
@@ -25,25 +28,35 @@ type Language = {
   flag: string;
 }
 
+const languages: Language[] = [
+  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' }
+]
+
 export function Navbar() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [currentLanguage, setCurrentLanguage] = useState<Language>({ 
-    code: 'en', 
-    name: 'English',
-    flag: '🇬🇧'
-  })
+  const { t, i18n } = useTranslation()
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0])
+  const [isClient, setIsClient] = useState(false)
+  
+  // Set initial language and client state
+  useEffect(() => {
+    setIsClient(true)
+    const storedLanguage = localStorage.getItem('language')
+    if (storedLanguage) {
+      const language = languages.find(lang => lang.code === storedLanguage)
+      if (language) {
+        setCurrentLanguage(language)
+        i18n.changeLanguage(language.code)
+      }
+    }
+  }, [i18n])
   
   // Close mobile menu when pathname changes
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
-  
-  const languages: Language[] = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'ar', name: 'العربية', flag: '🇦🇪' }
-  ]
   
   const isActive = (path: string) => {
     return pathname === path || 
@@ -52,84 +65,93 @@ export function Navbar() {
 
   const handleLanguageChange = (language: Language) => {
     setCurrentLanguage(language)
-    // Here you would implement actual language switching logic
-    // This could involve using i18n libraries like next-i18next
+    i18n.changeLanguage(language.code)
+    if (isClient) {
+      localStorage.setItem('language', language.code)
+    }
+  }
+
+  // Don't render language selector until client-side hydration is complete
+  if (!isClient) {
+    return null
   }
 
   return (
     <header className="fixed w-full bg-[#1A2A44]/95 backdrop-blur-md z-50 border-b border-[#D4AF37]/20">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-white flex items-center gap-2">
-          <span>ilk</span>
-          <Home className="w-5 h-5 text-[#D4AF37]" />
-          <span>evim</span>
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/ilkevim_logo.png" 
+            alt="ilkevim Logo" 
+            width={100} 
+            height={25} 
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
-
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link 
-            href="/properties" 
-            className={cn(
-              "transition-colors text-white",
-              isActive('/properties') 
-                ? "text-[#D4AF37] font-medium" 
-                : "hover:text-[#D4AF37]"
-            )}
-          >
-            Properties
-          </Link>
-          <Link 
-            href="/services" 
-            className={cn(
-              "transition-colors text-white",
-              isActive('/services') 
-                ? "text-[#D4AF37] font-medium" 
-                : "hover:text-[#D4AF37]"
-            )}
-          >
-            Services
-          </Link>
-          <Link 
-            href="/events" 
-            className={cn(
-              "transition-colors text-white",
-              isActive('/events') 
-                ? "text-[#D4AF37] font-medium" 
-                : "hover:text-[#D4AF37]"
-            )}
-          >
-            Events
-          </Link>
-          <Link 
-            href="/about" 
-            className={cn(
-              "transition-colors text-white",
-              isActive('/about') 
-                ? "text-[#D4AF37] font-medium" 
-                : "hover:text-[#D4AF37]"
-            )}
-          >
-            About
-          </Link>
-          <Link 
-            href="/contact" 
-            className={cn(
-              "transition-colors text-white",
-              isActive('/contact') 
-                ? "text-[#D4AF37] font-medium" 
-                : "hover:text-[#D4AF37]"
-            )}
-          >
-            Contact
-          </Link>
+        <div className="hidden md:flex flex-1 justify-center">
+          <div className="flex items-center space-x-8">
+            <Link 
+              href="/properties" 
+              className={cn(
+                "transition-colors text-white",
+                isActive('/properties') 
+                  ? "text-[#D4AF37] font-medium" 
+                  : "hover:text-[#D4AF37]"
+              )}
+            >
+              {t('navbar.properties')}
+            </Link>
+            <Link 
+              href="/services" 
+              className={cn(
+                "transition-colors text-white",
+                isActive('/services') 
+                  ? "text-[#D4AF37] font-medium" 
+                  : "hover:text-[#D4AF37]"
+              )}
+            >
+              {t('navbar.services')}
+            </Link>
+            <Link 
+              href="/events" 
+              className={cn(
+                "transition-colors text-white",
+                isActive('/events') 
+                  ? "text-[#D4AF37] font-medium" 
+                  : "hover:text-[#D4AF37]"
+              )}
+            >
+              {t('navbar.events')}
+            </Link>
+            <Link 
+              href="/about" 
+              className={cn(
+                "transition-colors text-white",
+                isActive('/about') 
+                  ? "text-[#D4AF37] font-medium" 
+                  : "hover:text-[#D4AF37]"
+              )}
+            >
+              {t('navbar.about')}
+            </Link>
+            <Link 
+              href="/contact" 
+              className={cn(
+                "transition-colors text-white",
+                isActive('/contact') 
+                  ? "text-[#D4AF37] font-medium" 
+                  : "hover:text-[#D4AF37]"
+              )}
+            >
+              {t('navbar.contact')}
+            </Link>
+          </div>
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Navigation buttons removed */}
-        </div>
-
         <div className="flex items-center gap-4">
           {/* Language Dropdown - Always visible */}
           <DropdownMenu>
@@ -177,69 +199,77 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#1A2A44] border-b border-[#D4AF37]/20">
-          <div className="container mx-auto px-4 py-4 space-y-4">
-            <div className="flex flex-col space-y-2">
-              <Link 
-                href="/properties" 
-                className={cn(
-                  "px-4 py-2 rounded-lg transition-colors text-white",
-                  isActive('/properties') 
-                    ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
-                    : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
-                )}
-              >
-                Properties
-              </Link>
-              <Link 
-                href="/services" 
-                className={cn(
-                  "px-4 py-2 rounded-lg transition-colors text-white",
-                  isActive('/services') 
-                    ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
-                    : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
-                )}
-              >
-                Services
-              </Link>
-              <Link 
-                href="/events" 
-                className={cn(
-                  "px-4 py-2 rounded-lg transition-colors text-white",
-                  isActive('/events') 
-                    ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
-                    : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
-                )}
-              >
-                Events
-              </Link>
-              <Link 
-                href="/about" 
-                className={cn(
-                  "px-4 py-2 rounded-lg transition-colors text-white",
-                  isActive('/about') 
-                    ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
-                    : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
-                )}
-              >
-                About
-              </Link>
-              <Link 
-                href="/contact" 
-                className={cn(
-                  "px-4 py-2 rounded-lg transition-colors text-white",
-                  isActive('/contact') 
-                    ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
-                    : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
-                )}
-              >
-                Contact
-              </Link>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-[#1A2A44] border-b border-[#D4AF37]/20 overflow-hidden"
+          >
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              <div className="flex flex-col space-y-2">
+                <Link 
+                  href="/properties" 
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-colors text-white",
+                    isActive('/properties') 
+                      ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
+                      : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
+                  )}
+                >
+                  {t('navbar.properties')}
+                </Link>
+                <Link 
+                  href="/services" 
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-colors text-white",
+                    isActive('/services') 
+                      ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
+                      : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
+                  )}
+                >
+                  {t('navbar.services')}
+                </Link>
+                <Link 
+                  href="/events" 
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-colors text-white",
+                    isActive('/events') 
+                      ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
+                      : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
+                  )}
+                >
+                  {t('navbar.events')}
+                </Link>
+                <Link 
+                  href="/about" 
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-colors text-white",
+                    isActive('/about') 
+                      ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
+                      : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
+                  )}
+                >
+                  {t('navbar.about')}
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-colors text-white",
+                    isActive('/contact') 
+                      ? "text-[#D4AF37] font-medium bg-[#D4AF37]/20" 
+                      : "hover:text-[#D4AF37] hover:bg-[#D4AF37]/10"
+                  )}
+                >
+                  {t('navbar.contact')}
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 } 

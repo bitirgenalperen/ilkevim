@@ -1,68 +1,127 @@
+'use client'
+
 import Link from 'next/link'
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Building2, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useState } from 'react'
 
 export function Footer() {
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'already-subscribed' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email || !name) {
+      setSubscriptionStatus('error')
+      setErrorMessage('Please provide both name and email')
+      return
+    }
+    
+    setIsSubmitting(true)
+    setSubscriptionStatus('idle')
+    
+    try {
+      const response = await fetch('/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, name }),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        if (response.status === 409) {
+          // Email already subscribed
+          setSubscriptionStatus('already-subscribed')
+          return
+        }
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+      
+      setSubscriptionStatus('success')
+      setEmail('')
+      setName('')
+      
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+        setSubscriptionStatus('idle')
+      }, 3000)
+      
+    } catch (error) {
+      console.error('Subscription error:', error)
+      setSubscriptionStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to subscribe')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <footer className="bg-[#1A2A44] text-white relative overflow-hidden">
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-[#D4AF37] rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-[#D4AF37] rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 py-12 sm:py-16">
           {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#D4AF37]">IlkEvim</h3>
-            <p className="text-gray-300">
+          <div className="space-y-4 text-center sm:text-left">
+            <h3 className="text-2xl font-bold text-[#D4AF37]">ilkevim</h3>
+            <p className="text-gray-300 text-sm sm:text-base">
               Your trusted partner in finding the perfect property in the UK. We provide comprehensive real estate services tailored to your needs.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Facebook className="w-5 h-5 text-[#D4AF37]" />
+            <div className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
+              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Instagram className="w-5 h-5 text-[#D4AF37]" />
+              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Twitter className="w-5 h-5 text-[#D4AF37]" />
+              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Linkedin className="w-5 h-5 text-[#D4AF37]" />
+              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-[#D4AF37]">Quick Links</h4>
-            <ul className="space-y-3">
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/properties" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                <Link href="/properties" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
                   Properties
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                <Link href="/services" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                <Link href="/events" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                <Link href="/about" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                <Link href="/contact" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
                   Contact
                 </Link>
               </li>
@@ -70,61 +129,83 @@ export function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-[#D4AF37]">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Building2 className="w-5 h-5 text-[#D4AF37] mt-1" />
-                <span className="text-gray-300">
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Contact Us</h4>
+            <ul className="space-y-3 sm:space-y-4">
+              <li className="flex items-start gap-3 justify-center sm:justify-start">
+                <Building2 className="w-5 h-5 text-[#D4AF37] mt-1 flex-shrink-0" />
+                <span className="text-gray-300 text-sm sm:text-base">
                   123 Real Estate Street<br />
                   London, UK
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#D4AF37]" />
-                <span className="text-gray-300">+44 123 456 7890</span>
+              <li className="flex items-center gap-3 justify-center sm:justify-start">
+                <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
+                <span className="text-gray-300 text-sm sm:text-base">+44 123 456 7890</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#D4AF37]" />
-                <span className="text-gray-300">info@ilkevim.com</span>
+              <li className="flex items-center gap-3 justify-center sm:justify-start">
+                <Mail className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
+                <span className="text-gray-300 text-sm sm:text-base">info@ilkevim.com</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Subscription */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-[#D4AF37]">Stay Updated</h4>
-            <p className="text-gray-300 mb-4">
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Stay Updated</h4>
+            <p className="text-gray-300 mb-4 text-sm sm:text-base">
               Subscribe to our newsletter for the latest property listings and market insights.
             </p>
-            <form className="space-y-4">
+            <form className="space-y-3 sm:space-y-4 max-w-sm mx-auto sm:mx-0" onSubmit={handleSubscribe}>
+              <Input 
+                type="text" 
+                placeholder="Your name" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="bg-white/10 border-[#D4AF37]/20 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-[#D4AF37] text-sm sm:text-base h-9 sm:h-10"
+              />
               <Input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="bg-white/10 border-[#D4AF37]/20 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white/10 border-[#D4AF37]/20 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-[#D4AF37] text-sm sm:text-base h-9 sm:h-10"
               />
               <Button 
                 type="submit" 
-                className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44]"
+                className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44] h-9 sm:h-10 text-sm sm:text-base"
+                disabled={isSubmitting}
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+              
+              {subscriptionStatus === 'success' && (
+                <p className="text-green-400 text-xs sm:text-sm mt-2">Thank you for subscribing!</p>
+              )}
+              
+              {subscriptionStatus === 'already-subscribed' && (
+                <p className="text-red-400 text-xs sm:text-sm mt-2">This email is already subscribed</p>
+              )}
+              
+              {subscriptionStatus === 'error' && (
+                <p className="text-red-400 text-xs sm:text-sm mt-2">{errorMessage}</p>
+              )}
             </form>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#D4AF37]/10 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} IlkEvim. All rights reserved.
+        <div className="border-t border-[#D4AF37]/10 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+              © {new Date().getFullYear()} ilkevim. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-[#D4AF37] text-sm transition-colors duration-300">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <Link href="/privacy" className="text-gray-400 hover:text-[#D4AF37] text-xs sm:text-sm transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-[#D4AF37] text-sm transition-colors duration-300">
+              <Link href="/terms" className="text-gray-400 hover:text-[#D4AF37] text-xs sm:text-sm transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>

@@ -48,7 +48,7 @@ export default function CookiePolicyPage() {
             <div className="flex flex-col md:flex-row gap-4 items-start">
               <Cookie className="text-amber-500 shrink-0 mt-1" size={24} />
               <div>
-                <p className="font-medium text-gray-900">This Cookie Policy explains how Ilkevim uses cookies and similar technologies on our website.</p>
+                <p className="font-medium text-gray-900">This Cookie Policy explains how ilkevim uses cookies and similar technologies on our website.</p>
                 <p className="text-gray-600 mt-1">We have created this policy to provide you with clear and explicit information about the technologies we use, helping you make informed decisions about your browsing experience.</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function CookiePolicyPage() {
                 <p><strong>Examples:</strong> Third-party advertising cookies, social media cookies, retargeting cookies.</p>
                 
                 <div className="bg-teal-50 p-4 rounded-lg mt-4 border border-teal-100">
-                  <p className="text-sm text-teal-700 mb-0"><strong>Note:</strong> Ilkevim strives to be transparent about the cookies we use. You can manage your cookie preferences using our Cookie Preferences Manager at the top of this page.</p>
+                  <p className="text-sm text-teal-700 mb-0"><strong>Note:</strong> ilkevim strives to be transparent about the cookies we use. You can manage your cookie preferences using our Cookie Preferences Manager at the top of this page.</p>
                 </div>
               </div>
             </Card>
@@ -157,7 +157,7 @@ export default function CookiePolicyPage() {
             </div>
             <Card className="p-6 bg-white/90 backdrop-blur-sm border-teal-100 shadow-md">
               <div className="prose prose-teal max-w-none">
-                <p>Ilkevim uses cookies for various purposes to enhance your experience on our website:</p>
+                <p>ilkevim uses cookies for various purposes to enhance your experience on our website:</p>
                 
                 <h3>3.1 Website Functionality</h3>
                 <ul>
@@ -226,7 +226,7 @@ export default function CookiePolicyPage() {
                 </ul>
                 
                 <div className="bg-amber-50 p-4 rounded-lg mt-4 border border-amber-100">
-                  <p className="text-sm text-amber-700 mb-0"><strong>Important:</strong> Third-party cookies are governed by the respective third parties&apos; privacy policies, not Ilkevim&apos;s Privacy Policy. We encourage you to review the privacy policies of these third parties for more information on how they process your data.</p>
+                  <p className="text-sm text-amber-700 mb-0"><strong>Important:</strong> These third parties&apos; privacy policies, not ilkevim&apos;s Privacy Policy. We encourage you to review the privacy policies of these third parties for more information on how they process your data.</p>
                 </div>
               </div>
             </Card>
@@ -308,7 +308,7 @@ export default function CookiePolicyPage() {
           <h2 className="text-xl font-bold text-teal-900 mb-4">Have Questions?</h2>
           <p className="text-teal-700 mb-4">If you have any questions about our Cookie Policy, please contact us at:</p>
           <div className="space-y-2">
-            <p className="font-medium">Ilkevim UK Limited</p>
+            <p className="font-medium">ilkevim UK Limited</p>
             <p>123 Property Lane, London, SW1A 1AA</p>
             <p>Email: privacy@ilkevim.co.uk</p>
             <p>Phone: +44 20 1234 5678</p>

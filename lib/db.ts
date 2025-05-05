@@ -1,6 +1,6 @@
 import { MongoClient, Db, ObjectId } from 'mongodb'
 import clientPromise from './mongodb'
-import { Property, User, Enquiry } from '@/types/database'
+import { Property, User, Enquiry, Subscriber } from '@/types/database'
 
 interface PropertyQuery {
   listingType?: string;
@@ -148,6 +148,30 @@ export class DatabaseService {
         }
       }
     )
+    return result
+  }
+
+  // Subscribers
+  async createSubscriber(subscriber: Omit<Subscriber, '_id' | 'createdAt' | 'updatedAt'>) {
+    const db = await this.connect()
+    
+    // Check if email already exists
+    const existingSubscriber = await db.collection<Subscriber>('subscribers').findOne({ 
+      email: subscriber.email 
+    })
+    
+    if (existingSubscriber) {
+      throw new Error('Email already subscribed')
+    }
+    
+    const now = new Date()
+    const subscriberWithDates = {
+      ...subscriber,
+      createdAt: now,
+      updatedAt: now
+    }
+    
+    const result = await db.collection<Subscriber>('subscribers').insertOne(subscriberWithDates)
     return result
   }
 } 
