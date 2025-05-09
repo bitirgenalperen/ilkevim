@@ -25,6 +25,8 @@ import enPropertyDetails from './locales/property-details/en.json'
 import trPropertyDetails from './locales/property-details/tr.json'
 import enListEvent from './locales/list-event/en.json'
 import trListEvent from './locales/list-event/tr.json'
+import enChatbot from './locales/chatbot/en.json'
+import trChatbot from './locales/chatbot/tr.json'
 
 // Get stored language or default to English
 const getInitialLanguage = () => {
@@ -50,7 +52,8 @@ i18n
         privacy: enPrivacy,
         terms: enTerms,
         'property-details': enPropertyDetails,
-        'list-event': enListEvent
+        'list-event': enListEvent,
+        chatbot: enChatbot
       },
       tr: {
         translation: trTranslations,
@@ -64,7 +67,8 @@ i18n
         privacy: trPrivacy,
         terms: trTerms,
         'property-details': trPropertyDetails,
-        'list-event': trListEvent
+        'list-event': trListEvent,
+        chatbot: trChatbot
       }
     },
     lng: getInitialLanguage(), // Initialize with stored language

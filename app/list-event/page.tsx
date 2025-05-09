@@ -27,6 +27,8 @@ export default function ListEventPage() {
   const { t } = useTranslation('list-event')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [uploadProgress, setUploadProgress] = useState<number>(0)
+  const [uploadError, setUploadError] = useState<string | null>(null)
   const [formData, setFormData] = useState<EventFormData>({
     title: '',
     description: '',
@@ -76,11 +78,29 @@ export default function ListEventPage() {
     const file = e.target.files?.[0]
     if (!file) return
 
+    // Reset states
+    setUploadProgress(0)
+    setUploadError(null)
+
+    // Validate file size (5MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      setUploadError(t('form.image.max_size'))
+      return
+    }
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setUploadError(t('form.image.allowed_types'))
+      return
+    }
+
     const formData = new FormData()
     formData.append('file', file)
     formData.append('directory', 'events')
 
     try {
+      setUploadProgress(10) // Start progress
+
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
@@ -91,9 +111,11 @@ export default function ListEventPage() {
       }
 
       const data = await response.json()
+      setUploadProgress(100) // Complete progress
       setFormData(prev => ({ ...prev, image: data.url }))
     } catch (err) {
-      setError(err instanceof Error ? err.message : t('validation.image_required'))
+      setUploadError(err instanceof Error ? err.message : t('validation.image_required'))
+      setUploadProgress(0)
     }
   }
 
@@ -117,31 +139,50 @@ export default function ListEventPage() {
               <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">{t('form.image.label')}</h2>
               <div className="flex items-center justify-center">
                 {formData.image ? (
-                  <div className="relative w-full max-w-md">
+                  <div className="relative w-full max-w-md group">
                     <img
                       src={formData.image}
                       alt="Event preview"
                       className="w-full h-48 object-cover rounded-lg"
                     />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
                     <button
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, image: '' }))}
-                      className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                      className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
                     >
                       <X className="w-4 h-4" />
                     </button>
                   </div>
                 ) : (
-                  <label className="w-full max-w-md h-48 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-[#D4AF37] transition-colors">
-                    <Upload className="w-8 h-8 text-gray-400 mb-2" />
-                    <span className="text-gray-600">{t('form.image.drag_drop')}</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      className="hidden"
-                    />
-                  </label>
+                  <div className="w-full max-w-md">
+                    <label className="w-full h-48 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-[#D4AF37] transition-colors">
+                      <Upload className="w-8 h-8 text-gray-400 mb-2" />
+                      <span className="text-gray-600">{t('form.image.drag_drop')}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
+                    </label>
+                    {uploadProgress > 0 && (
+                      <div className="mt-2">
+                        <div className="w-full bg-gray-200 rounded-full h-1.5">
+                          <div 
+                            className="bg-[#D4AF37] h-1.5 rounded-full transition-all duration-300" 
+                            style={{ width: `${uploadProgress}%` }}
+                          />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1 text-center">
+                          {uploadProgress === 100 ? t('form.image.uploaded') : t('form.image.uploading')}
+                        </p>
+                      </div>
+                    )}
+                    {uploadError && (
+                      <p className="text-red-500 text-sm mt-2 text-center">{uploadError}</p>
+                    )}
+                  </div>
                 )}
               </div>
             </div>

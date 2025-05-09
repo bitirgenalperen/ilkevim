@@ -16,9 +16,8 @@ API Integrations
 - [ ] Send new listing details via email
 
 
-- [ ] Chatbot-like button
 
-- [ ] Language selection for pages
+- [X] Language selection for pages
 
 
 
@@ -45,5 +44,9 @@ API Integrations
 - [X] Properties sayfasının başındaki bulunan Property sayfası da çevrilsin
 
 
-- [ ] Map component açıklamaları dil seçimine uygun hale gelsin
+- [X] Map component açıklamaları dil seçimine uygun hale gelsin
 - [X] Loading animasyonu dil seçimine uygun hale gelsin
+
+
+
+- [X] Chatbot-like button

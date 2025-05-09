@@ -1,20 +1,42 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { MessageCircle, X, Phone, Check, MessageSquare, Send } from 'lucide-react'
+import { MessageCircle, X, Phone, Check, MessageSquare, Send, Home, Calendar, Mail, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 
 const PHONE_NUMBER = '+44 7552 177242'
 
 export function ChatButton() {
+  const router = useRouter()
+  const { t, i18n } = useTranslation('chatbot')
   const [isOpen, setIsOpen] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
   const [isChatActive, setIsChatActive] = useState(false)
   const [message, setMessage] = useState('')
-  const [chatMessages, setChatMessages] = useState<{text: string, isUser: boolean}[]>([])
+  const [chatMessages, setChatMessages] = useState<{text: string, isUser: boolean, options?: Array<{text: string, action: string, icon: any}> }[]>([])
+  const [showEmailForm, setShowEmailForm] = useState(false)
+  const [subscribeData, setSubscribeData] = useState({ name: '', email: '' })
+  const chatContainerRef = useRef<HTMLDivElement>(null)
+
+  // Scroll to bottom of chat whenever messages change
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }
+  }, [chatMessages, showEmailForm])
+
+  // Debug translations
+  useEffect(() => {
+    console.log('Current language:', i18n.language)
+    console.log('Translation for title:', t('title'))
+    console.log('Available languages:', i18n.languages)
+    console.log('Has chatbot resources:', i18n.hasResourceBundle(i18n.language, 'chatbot'))
+  }, [i18n.language, t])
 
   const handlePhoneClick = async () => {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -27,7 +49,7 @@ export function ChatButton() {
     try {
       await navigator.clipboard.writeText(PHONE_NUMBER)
       setIsCopied(true)
-      toast.success('Phone number copied to clipboard!')
+      toast.success(t('buttons.copied'))
       setTimeout(() => setIsCopied(false), 2000)
     } catch (error) {
       console.error('Failed to copy phone number:', error)
@@ -44,8 +66,114 @@ export function ChatButton() {
 
   const handleStartChat = () => {
     setIsChatActive(true)
-    // Add the initial message from the agent
-    setChatMessages([{ text: "How may I assist you?", isUser: false }])
+    // Add the initial message from the agent with options
+    setChatMessages([
+      { 
+        text: t('messages.initial_greeting'), 
+        isUser: false,
+        options: [
+          { text: t('options.properties'), action: "properties", icon: Home },
+          { text: t('options.events'), action: "events", icon: Calendar },
+          { text: t('options.newsletter'), action: "newsletter", icon: Mail }
+        ]
+      }
+    ])
+  }
+
+  const handleOptionClick = (action: string) => {
+    // Add user's selection to chat
+    const selectedOption = chatMessages[0].options?.find(opt => opt.action === action)
+    if (selectedOption) {
+      setChatMessages(prev => [...prev, { text: selectedOption.text, isUser: true }])
+    }
+
+    // Handle different actions
+    if (action === 'properties') {
+      // Add response message
+      setChatMessages(prev => [...prev, { 
+        text: t('messages.properties_response'), 
+        isUser: false 
+      }])
+      
+      // Navigate to properties page after a delay
+      setTimeout(() => {
+        router.push('/properties')
+      }, 1000)
+    } 
+    else if (action === 'events') {
+      // Add response message
+      setChatMessages(prev => [...prev, { 
+        text: t('messages.events_response'), 
+        isUser: false 
+      }])
+      
+      // Navigate to events page after a delay
+      setTimeout(() => {
+        router.push('/events')
+      }, 1000)
+    } 
+    else if (action === 'newsletter') {
+      // Show email subscription form
+      setChatMessages(prev => [...prev, { 
+        text: t('messages.newsletter_prompt'), 
+        isUser: false 
+      }])
+      setShowEmailForm(true)
+    }
+  }
+
+  const handleSubscribe = async () => {
+    if (!subscribeData.name || !subscribeData.email) {
+      setChatMessages(prev => [...prev, { 
+        text: t('messages.name_email_required'), 
+        isUser: false 
+      }])
+      return
+    }
+
+    // Show loading message
+    setChatMessages(prev => [...prev, { 
+      text: t('messages.subscribing'), 
+      isUser: false 
+    }])
+
+    try {
+      const response = await fetch('/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(subscribeData),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        if (response.status === 409) {
+          // Email already subscribed
+          setChatMessages(prev => [...prev, { 
+            text: t('messages.already_subscribed'), 
+            isUser: false 
+          }])
+          return
+        }
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+
+      // Success message
+      setChatMessages(prev => [...prev, { 
+        text: t('messages.subscribe_success'), 
+        isUser: false 
+      }])
+      setShowEmailForm(false)
+      setSubscribeData({ name: '', email: '' })
+    } catch (error) {
+      console.error('Error subscribing:', error)
+      setChatMessages(prev => [...prev, { 
+        text: error instanceof Error ? error.message : t('messages.subscribe_error'), 
+        isUser: false 
+      }])
+    }
   }
 
   const handleSendMessage = () => {
@@ -54,7 +182,7 @@ export function ChatButton() {
       setMessage('')
       // Simulate a response after a short delay
       setTimeout(() => {
-        setChatMessages(prev => [...prev, { text: "Thank you for your message. An agent will respond shortly.", isUser: false }])
+        setChatMessages(prev => [...prev, { text: t('messages.agent_response'), isUser: false }])
       }, 1000)
     }
   }
@@ -74,37 +202,43 @@ export function ChatButton() {
           >
             <div className="p-4 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/90">
               <div className="flex items-center justify-between">
-                <h3 className="text-white font-semibold text-lg">Chat with Our Agents</h3>
-                <button
-                  onClick={() => {
-                    setIsOpen(false)
-                    setIsChatActive(false)
-                    setChatMessages([])
-                  }}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <h3 className="text-white font-semibold text-lg">{t('title')}</h3>
+                <div className="flex items-center">
+                  <span className="text-white/70 text-xs mr-3">
+                    {i18n.language.toUpperCase()}
+                  </span>
+                  <button
+                    onClick={() => {
+                      setIsOpen(false)
+                      setIsChatActive(false)
+                      setChatMessages([])
+                      setShowEmailForm(false)
+                    }}
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </div>
             
             {!isChatActive ? (
               <div className="p-6 space-y-4">
                 <p className="text-sm text-gray-600 font-medium">
-                  Our agents are available to help you with:
+                  {t('intro')}
                 </p>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-center gap-3 text-[#1A2A44]">
                     <div className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-                    Property inquiries
+                    {t('services.property_inquiries')}
                   </li>
                   <li className="flex items-center gap-3 text-[#1A2A44]">
                     <div className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-                    Investment advice
+                    {t('services.investment_advice')}
                   </li>
                   <li className="flex items-center gap-3 text-[#1A2A44]">
                     <div className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-                    Viewing arrangements
+                    {t('services.viewing_arrangements')}
                   </li>
                 </ul>
                 <div className="pt-4 space-y-3">
@@ -113,14 +247,14 @@ export function ChatButton() {
                     onClick={handleStartChat}
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
-                    Start Chat
+                    {t('buttons.start_chat')}
                   </Button>
                   <Button 
                     className="w-full bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/90 hover:from-[#1A2A44]/90 hover:to-[#1A2A44] text-white h-12 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300 border border-[#D4AF37]/30"
                     onClick={handleWhatsAppClick}
                   >
                     <MessageSquare className="w-5 h-5 mr-2 text-[#D4AF37]" />
-                    Connect with WhatsApp
+                    {t('buttons.connect_whatsapp')}
                   </Button>
                   <Button 
                     variant="outline" 
@@ -131,31 +265,78 @@ export function ChatButton() {
                     {isCopied ? (
                       <>
                         <Check className="w-5 h-5 mr-2 text-[#D4AF37]" />
-                        Copied!
+                        {t('buttons.copied')}
                       </>
                     ) : (
-                      'Call Us'
+                      t('buttons.call_us')
                     )}
                   </Button>
                 </div>
               </div>
             ) : (
               <div className="flex flex-col h-[calc(500px-64px)]">
-                <div className="flex-1 p-4 overflow-y-auto">
+                <div ref={chatContainerRef} className="flex-1 p-4 overflow-y-auto">
                   <div className="space-y-4">
                     {chatMessages.map((msg, index) => (
-                      <div 
-                        key={index} 
-                        className={cn(
-                          "max-w-[80%] p-3 rounded-lg",
-                          msg.isUser 
-                            ? "ml-auto bg-[#D4AF37] text-[#1A2A44]" 
-                            : "bg-gray-100 text-gray-800"
+                      <div key={index}>
+                        <div 
+                          className={cn(
+                            "max-w-[80%] p-3 rounded-lg",
+                            msg.isUser 
+                              ? "ml-auto bg-[#D4AF37] text-[#1A2A44]" 
+                              : "bg-gray-100 text-gray-800"
+                          )}
+                        >
+                          {msg.text}
+                        </div>
+                        
+                        {/* Display clickable options if available */}
+                        {!msg.isUser && msg.options && (
+                          <div className="mt-2 space-y-2">
+                            {msg.options.map((option, optIndex) => {
+                              const Icon = option.icon;
+                              return (
+                                <motion.button
+                                  key={optIndex}
+                                  whileHover={{ scale: 1.03 }}
+                                  onClick={() => handleOptionClick(option.action)}
+                                  className="w-full text-left p-3 rounded-lg border border-[#D4AF37]/30 hover:border-[#D4AF37] bg-white hover:bg-[#D4AF37]/5 transition-colors flex items-center gap-2"
+                                >
+                                  <Icon className="w-5 h-5 text-[#D4AF37]" />
+                                  <span>{option.text}</span>
+                                </motion.button>
+                              );
+                            })}
+                          </div>
                         )}
-                      >
-                        {msg.text}
                       </div>
                     ))}
+
+                    {/* Email subscription form */}
+                    {showEmailForm && (
+                      <div className="bg-gray-100 p-3 rounded-lg space-y-3">
+                        <input
+                          type="text"
+                          value={subscribeData.name}
+                          onChange={(e) => setSubscribeData({...subscribeData, name: e.target.value})}
+                          placeholder={t('input.name_placeholder')}
+                          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+                        />
+                        <input
+                          type="email"
+                          value={subscribeData.email}
+                          onChange={(e) => setSubscribeData({...subscribeData, email: e.target.value})}
+                          placeholder={t('input.email_placeholder')}
+                          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+                        />
+                        <Button 
+                          onClick={handleSubscribe}
+                          className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44]"
+                        >
+                          {t('buttons.subscribe')}
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="p-4 border-t border-gray-200">
@@ -165,7 +346,7 @@ export function ChatButton() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                      placeholder="Type your message..."
+                      placeholder={t('input.message_placeholder')}
                       className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
                     />
                     <Button 

@@ -1,0 +1,38 @@
+{
+  "title": "Chat with Our Agents",
+  "intro": "Our agents are available to help you with:",
+  "services": {
+    "property_inquiries": "Property inquiries",
+    "investment_advice": "Investment advice",
+    "viewing_arrangements": "Viewing arrangements"
+  },
+  "buttons": {
+    "start_chat": "Start Chat",
+    "connect_whatsapp": "Connect with WhatsApp",
+    "call_us": "Call Us",
+    "copied": "Copied!",
+    "subscribe": "Subscribe"
+  },
+  "messages": {
+    "initial_greeting": "How may I assist you?",
+    "properties_response": "Great! I'll direct you to our properties page.",
+    "events_response": "Perfect! Let me show you our upcoming events.",
+    "newsletter_prompt": "Please provide your name and email to subscribe to our newsletter:",
+    "name_email_required": "Please provide both name and email to subscribe.",
+    "subscribing": "Subscribing you to our newsletter...",
+    "already_subscribed": "This email is already subscribed to our newsletter.",
+    "subscribe_success": "Thank you for subscribing to our newsletter! You'll receive updates on our latest properties and events.",
+    "subscribe_error": "Sorry, there was an error processing your subscription. Please try again later.",
+    "agent_response": "Thank you for your message. An agent will respond shortly."
+  },
+  "options": {
+    "properties": "I want to see your properties",
+    "events": "I want to check for events",
+    "newsletter": "I want to subscribe for newsletter"
+  },
+  "input": {
+    "name_placeholder": "Your name",
+    "email_placeholder": "Your email",
+    "message_placeholder": "Type your message..."
+  }
+} 

@@ -1,0 +1,38 @@
+{
+  "title": "Temsilcilerimiz ile Sohbet",
+  "intro": "Temsilcilerimiz şu konularda yardımcı olmaktan memnuniyet duyar:",
+  "services": {
+    "property_inquiries": "Emlak sorgulamaları",
+    "investment_advice": "Yatırım danışmanlığı",
+    "viewing_arrangements": "Görüntüleme düzenlemeleri"
+  },
+  "buttons": {
+    "start_chat": "Sohbeti Başlat",
+    "connect_whatsapp": "WhatsApp ile Bağlan",
+    "call_us": "Bizi Ara",
+    "copied": "Kopyalandı!",
+    "subscribe": "Abone Ol"
+  },
+  "messages": {
+    "initial_greeting": "Size nasıl yardımcı olabilirim?",
+    "properties_response": "Harika! Sizi emlaklar sayfamıza yönlendiriyorum.",
+    "events_response": "Mükemmel! Size yaklaşan etkinliklerimizi göstereyim.",
+    "newsletter_prompt": "Bültenimize abone olmak için lütfen adınızı ve e-posta adresinizi girin:",
+    "name_email_required": "Lütfen abone olmak için adınızı ve e-posta adresinizi girin.",
+    "subscribing": "Bültenimize abone olunuyor...",
+    "already_subscribed": "Bu e-posta adresi zaten bültenimize abone.",
+    "subscribe_success": "Bültenimize abone olduğunuz için teşekkür ederiz! En son emlak ve etkinlik güncellemelerimizi alacaksınız.",
+    "subscribe_error": "Abonelik işleminiz sırasında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "agent_response": "Mesajınız için teşekkürler. Bir temsilcimiz kısa süre içinde size yanıt verecektir."
+  },
+  "options": {
+    "properties": "Emlakları görmek istiyorum",
+    "events": "Etkinlikleri kontrol etmek istiyorum",
+    "newsletter": "Bültene abone olmak istiyorum"
+  },
+  "input": {
+    "name_placeholder": "Adınız",
+    "email_placeholder": "E-posta adresiniz",
+    "message_placeholder": "Mesajınızı yazın..."
+  }
+} 

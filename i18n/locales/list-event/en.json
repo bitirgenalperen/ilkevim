@@ -62,27 +62,26 @@
       "placeholder": "Upload event image",
       "drag_drop": "Drag and drop your image here, or click to browse",
       "max_size": "Maximum file size: 5MB",
-      "allowed_types": "Allowed file types: JPG, PNG"
+      "allowed_types": "Allowed file types: JPG, PNG",
+      "uploading": "Uploading...",
+      "uploaded": "Uploaded successfully"
     },
     "submit": "List Event",
     "cancel": "Cancel",
     "required": "Required field"
   },
   "validation": {
-    "title_required": "Event title is required",
-    "description_required": "Event description is required",
-    "date_required": "Event date is required",
-    "time_required": "Event time is required",
-    "location_required": "Event location is required",
-    "category_required": "Event category is required",
-    "capacity_required": "Event capacity is required",
-    "type_required": "Event type is required",
-    "organizer_required": "Organizer name is required",
-    "contact_required": "Contact email is required",
-    "contact_invalid": "Please enter a valid email address",
-    "image_required": "Event image is required",
-    "image_size": "Image size should be less than 5MB",
-    "image_type": "Only JPG and PNG files are allowed"
+    "image_required": "Please upload an event image",
+    "title_required": "Please enter an event title",
+    "description_required": "Please enter an event description",
+    "date_required": "Please select an event date",
+    "time_required": "Please select an event time",
+    "location_required": "Please enter an event location",
+    "category_required": "Please select an event category",
+    "capacity_required": "Please enter event capacity",
+    "type_required": "Please select event type",
+    "organizer_required": "Please enter organizer name",
+    "contact_required": "Please enter contact email"
   },
   "categories": {
     "investment": "Investment",
