@@ -1,0 +1,249 @@
+{
+  "header": {
+    "back_button": "Back to Homepage",
+    "title": "Privacy Policy",
+    "effective_date": "Effective Date: June 1, 2024",
+    "download_button": "Download PDF",
+    "notice": {
+      "title": "Your privacy is important to us.",
+      "description": "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site."
+    }
+  },
+  "table_of_contents": {
+    "title": "Table of Contents",
+    "sections": [
+      "1. Information We Collect",
+      "2. How We Use Your Information",
+      "3. Disclosure of Your Information",
+      "4. Security of Your Information",
+      "5. Cookies and Tracking Technologies",
+      "6. Third-Party Websites",
+      "7. Children's Privacy",
+      "8. Your Rights and Choices",
+      "9. Changes to This Privacy Policy",
+      "10. Contact Us"
+    ]
+  },
+  "sections": {
+    "information_collection": {
+      "title": "1. Information We Collect",
+      "description": "We collect several types of information from and about users of our platform, including:",
+      "personal_info": {
+        "title": "1.1 Personal Information",
+        "description": "We may collect personal identification information from users in various ways, including, but not limited to, when users visit our site, register on the site, fill out a form, and in connection with other activities, services, features or resources we make available on our platform. This may include:",
+        "items": [
+          "Contact information (such as name, email address, phone number)",
+          "Profile information (such as username and password)",
+          "Demographic information (such as postal address)",
+          "Preference information (such as property preferences and search history)",
+          "Financial information (for property transactions or subscription payments)",
+          "Identity verification documents (for property owners and agents)"
+        ],
+        "note": "Users may, however, visit our site anonymously. We will collect personal identification information from users only if they voluntarily submit such information to us."
+      },
+      "non_personal_info": {
+        "title": "1.2 Non-Personal Information",
+        "description": "We may collect non-personal identification information about users whenever they interact with our platform. Non-personal identification information may include:",
+        "items": [
+          "Browser name",
+          "Type of computer or device",
+          "Technical information about users' means of connection to our platform, such as the operating system, the Internet service providers utilized, and other similar information",
+          "Usage data (such as pages visited, time spent on pages, links clicked)"
+        ]
+      },
+      "third_party": {
+        "title": "1.3 Information From Third Parties",
+        "description": "We may receive information about you if you use any of the other websites we operate or the other services we provide. We also work closely with third parties (including, for example, business partners, service providers, advertising networks, analytics providers, and search information providers) and may receive information about you from them."
+      }
+    },
+    "information_usage": {
+      "title": "2. How We Use Your Information",
+      "description": "We may use the information we collect from you for the following purposes:",
+      "services": {
+        "title": "2.1 Provide and Improve Services",
+        "items": [
+          "To provide and maintain our platform",
+          "To improve our platform and user experience",
+          "To personalize your experience and deliver content and product offerings relevant to your interests",
+          "To match property seekers with appropriate property listings",
+          "To facilitate communication between property seekers and property owners/agents",
+          "To process transactions and send related information including confirmations and invoices"
+        ]
+      },
+      "communication": {
+        "title": "2.2 Communication",
+        "items": [
+          "To respond to your inquiries, comments, or questions",
+          "To send you technical notices, updates, security alerts, and support and administrative messages",
+          "To send promotional communications, such as providing you with information about services, features, surveys, newsletters, offers, promotions, contests, and events",
+          "To notify you about changes to our platform or any products or services we offer or provide through it"
+        ]
+      },
+      "analytics": {
+        "title": "2.3 Analytics and Research",
+        "items": [
+          "To analyze trends, administer the platform, track users' movements around the platform, and gather demographic information about our user base as a whole",
+          "To monitor and analyze the effectiveness of our platform and marketing activities",
+          "To conduct research and development to improve our products and services"
+        ]
+      },
+      "legal": {
+        "title": "2.4 Legal Compliance and Protection",
+        "items": [
+          "To comply with legal obligations",
+          "To enforce our terms and conditions and other policies",
+          "To protect the rights, property, or safety of ilkevim, our users, or others",
+          "To detect, prevent, or otherwise address fraud, security, or technical issues"
+        ]
+      }
+    },
+    "disclosure": {
+      "title": "3. Disclosure of Your Information",
+      "description": "We may disclose personal information that we collect or you provide as described in this privacy policy:",
+      "service_providers": {
+        "title": "3.1 Service Providers",
+        "description": "We may share your information with third-party vendors, service providers, contractors, or agents who perform functions on our behalf, such as:",
+        "items": [
+          "Payment processors",
+          "Customer service providers",
+          "Email and SMS service providers",
+          "Analytics providers",
+          "Security and fraud prevention services",
+          "Hosting and technology providers"
+        ]
+      },
+      "property_parties": {
+        "title": "3.2 Property Parties",
+        "description": "When you express interest in a property, we may share your contact information and inquiry details with the property owner or agent associated with that listing to facilitate communication. Similarly, if you list a property, certain information may be shared with potential buyers or renters who express interest."
+      },
+      "business_transfers": {
+        "title": "3.3 Business Transfers",
+        "description": "If we are involved in a merger, acquisition, financing due diligence, reorganization, bankruptcy, receivership, sale of company assets, or transition of service to another provider, your information may be transferred as part of such a transaction as permitted by law and/or contract."
+      },
+      "legal_requirements": {
+        "title": "3.4 Legal Requirements",
+        "description": "We may disclose your information where we believe disclosure is necessary or required by law or regulation, to comply with legal process served on us, or to protect the rights, property, or safety of ilkevim, our users, or others."
+      },
+      "consent": {
+        "title": "3.5 With Your Consent",
+        "description": "We may disclose your personal information for any other purpose with your consent."
+      }
+    },
+    "security": {
+      "title": "4. Security of Your Information",
+      "description": "We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. These measures include:",
+      "measures": [
+        "Encryption of sensitive data both in transit and at rest",
+        "Regular security assessments and penetration testing",
+        "Access controls and authentication procedures",
+        "Secure data storage and backup procedures",
+        "Regular staff training on data protection and security practices"
+      ],
+      "disclaimer": "However, please be aware that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security. Therefore, we cannot ensure or warrant the security of any information you transmit to us, and you do so at your own risk.",
+      "breach_notification": "We will make any legally required disclosures of any breach of the security, confidentiality, or integrity of your unencrypted electronically stored \"personal data\" to you via email or conspicuous posting on this website in the most expedient time possible and without unreasonable delay, consistent with (i) the legitimate needs of law enforcement or (ii) any measures necessary to determine the scope of the breach and restore the reasonable integrity of the data system."
+    },
+    "cookies": {
+      "title": "5. Cookies and Tracking Technologies",
+      "cookies": {
+        "title": "5.1 Cookies",
+        "description": "We use cookies and similar tracking technologies to track activity on our platform and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device.",
+        "types": {
+          "title": "We use the following types of cookies:",
+          "items": [
+            "Essential Cookies: These cookies are necessary for the website to function properly and cannot be switched off in our systems.",
+            "Performance Cookies: These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.",
+            "Functionality Cookies: These cookies enable the website to provide enhanced functionality and personalization.",
+            "Targeting Cookies: These cookies may be set through our site by our advertising partners to build a profile of your interests and show you relevant advertisements on other sites."
+          ]
+        }
+      },
+      "management": {
+        "title": "5.2 Cookie Management",
+        "description": "You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our platform. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer."
+      },
+      "analytics": {
+        "title": "5.3 Analytics",
+        "description": "We may use third-party Service Providers, such as Google Analytics, to monitor and analyze the use of our platform. These services may track details such as the frequency with which users visit our platform, what pages they visit, and what other sites they used prior to coming to our platform. We use the information we get from these services to improve our platform."
+      }
+    },
+    "third_party_websites": {
+      "title": "6. Third-Party Websites",
+      "description": "Our platform may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.",
+      "disclaimer": "We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. These third-party services may have their own privacy policies and customer service policies. For more information about a third party's privacy practices, you should consult the third party's privacy policy.",
+      "additional_info": "In addition, we are not responsible for the information collection, use, disclosure, or security practices (including the data security practices) of other organizations, such as Facebook, Apple, Google, Microsoft, or any other app developer, app provider, social media platform provider, operating system provider, or device manufacturer."
+    },
+    "children_privacy": {
+      "title": "7. Children's Privacy",
+      "description": "Our platform is not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us. If we discover that a child under 18 has provided us with personal information, we will delete such information from our servers immediately."
+    },
+    "rights_choices": {
+      "title": "8. Your Rights and Choices",
+      "access_control": {
+        "title": "8.1 Access and Control",
+        "description": "You have certain rights regarding your personal information. These may include the rights to:",
+        "items": [
+          "Access and receive a copy of your personal data",
+          "Rectify or update your personal data",
+          "Request deletion of your personal data",
+          "Restrict or object to our processing of your personal data",
+          "Request that we transfer your personal data to another service provider (data portability)",
+          "Withdraw consent where our processing is based on your consent"
+        ],
+        "note": "You can exercise many of these rights by accessing your account settings or contacting us using the contact information provided below."
+      },
+      "marketing": {
+        "title": "8.2 Marketing Communications",
+        "description": "You have the right to opt-out of marketing communications we send you at any time. You can exercise this right by clicking on the \"unsubscribe\" or \"opt-out\" link in the marketing emails we send you, or by contacting us using the contact information provided below."
+      },
+      "retention": {
+        "title": "8.3 Data Retention",
+        "description": "We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies."
+      }
+    },
+    "changes": {
+      "title": "9. Changes to This Privacy Policy",
+      "description": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Effective Date\" at the top of this Privacy Policy.",
+      "review": "You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. Your continued use of our platform following the posting of changes to this policy will be deemed your acceptance of those changes.",
+      "notification": "If we make material changes to this policy, we will make reasonable efforts to notify you, such as by sending you an email to the email address specified in your account, posting a notice on our home page, or by other means consistent with applicable law."
+    },
+    "contact": {
+      "title": "10. Contact Us",
+      "description": "If you have any questions about this Privacy Policy, please contact us:",
+      "items": [
+        "By email: privacy@ilkevim.co.uk",
+        "By phone: +44 20 1234 5678",
+        "By mail: Data Protection Officer, ilkevim UK Limited, 123 Property Lane, London, SW1A 1AA, United Kingdom"
+      ],
+      "dpo": "Our Data Protection Officer can be contacted at dpo@ilkevim.co.uk."
+    }
+  },
+  "eea_uk_rights": {
+    "title": "Additional Information for EEA and UK Residents",
+    "description": "If you are a resident of the European Economic Area (EEA) or the United Kingdom, you have certain additional rights under the General Data Protection Regulation (GDPR) and the UK GDPR.",
+    "legal_basis": {
+      "title": "Legal Basis for Processing:",
+      "description": "We will only process your personal data when we have a legal basis to do so. The legal bases we rely on include:",
+      "items": [
+        "Your consent",
+        "Performance of a contract with you",
+        "Compliance with a legal obligation",
+        "Protection of vital interests",
+        "Performance of a task carried out in the public interest",
+        "Our legitimate interests, provided they are not overridden by your rights and freedoms"
+      ]
+    },
+    "international_transfers": {
+      "title": "International Transfers:",
+      "description": "Your personal data may be transferred to, and processed in, countries other than the country in which you are resident. These countries may have data protection laws that are different from the laws of your country. We have implemented appropriate safeguards to ensure that your personal data remains protected in accordance with this Privacy Policy."
+    },
+    "complaints": {
+      "title": "Complaints:",
+      "description": "If you are a resident of the EEA or UK and you believe we are unlawfully processing your personal data, you have the right to lodge a complaint with your local data protection supervisory authority."
+    }
+  },
+  "related_links": {
+    "terms": "View Terms and Conditions",
+    "register": "Return to Registration"
+  },
+  "last_updated": "This Privacy Policy was last updated on June 1, 2024."
+} 

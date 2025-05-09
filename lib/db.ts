@@ -1,6 +1,6 @@
 import { MongoClient, Db, ObjectId } from 'mongodb'
 import clientPromise from './mongodb'
-import { Property, User, Enquiry, Subscriber } from '@/types/database'
+import { Property, User, Enquiry, Subscriber, Event } from '@/types/database'
 
 interface PropertyQuery {
   listingType?: string;
@@ -86,6 +86,58 @@ export class DatabaseService {
         }
       }
     )
+    return result
+  }
+
+  // Events
+  async getEvents() {
+    const db = await this.connect()
+    return db.collection<Event>('events').find().toArray()
+  }
+
+  async getEvent(id: string) {
+    const db = await this.connect()
+    return db.collection<Event>('events').findOne({ _id: new ObjectId(id) })
+  }
+
+  async createEvent(event: Omit<Event, '_id' | 'createdAt' | 'updatedAt'>) {
+    const db = await this.connect()
+    const now = new Date()
+    const eventWithDates = {
+      ...event,
+      createdAt: now,
+      updatedAt: now
+    }
+    const result = await db.collection<Event>('events').insertOne(eventWithDates)
+    return result
+  }
+
+  async updateEvent(id: string, update: Partial<Event>) {
+    const db = await this.connect()
+    const result = await db.collection<Event>('events').updateOne(
+      { _id: new ObjectId(id) },
+      { 
+        $set: {
+          ...update,
+          updatedAt: new Date()
+        }
+      }
+    )
+    return result
+  }
+
+  async deleteEvent(id: string) {
+    const db = await this.connect()
+    const result = await db.collection<Event>('events').deleteOne({ _id: new ObjectId(id) })
+    return result
+  }
+
+  async deletePastEvents() {
+    const db = await this.connect()
+    const now = new Date()
+    const result = await db.collection<Event>('events').deleteMany({
+      date: { $lt: now.toISOString().split('T')[0] }
+    })
     return result
   }
 

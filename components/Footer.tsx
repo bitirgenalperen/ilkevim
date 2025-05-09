@@ -1,12 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Building2, ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Instagram, Mail, Phone, Building2, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 
 export function Footer() {
+  const { t } = useTranslation('footer')
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -18,7 +20,7 @@ export function Footer() {
     
     if (!email || !name) {
       setSubscriptionStatus('error')
-      setErrorMessage('Please provide both name and email')
+      setErrorMessage(t('newsletter.name_email_required_error'))
       return
     }
     
@@ -76,53 +78,44 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 py-12 sm:py-16">
           {/* Company Info */}
           <div className="space-y-4 text-center sm:text-left">
-            <h3 className="text-2xl font-bold text-[#D4AF37]">ilkevim</h3>
+            <h3 className="text-2xl font-bold text-[#D4AF37]">{t('company_info.name')}</h3>
             <p className="text-gray-300 text-sm sm:text-base">
-              Your trusted partner in finding the perfect property in the UK. We provide comprehensive real estate services tailored to your needs.
+              {t('company_info.description')}
             </p>
             <div className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
-              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
-              </a>
-              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
+              <a href="https://www.instagram.com/ilkevim.co.uk" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
-              </a>
-              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
-              </a>
-              <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 flex items-center justify-center transition-colors duration-300">
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">{t('quick_links.title')}</h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link href="/properties" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
-                  Properties
+                  {t('quick_links.properties')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
-                  Services
+                  {t('quick_links.services')}
                 </Link>
               </li>
               <li>
                 <Link href="/events" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
-                  Events
+                  {t('quick_links.events')}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
-                  About Us
+                  {t('quick_links.about_us')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 text-sm sm:text-base inline-block py-1">
-                  Contact
+                  {t('quick_links.contact')}
                 </Link>
               </li>
             </ul>
@@ -130,43 +123,42 @@ export function Footer() {
 
           {/* Contact Info */}
           <div className="text-center sm:text-left">
-            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">{t('contact_us.title')}</h4>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3 justify-center sm:justify-start">
                 <Building2 className="w-5 h-5 text-[#D4AF37] mt-1 flex-shrink-0" />
                 <span className="text-gray-300 text-sm sm:text-base">
-                  123 Real Estate Street<br />
-                  London, UK
+                    307 Linen Hall, 162-168 Regent Street, Soho, London, W1B 5TE
                 </span>
               </li>
               <li className="flex items-center gap-3 justify-center sm:justify-start">
                 <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                <span className="text-gray-300 text-sm sm:text-base">+44 123 456 7890</span>
+                <span className="text-gray-300 text-sm sm:text-base">+44 7552 177242</span>
               </li>
               <li className="flex items-center gap-3 justify-center sm:justify-start">
                 <Mail className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                <span className="text-gray-300 text-sm sm:text-base">info@ilkevim.com</span>
+                <span className="text-gray-300 text-sm sm:text-base">{t('contact_us.email')}</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Subscription */}
           <div className="text-center sm:text-left">
-            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">Stay Updated</h4>
+            <h4 className="text-lg font-semibold mb-4 sm:mb-6 text-[#D4AF37]">{t('newsletter.title')}</h4>
             <p className="text-gray-300 mb-4 text-sm sm:text-base">
-              Subscribe to our newsletter for the latest property listings and market insights.
+              {t('newsletter.description')}
             </p>
             <form className="space-y-3 sm:space-y-4 max-w-sm mx-auto sm:mx-0" onSubmit={handleSubscribe}>
               <Input 
                 type="text" 
-                placeholder="Your name" 
+                placeholder={t('newsletter.name_placeholder')}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="bg-white/10 border-[#D4AF37]/20 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-[#D4AF37] text-sm sm:text-base h-9 sm:h-10"
               />
               <Input 
                 type="email" 
-                placeholder="Enter your email" 
+                placeholder={t('newsletter.email_placeholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-[#D4AF37]/20 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-[#D4AF37] text-sm sm:text-base h-9 sm:h-10"
@@ -176,16 +168,16 @@ export function Footer() {
                 className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1A2A44] h-9 sm:h-10 text-sm sm:text-base"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                {isSubmitting ? t('newsletter.subscribing_message') : t('newsletter.subscribe_button')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               
               {subscriptionStatus === 'success' && (
-                <p className="text-green-400 text-xs sm:text-sm mt-2">Thank you for subscribing!</p>
+                <p className="text-green-400 text-xs sm:text-sm mt-2">{t('newsletter.success_message')}</p>
               )}
               
               {subscriptionStatus === 'already-subscribed' && (
-                <p className="text-red-400 text-xs sm:text-sm mt-2">This email is already subscribed</p>
+                <p className="text-red-400 text-xs sm:text-sm mt-2">{t('newsletter.already_subscribed_message')}</p>
               )}
               
               {subscriptionStatus === 'error' && (
@@ -199,14 +191,14 @@ export function Footer() {
         <div className="border-t border-[#D4AF37]/10 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
             <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-              © {new Date().getFullYear()} ilkevim. All rights reserved.
+              © {new Date().getFullYear() } ilkevim{t('bottom_bar.copyright')}
             </p>
             <div className="flex items-center gap-4 sm:gap-6">
               <Link href="/privacy" className="text-gray-400 hover:text-[#D4AF37] text-xs sm:text-sm transition-colors duration-300">
-                Privacy Policy
+                {t('bottom_bar.privacy_policy')}
               </Link>
               <Link href="/terms" className="text-gray-400 hover:text-[#D4AF37] text-xs sm:text-sm transition-colors duration-300">
-                Terms of Service
+                {t('bottom_bar.terms_of_service')}
               </Link>
             </div>
           </div>

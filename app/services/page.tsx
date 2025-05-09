@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -23,58 +24,26 @@ import {
 const services = [
   {
     id: 1,
-    title: 'Property Sales',
-    description: 'Expert guidance through every step of selling your property, from valuation to completion.',
+    key: 'property_sales',
     icon: Home,
-    features: [
-      'Professional property valuation',
-      'Strategic pricing analysis',
-      'Professional photography',
-      'Virtual tours',
-      'Targeted marketing campaigns'
-    ],
     color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 2,
-    title: 'Property Management',
-    description: 'Comprehensive property management services for landlords and property investors.',
+    key: 'property_management',
     icon: Building2,
-    features: [
-      'Tenant screening & placement',
-      'Rent collection & accounting',
-      'Property maintenance',
-      'Regular inspections',
-      '24/7 emergency support'
-    ],
     color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 3,
-    title: 'Investment Advisory',
-    description: 'Strategic investment advice to help you make informed property investment decisions.',
+    key: 'investment_advisory',
     icon: BarChart3,
-    features: [
-      'Market analysis & research',
-      'Investment strategy planning',
-      'Portfolio optimization',
-      'ROI calculations',
-      'Risk assessment'
-    ],
     color: 'from-[#D4AF37] to-[#D4AF37]/90'
   },
   {
     id: 4,
-    title: 'Legal & Documentation',
-    description: 'Expert handling of all legal aspects and documentation related to property transactions.',
+    key: 'legal_documentation',
     icon: ClipboardCheck,
-    features: [
-      'Contract preparation',
-      'Legal compliance checks',
-      'Due diligence',
-      'Documentation review',
-      'Regulatory guidance'
-    ],
     color: 'from-[#D4AF37] to-[#D4AF37]/90'
   }
 ]
@@ -82,27 +51,24 @@ const services = [
 const benefits = [
   {
     icon: Shield,
-    title: 'Trusted Expertise',
-    description: '15+ years of industry experience'
+    key: 'trusted_expertise'
   },
   {
     icon: Clock,
-    title: 'Fast Response',
-    description: 'Quick and efficient service delivery'
+    key: 'fast_response'
   },
   {
     icon: HeartHandshake,
-    title: 'Personal Touch',
-    description: 'Tailored solutions for every client'
+    key: 'personal_touch'
   },
   {
     icon: BadgePercent,
-    title: 'Competitive Rates',
-    description: 'Transparent and fair pricing'
+    key: 'competitive_rates'
   }
 ]
 
 export default function ServicesPage() {
+  const { t } = useTranslation('services')
   const [selectedService, setSelectedService] = useState<number | null>(null)
 
   return (
@@ -117,7 +83,7 @@ export default function ServicesPage() {
             className="inline-block mb-6"
           >
             <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
-              Our Services
+              {t('hero.badge')}
             </span>
           </motion.div>
           <motion.h1 
@@ -126,7 +92,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
           >
-            Our Comprehensive Services
+            {t('hero.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -134,7 +100,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Discover our range of professional real estate services designed to make your property journey seamless and successful.
+            {t('hero.description')}
           </motion.p>
         </div>
 
@@ -142,7 +108,7 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {benefits.map((benefit, index) => (
             <motion.div
-              key={benefit.title}
+              key={benefit.key}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -153,8 +119,12 @@ export default function ServicesPage() {
                   <benefit.icon className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-[#1A2A44]">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  <h3 className="font-semibold mb-1 text-[#1A2A44]">
+                    {t(`benefits.${benefit.key}.title`)}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {t(`benefits.${benefit.key}.description`)}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -181,8 +151,12 @@ export default function ServicesPage() {
                       <service.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">{service.title}</h3>
-                      <p className="text-gray-600">{service.description}</p>
+                      <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">
+                        {t(`services.${service.key}.title`)}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t(`services.${service.key}.description`)}
+                      </p>
                     </div>
                   </div>
                   
@@ -191,7 +165,7 @@ export default function ServicesPage() {
                   }`}>
                     <div className="overflow-hidden">
                       <ul className="space-y-3 pt-4 border-t border-[#D4AF37]/10">
-                        {service.features.map((feature, index) => (
+                        {(t(`services.${service.key}.features`, { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                           <motion.li
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
@@ -214,7 +188,7 @@ export default function ServicesPage() {
                     size="sm"
                     className="text-[#D4AF37] hover:text-[#D4AF37]/90 hover:bg-[#D4AF37]/10"
                   >
-                    Learn More
+                    {t('services.learn_more')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -229,10 +203,10 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-20" />
           <div className="relative p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
+              {t('cta.title')}
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss how we can help you achieve your property goals.
+              {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -243,7 +217,7 @@ export default function ServicesPage() {
               >
                 <Link href="/contact">
                   <MessageSquareMore className="w-5 h-5 mr-2" />
-                  Schedule a Consultation
+                  {t('cta.consultation_button')}
                 </Link>
               </Button>
               <Button
@@ -254,7 +228,7 @@ export default function ServicesPage() {
               >
                 <Link href="/properties">
                   <Sparkles className="w-5 h-5 mr-2" />
-                  View Our Portfolio
+                  {t('cta.portfolio_button')}
                 </Link>
               </Button>
             </div>

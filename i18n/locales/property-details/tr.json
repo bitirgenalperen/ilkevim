@@ -1,0 +1,218 @@
+{
+  "breadcrumb": {
+    "properties": "Mülkler",
+    "property": "Mülk"
+  },
+  "status": {
+    "available": "Müsait",
+    "pending": "Beklemede"
+  },
+  "features": {
+    "title": "Mülk Özellikleri",
+    "bedrooms": {
+      "title": "Yatak Odası",
+      "description": "Ferah ve aydınlık yatak odaları"
+    },
+    "bathrooms": {
+      "title": "Banyo",
+      "description": "Modern ve lüks banyolar"
+    },
+    "square_footage": {
+      "title": "Metrekare",
+      "description": "Geniş yaşam alanı"
+    },
+    "property_type": {
+      "title": "Mülk Tipi",
+      "property_type_list": {
+        "apartment": "Apartman",
+        "house": "Ev",  
+        "villa": "Villa",
+        "penthouse": "Teras Kat"
+      }
+    },
+    "year_built": {
+      "title": "İnşa Yılı",
+      "description": "Kaliteli inşaat"
+    }
+  },
+  "description": {
+    "title": "Açıklama"
+  },
+  "amenities": {
+    "title": "Özellikler",
+    "subtitle": "Bu mülkü özel yapan özellikleri keşfedin",
+    "spotlight": "Mülk Vitrini",
+    "list": {
+      "Concierge": {
+        "title": "Konsiyerj",
+        "description": "7/24 özel konsiyerj hizmeti"
+      },
+      "Parking": {
+        "title": "Otopark",
+        "description": "Güvenli otopark mevcut"
+      },
+      "EV Charging": {
+        "title": "Elektrikli Araç Şarjı",
+        "description": "Elektrikli araç şarj istasyonları"
+      },
+      "Garden": {
+        "title": "Bahçe",
+        "description": "Güzel peyzajlı bahçe"
+      },
+      "Balcony": {
+        "title": "Balkon",
+        "description": "Özel açık alan"
+      },
+      "Roof Terrace": {
+        "title": "Çatı Terası",
+        "description": "Muhteşem çatı manzaraları"
+      },
+      "Private Elevator": {
+        "title": "Özel Asansör",
+        "description": "Doğrudan asansör erişimi"
+      },
+      "Gym": {
+        "title": "Spor Salonu",
+        "description": "Son teknoloji fitness merkezi"
+      },
+      "Swimming Pool": {
+        "title": "Yüzme Havuzu",
+        "description": "Kapalı/açık yüzme olanakları"
+      },
+      "Spa/Sauna": {
+        "title": "Spa/Sauna",
+        "description": "Rahatlama ve sağlık alanı"
+      },
+      "Smart Home System": {
+        "title": "Akıllı Ev",
+        "description": "Entegre akıllı ev teknolojisi"
+      },
+      "Security System": {
+        "title": "Güvenlik Sistemi",
+        "description": "Gelişmiş güvenlik sistemleri"
+      },
+      "High-Speed Internet": {
+        "title": "Yüksek Hızlı İnternet",
+        "description": "Fiber optik bağlantı"
+      },
+      "Home Cinema": {
+        "title": "Ev Sineması",
+        "description": "Premium eğlence alanı"
+      },
+      "Wine Cellar": {
+        "title": "Şarap Mahzeni",
+        "description": "Sıcaklık kontrollü şarap depolama"
+      },
+      "Chefs Kitchen": {
+        "title": "Şef Mutfağı",
+        "description": "Profesyonel düzeyde mutfak"
+      },
+      "Walk-In Closet": {
+        "title": "Giyinme Odası",
+        "description": "Geniş depolama çözümleri"
+      },
+      "Panoramic Views": {
+        "title": "Panoramik Manzaralar",
+        "description": "Nefes kesen manzara"
+      },
+      "Fireplace": {
+        "title": "Şömine",
+        "description": "Rahat iç mekan şöminesi"
+      },
+      "Outdoor Kitchen/BBQ": {
+        "title": "Açık Mutfak",
+        "description": "Açık havada yemek pişirme ve yemek alanı"
+      }
+    }
+  },
+  "calculators": {
+    "stamp_duty": {
+      "title": "Damga Vergisi Hesaplayıcı",
+      "effective_date": "Nisan 2025'ten Sonra",
+      "disclaimer": "Sadece bir tahmin sunar.",
+      "options": {
+        "first_time_buyer": "İlk kez alıcı",
+        "own_property": "Zaten mülk sahibi",
+        "non_uk_resident": "İngiltere dışı ikametgahlı",
+        "replacing_main_residence": "Ana ikametgahı değiştirme"
+      },
+      "summary": {
+        "property_price": "Mülk fiyatı:",
+        "stamp_duty": "Damga vergisi:",
+        "effective_rate": "Efektif oran:"
+      },
+      "breakdown": {
+        "show": "Hesaplama detaylarını göster",
+        "hide": "Hesaplama detaylarını gizle",
+        "title": "Hesaplama Detayları",
+        "portion": "Kısım:",
+        "rate": "Oran:",
+        "tax": "Vergi:",
+        "total": "Toplam damga vergisi:"
+      },
+      "rates": {
+        "title": "Damga Vergisi Oranları (Nisan 2025'ten itibaren)",
+        "first_time_buyer": {
+          "band1": "£0 - £300,000:",
+          "band2": "£300,001 - £500,000:",
+          "band3": "£500,000 üzeri:",
+          "rate1": "%0",
+          "rate2": "%5",
+          "rate3": "Standart oranlar uygulanır"
+        },
+        "standard": {
+          "band1": "£0 - £125,000:",
+          "band2": "£125,001 - £250,000:",
+          "band3": "£250,001 - £925,000:",
+          "band4": "£925,001 - £1,500,000:",
+          "band5": "£1,500,000 üzeri:",
+          "rate1": "%0",
+          "rate2": "%2",
+          "rate3": "%5",
+          "rate4": "%10",
+          "rate5": "%12"
+        },
+        "additional_property": "Ek mülk: +%5",
+        "non_uk_resident": "İngiltere dışı ikametgahlı: +%2"
+      }
+    },
+    "mortgage": {
+      "title": "Mortgage Hesaplayıcı",
+      "down_payment": {
+        "label": "Peşinat",
+        "min": "%5",
+        "max": "%50"
+      },
+      "interest_rate": {
+        "label": "Faiz Oranı",
+        "min": "%1",
+        "max": "%10"
+      },
+      "loan_term": {
+        "label": "Kredi Vadesi",
+        "years": "yıl"
+      },
+      "summary": {
+        "monthly_payment": "Tahmini Aylık Ödeme",
+        "loan_amount": "Kredi Tutarı",
+        "total_interest": "Toplam Faiz"
+      },
+      "disclaimer": "Sadece bir tahmin sunar."
+    }
+  },
+  "location": {
+    "title": "Konum"
+  },
+  "error": {
+    "title": "Mülk Yüklenirken Hata",
+    "not_found": "Mülk bulunamadı",
+    "back_button": "Mülklere Geri Dön"
+  },
+  "loading": {
+    "text": "Mülk detayları yükleniyor..."
+  },
+  "share": {
+    "button": "Paylaş",
+    "copied": "Bağlantı panoya kopyalandı!"
+  }
+} 

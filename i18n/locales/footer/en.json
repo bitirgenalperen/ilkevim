@@ -1,0 +1,36 @@
+{
+  "company_info": {
+    "name": "ilkevim",
+    "description": "Your trusted partner in finding the perfect property in the UK. We provide comprehensive real estate services tailored to your needs."
+  },
+  "quick_links": {
+    "title": "Quick Links",
+    "properties": "Properties",
+    "services": "Services",
+    "events": "Events",
+    "about_us": "About Us",
+    "contact": "Contact"
+  },
+  "contact_us": {
+    "title": "Contact Us",
+    "address": "123 Real Estate Street\nLondon, UK",
+    "phone": "+44 123 456 7890",
+    "email": "info@ilkevim.com"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Subscribe to our newsletter for the latest property listings and market insights.",
+    "name_placeholder": "Your name",
+    "email_placeholder": "Enter your email",
+    "subscribe_button": "Subscribe",
+    "subscribing_message": "Subscribing...",
+    "success_message": "Thank you for subscribing!",
+    "already_subscribed_message": "This email is already subscribed",
+    "name_email_required_error": "Please provide both name and email"
+  },
+  "bottom_bar": {
+    "copyright": ". All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
+  }
+} 

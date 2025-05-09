@@ -1,0 +1,149 @@
+{
+  "header": {
+    "back_button": "Back to Homepage",
+    "title": "Terms and Conditions",
+    "effective_date": "Effective Date: June 1, 2024",
+    "download_button": "Download PDF",
+    "notice": {
+      "title": "Please read these Terms and Conditions carefully before using our platform.",
+      "description": "By accessing or using the ilkevim website and services, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access the service."
+    }
+  },
+  "table_of_contents": {
+    "title": "Table of Contents",
+    "sections": [
+      "1. Acceptance of Terms",
+      "2. Registration and Account",
+      "3. Property Listings",
+      "4. User Conduct",
+      "5. Intellectual Property",
+      "6. Limitation of Liability",
+      "7. Termination",
+      "8. Governing Law"
+    ]
+  },
+  "sections": {
+    "acceptance": {
+      "title": "1. Acceptance of Terms",
+      "description": "By accessing or using the ilkevim platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, along with our Privacy Policy.",
+      "agreement": "These terms constitute a legally binding agreement between you and ilkevim regarding your use of our website, mobile applications, and related services. We reserve the right to modify these terms at any time, and such modifications shall be effective immediately upon posting the modified terms on the platform.",
+      "changes": "Your continued use of our services following any changes to these Terms and Conditions constitutes your acceptance of those changes. It is your responsibility to review these Terms regularly to stay informed of any updates."
+    },
+    "registration": {
+      "title": "2. Registration and Account",
+      "account_creation": {
+        "title": "2.1 Account Creation",
+        "description": "To access certain features of our platform, you may be required to register for an account. When you register, you agree to provide accurate, current, and complete information about yourself as prompted by our registration forms."
+      },
+      "account_responsibility": {
+        "title": "2.2 Account Responsibility",
+        "description": "You are solely responsible for:",
+        "items": [
+          "Maintaining the confidentiality of your account password and username",
+          "Restricting access to your computer or mobile device",
+          "All activities that occur under your account"
+        ],
+        "notice": "You agree to notify ilkevim immediately of any unauthorized use of your account or any other breach of security. ilkevim will not be liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge."
+      },
+      "user_verification": {
+        "title": "2.3 User Verification",
+        "description": "To ensure the integrity of our platform, we may conduct verification procedures for users, especially for property owners and agents. By creating an account, you consent to these verification procedures, which may include identity verification and credential validation."
+      }
+    },
+    "property_listings": {
+      "title": "3. Property Listings",
+      "accuracy": {
+        "title": "3.1 Accuracy of Information",
+        "description": "Information about properties is provided by property owners, agents, or other third parties. While we strive to maintain the accuracy of all information on our platform, ilkevim does not guarantee the accuracy, completeness, or reliability of any property listings, descriptions, or related information."
+      },
+      "endorsement": {
+        "title": "3.2 No Endorsement",
+        "description": "The inclusion of any property listings on our platform does not constitute an endorsement or recommendation by ilkevim. We do not verify the legality, quality, safety, or other aspects of the properties listed on our platform."
+      },
+      "transactions": {
+        "title": "3.3 Property Inquiries and Transactions",
+        "description": "ilkevim acts solely as a platform connecting property seekers with property owners and agents. We are not a party to any agreements or transactions between users. Any transaction, communication, or dispute that may arise between users is solely between those users.",
+        "recommendations": "Before making any decision regarding a property, we strongly recommend:",
+        "items": [
+          "Conducting thorough research",
+          "Visiting the property in person",
+          "Verifying all information directly with the property owner or agent",
+          "Seeking professional advice where appropriate"
+        ]
+      }
+    },
+    "user_conduct": {
+      "title": "4. User Conduct",
+      "prohibited": {
+        "title": "4.1 Prohibited Activities",
+        "description": "When using our platform, you agree not to:",
+        "items": [
+          "Violate any applicable laws or regulations",
+          "Post false, misleading, or fraudulent content",
+          "Impersonate another person or entity",
+          "Post content that is defamatory, obscene, or otherwise objectionable",
+          "Use the platform to send unsolicited communications",
+          "Interfere with or disrupt the platform or servers",
+          "Attempt to gain unauthorized access to any part of the platform",
+          "Use data mining, robots, or similar data gathering methods",
+          "Circumvent any measures we use to restrict access to the platform"
+        ]
+      },
+      "content_removal": {
+        "title": "4.2 Content Removal",
+        "description": "ilkevim reserves the right, but has no obligation, to monitor the content posted on our platform. We may remove any content that violates these Terms or is otherwise objectionable, at our sole discretion and without notice."
+      }
+    },
+    "intellectual_property": {
+      "title": "5. Intellectual Property",
+      "ilkevim_content": {
+        "title": "5.1 ilkevim Content",
+        "description": "The content on our platform, including but not limited to text, graphics, logos, images, and software, is the property of ilkevim or its content suppliers and is protected by international copyright laws."
+      },
+      "user_content": {
+        "title": "5.2 User Content",
+        "description": "By posting, uploading, or otherwise submitting any content to our platform, you grant ilkevim a non-exclusive, worldwide, royalty-free, perpetual, irrevocable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content in any media.",
+        "warranty": "You represent and warrant that:",
+        "items": [
+          "You own or have the necessary licenses, rights, consents, and permissions to use and authorize ilkevim to use all intellectual property rights in and to any content that you submit",
+          "The content does not infringe upon the intellectual property rights of any third party"
+        ]
+      }
+    },
+    "limitation_liability": {
+      "title": "6. Limitation of Liability",
+      "disclaimer": {
+        "title": "6.1 Disclaimer of Warranties",
+        "description": "THE ILKEVIM PLATFORM AND ALL CONTENT, FUNCTIONS, AND SERVICES PROVIDED THROUGH THE PLATFORM ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE,\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT."
+      },
+      "limitation": {
+        "title": "6.2 Limitation of Liability",
+        "description": "IN NO EVENT SHALL ILKEVIM, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:",
+        "items": [
+          "Your access to or use of or inability to access or use the platform",
+          "Any conduct or content of any third party on the platform",
+          "Any content obtained from the platform",
+          "Unauthorized access, use, or alteration of your transmissions or content"
+        ],
+        "jurisdiction": "In jurisdictions where the exclusion or limitation of liability for consequential or incidental damages is not allowed, our liability shall be limited to the maximum extent permitted by law."
+      }
+    },
+    "termination": {
+      "title": "7. Termination",
+      "description": "We may terminate or suspend your account and access to the platform immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.",
+      "consequences": "Upon termination, your right to use the platform will immediately cease. If you wish to terminate your account, you may simply discontinue using the platform.",
+      "survival": "All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability."
+    },
+    "governing_law": {
+      "title": "8. Governing Law",
+      "description": "These Terms shall be governed and construed in accordance with the laws of the United Kingdom, without regard to its conflict of law provisions.",
+      "disputes": "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.",
+      "contact": "If you have any questions about these Terms, please contact us at legal@ilkevim.co.uk."
+    }
+  },
+  "related_links": {
+    "privacy": "View Privacy Policy",
+    "register": "Return to Homepage"
+  },
+  "last_updated": "These Terms and Conditions were last updated on June 1, 2024."
+} 

@@ -1,0 +1,36 @@
+{
+  "company_info": {
+    "name": "ilkevim",
+    "description": "Birleşik Krallık'ta mükemmel mülkü bulmanızda güvenilir ortağınız. İhtiyaçlarınıza göre özelleştirilmiş kapsamlı gayrimenkul hizmetleri sunuyoruz."
+  },
+  "quick_links": {
+    "title": "Hızlı Bağlantılar",
+    "properties": "Emlaklar",
+    "services": "Hizmetler",
+    "events": "Etkinlikler",
+    "about_us": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "contact_us": {
+    "title": "Bize Ulaşın",
+    "address": "123 Real Estate Street\nLondra, Birleşik Krallık",
+    "phone": "+44 123 456 7890",
+    "email": "info@ilkevim.com"
+  },
+  "newsletter": {
+    "title": "Güncel Kalın",
+    "description": "En son emlak listeleri ve piyasa görüşleri için bültenimize abone olun.",
+    "name_placeholder": "Adınız",
+    "email_placeholder": "E-posta adresinizi girin",
+    "subscribe_button": "Abone Ol",
+    "subscribing_message": "Abone olunuyor...",
+    "success_message": "Abone olduğunuz için teşekkür ederiz!",
+    "already_subscribed_message": "Bu e-posta zaten abone",
+    "name_email_required_error": "Lütfen hem adınızı hem de e-posta adresinizi girin"
+  },
+  "bottom_bar": {
+    "copyright": ". Tüm hakları saklıdır.",
+    "privacy_policy": "Gizlilik Politikası",
+    "terms_of_service": "Kullanım Koşulları"
+  }
+} 

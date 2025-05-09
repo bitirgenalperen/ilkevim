@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "badge": "Hakkımızda",
+    "title": "Hikayemiz",
+    "description": "Yolculuğumuzu, değerlerimizi ve gayrimenkul alanındaki mükemmellik taahhüdümüzü öğrenin."
+  },
+  "stats": [
+    { "number": "15+", "label": "Yıllık Deneyim" },
+    { "number": "1000+", "label": "Satılan Emlak" },
+    { "number": "98%", "label": "Müşteri Memnuniyeti" },
+    { "number": "£500M+", "label": "Yönetilen Emlak Değeri" }
+  ],
+  "values": {
+    "section_title": "Temel Değerlerimiz",
+    "mission": {
+      "title": "Misyonumuz",
+      "description": "En yüksek dürüstlük ve profesyonellik standartlarını koruyarak olağanüstü gayrimenkul hizmetleri sunmak."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "description": "Gayrimenkul hizmetlerinde yeni standartlar belirleyen, en güvenilir ve yenilikçi gayrimenkul şirketi olmak."
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "description": "Yaptığımız her şeyde Güven, Mükemmellik, Yenilikçilik ve Müşteri Odaklı yaklaşım."
+    }
+  },
+  "team": {
+    "section_title": "Ekibimizle Tanışın",
+    "members": [
+      {
+        "name": "Sarah Johnson",
+        "role": "CEO ve Kurucu",
+        "description": "20+ yıllık gayrimenkul deneyimiyle, Sarah vizyonu ve uzmanlığıyla liderlik ediyor."
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Emlak Satış Müdürü",
+        "description": "Lüks emlak satışlarında üstün başarı geçmişine sahip uzman."
+      },
+      {
+        "name": "Emma Thompson",
+        "role": "Yatırım Direktörü",
+        "description": "Emlak yatırım stratejileri ve piyasa analizinde uzmanlaşmıştır."
+      },
+      {
+        "name": "James Wilson",
+        "role": "Operasyon Müdürü",
+        "description": "Tüm hizmetlerin sorunsuz işleyişini ve müşteri memnuniyetini sağlar."
+      }
+    ]
+  },
+  "achievements": {
+    "section_title": "Başarılarımız",
+    "items": [
+      "2023 En İyi Gayrimenkul Ajansı",
+      "En İyi Emlak Yönetim Şirketi",
+      "Müşteri Hizmetlerinde Mükemmellik Ödülü",
+      "Sürdürülebilir Kalkınma Tanınırlığı",
+      "2023 Sektör Yenilik Ödülü"
+    ]
+  },
+  "cta": {
+    "title": "Başarı Hikayemize Katılın",
+    "description": "Emlak hedeflerinize ulaşmak için birlikte çalışalım. Kişiselleştirilmiş bir danışma için bugün bizimle iletişime geçin.",
+    "contact_button": "İletişime Geçin",
+    "properties_button": "Emlakları Görüntüleyin"
+  }
+} 

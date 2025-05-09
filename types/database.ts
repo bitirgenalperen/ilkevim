@@ -25,6 +25,22 @@ export interface Property {
   updatedAt: Date
 }
 
+export interface Event {
+  _id?: ObjectId
+  title: string
+  description: string
+  description_tr: string
+  date: string
+  time: string
+  location: string
+  type: 'online' | 'onsite'
+  capacity: number
+  category: string
+  image: string
+  createdAt: Date
+  updatedAt: Date
+}
+
 export interface User {
   _id?: ObjectId
   name: string

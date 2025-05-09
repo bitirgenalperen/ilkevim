@@ -2,6 +2,7 @@ export interface Property {
   _id: string;
   title: string;
   description: string;
+  description_tr: string;
   price: number;
   location: {
     city: string;
@@ -23,6 +24,7 @@ export interface Property {
   images: string[];
   listingType: 'standard' | 'featured';
   status: 'available' | 'sold' | 'pending';
+  stayType: 'buy' | 'rent';
   createdAt: string;
   updatedAt: string;
 }

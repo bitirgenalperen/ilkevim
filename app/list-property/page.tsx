@@ -61,6 +61,7 @@ const ukCities = [
 type FormData = {
   title: string;
   description: string;
+  description_tr: string;
   price: string;
   location: {
     city: string;
@@ -93,6 +94,7 @@ export default function ListPropertyPage() {
   const [formData, setFormData] = useState<FormData>({
     title: '',
     description: '',
+    description_tr: '',
     price: '',
     location: {
       city: '',
@@ -410,6 +412,20 @@ export default function ListPropertyPage() {
                       name="description"
                       placeholder="Describe the property in detail..."
                       value={formData.description}
+                      onChange={handleInputChange}
+                      required
+                      className="mt-1"
+                      rows={5}
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="description_tr">Description - Turkish</Label>
+                    <Textarea
+                      id="description_tr"
+                      name="description_tr"
+                      placeholder="Mülkü detaylı bir şekilde açıklayın..."
+                      value={formData.description_tr}
                       onChange={handleInputChange}
                       required
                       className="mt-1"

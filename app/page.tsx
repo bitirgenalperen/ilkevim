@@ -1,14 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next'
-import i18n from '@/i18n/config'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Building, Home, MapPin, Phone, Search, ArrowRight, Calculator, Bath, Bed, Move, Calendar, Loader2, Receipt, Percent, Check } from "lucide-react"
+import { Building, Home, MapPin, Phone, Search, ArrowRight, Calculator, Bath, Bed, Move, Calendar, Loader2, Percent } from "lucide-react"
 import { PartnersCarousel } from "@/components/PartnersCarousel"
 import { ReviewsCarousel } from "@/components/ReviewsCarousel"
 import { cn } from "@/lib/utils"
@@ -120,6 +118,7 @@ export default function HomePage() {
   }
 
   function PropertyCard({ property }: { property: Property }) {
+    const { t, i18n } = useTranslation('properties')
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [imageLoadError, setImageLoadError] = useState(false);
     const images = property.images.slice(0, 3); // Limit to 3 images
@@ -154,7 +153,7 @@ export default function HomePage() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <p className="text-sm text-gray-500">Image not available</p>
+                  <p className="text-sm text-gray-500">{t('property_card.image_not_available')}</p>
                 </div>
               </div>
             ) : (
@@ -203,7 +202,7 @@ export default function HomePage() {
                   : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
               )}
             >
-              {property.listingType === 'featured' ? 'Featured' : 'Standard'}
+              {property.listingType === 'featured' ? t('property_card.featured') : t('property_card.standard')}
             </Badge>
           </div>
           <CardContent className="pt-3 px-6 pb-6 flex-grow">
@@ -212,19 +211,21 @@ export default function HomePage() {
               <span>{property.location.area}, {property.location.city}</span>
             </div>
             <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
-            <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
+            <p className="text-gray-600 mb-4 line-clamp-2">
+              {i18n.language === 'tr' ? property.description_tr : property.description}
+            </p>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Bed size={16} className="text-[#D4AF37]" />
-                <span>{property.features.bedrooms} Beds</span>
+                <span>{property.features.bedrooms} {t('property_card.beds')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Bath size={16} className="text-[#D4AF37]" />
-                <span>{property.features.bathrooms} Baths</span>
+                <span>{property.features.bathrooms} {t('property_card.baths')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Move size={16} className="text-[#D4AF37]" />
-                <span>{property.features.squareFootage} sq ft</span>
+                <span>{property.features.squareFootage} {t('property_card.sq_ft')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Calendar size={16} className="text-[#D4AF37]" />
@@ -240,7 +241,7 @@ export default function HomePage() {
                 className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
                 onClick={(e) => e.stopPropagation()}
               >
-                View Details
+                {t('property_card.view_details')}
               </Button>
             </div>
           </CardContent>

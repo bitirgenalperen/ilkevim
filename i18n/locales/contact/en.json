@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "badge": "Get In Touch",
+    "title": "Contact Us",
+    "description": "We're here to help you with your property needs. Reach out to our team and we'll get back to you as soon as possible."
+  },
+  "tab_navigation": {
+    "contact_form": "Contact Form",
+    "faq": "FAQs"
+  },
+  "contact_form": {
+    "title": "Have questions?",
+    "subtitle": "Fill out the form below and we'll call as soon as possible.",
+    "name": "Your Name",
+    "name_placeholder": "John Doe",
+    "phone": "Phone Number",
+    "phone_placeholder": "+44 7552 177242",
+    "optional_details": "Optional Details",
+    "email": "Email Address",
+    "email_placeholder": "john@example.com",
+    "subject": "Subject",
+    "subject_placeholder": "Property Inquiry",
+    "message": "Your Message",
+    "message_placeholder": "How can we help you?",
+    "button": {
+      "send": "Send Message",
+      "sending": "Sending...",
+      "sent": "Message Sent!"
+    }
+  },
+  "contact_info": {
+    "title": "Contact Information",
+    "subtitle": "Reach out directly or visit our office.",
+    "sections": [
+      {
+        "title": "Call Us"
+      },
+      {
+        "title": "Visit Us"
+      },
+      {
+        "title": "Working Hours"
+      },
+      {
+        "title": "Email Us"
+      }
+    ],
+    "working_hours": {
+      "weekdays": "Monday-Friday: 9AM-6PM",
+      "saturday": "Saturday: 10AM-4PM",
+      "sunday": "Sunday: Closed"
+    },
+    "follow_us": "Follow Us"
+  },
+  "faq": {
+    "title": "Simplify Your Real Estate Processes with Frequently Asked Questions",
+    "subtitle": "We answer the most common questions about property buying, selling, and mortgage processes. Here, you can find the basic information to assist you when buying or renting property.",
+    "categories": {
+      "freehold": "Freehold",
+      "leasehold": "Leasehold",
+      "mortgage": "Mortgage",
+      "aip": "Agreement in Principle (AIP)",
+      "buying_process": "Buying Process",
+      "documents": "Documents",
+      "additional_costs": "Additional Costs",
+      "help_to_buy": "Help to Buy Schemes",
+      "property_viewing": "Property Viewing",
+      "offers": "Offers",
+      "after_offer": "After Offer Acceptance",
+      "surveys": "Surveys",
+      "international_buyers": "International Buyers",
+      "investment": "Investment Property"
+    },
+    "questions": [
+      {
+        "question": "What does Freehold mean?",
+        "answer": "Freehold means that you own both the property and the land it sits on indefinitely. You have complete ownership rights and full control over your property without having to pay ground rent or service charges to a landlord."
+      },
+      {
+        "question": "What is a Leasehold property?",
+        "answer": "Leasehold means you have the right to use a property for a set period (typically 99-999 years), but the land it stands on belongs to the freeholder. You'll need to pay ground rent and service charges, and will need to comply with certain conditions in the lease agreement."
+      },
+      {
+        "question": "What are service charges and ground rent?",
+        "answer": "Service charges are fees paid by leaseholders for maintaining shared areas and facilities of a building, such as hallways, elevators, gardens, and structural elements. Ground rent is a separate fee paid to the freeholder for the land the property sits on."
+      },
+      {
+        "question": "Can a lease term be extended?",
+        "answer": "Yes, leaseholders can extend their lease term, but this process can be costly. The price varies depending on the remaining lease duration, property value, and ground rent amount. It's advisable to extend a lease before it falls below 80 years, as it becomes more expensive after this point."
+      },
+      {
+        "question": "How does a mortgage work?",
+        "answer": "A mortgage is a loan taken from a bank or building society to buy a property. The property serves as security for the loan until it's fully repaid. You'll make monthly repayments over a term (typically 25-35 years), which includes both the capital amount borrowed and interest."
+      },
+      {
+        "question": "How are mortgage interest rates determined?",
+        "answer": "Mortgage interest rates can be fixed or variable. A fixed rate remains the same for a set period (typically 2-5 years), providing payment certainty. Variable rates change based on the Bank of England base rate or the lender's standard variable rate, which can go up or down affecting your monthly payments."
+      },
+      {
+        "question": "What is an Agreement in Principle (AIP)?",
+        "answer": "An Agreement in Principle (AIP), also known as a Mortgage in Principle, is a pre-approval from a mortgage provider indicating how much they might be willing to lend you. It's based on a soft credit check and your declared income. An AIP helps you understand your budget and shows sellers you're a serious buyer."
+      },
+      {
+        "question": "What types of property surveys are available?",
+        "answer": "There are three main types: Condition Reports (basic overview, best for new-build properties), HomeBuyer Reports (more detailed, suitable for conventional properties in reasonable condition), and Building/Structural Surveys (comprehensive assessment, recommended for older, unusual, or renovation properties). Each offers increasing levels of detail and cost."
+      },
+      {
+        "question": "Is a survey really necessary if the mortgage lender does a valuation?",
+        "answer": "Yes. A mortgage valuation is primarily for the lender's benefit to confirm the property is adequate security for the loan. It's not designed to identify structural issues or defects. A proper survey protects your investment by identifying problems that could require expensive repairs or affect the property's value or safety."
+      },
+      {
+        "question": "What should I do if the survey finds problems?",
+        "answer": "First, discuss the findings with your surveyor to understand their severity. For significant issues, you have several options: ask the seller to fix the problems before completion, renegotiate the price to reflect repair costs, request further specialist reports, or in serious cases, withdraw from the purchase. Many issues are negotiable rather than deal-breakers."
+      },
+      {
+        "question": "What additional considerations apply to international buyers?",
+        "answer": "International buyers face additional considerations including higher stamp duty rates (additional 2% for non-UK residents), potential currency exchange risks, more complex mortgage options (though many UK banks offer international products), and different tax implications. You'll also need a UK bank account and should consider appointing a UK-based solicitor specializing in international transactions."
+      },
+      {
+        "question": "Can foreign nationals buy property in the UK?",
+        "answer": "Yes, the UK property market is open to foreign buyers with no restrictions on property ownership. However, non-UK residents pay an additional 2% stamp duty surcharge. If you're not a UK resident, you'll need to complete identity verification procedures under Anti-Money Laundering regulations and may face different mortgage lending criteria."
+      },
+      {
+        "question": "What should I consider when buying a property as a rental investment?",
+        "answer": "Focus on rental yield (typically 4-7% is considered good), capital growth potential, tenant demand in the area, property type suitability, maintenance requirements, and additional costs like landlord insurance and management fees. You'll also need to comply with legal obligations including safety certificates, deposit protection, and potentially landlord licensing depending on the location."
+      },
+      {
+        "question": "What are the tax implications of owning rental property?",
+        "answer": "Rental income is subject to income tax, and you'll need to file a self-assessment tax return. You can deduct allowable expenses including mortgage interest (restricted to basic rate tax relief), maintenance costs, letting agent fees, insurance, and utility bills you pay directly. Capital Gains Tax applies when selling a rental property, although reliefs may be available. Consider consulting a tax specialist for personalized advice."
+      }
+    ]
+  },
+  "map": {
+    "title": "Our Location",
+    "subtitle": "Visit us at our office"
+  },
+  "cta": {
+    "title": "Get Personalized Assistance",
+    "subtitle": "Our real estate professionals are ready to help you",
+    "button": "Contact Now"
+  }
+} 

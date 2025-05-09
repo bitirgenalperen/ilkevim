@@ -26,7 +26,7 @@ export const commonAmenities = [
   "High-Speed Internet",
   "Home Cinema",
   "Wine Cellar",
-  "Chef’s Kitchen",
+  "Chefs Kitchen",
   "Walk-In Closet",
   "Panoramic Views",
   "Fireplace",

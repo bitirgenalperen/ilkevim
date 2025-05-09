@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Property, Filters } from '@/types/property'
 import { propertyTypes, commonAmenities } from '@/data/properties'
 import { Card, CardContent } from '@/components/ui/card'
@@ -27,7 +28,6 @@ import {
   Castle,
   MapPinned,
   PoundSterling,
-  BedDouble,
   X,
   SlidersHorizontal,
   ChevronDown,
@@ -40,6 +40,7 @@ import Link from 'next/link'
 import { getSignedUrlsForImages } from '@/lib/s3-client'
 
 export default function PropertiesPage() {
+  const { t } = useTranslation('properties')
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
   const [properties, setProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
@@ -173,13 +174,13 @@ export default function PropertiesPage() {
 
   const getPropertyTypeIcon = (type: string) => {
     switch (type) {
-      case 'apartment':
+      case t('property_type_list.apartment'):
         return <Building2 className="w-4 h-4" />
-      case 'house':
+      case t('property_type_list.house'):
         return <Home className="w-4 h-4" />
-      case 'penthouse':
+      case t('property_type_list.penthouse'):
         return <Hotel className="w-4 h-4" />
-      case 'villa':
+      case t('property_type_list.villa'):
         return <Castle className="w-4 h-4" />
       default:
         return <Home className="w-4 h-4" />
@@ -226,19 +227,19 @@ export default function PropertiesPage() {
   }
 
   const formatBedroomsLabel = (value: number) => {
-    if (value === 0) return "Any"
+    if (value === 0) return "0"
     if (value === MAX_BEDROOMS) return "6+"
     return value.toString()
   }
 
   const formatBathroomsLabel = (value: number) => {
-    if (value === 0) return "Any"
+    if (value === 0) return "0"
     if (value === MAX_BATHROOMS) return "5+"
     return value.toString()
   }
 
   const formatSquareFootageLabel = (value: number) => {
-    if (value === 0) return "Any"
+    if (value === 0) return "0"
     if (value === MAX_SQFT) return "10,000+ sq ft"
     return `${value.toLocaleString()} sq ft`
   }
@@ -252,6 +253,7 @@ export default function PropertiesPage() {
   }
 
   function PropertyCard({ property }: { property: Property }) {
+    const { t, i18n } = useTranslation('properties')
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [imageLoadError, setImageLoadError] = useState(false);
     const images = property.images.slice(0, 3); // Limit to 3 images
@@ -286,7 +288,7 @@ export default function PropertiesPage() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <p className="text-sm text-gray-500">Image not available</p>
+                  <p className="text-sm text-gray-500">{t('property_card.image_not_available')}</p>
                 </div>
               </div>
             ) : (
@@ -336,7 +338,7 @@ export default function PropertiesPage() {
                   : "bg-white/90 hover:bg-white/90 text-[#1A2A44]"
               )}
             >
-              {property.listingType === 'featured' ? 'Featured' : 'Standard'}
+              {property.listingType === 'featured' ? t('property_card.featured') : t('property_card.standard')}
             </Badge>
           </div>
           <CardContent className="pt-3 px-6 pb-6 flex-grow">
@@ -345,19 +347,21 @@ export default function PropertiesPage() {
               <span>{property.location.area}, {property.location.city}</span>
             </div>
             <h3 className="text-xl font-semibold mb-2 line-clamp-1">{property.title}</h3>
-            <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
+            <p className="text-gray-600 mb-4 line-clamp-2">
+              {i18n.language === 'tr' ? property.description_tr : property.description}
+            </p>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Bed size={16} className="text-[#D4AF37]" />
-                <span>{property.features.bedrooms} Beds</span>
+                <span>{property.features.bedrooms} {t('property_card.beds')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Bath size={16} className="text-[#D4AF37]" />
-                <span>{property.features.bathrooms} Baths</span>
+                <span>{property.features.bathrooms} {t('property_card.baths')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Move size={16} className="text-[#D4AF37]" />
-                <span>{property.features.squareFootage} sq ft</span>
+                <span>{property.features.squareFootage} {t('property_card.sq_ft')}</span>
               </div>
               <div className="flex items-center gap-2 text-[#1A2A44]">
                 <Calendar size={16} className="text-[#D4AF37]" />
@@ -373,7 +377,7 @@ export default function PropertiesPage() {
                 className="border-[#D4AF37]/20 hover:border-[#D4AF37] hover:bg-[#1A2A44]/5 text-[#1A2A44] hover:text-[#1A2A44]"
                 onClick={(e) => e.stopPropagation()}
               >
-                View Details
+                {t('property_card.view_details')}
               </Button>
             </div>
           </CardContent>
@@ -402,7 +406,7 @@ export default function PropertiesPage() {
                   )}
                   onClick={() => setFilters({ ...filters, stayType: 'buy' })}
                 >
-                  Buy
+                  {t('filters.buy')}
                 </Button>
                 <Button
                   variant={filters.stayType === 'rent' ? 'default' : 'outline'}
@@ -415,13 +419,13 @@ export default function PropertiesPage() {
                   )}
                   onClick={() => setFilters({ ...filters, stayType: 'rent' })}
                 >
-                  Rent
+                  {t('filters.rent')}
                 </Button>
               </div>
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#D4AF37] z-10" />
                 <Input
-                  placeholder="Search by location, property name, or features..."
+                  placeholder={t('filters.search_placeholder')}
                   className="pl-9 pr-4 h-11 bg-white/80 backdrop-blur-sm border-[#D4AF37]/20 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                   value={filters.searchTerm}
                   onChange={(e) =>
@@ -438,7 +442,7 @@ export default function PropertiesPage() {
                 aria-controls="filter-section"
               >
                 <SlidersHorizontal className="w-4 h-4" />
-                Filters
+                {t('filters.filters_button')}
                 <ChevronDown 
                   className={cn(
                     "w-4 h-4 transition-transform duration-200",
@@ -468,7 +472,7 @@ export default function PropertiesPage() {
                   className="text-[#1A2A44] hover:text-[#1A2A44] hover:bg-[#1A2A44]/5 gap-2"
                 >
                   <X className="w-4 h-4" />
-                  Clear
+                  {t('filters.clear_button')}
                 </Button>
               )}
             </div>
@@ -491,7 +495,7 @@ export default function PropertiesPage() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                       <Home className="w-4 h-4 text-[#D4AF37]" />
-                      Property Type
+                      {t('filters.property_type')}
                     </label>
                     <Select
                       value={filters.propertyType || "_any"}
@@ -500,13 +504,13 @@ export default function PropertiesPage() {
                       }
                     >
                       <SelectTrigger className="bg-white border-[#D4AF37]/20 focus:ring-[#D4AF37] focus:border-[#D4AF37]">
-                        <SelectValue placeholder="Any type" />
+                        <SelectValue placeholder={t('filters.any_type')} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="_any">Any type</SelectItem>
+                        <SelectItem value="_any">{t('filters.any_type')}</SelectItem>
                         {propertyTypes.map((type) => (
                           <SelectItem key={type} value={type} className="capitalize">
-                            {type.charAt(0).toUpperCase() + type.slice(1)}
+                            {t(`filters.property_type_list.${type}`)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -517,7 +521,7 @@ export default function PropertiesPage() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                       <MapPinned className="w-4 h-4 text-[#D4AF37]" />
-                      City
+                      {t('filters.city')}
                     </label>
                     <Select
                       value={filters.city || "_any"}
@@ -530,14 +534,14 @@ export default function PropertiesPage() {
                         {citiesLoading ? (
                           <div className="flex items-center">
                             <Loader2 className="h-4 w-4 animate-spin mr-2 text-[#D4AF37]" />
-                            <span>Loading cities...</span>
+                            <span>{t('loading.cities')}</span>
                           </div>
                         ) : (
-                          <SelectValue placeholder="Any location" />
+                          <SelectValue placeholder={citiesLoading ? "Loading..." : t('filters.any_city')} />
                         )}
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="_any">Any location</SelectItem>
+                        <SelectItem value="_any">{t('filters.any_city')}</SelectItem>
                         {availableCities.length === 0 && !citiesLoading ? (
                           <SelectItem value="_none" disabled>No cities available</SelectItem>
                         ) : (
@@ -556,7 +560,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2 lg:col-span-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <Star className="w-4 h-4 text-[#D4AF37]" />
-                    Amenities
+                    {t('filters.amenities')}
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     {commonAmenities.map((amenity) => (
@@ -576,7 +580,7 @@ export default function PropertiesPage() {
                             : "border-[#D4AF37]/20 text-[#1A2A44] hover:bg-[#1A2A44]/5 hover:border-[#D4AF37]"
                         )}
                       >
-                        {amenity}
+                        {t(`filters.amenities_list.${amenity}`)}
                       </Button>
                     ))}
                   </div>
@@ -588,7 +592,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <PoundSterling className="w-4 h-4 text-[#D4AF37]" />
-                    Price Range
+                    {t('filters.price_range')}
                   </label>
                   <div className="px-2">
                     <Slider
@@ -616,7 +620,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <Move className="w-4 h-4 text-[#D4AF37]" />
-                    Square Footage
+                    {t('filters.square_footage')}
                   </label>
                   <div className="px-2">
                     <Slider
@@ -643,8 +647,8 @@ export default function PropertiesPage() {
                 {/* Bedrooms Filter */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
-                    <BedDouble className="w-4 h-4 text-[#D4AF37]" />
-                    Bedrooms
+                    <Bed className="w-4 h-4 text-[#D4AF37]" />
+                    {t('filters.bedrooms')}
                   </label>
                   <div className="px-2">
                     <Slider
@@ -672,7 +676,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <Bath className="w-4 h-4 text-[#D4AF37]" />
-                    Bathrooms
+                    {t('filters.bathrooms')}
                   </label>
                   <div className="px-2">
                     <Slider
@@ -706,7 +710,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <Home className="w-4 h-4 text-[#D4AF37]" />
-                    Property Type
+                    {t('filters.property_type')}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {propertyTypes.map((type) => (
@@ -727,7 +731,7 @@ export default function PropertiesPage() {
                         }
                       >
                         {getPropertyTypeIcon(type)}
-                        <span className="ml-2 capitalize">{type}</span>
+                        <span className="ml-2">{t(`filters.property_type_list.${type}`)}</span>
                       </Button>
                     ))}
                   </div>
@@ -737,17 +741,17 @@ export default function PropertiesPage() {
                 <div className="space-y-2 pt-2 border-t border-[#D4AF37]/10">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <MapPinned className="w-4 h-4 text-[#D4AF37]" />
-                    City
+                    {t('filters.city')}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {citiesLoading ? (
                       <div className="col-span-2 flex items-center justify-center py-4 bg-white/90 rounded-md border border-[#D4AF37]/20">
                         <Loader2 className="h-5 w-5 animate-spin mr-2 text-[#D4AF37]" />
-                        <span className="text-[#1A2A44]">Loading cities...</span>
+                        <span className="text-[#1A2A44]">{t('loading.cities')}</span>
                       </div>
                     ) : availableCities.length === 0 ? (
                       <div className="col-span-2 text-center py-4 text-[#1A2A44] bg-white/90 rounded-md border border-[#D4AF37]/20">
-                        No cities available
+                        {t('filters.no_cities_available')}
                       </div>
                     ) : (
                       availableCities.map((city) => (
@@ -779,7 +783,7 @@ export default function PropertiesPage() {
               <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                 <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                   <Star className="w-4 h-4 text-[#D4AF37]" />
-                  Amenities
+                  {t('filters.amenities')}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {commonAmenities.map((amenity) => (
@@ -801,7 +805,7 @@ export default function PropertiesPage() {
                         }))
                       }
                     >
-                      {amenity}
+                      {t(`filters.amenities_list.${amenity}`)}
                     </Button>
                   ))}
                 </div>
@@ -811,7 +815,7 @@ export default function PropertiesPage() {
               <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                 <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                   <PoundSterling className="w-4 h-4 text-[#D4AF37]" />
-                  Price Range
+                  {t('filters.price_range')}
                 </label>
                 <div className="pt-2 px-2">
                   <Slider
@@ -836,7 +840,7 @@ export default function PropertiesPage() {
               <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                 <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                   <Move className="w-4 h-4 text-[#D4AF37]" />
-                  Square Footage
+                  {t('filters.square_footage')}
                 </label>
                 <div className="pt-2 px-2">
                   <Slider
@@ -861,8 +865,8 @@ export default function PropertiesPage() {
                 {/* Bedrooms - Mobile */}
                 <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
-                    <BedDouble className="w-4 h-4 text-[#D4AF37]" />
-                    Bedrooms
+                    <Bed className="w-4 h-4 text-[#D4AF37]" />
+                    {t('filters.bedrooms')}
                   </label>
                   <div className="pt-2 px-2">
                     <Slider
@@ -887,7 +891,7 @@ export default function PropertiesPage() {
                 <div className="space-y-2 bg-white/70 p-4 rounded-lg border border-[#D4AF37]/20">
                   <label className="text-sm font-medium text-[#1A2A44] flex items-center gap-2">
                     <Bath className="w-4 h-4 text-[#D4AF37]" />
-                    Bathrooms
+                    {t('filters.bathrooms')}
                   </label>
                   <div className="pt-2 px-2">
                     <Slider
@@ -915,7 +919,7 @@ export default function PropertiesPage() {
         {/* Results Section */}
         <div className="mb-6">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
-            {loading ? 'Loading...' : `${properties.length} Properties Found`}
+            {loading ? t('loading.text') : `${properties.length} ${t('loading.found')}`}
           </h2>
         </div>
 
@@ -948,7 +952,7 @@ export default function PropertiesPage() {
               
               {/* Loading text - shorter and below the animation */}
               <div className="text-[#1A2A44] font-medium">
-                Loading...
+                {t('loading.text')}
               </div>
             </div>
           </div>
@@ -967,10 +971,10 @@ export default function PropertiesPage() {
                     <Search className="w-8 h-8 text-[#D4AF37]" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent">
-                    No properties found
+                    {t('filters.no_properties_found')}
                   </h3>
                   <p className="text-[#1A2A44] max-w-md mx-auto">
-                    Try adjusting your filters or broadening your search criteria to see more results
+                    {t('filters.no_properties_message')}
                   </p>
                   <Button 
                     variant="outline" 
@@ -978,7 +982,7 @@ export default function PropertiesPage() {
                     onClick={resetFilters}
                   >
                     <X className="mr-2 h-4 w-4" />
-                    Clear all filters
+                    {t('filters.clear_all_filters')}
                   </Button>
                 </div>
               </div>

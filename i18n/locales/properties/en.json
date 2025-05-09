@@ -1,0 +1,66 @@
+{
+  "filters": {
+    "buy": "Buy",
+    "rent": "Rent",
+    "search_placeholder": "Search by location, property name, or features...",
+    "filters_button": "Filters",
+    "clear_button": "Clear",
+    "property_type": "Property Type",
+    "any_type": "Any type",
+    "city": "City",
+    "any_city": "Any city",
+    "price_range": "Price Range",
+    "square_footage": "Square Footage",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "amenities": "Amenities",
+    "no_properties_found": "No properties found",
+    "no_properties_message": "Try adjusting your filters or broadening your search criteria to see more results",
+    "clear_all_filters": "Clear all filters",
+    "property_type_list": {
+      "apartment": "Apartment",
+      "house": "House",
+      "penthouse": "Penthouse",
+      "villa": "Villa"
+    },
+    "amenities_list": {
+      "Concierge": "Concierge",
+      "Parking": "Parking",
+      "EV Charging": "EV Charging",
+      "Garden": "Garden",
+      "Balcony": "Balcony",
+      "Roof Terrace": "Roof Terrace",
+      "Private Elevator": "Private Elevator",
+      "Gym": "Gym",
+      "Swimming Pool": "Swimming Pool",
+      "Spa/Sauna": "Spa/Sauna",
+      "Smart Home System": "Smart Home System",
+      "Security System": "Security System",
+      "High-Speed Internet": "High-Speed Internet",
+      "Home Cinema": "Home Cinema",
+      "Wine Cellar": "Wine Cellar",
+      "Chefs Kitchen": "Chef's Kitchen",
+      "Walk-In Closet": "Walk-In Closet",
+      "Panoramic Views": "Panoramic Views",
+      "Fireplace": "Fireplace",
+      "Outdoor Kitchen/BBQ": "Outdoor Kitchen/BBQ"
+    },
+    "search_by_location": "Search by location",
+    "loading_cities": "Loading cities...",
+    "no_cities_available": "No cities available"
+  },
+  "property_card": {
+    "image_not_available": "Image not available",
+    "featured": "Featured",
+    "standard": "Standard",
+    "beds": "Beds",
+    "baths": "Baths",
+    "sq_ft": "sq ft",
+    "view_details": "View Details"
+  },
+  "loading": {
+    "text": "Loading properties...",
+    "cities": "Loading cities...",
+    "found": "Properties found"
+  }
+} 

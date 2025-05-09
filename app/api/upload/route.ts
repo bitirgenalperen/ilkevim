@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.formData();
     const file = formData.get('file') as File;
+    const directory = formData.get('directory') as string || 'properties';
     
     if (!file) {
       return NextResponse.json(
@@ -29,8 +30,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate a unique key for the file
-    const key = generateUniqueKey(file);
+    // Generate a unique key for the file with the specified directory
+    const key = generateUniqueKey(file, directory);
     
     // Upload the file to R2
     const url = await uploadFileToR2(file, key);

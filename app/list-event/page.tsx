@@ -4,10 +4,14 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Video, Upload, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'react-hot-toast'
+import { generateUniqueKey } from '@/lib/s3-client'
 
 interface EventFormData {
   title: string
   description: string
+  description_tr: string
   date: string
   time: string
   location: string
@@ -15,22 +19,26 @@ interface EventFormData {
   capacity: number
   category: string
   image: string
+  address: string
 }
 
 export default function ListEventPage() {
   const router = useRouter()
+  const { t } = useTranslation('list-event')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState<EventFormData>({
     title: '',
     description: '',
+    description_tr: '',
     date: '',
     time: '',
     location: '',
     type: 'onsite',
     capacity: 0,
     category: '',
-    image: ''
+    image: '',
+    address: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,12 +56,17 @@ export default function ListEventPage() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to create event')
+        const data = await response.json()
+        throw new Error(data.message || 'Failed to create event')
       }
 
+      const data = await response.json()
+      toast.success(t('success'))
       router.push('/events')
     } catch (err) {
+      console.error('Error creating event:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
+      toast.error(t('error'))
     } finally {
       setLoading(false)
     }
@@ -65,6 +78,7 @@ export default function ListEventPage() {
 
     const formData = new FormData()
     formData.append('file', file)
+    formData.append('directory', 'events')
 
     try {
       const response = await fetch('/api/upload', {
@@ -73,13 +87,13 @@ export default function ListEventPage() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to upload image')
+        throw new Error(t('validation.image_required'))
       }
 
       const data = await response.json()
       setFormData(prev => ({ ...prev, image: data.url }))
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to upload image')
+      setError(err instanceof Error ? err.message : t('validation.image_required'))
     }
   }
 
@@ -93,14 +107,14 @@ export default function ListEventPage() {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-[#1A2A44] mb-4">Create New Event</h1>
-            <p className="text-gray-600">Fill in the details below to create a new event</p>
+            <h1 className="text-4xl font-bold text-[#1A2A44] mb-4">{t('page.title')}</h1>
+            <p className="text-gray-600">{t('page.description')}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Image Upload Section */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">Event Image</h2>
+              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">{t('form.image.label')}</h2>
               <div className="flex items-center justify-center">
                 {formData.image ? (
                   <div className="relative w-full max-w-md">
@@ -120,7 +134,7 @@ export default function ListEventPage() {
                 ) : (
                   <label className="w-full max-w-md h-48 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-[#D4AF37] transition-colors">
                     <Upload className="w-8 h-8 text-gray-400 mb-2" />
-                    <span className="text-gray-600">Click to upload event image</span>
+                    <span className="text-gray-600">{t('form.image.drag_drop')}</span>
                     <input
                       type="file"
                       accept="image/*"
@@ -134,11 +148,11 @@ export default function ListEventPage() {
 
             {/* Basic Information */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">Basic Information</h2>
+              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">{t('form.title.label')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Event Title
+                    {t('form.title.label')}
                   </label>
                   <input
                     type="text"
@@ -146,32 +160,47 @@ export default function ListEventPage() {
                     value={formData.title}
                     onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
-                    placeholder="Enter event title"
+                    placeholder={t('form.title.placeholder')}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category
+                    {t('form.category.label')}
                   </label>
-                  <input
-                    type="text"
+                  <select
                     required
                     value={formData.category}
                     onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
-                    placeholder="Enter event category"
-                  />
+                  >
+                    <option value="">{t('form.category.placeholder')}</option>
+                    {Object.entries(t('categories', { returnObjects: true })).map(([key, value]) => (
+                      <option key={key} value={key}>{value}</option>
+                    ))}
+                  </select>
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Description
+                    {t('form.description.label')}
                   </label>
                   <textarea
                     required
                     value={formData.description}
                     onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent h-32"
-                    placeholder="Enter event description"
+                    placeholder={t('form.description.placeholder')}
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('form.description_tr.label')}
+                  </label>
+                  <textarea
+                    required
+                    value={formData.description_tr}
+                    onChange={(e) => setFormData(prev => ({ ...prev, description_tr: e.target.value }))}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent h-32"
+                    placeholder={t('form.description_tr.placeholder')}
                   />
                 </div>
               </div>
@@ -179,11 +208,11 @@ export default function ListEventPage() {
 
             {/* Date and Time */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">Date and Time</h2>
+              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">{t('form.date.label')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Date
+                    {t('form.date.label')}
                   </label>
                   <input
                     type="date"
@@ -195,7 +224,7 @@ export default function ListEventPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Time
+                    {t('form.time.label')}
                   </label>
                   <input
                     type="time"
@@ -210,11 +239,11 @@ export default function ListEventPage() {
 
             {/* Location and Capacity */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">Location and Capacity</h2>
+              <h2 className="text-xl font-semibold text-[#1A2A44] mb-4">{t('form.location.label')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Event Type
+                    {t('form.type.label')}
                   </label>
                   <select
                     required
@@ -222,37 +251,67 @@ export default function ListEventPage() {
                     onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value as 'online' | 'onsite' }))}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
                   >
-                    <option value="onsite">Onsite Event</option>
-                    <option value="online">Online Event</option>
+                    <option value="onsite">{t('form.type.options.onsite')}</option>
+                    <option value="online">{t('form.type.options.online')}</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Capacity
+                    {t('form.capacity.label')}
                   </label>
                   <input
                     type="number"
                     required
-                    min="1"
                     value={formData.capacity}
                     onChange={(e) => setFormData(prev => ({ ...prev, capacity: parseInt(e.target.value) }))}
+                    placeholder={t('form.capacity.placeholder')}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
-                    placeholder="Enter maximum capacity"
                   />
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.location}
-                    onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
-                    placeholder={formData.type === 'online' ? 'Enter meeting link or platform' : 'Enter venue address'}
-                  />
-                </div>
+                {formData.type === 'online' ? (
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t('form.location.label')}
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.location}
+                      onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
+                      placeholder={t('form.location.placeholder')}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t('form.location.label')}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.location}
+                        onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
+                        placeholder={t('form.location.placeholder')}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t('form.address.label')}
+                      </label>
+                      <textarea
+                        required
+                        value={formData.address}
+                        onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
+                        placeholder={t('form.address.placeholder')}
+                        rows={3}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -268,7 +327,7 @@ export default function ListEventPage() {
                 onClick={() => router.back()}
                 className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                Cancel
+                {t('form.cancel')}
               </button>
               <button
                 type="submit"
@@ -278,12 +337,12 @@ export default function ListEventPage() {
                 {loading ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Creating...
+                    {t('form.submit')}
                   </>
                 ) : (
                   <>
                     <Video className="w-4 h-4" />
-                    Create Event
+                    {t('form.submit')}
                   </>
                 )}
               </button>

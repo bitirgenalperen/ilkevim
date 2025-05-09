@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -16,67 +17,12 @@ import {
   TrendingUp
 } from 'lucide-react'
 
-const stats = [
-  { number: '15+', label: 'Years Experience', icon: Trophy },
-  { number: '1000+', label: 'Properties Sold', icon: Building },
-  { number: '98%', label: 'Client Satisfaction', icon: Heart },
-  { number: '£500M+', label: 'Property Value Handled', icon: TrendingUp }
-]
-
-const values = [
-  {
-    icon: Target,
-    title: 'Our Mission',
-    description: 'To provide exceptional real estate services while maintaining the highest standards of integrity and professionalism.'
-  },
-  {
-    icon: Gem,
-    title: 'Our Vision',
-    description: 'To be the most trusted and innovative real estate company, setting new standards in property services.'
-  },
-  {
-    icon: HandshakeIcon,
-    title: 'Our Values',
-    description: 'Trust, Excellence, Innovation, and Client-First approach in everything we do.'
-  }
-]
-
-const achievements = [
-  "Best Real Estate Agency 2023",
-  "Top Property Management Company",
-  "Excellence in Customer Service Award",
-  "Sustainable Development Recognition",
-  "Industry Innovation Award 2023"
-]
-
-const teamMembers = [
-  {
-    name: 'Sarah Johnson',
-    role: 'CEO & Founder',
-    image: '/team/sarah.jpg',
-    description: 'With 20+ years in real estate, Sarah leads with vision and expertise.'
-  },
-  {
-    name: 'Michael Chen',
-    role: 'Head of Property Sales',
-    image: '/team/michael.jpg',
-    description: 'Expert in luxury property sales with outstanding track record.'
-  },
-  {
-    name: 'Emma Thompson',
-    role: 'Investment Director',
-    image: '/team/emma.jpg',
-    description: 'Specializes in property investment strategies and market analysis.'
-  },
-  {
-    name: 'James Wilson',
-    role: 'Operations Manager',
-    image: '/team/james.jpg',
-    description: 'Ensures smooth operation of all services and client satisfaction.'
-  }
-]
-
 export default function AboutPage() {
+  const { t } = useTranslation('about')
+
+  const stats = t('stats', { returnObjects: true }) as Array<{ number: string, label: string }>
+  const achievements = t('achievements.items', { returnObjects: true }) as string[]
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50/50 pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -89,7 +35,7 @@ export default function AboutPage() {
             className="inline-block mb-6"
           >
             <span className="inline-flex items-center rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-sm font-medium text-[#D4AF37] ring-1 ring-inset ring-[#D4AF37]/20">
-              About Us
+              {t('hero.badge')}
             </span>
           </motion.div>
           <motion.h1 
@@ -98,7 +44,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1A2A44] to-[#1A2A44]/80 bg-clip-text text-transparent"
           >
-            Our Story
+            {t('hero.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -106,44 +52,53 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Learn about our journey, our values, and our commitment to excellence in real estate.
+            {t('hero.description')}
           </motion.p>
         </div>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 mb-4">
-                  <stat.icon className="w-6 h-6 text-[#D4AF37]" />
+          {stats.map((stat, index) => {
+            const StatIcon = index === 0 ? Trophy : 
+                            index === 1 ? Building : 
+                            index === 2 ? Heart : TrendingUp;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 mb-4">
+                    <StatIcon className="w-6 h-6 text-[#D4AF37]" />
+                  </div>
+                  <span className="text-3xl font-bold text-[#1A2A44]">
+                    {stat.number}
+                  </span>
+                  <span className="text-gray-600 mt-1">{stat.label}</span>
                 </div>
-                <span className="text-3xl font-bold text-[#1A2A44]">
-                  {stat.number}
-                </span>
-                <span className="text-gray-600 mt-1">{stat.label}</span>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Values Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#1A2A44]">
-              Our Core Values
+              {t('values.section_title')}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.map((value, index) => (
+            {[
+              { key: 'mission', icon: Target },
+              { key: 'vision', icon: Gem },
+              { key: 'values', icon: HandshakeIcon }
+            ].map((value, index) => (
               <motion.div
-                key={value.title}
+                key={value.key}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
@@ -153,52 +108,24 @@ export default function AboutPage() {
                   <div className="p-3 rounded-lg bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 mb-4">
                     <value.icon className="w-6 h-6 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1A2A44]">
+                    {t(`values.${value.key}.title`)}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t(`values.${value.key}.description`)}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#1A2A44]">
-              Meet Our Team
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm shadow-lg border border-[#D4AF37]/20 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
-                    <h3 className="text-xl font-semibold">{member.name}</h3>
-                    <p className="text-[#D4AF37]">{member.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
         {/* Achievements Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#1A2A44]">
-              Our Achievements
+              {t('achievements.section_title')}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -223,10 +150,10 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-20" />
           <div className="relative p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Join Our Success Story
+              {t('cta.title')}
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Let&apos;s work together to achieve your property goals. Contact us today for a personalized consultation.
+              {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -237,7 +164,7 @@ export default function AboutPage() {
               >
                 <Link href="/contact">
                   <MessageSquareMore className="w-5 h-5 mr-2" />
-                  Get in Touch
+                  {t('cta.contact_button')}
                 </Link>
               </Button>
               <Button
@@ -248,7 +175,7 @@ export default function AboutPage() {
               >
                 <Link href="/properties">
                   <Globe2 className="w-5 h-5 mr-2" />
-                  View Our Properties
+                  {t('cta.properties_button')}
                 </Link>
               </Button>
             </div>

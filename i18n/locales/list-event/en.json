@@ -1,0 +1,95 @@
+{
+  "page": {
+    "title": "List Your Event",
+    "description": "Share your event with our community of real estate professionals and enthusiasts.",
+    "success_message": "Event listed successfully!",
+    "error_message": "Failed to list event. Please try again."
+  },
+  "form": {
+    "title": {
+      "label": "Event Title",
+      "placeholder": "Enter event title"
+    },
+    "description": {
+      "label": "Event Description",
+      "placeholder": "Describe your event in detail"
+    },
+    "description_tr": {
+      "label": "Event Description - Turkish",
+      "placeholder": "Describe your event in detail (Turkish)"
+    },
+    "date": {
+      "label": "Event Date",
+      "placeholder": "Select date"
+    },
+    "time": {
+      "label": "Event Time",
+      "placeholder": "Select time"
+    },
+    "location": {
+      "label": "Event Location",
+      "placeholder": "Enter event location (e.g. Istanbul, Turkey)"
+    },
+    "address": {
+      "label": "Event Address",
+      "placeholder": "Enter full address of the event venue (e.g. 123 Main St, Istanbul, Turkey)"
+    },
+    "category": {
+      "label": "Event Category",
+      "placeholder": "Select category"
+    },
+    "capacity": {
+      "label": "Event Capacity",
+      "placeholder": "Enter maximum number of attendees"
+    },
+    "type": {
+      "label": "Event Type",
+      "options": {
+        "online": "Online Event",
+        "onsite": "Onsite Event"
+      }
+    },
+    "organizer": {
+      "label": "Organizer Name",
+      "placeholder": "Enter organizer name"
+    },
+    "contact": {
+      "label": "Contact Email",
+      "placeholder": "Enter contact email"
+    },
+    "image": {
+      "label": "Event Image",
+      "placeholder": "Upload event image",
+      "drag_drop": "Drag and drop your image here, or click to browse",
+      "max_size": "Maximum file size: 5MB",
+      "allowed_types": "Allowed file types: JPG, PNG"
+    },
+    "submit": "List Event",
+    "cancel": "Cancel",
+    "required": "Required field"
+  },
+  "validation": {
+    "title_required": "Event title is required",
+    "description_required": "Event description is required",
+    "date_required": "Event date is required",
+    "time_required": "Event time is required",
+    "location_required": "Event location is required",
+    "category_required": "Event category is required",
+    "capacity_required": "Event capacity is required",
+    "type_required": "Event type is required",
+    "organizer_required": "Organizer name is required",
+    "contact_required": "Contact email is required",
+    "contact_invalid": "Please enter a valid email address",
+    "image_required": "Event image is required",
+    "image_size": "Image size should be less than 5MB",
+    "image_type": "Only JPG and PNG files are allowed"
+  },
+  "categories": {
+    "investment": "Investment",
+    "technology": "Technology",
+    "luxury": "Luxury",
+    "networking": "Networking",
+    "education": "Education",
+    "other": "Other"
+  }
+} 

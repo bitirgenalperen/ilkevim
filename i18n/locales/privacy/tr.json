@@ -1,0 +1,249 @@
+{
+  "header": {
+    "back_button": "Anasayfaya Dön",
+    "title": "Gizlilik Politikası",
+    "effective_date": "Yürürlük Tarihi: 1 Haziran 2024",
+    "download_button": "PDF İndir",
+    "notice": {
+      "title": "Gizliliğiniz bizim için önemlidir.",
+      "description": "Bu Gizlilik Politikası, web sitemizi ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda bilgilerinizi nasıl topladığımızı, kullandığımızı, açıkladığımızı ve koruduğumuzu açıklar. Lütfen bu gizlilik politikasını dikkatlice okuyun. Bu gizlilik politikasının şartlarını kabul etmiyorsanız, lütfen siteye erişmeyin."
+    }
+  },
+  "table_of_contents": {
+    "title": "İçindekiler",
+    "sections": [
+      "1. Topladığımız Bilgiler",
+      "2. Bilgilerinizi Nasıl Kullandığımız",
+      "3. Bilgilerinizin Açıklanması",
+      "4. Bilgilerinizin Güvenliği",
+      "5. Çerezler ve İzleme Teknolojileri",
+      "6. Üçüncü Taraf Web Siteleri",
+      "7. Çocukların Gizliliği",
+      "8. Haklarınız ve Seçimleriniz",
+      "9. Bu Gizlilik Politikasındaki Değişiklikler",
+      "10. Bize Ulaşın"
+    ]
+  },
+  "sections": {
+    "information_collection": {
+      "title": "1. Topladığımız Bilgiler",
+      "description": "Platformumuzun kullanıcılarından ve hakkında aşağıdaki türlerde bilgiler topluyoruz:",
+      "personal_info": {
+        "title": "1.1 Kişisel Bilgiler",
+        "description": "Kullanıcılardan çeşitli şekillerde kişisel tanımlama bilgileri toplayabiliriz, bunlar kullanıcılar sitemizi ziyaret ettiğinde, siteye kaydolduğunda, bir form doldurduğunda ve platformumuzda sunduğumuz diğer aktiviteler, hizmetler, özellikler veya kaynaklarla bağlantılı olarak gerçekleşebilir. Bunlar şunları içerebilir:",
+        "items": [
+          "İletişim bilgileri (isim, e-posta adresi, telefon numarası gibi)",
+          "Profil bilgileri (kullanıcı adı ve şifre gibi)",
+          "Demografik bilgiler (posta adresi gibi)",
+          "Tercih bilgileri (mülk tercihleri ve arama geçmişi gibi)",
+          "Finansal bilgiler (mülk işlemleri veya abonelik ödemeleri için)",
+          "Kimlik doğrulama belgeleri (mülk sahipleri ve acenteler için)"
+        ],
+        "note": "Kullanıcılar sitemizi anonim olarak ziyaret edebilir. Kullanıcılardan kişisel tanımlama bilgilerini yalnızca bu bilgileri bize gönüllü olarak gönderirlerse toplayacağız."
+      },
+      "non_personal_info": {
+        "title": "1.2 Kişisel Olmayan Bilgiler",
+        "description": "Kullanıcılar platformumuzla etkileşime girdiğinde kişisel olmayan tanımlama bilgilerini toplayabiliriz. Kişisel olmayan tanımlama bilgileri şunları içerebilir:",
+        "items": [
+          "Tarayıcı adı",
+          "Bilgisayar veya cihaz türü",
+          "İşletim sistemi, kullanılan internet servis sağlayıcıları ve benzeri bilgiler dahil olmak üzere kullanıcıların platformumuza bağlantı araçları hakkında teknik bilgiler",
+          "Kullanım verileri (ziyaret edilen sayfalar, sayfalarda geçirilen süre, tıklanan bağlantılar gibi)"
+        ]
+      },
+      "third_party": {
+        "title": "1.3 Üçüncü Taraflardan Gelen Bilgiler",
+        "description": "İşlettiğimiz diğer web sitelerini veya sunduğumuz diğer hizmetleri kullanırsanız sizinle ilgili bilgi alabiliriz. Ayrıca üçüncü taraflarla (iş ortakları, hizmet sağlayıcıları, reklam ağları, analiz sağlayıcıları ve arama bilgi sağlayıcıları dahil) yakın çalışıyoruz ve onlardan sizinle ilgili bilgi alabiliriz."
+      }
+    },
+    "information_usage": {
+      "title": "2. Bilgilerinizi Nasıl Kullandığımız",
+      "description": "Sizden topladığımız bilgileri aşağıdaki amaçlar için kullanabiliriz:",
+      "services": {
+        "title": "2.1 Hizmet Sağlama ve İyileştirme",
+        "items": [
+          "Platformumuzu sağlamak ve sürdürmek",
+          "Platformumuzu ve kullanıcı deneyimini iyileştirmek",
+          "Deneyiminizi kişiselleştirmek ve ilgi alanlarınıza uygun içerik ve ürün teklifleri sunmak",
+          "Mülk arayanları uygun mülk listeleriyle eşleştirmek",
+          "Mülk arayanlar ile mülk sahipleri/acenteler arasında iletişimi kolaylaştırmak",
+          "İşlemleri gerçekleştirmek ve onaylar ve faturalar dahil ilgili bilgileri göndermek"
+        ]
+      },
+      "communication": {
+        "title": "2.2 İletişim",
+        "items": [
+          "Sorularınıza, yorumlarınıza veya taleplerinize yanıt vermek",
+          "Teknik bildirimler, güncellemeler, güvenlik uyarıları ve destek ve idari mesajlar göndermek",
+          "Hizmetler, özellikler, anketler, bültenler, teklifler, promosyonlar, yarışmalar ve etkinlikler hakkında bilgi sağlamak gibi promosyonel iletişimler göndermek",
+          "Platformumuzda veya onun aracılığıyla sunduğumuz herhangi bir ürün veya hizmetteki değişiklikler hakkında sizi bilgilendirmek"
+        ]
+      },
+      "analytics": {
+        "title": "2.3 Analiz ve Araştırma",
+        "items": [
+          "Trendleri analiz etmek, platformu yönetmek, kullanıcıların platform etrafındaki hareketlerini takip etmek ve kullanıcı tabanımız hakkında demografik bilgiler toplamak",
+          "Platformumuzun ve pazarlama faaliyetlerimizin etkinliğini izlemek ve analiz etmek",
+          "Ürün ve hizmetlerimizi iyileştirmek için araştırma ve geliştirme yapmak"
+        ]
+      },
+      "legal": {
+        "title": "2.4 Yasal Uyum ve Koruma",
+        "items": [
+          "Yasal yükümlülüklere uymak",
+          "Şartlarımızı ve diğer politikalarımızı uygulamak",
+          "İlkevim'in, kullanıcılarımızın veya başkalarının haklarını, mülkiyetini veya güvenliğini korumak",
+          "Dolandırıcılık, güvenlik veya teknik sorunları tespit etmek, önlemek veya ele almak"
+        ]
+      }
+    },
+    "disclosure": {
+      "title": "3. Bilgilerinizin Açıklanması",
+      "description": "Bu gizlilik politikasında açıklandığı gibi topladığımız veya sağladığınız kişisel bilgileri açıklayabiliriz:",
+      "service_providers": {
+        "title": "3.1 Hizmet Sağlayıcılar",
+        "description": "Bilgilerinizi aşağıdakiler gibi bizim adımıza işlev gören üçüncü taraf satıcılarla, hizmet sağlayıcılarla, yüklenicilerle veya acentelerle paylaşabiliriz:",
+        "items": [
+          "Ödeme işlemcileri",
+          "Müşteri hizmetleri sağlayıcıları",
+          "E-posta ve SMS hizmet sağlayıcıları",
+          "Analiz sağlayıcıları",
+          "Güvenlik ve dolandırıcılık önleme hizmetleri",
+          "Barındırma ve teknoloji sağlayıcıları"
+        ]
+      },
+      "property_parties": {
+        "title": "3.2 Mülk Tarafları",
+        "description": "Bir mülkle ilgilendiğinizi belirttiğinizde, iletişimi kolaylaştırmak için iletişim bilgilerinizi ve sorgu detaylarınızı o listeyle ilişkili mülk sahibi veya acentesiyle paylaşabiliriz. Benzer şekilde, bir mülk listelerseniz, belirli bilgiler ilgi gösteren potansiyel alıcılarla veya kiracılarla paylaşılabilir."
+      },
+      "business_transfers": {
+        "title": "3.3 İş Transferleri",
+        "description": "Bir birleşme, satın alma, finansal inceleme, yeniden yapılandırma, iflas, alacaklılık, şirket varlıklarının satışı veya başka bir sağlayıcıya hizmet geçişi durumunda, bilgileriniz yasa ve/veya sözleşme tarafından izin verildiği şekilde böyle bir işlemin parçası olarak devredilebilir."
+      },
+      "legal_requirements": {
+        "title": "3.4 Yasal Gereklilikler",
+        "description": "Açıklamanın gerekli olduğuna veya yasa veya düzenleme tarafından gerekli olduğuna inandığımızda, bize sunulan yasal süreçlere uymak için veya İlkevim'in, kullanıcılarımızın veya başkalarının haklarını, mülkiyetini veya güvenliğini korumak için bilgilerinizi açıklayabiliriz."
+      },
+      "consent": {
+        "title": "3.5 İzninizle",
+        "description": "Kişisel bilgilerinizi başka bir amaç için izninizle açıklayabiliriz."
+      }
+    },
+    "security": {
+      "title": "4. Bilgilerinizin Güvenliği",
+      "description": "İşlediğimiz herhangi bir kişisel bilginin güvenliğini korumak için uygun teknik ve organizasyonel güvenlik önlemleri uyguladık. Bu önlemler şunları içerir:",
+      "measures": [
+        "Hassas verilerin hem iletim sırasında hem de saklanırken şifrelenmesi",
+        "Düzenli güvenlik değerlendirmeleri ve penetrasyon testleri",
+        "Erişim kontrolleri ve kimlik doğrulama prosedürleri",
+        "Güvenli veri depolama ve yedekleme prosedürleri",
+        "Veri koruma ve güvenlik uygulamaları konusunda düzenli personel eğitimi"
+      ],
+      "disclaimer": "Ancak, lütfen internet üzerinden hiçbir iletim yönteminin veya elektronik depolama yönteminin %100 güvenli olmadığını unutmayın. Kişisel bilgilerinizi korumak için ticari olarak kabul edilebilir araçlar kullanmaya çalışırken, mutlak güvenliğini garanti edemeyiz. Bu nedenle, bize ilettiğiniz herhangi bir bilginin güvenliğini sağlayamayız veya garanti edemeyiz ve bunu kendi riskinizle yaparsınız.",
+      "breach_notification": "Şifrelenmemiş elektronik olarak saklanan \"kişisel verilerinizin\" güvenliği, gizliliği veya bütünlüğünün ihlali durumunda, yasal olarak gerekli tüm açıklamaları, (i) kolluk kuvvetlerinin meşru ihtiyaçları veya (ii) ihlalin kapsamını belirlemek ve veri sisteminin makul bütünlüğünü geri yüklemek için gerekli önlemlerle tutarlı olarak, en hızlı şekilde ve makul bir gecikme olmadan e-posta yoluyla veya bu web sitesinde dikkat çekici bir şekilde yayınlayarak size bildireceğiz."
+    },
+    "cookies": {
+      "title": "5. Çerezler ve İzleme Teknolojileri",
+      "cookies": {
+        "title": "5.1 Çerezler",
+        "description": "Platformumuzdaki aktiviteyi takip etmek ve belirli bilgileri tutmak için çerezler ve benzer izleme teknolojileri kullanıyoruz. Çerezler, anonim bir benzersiz tanımlayıcı içerebilen küçük miktarda veri içeren dosyalardır. Çerezler, bir web sitesinden tarayıcınıza gönderilir ve cihazınızda saklanır.",
+        "types": {
+          "title": "Aşağıdaki çerez türlerini kullanıyoruz:",
+          "items": [
+            "Temel Çerezler: Bu çerezler web sitesinin düzgün çalışması için gereklidir ve sistemlerimizde kapatılamaz.",
+            "Performans Çerezleri: Bu çerezler, sitemizin performansını ölçmemize ve iyileştirmemize olanak tanıyan ziyaretleri ve trafik kaynaklarını saymamızı sağlar.",
+            "İşlevsellik Çerezleri: Bu çerezler, web sitesinin gelişmiş işlevsellik ve kişiselleştirme sağlamasını mümkün kılar.",
+            "Hedefleme Çerezleri: Bu çerezler, reklam ortaklarımız tarafından ilgi alanlarınızın bir profilini oluşturmak ve size diğer sitelerde ilgili reklamlar göstermek için sitemiz aracılığıyla ayarlanabilir."
+          ]
+        }
+      },
+      "management": {
+        "title": "5.2 Çerez Yönetimi",
+        "description": "Tarayıcınıza tüm çerezleri reddetmesini veya bir çerez gönderildiğinde bunu belirtmesini söyleyebilirsiniz. Ancak, çerezleri kabul etmezseniz, platformumuzun bazı bölümlerini kullanamayabilirsiniz. Çoğu web tarayıcısı otomatik olarak çerezleri kabul eder, ancak isterseniz genellikle tarayıcı ayarınızı çerezleri reddedecek şekilde değiştirebilirsiniz."
+      },
+      "analytics": {
+        "title": "5.3 Analitik",
+        "description": "Platformumuzun kullanımını izlemek ve analiz etmek için Google Analytics gibi üçüncü taraf Hizmet Sağlayıcıları kullanabiliriz. Bu hizmetler, kullanıcıların platformumuzu ne sıklıkla ziyaret ettiği, hangi sayfaları ziyaret ettiği ve platformumuza gelmeden önce hangi siteleri kullandığı gibi detayları takip edebilir. Bu hizmetlerden aldığımız bilgileri platformumuzu iyileştirmek için kullanıyoruz."
+      }
+    },
+    "third_party_websites": {
+      "title": "6. Üçüncü Taraf Web Siteleri",
+      "description": "Platformumuz, bizim tarafımızdan işletilmeyen diğer web sitelerine bağlantılar içerebilir. Üçüncü taraf bir bağlantıya tıklarsanız, o üçüncü tarafın sitesine yönlendirileceksiniz. Ziyaret ettiğiniz her sitenin Gizlilik Politikasını incelemenizi şiddetle tavsiye ederiz.",
+      "disclaimer": "Üçüncü taraf sitelerin veya hizmetlerin içeriği, gizlilik politikaları veya uygulamaları üzerinde hiçbir kontrolümüz yoktur ve bunlar için hiçbir sorumluluk kabul etmiyoruz. Bu üçüncü taraf hizmetlerin kendi gizlilik politikaları ve müşteri hizmetleri politikaları olabilir. Bir üçüncü tarafın gizlilik uygulamaları hakkında daha fazla bilgi için, o üçüncü tarafın gizlilik politikasına başvurmalısınız.",
+      "additional_info": "Ayrıca, Facebook, Apple, Google, Microsoft veya diğer uygulama geliştiricileri, uygulama sağlayıcıları, sosyal medya platform sağlayıcıları, işletim sistemi sağlayıcıları veya cihaz üreticileri gibi diğer kuruluşların bilgi toplama, kullanma, açıklama veya güvenlik uygulamalarından (veri güvenliği uygulamaları dahil) sorumlu değiliz."
+    },
+    "children_privacy": {
+      "title": "7. Çocukların Gizliliği",
+      "description": "Platformumuz 18 yaşın altındaki çocuklar için tasarlanmamıştır. 18 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamıyoruz. Eğer bir ebeveyn veya vasisiniz ve çocuğunuzun bize kişisel bilgi sağladığını biliyorsanız, lütfen bizimle iletişime geçin. 18 yaşın altındaki bir çocuğun bize kişisel bilgi sağladığını keşfedersek, bu bilgileri sunucularımızdan hemen sileceğiz."
+    },
+    "rights_choices": {
+      "title": "8. Haklarınız ve Seçimleriniz",
+      "access_control": {
+        "title": "8.1 Erişim ve Kontrol",
+        "description": "Kişisel bilgilerinizle ilgili belirli haklara sahipsiniz. Bunlar şunları içerebilir:",
+        "items": [
+          "Kişisel verilerinize erişme ve bir kopyasını alma",
+          "Kişisel verilerinizi düzeltme veya güncelleme",
+          "Kişisel verilerinizin silinmesini talep etme",
+          "Kişisel verilerinizin işlenmesini kısıtlama veya buna itiraz etme",
+          "Kişisel verilerinizi başka bir hizmet sağlayıcıya aktarmamızı talep etme (veri taşınabilirliği)",
+          "İşlememizin izninize dayandığı durumlarda izninizi geri çekme"
+        ],
+        "note": "Bu hakların çoğunu hesap ayarlarınıza erişerek veya aşağıda verilen iletişim bilgilerini kullanarak bizimle iletişime geçerek kullanabilirsiniz."
+      },
+      "marketing": {
+        "title": "8.2 Pazarlama İletişimleri",
+        "description": "Size gönderdiğimiz pazarlama iletişimlerinden istediğiniz zaman çıkma hakkına sahipsiniz. Bu hakkı, size gönderdiğimiz pazarlama e-postalarındaki \"abonelikten çık\" veya \"opt-out\" bağlantısına tıklayarak veya aşağıda verilen iletişim bilgilerini kullanarak bizimle iletişime geçerek kullanabilirsiniz."
+      },
+      "retention": {
+        "title": "8.3 Veri Saklama",
+        "description": "Kişisel bilgilerinizi yalnızca bu Gizlilik Politikasında belirtilen amaçlar için gerekli olduğu sürece saklayacağız. Yasal yükümlülüklerimize uymak, anlaşmazlıkları çözmek ve politikalarımızı uygulamak için gerekli olduğu ölçüde bilgilerinizi saklayacağız ve kullanacağız."
+      }
+    },
+    "changes": {
+      "title": "9. Bu Gizlilik Politikasındaki Değişiklikler",
+      "description": "Gizlilik Politikamızı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik olduğunda, yeni Gizlilik Politikasını bu sayfada yayınlayarak ve bu Gizlilik Politikasının üst kısmındaki \"Yürürlük Tarihi\"ni güncelleyerek sizi bilgilendireceğiz.",
+      "review": "Herhangi bir değişiklik için bu Gizlilik Politikasını periyodik olarak incelemeniz önerilir. Bu Gizlilik Politikasındaki değişiklikler, bu sayfada yayınlandığında yürürlüğe girer. Bu politikadaki değişikliklerin yayınlanmasından sonra platformumuzu kullanmaya devam etmeniz, bu değişiklikleri kabul ettiğiniz anlamına gelecektir.",
+      "notification": "Bu politikada önemli değişiklikler yaparsak, hesabınızda belirtilen e-posta adresine bir e-posta göndererek, ana sayfamızda bir bildirim yayınlayarak veya geçerli yasaya uygun diğer araçlarla sizi makul çabalarla bilgilendireceğiz."
+    },
+    "contact": {
+      "title": "10. Bize Ulaşın",
+      "description": "Bu Gizlilik Politikası hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:",
+      "items": [
+        "E-posta ile: privacy@ilkevim.co.uk",
+        "Telefon ile: +44 20 1234 5678",
+        "Posta ile: Veri Koruma Görevlisi, ilkevim UK Limited, 123 Property Lane, London, SW1A 1AA, Birleşik Krallık"
+      ],
+      "dpo": "Veri Koruma Görevlimize dpo@ilkevim.co.uk adresinden ulaşılabilir."
+    }
+  },
+  "eea_uk_rights": {
+    "title": "AEA ve BK Sakinleri İçin Ek Bilgiler",
+    "description": "Avrupa Ekonomik Alanı (AEA) veya Birleşik Krallık sakinlerinden biriyseniz, Genel Veri Koruma Yönetmeliği (GDPR) ve BK GDPR kapsamında belirli ek haklara sahipsiniz.",
+    "legal_basis": {
+      "title": "İşleme için Yasal Dayanak:",
+      "description": "Kişisel verilerinizi yalnızca yasal bir dayanağımız olduğunda işleyeceğiz. Dayandığımız yasal dayanaklar şunları içerir:",
+      "items": [
+        "İzniniz",
+        "Sizinle bir sözleşmenin yerine getirilmesi",
+        "Yasal bir yükümlülüğe uyma",
+        "Hayati çıkarların korunması",
+        "Kamu yararına yapılan bir görevin yerine getirilmesi",
+        "Haklarınız ve özgürlükleriniz tarafından geçersiz kılınmadığı sürece meşru çıkarlarımız"
+      ]
+    },
+    "international_transfers": {
+      "title": "Uluslararası Transferler:",
+      "description": "Kişisel verileriniz, ikamet ettiğiniz ülkeden farklı ülkelere aktarılabilir ve bu ülkelerde işlenebilir. Bu ülkelerin veri koruma yasaları, ülkenizin yasalarından farklı olabilir. Kişisel verilerinizin bu Gizlilik Politikasına uygun olarak korunmasını sağlamak için uygun güvenlik önlemleri uyguladık."
+    },
+    "complaints": {
+      "title": "Şikayetler:",
+      "description": "AEA veya BK sakinlerinden biriyseniz ve kişisel verilerinizi yasadışı bir şekilde işlediğimize inanıyorsanız, yerel veri koruma denetim otoritenize şikayet başvurusunda bulunma hakkına sahipsiniz."
+    }
+  },
+  "related_links": {
+    "terms": "Şartlar ve Koşulları Görüntüle",
+    "register": "Kayıt Sayfasına Dön"
+  },
+  "last_updated": "Bu Gizlilik Politikası son olarak 1 Haziran 2024 tarihinde güncellenmiştir."
+} 

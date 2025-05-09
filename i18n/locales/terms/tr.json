@@ -1,0 +1,149 @@
+{
+  "header": {
+    "back_button": "Anasayfaya Dön",
+    "title": "Şartlar ve Koşullar",
+    "effective_date": "Yürürlük Tarihi: 1 Haziran 2024",
+    "download_button": "PDF İndir",
+    "notice": {
+      "title": "Lütfen platformumuzu kullanmadan önce bu Şartlar ve Koşulları dikkatlice okuyun.",
+      "description": "İlkevim web sitesine ve hizmetlerine erişerek veya kullanarak, bu Şartlara bağlı olmayı kabul etmiş olursunuz. Bu şartların herhangi bir kısmına katılmıyorsanız, hizmete erişemezsiniz."
+    }
+  },
+  "table_of_contents": {
+    "title": "İçindekiler",
+    "sections": [
+      "1. Şartların Kabulü",
+      "2. Kayıt ve Hesap",
+      "3. Mülk Listeleri",
+      "4. Kullanıcı Davranışı",
+      "5. Fikri Mülkiyet",
+      "6. Sorumluluk Sınırlaması",
+      "7. Fesih",
+      "8. Uygulanacak Hukuk"
+    ]
+  },
+  "sections": {
+    "acceptance": {
+      "title": "1. Şartların Kabulü",
+      "description": "İlkevim platformuna erişerek veya kullanarak, bu Şartlar ve Koşulları ve Gizlilik Politikamızı okuduğunuzu, anladığınızı ve bunlara bağlı olmayı kabul ettiğinizi onaylamış olursunuz.",
+      "agreement": "Bu şartlar, web sitemizi, mobil uygulamalarımızı ve ilgili hizmetlerimizi kullanmanızla ilgili olarak sizin ve İlkevim arasında yasal olarak bağlayıcı bir anlaşma oluşturur. Bu şartları herhangi bir zamanda değiştirme hakkını saklı tutarız ve bu değişiklikler, değiştirilmiş şartların platformda yayınlanmasından hemen sonra yürürlüğe girer.",
+      "changes": "Bu Şartlar ve Koşullarda yapılan herhangi bir değişiklikten sonra hizmetlerimizi kullanmaya devam etmeniz, bu değişiklikleri kabul ettiğiniz anlamına gelir. Herhangi bir güncelleme hakkında bilgi sahibi olmak için bu Şartları düzenli olarak incelemeniz sizin sorumluluğunuzdadır."
+    },
+    "registration": {
+      "title": "2. Kayıt ve Hesap",
+      "account_creation": {
+        "title": "2.1 Hesap Oluşturma",
+        "description": "Platformumuzun belirli özelliklerine erişmek için bir hesap oluşturmanız gerekebilir. Kayıt olurken, kayıt formlarımızın istediği gibi kendiniz hakkında doğru, güncel ve eksiksiz bilgi sağlamayı kabul edersiniz."
+      },
+      "account_responsibility": {
+        "title": "2.2 Hesap Sorumluluğu",
+        "description": "Aşağıdakilerden yalnızca siz sorumlusunuz:",
+        "items": [
+          "Hesap şifrenizin ve kullanıcı adınızın gizliliğini korumak",
+          "Bilgisayarınıza veya mobil cihazınıza erişimi kısıtlamak",
+          "Hesabınız altında gerçekleşen tüm faaliyetler"
+        ],
+        "notice": "Hesabınızın yetkisiz kullanımı veya güvenlik ihlali durumunda İlkevim'i derhal bilgilendirmeyi kabul edersiniz. İlkevim, başka birinin şifrenizi veya hesabınızı kullanmasından kaynaklanan herhangi bir kayıptan sorumlu olmayacaktır."
+      },
+      "user_verification": {
+        "title": "2.3 Kullanıcı Doğrulama",
+        "description": "Platformumuzun bütünlüğünü sağlamak için, özellikle mülk sahipleri ve acenteler için kullanıcı doğrulama prosedürleri uygulayabiliriz. Bir hesap oluşturarak, kimlik doğrulama ve kimlik bilgisi doğrulaması içerebilen bu doğrulama prosedürlerine onay vermiş olursunuz."
+      }
+    },
+    "property_listings": {
+      "title": "3. Mülk Listeleri",
+      "accuracy": {
+        "title": "3.1 Bilgi Doğruluğu",
+        "description": "Mülkler hakkındaki bilgiler, mülk sahipleri, acenteler veya diğer üçüncü taraflar tarafından sağlanır. Platformumuzdaki tüm bilgilerin doğruluğunu korumaya çalışırken, İlkevim herhangi bir mülk listesinin, açıklamasının veya ilgili bilgilerin doğruluğunu, eksiksizliğini veya güvenilirliğini garanti etmez."
+      },
+      "endorsement": {
+        "title": "3.2 Onay Yok",
+        "description": "Platformumuzda herhangi bir mülk listesinin bulunması, İlkevim tarafından bir onay veya tavsiye anlamına gelmez. Platformumuzda listelenen mülklerin yasal durumunu, kalitesini, güvenliğini veya diğer yönlerini doğrulamayız."
+      },
+      "transactions": {
+        "title": "3.3 Mülk Sorguları ve İşlemleri",
+        "description": "İlkevim, mülk arayanları mülk sahipleri ve acentelerle bağlayan bir platform olarak hareket eder. Kullanıcılar arasındaki herhangi bir anlaşmaya veya işleme taraf değiliz. Kullanıcılar arasında ortaya çıkabilecek herhangi bir işlem, iletişim veya anlaşmazlık yalnızca bu kullanıcılar arasındadır.",
+        "recommendations": "Bir mülk hakkında herhangi bir karar vermeden önce şunları yapmanızı şiddetle tavsiye ederiz:",
+        "items": [
+          "Kapsamlı araştırma yapmak",
+          "Mülkü şahsen ziyaret etmek",
+          "Tüm bilgileri doğrudan mülk sahibi veya acentesiyle doğrulamak",
+          "Uygun olduğunda profesyonel tavsiye almak"
+        ]
+      }
+    },
+    "user_conduct": {
+      "title": "4. Kullanıcı Davranışı",
+      "prohibited": {
+        "title": "4.1 Yasaklı Faaliyetler",
+        "description": "Platformumuzu kullanırken şunları yapmayı kabul etmezsiniz:",
+        "items": [
+          "Geçerli yasaları veya düzenlemeleri ihlal etmek",
+          "Yanlış, yanıltıcı veya sahte içerik göndermek",
+          "Başka bir kişiyi veya kuruluşu taklit etmek",
+          "İftira niteliğinde, müstehcen veya başka şekilde itiraz edilebilir içerik göndermek",
+          "Platformu istenmeyen iletişimler göndermek için kullanmak",
+          "Platformu veya sunucuları engellemek veya kesintiye uğratmak",
+          "Platformun herhangi bir bölümüne yetkisiz erişim sağlamaya çalışmak",
+          "Veri madenciliği, robotlar veya benzer veri toplama yöntemleri kullanmak",
+          "Platforma erişimi kısıtlamak için kullandığımız önlemleri aşmak"
+        ]
+      },
+      "content_removal": {
+        "title": "4.2 İçerik Kaldırma",
+        "description": "İlkevim, platformumuzda yayınlanan içeriği izleme hakkını saklı tutar ancak bunu yapma yükümlülüğü yoktur. Bu Şartları ihlal eden veya başka şekilde itiraz edilebilir herhangi bir içeriği, tek taraflı takdirimize bağlı olarak ve önceden haber vermeksizin kaldırabiliriz."
+      }
+    },
+    "intellectual_property": {
+      "title": "5. Fikri Mülkiyet",
+      "ilkevim_content": {
+        "title": "5.1 İlkevim İçeriği",
+        "description": "Platformumuzdaki içerik, metin, grafikler, logolar, görseller ve yazılım dahil olmak üzere, İlkevim'in veya içerik tedarikçilerinin mülkiyetindedir ve uluslararası telif hakkı yasaları tarafından korunmaktadır."
+      },
+      "user_content": {
+        "title": "5.2 Kullanıcı İçeriği",
+        "description": "Platformumuza herhangi bir içerik göndererek, yükleyerek veya başka şekilde sunarak, İlkevim'e bu içeriği herhangi bir medyada kullanma, çoğaltma, değiştirme, uyarlama, yayınlama, çevirme, türev çalışmalar oluşturma, dağıtma ve gösterme hakkı veren münhasır olmayan, dünya çapında, telif hakkı ücretsiz, süresiz, geri alınamaz bir lisans vermiş olursunuz.",
+        "warranty": "Şunları temsil eder ve garanti edersiniz:",
+        "items": [
+          "Gönderdiğiniz herhangi bir içerikteki tüm fikri mülkiyet haklarını kullanma ve İlkevim'in kullanmasını yetkilendirme konusunda gerekli lisanslara, haklara, izinlere ve yetkilere sahipsiniz",
+          "İçerik, herhangi bir üçüncü tarafın fikri mülkiyet haklarını ihlal etmemektedir"
+        ]
+      }
+    },
+    "limitation_liability": {
+      "title": "6. Sorumluluk Sınırlaması",
+      "disclaimer": {
+        "title": "6.1 Garanti Reddi",
+        "description": "İLKEVIM PLATFORMU VE PLATFORM ARACILIĞIYLA SAĞLANAN TÜM İÇERİK, İŞLEVLER VE HİZMETLER \"OLDUĞU GİBİ\" VE \"KULLANILABİLİR\" OLARAK SAĞLANIR VE AÇIK VEYA ZIMNİ HERHANGİ BİR GARANTİ OLMAKSIZIN, SATILABİLİRLİK, BELİLİ BİR AMACA UYGUNLUK VEYA İHLAL ETMEME ZIMNİ GARANTİLERİ DAHİL OLMAK ÜZERE SAĞLANIR."
+      },
+      "limitation": {
+        "title": "6.2 Sorumluluk Sınırlaması",
+        "description": "İLKEVIM, YÖNETİCİLERİ, YÖNETİM KURULU ÜYELERİ, ÇALIŞANLARI VEYA TEMSİLCİLERİ, AŞAĞIDAKİLERDEN KAYNAKLANAN DOLAYLI, ARIZİ, ÖZEL, SONUÇ VEYA CEZAİ ZARARLARDAN SORUMLU OLMAYACAKTIR:",
+        "items": [
+          "Platforma erişiminiz veya kullanımınız veya erişememeniz veya kullanamamanız",
+          "Platformdaki herhangi bir üçüncü tarafın davranışı veya içeriği",
+          "Platformdan elde edilen herhangi bir içerik",
+          "İletilerinizin veya içeriğinizin yetkisiz erişimi, kullanımı veya değiştirilmesi"
+        ],
+        "jurisdiction": "Sonuç veya arızi zararlar için sorumluluk sınırlamasının veya hariç tutulmasının izin verilmediği yargı bölgelerinde, sorumluluğumuz yasa tarafından izin verilen maksimum ölçüde sınırlandırılacaktır."
+      }
+    },
+    "termination": {
+      "title": "7. Fesih",
+      "description": "Şartları ihlal etmeniz dahil olmak üzere herhangi bir nedenle, önceden haber vermeksizin ve sorumluluk olmaksızın hesabınızı ve platforma erişiminizi derhal sonlandırabilir veya askıya alabiliriz.",
+      "consequences": "Fesih durumunda, platformu kullanma hakkınız derhal sona erecektir. Hesabınızı sonlandırmak isterseniz, platformu kullanmayı bırakabilirsiniz.",
+      "survival": "Doğaları gereği fesihten sonra devam etmesi gereken Şartların tüm hükümleri, mülkiyet hükümleri, garanti reddi, tazminat ve sorumluluk sınırlamaları dahil olmak üzere fesihten sonra devam edecektir."
+    },
+    "governing_law": {
+      "title": "8. Uygulanacak Hukuk",
+      "description": "Bu Şartlar, Birleşik Krallık yasalarına göre yönetilecek ve yorumlanacaktır.",
+      "disputes": "Bu Şartların herhangi bir hakkını veya hükmünü uygulamamız, bu hakların feragat edildiği anlamına gelmeyecektir. Bu Şartların herhangi bir hükmü bir mahkeme tarafından geçersiz veya uygulanamaz olarak kabul edilirse, bu Şartların kalan hükümleri yürürlükte kalacaktır.",
+      "contact": "Bu Şartlar hakkında herhangi bir sorunuz varsa, lütfen legal@ilkevim.co.uk adresinden bizimle iletişime geçin."
+    }
+  },
+  "related_links": {
+    "privacy": "Gizlilik Politikasını Görüntüle",
+    "register": "Anasayfaya Dön"
+  },
+  "last_updated": "Bu Şartlar ve Koşullar son olarak 1 Haziran 2024 tarihinde güncellenmiştir."
+} 

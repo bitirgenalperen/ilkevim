@@ -1,0 +1,95 @@
+{
+  "page": {
+    "title": "Etkinlik Oluştur",
+    "description": "Etkinliğinizi emlak profesyonelleri ve meraklılarından oluşan topluluğumuzla paylaşın.",
+    "success_message": "Etkinlik başarıyla oluşturuldu!",
+    "error_message": "Etkinlik oluşturulamadı. Lütfen tekrar deneyin."
+  },
+  "form": {
+    "title": {
+      "label": "Etkinlik Başlığı",
+      "placeholder": "Etkinlik başlığını girin"
+    },
+    "description": {
+      "label": "Etkinlik Açıklaması",
+      "placeholder": "Etkinliğinizi detaylı bir şekilde açıklayın"
+    },
+    "description_tr": {
+      "label": "Etkinlik Açıklaması - Türkçe",
+      "placeholder": "Etkinliğinizi detaylı bir şekilde açıklayın (Türkçe)"
+    },
+    "date": {
+      "label": "Etkinlik Tarihi",
+      "placeholder": "Tarih seçin"
+    },
+    "time": {
+      "label": "Etkinlik Saati",
+      "placeholder": "Saat seçin"
+    },
+    "location": {
+      "label": "Etkinlik Konumu",
+      "placeholder": "Etkinlik konumunu girin (örnek: İstanbul, Türkiye)"
+    },
+    "address": {
+      "label": "Etkinlik Adresi",
+      "placeholder": "Etkinlik mekanının tam adresini girin (örnek: 123 Main St, İstanbul, Türkiye)"
+    },
+    "category": {
+      "label": "Etkinlik Kategorisi",
+      "placeholder": "Kategori seçin"
+    },
+    "capacity": {
+      "label": "Etkinlik Kapasitesi",
+      "placeholder": "Maksimum katılımcı sayısını girin"
+    },
+    "type": {
+      "label": "Etkinlik Türü",
+      "options": {
+        "online": "Online Etkinlik",
+        "onsite": "Yüz Yüze Etkinlik"
+      }
+    },
+    "organizer": {
+      "label": "Organizatör Adı",
+      "placeholder": "Organizatör adını girin"
+    },
+    "contact": {
+      "label": "İletişim E-postası",
+      "placeholder": "İletişim e-postasını girin"
+    },
+    "image": {
+      "label": "Etkinlik Görseli",
+      "placeholder": "Etkinlik görseli yükleyin",
+      "drag_drop": "Görselinizi buraya sürükleyip bırakın veya göz atmak için tıklayın",
+      "max_size": "Maksimum dosya boyutu: 5MB",
+      "Allowed file types: JPG, PNG": "İzin verilen dosya türleri: JPG, PNG"
+    },
+    "submit": "Etkinliği Oluştur",
+    "cancel": "İptal",
+    "required": "Zorunlu alan"
+  },
+  "validation": {
+    "title_required": "Etkinlik başlığı zorunludur",
+    "description_required": "Etkinlik açıklaması zorunludur",
+    "date_required": "Etkinlik tarihi zorunludur",
+    "time_required": "Etkinlik saati zorunludur",
+    "location_required": "Etkinlik konumu zorunludur",
+    "category_required": "Etkinlik kategorisi zorunludur",
+    "capacity_required": "Etkinlik kapasitesi zorunludur",
+    "type_required": "Etkinlik türü zorunludur",
+    "organizer_required": "Organizatör adı zorunludur",
+    "contact_required": "İletişim e-postası zorunludur",
+    "contact_invalid": "Lütfen geçerli bir e-posta adresi girin",
+    "image_required": "Etkinlik görseli zorunludur",
+    "image_size": "Görsel boyutu 5MB'dan küçük olmalıdır",
+    "image_type": "Sadece JPG ve PNG dosyalarına izin verilir"
+  },
+  "categories": {
+    "investment": "Yatırım",
+    "technology": "Teknoloji",
+    "luxury": "Lüks",
+    "networking": "Networking",
+    "education": "Eğitim",
+    "other": "Diğer"
+  }
+} 

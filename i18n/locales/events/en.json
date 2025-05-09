@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "badge": "Upcoming Events",
+    "title": "Don't Miss Out on These Opportunities",
+    "description": "Join our exclusive events to gain valuable insights, network with industry experts, and stay ahead of the latest trends in real estate."
+  },
+  "loading": "Loading event details...",
+  "event_types": {
+    "online": "Online Event",
+    "onsite": "Onsite Event"
+  },
+  "categories": {
+    "investment": "Investment",
+    "technology": "Technology",
+    "luxury": "Luxury",
+    "networking": "Networking",
+    "education": "Education",
+    "other": "Other"
+  },
+  "event_details": {
+    "capacity": "Capacity: {{count}} attendees",
+    "register_button": "Register Now",
+    "page": {
+      "back_to_events": "Back to Events",
+      "event_info": "Event Information",
+      "date_time": "Date & Time",
+      "location": "Location",
+      "category": "Category",
+      "organizer": "Organizer",
+      "description": "Description",
+      "agenda": "Agenda",
+      "speakers": "Speakers",
+      "registration": "Seats",
+      "registration_closed": "Registration Closed",
+      "registration_full": "Event is Full",
+      "registration_success": "Registration Successful",
+      "registration_error": "Registration Failed",
+      "share_event": "Share Event",
+      "copy_link": "Copy Link",
+      "link_copied": "Link Copied",
+      "related_events": "Related Events",
+      "view_all_events": "View All Events",
+      "contact_organizer": "Contact Organizer",
+      "download_calendar": "Add to Calendar",
+      "event_ended": "This event has ended",
+      "event_upcoming": "This event is upcoming",
+      "event_ongoing": "This event is ongoing",
+      "time_remaining": "Time Remaining",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "seconds": "seconds"
+    }
+  },
+  "events": [
+    {
+      "id": "1",
+      "title": "Global Real Estate Investment Summit",
+      "description": "Join industry experts for an exclusive summit on global real estate investment opportunities, market trends, and future predictions.",
+      "date": "2024-06-15",
+      "time": "10:00 AM - 4:00 PM",
+      "location": "Istanbul Convention Center",
+      "category": "Investment"
+    },
+    {
+      "id": "2",
+      "title": "Virtual Property Tour Masterclass",
+      "description": "Learn how to create engaging virtual property tours that attract international buyers and streamline the sales process.",
+      "date": "2024-06-20",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "Online",
+      "category": "Technology"
+    },
+    {
+      "id": "3",
+      "title": "Luxury Real Estate Symposium",
+      "description": "An exclusive gathering of luxury real estate professionals discussing high-end market trends and client expectations.",
+      "date": "2024-07-05",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "Four Seasons Hotel Istanbul",
+      "category": "Luxury"
+    },
+    {
+      "id": "4",
+      "title": "International Property Investment Webinar",
+      "description": "Join us for an informative webinar on international property investment strategies and market opportunities.",
+      "date": "2024-07-15",
+      "time": "3:00 PM - 5:00 PM",
+      "location": "Online",
+      "category": "Investment"
+    }
+  ]
+} 

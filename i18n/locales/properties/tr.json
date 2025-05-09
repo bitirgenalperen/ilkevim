@@ -1,0 +1,66 @@
+{
+  "filters": {
+    "buy": "Satın Al",
+    "rent": "Kirala",
+    "search_placeholder": "Konum, emlak adı veya özelliklerle arayın...",
+    "filters_button": "Filtreler",
+    "clear_button": "Temizle",
+    "property_type": "Emlak Tipi",
+    "any_type": "Herhangi bir tip",
+    "city": "Şehir",
+    "any_city": "Herhangi bir şehir",
+    "price_range": "Fiyat Aralığı",
+    "square_footage": "Metrekare",
+    "bedrooms": "Yatak Odası",
+    "bathrooms": "Banyo",
+    "amenities": "Özellikler",
+    "no_properties_found": "Emlak bulunamadı",
+    "no_properties_message": "Daha fazla sonuç görmek için filtrelerinizi ayarlayın veya arama kriterlerinizi genişletin",
+    "clear_all_filters": "Tüm filtreleri temizle",
+    "property_type_list": {
+      "apartment": "Apartman",
+      "house": "Ev",
+      "penthouse": "Teras Kat",
+      "villa": "Villa"
+    },
+    "amenities_list": {
+      "Concierge": "Resepsiyon",
+      "Parking": "Otopark",
+      "EV Charging": "Elektrikli Araç Şarj İstasyonu",
+      "Garden": "Bahçe",
+      "Balcony": "Balkon",
+      "Roof Terrace": "Çatı Terası",
+      "Private Elevator": "Özel Asansör",
+      "Gym": "Spor Salonu",
+      "Swimming Pool": "Yüzme Havuzu",
+      "Spa/Sauna": "Spa/Sauna",
+      "Smart Home System": "Akıllı Ev Sistemi",
+      "Security System": "Güvenlik Sistemi",
+      "High-Speed Internet": "Yüksek Hızlı İnternet",
+      "Home Cinema": "Ev Sineması",
+      "Wine Cellar": "Şarap Mahzeni",
+      "Chefs Kitchen": "Şef Mutfağı",
+      "Walk-In Closet": "Giyinme Odası",
+      "Panoramic Views": "Panoramik Manzara",
+      "Fireplace": "Şömine",
+      "Outdoor Kitchen/BBQ": "Dış Mekan Mutfağı/Barbekü"
+    },
+    "search_by_location": "Konuma göre ara",
+    "loading_cities": "Şehirler yükleniyor...",
+    "no_cities_available": "Kullanılabilir şehir yok"
+  },
+  "property_card": {
+    "image_not_available": "Görsel mevcut değil",
+    "featured": "Öne Çıkan",
+    "standard": "Standart",
+    "beds": "Yatak Odası",
+    "baths": "Banyo",
+    "sq_ft": "m²",
+    "view_details": "Detayları Gör"
+  },
+  "loading": {
+    "text": "Mülkler yükleniyor...",
+    "cities": "Şehirler yükleniyor...",
+    "found": "Mülk bulundu"
+  }
+} 

@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "badge": "Yaklaşan Etkinlikler",
+    "title": "Bu Fırsatları Kaçırmayın",
+    "description": "Değerli bilgiler edinmek, sektör uzmanlarıyla network kurmak ve gayrimenkul alanındaki en son trendlerin önünde kalmak için özel etkinliklerimize katılın."
+  },
+  "loading": "Etkinlik detayları yükleniyor...",
+  "event_types": {
+    "online": "Çevrimiçi Etkinlik",
+    "onsite": "Yerinde Etkinlik"
+  },
+  "categories": {
+    "investment": "Yatırım",
+    "technology": "Teknoloji",
+    "luxury": "Lüks",
+    "networking": "Networking",
+    "education": "Eğitim",
+    "other": "Diğer"
+  },
+  "event_details": {
+    "capacity": "Kapasite: {{count}} katılımcı",
+    "register_button": "Şimdi Kaydolun",
+    "page": {
+      "back_to_events": "Etkinliklere Dön",
+      "event_info": "Etkinlik Bilgileri",
+      "date_time": "Tarih ve Saat",
+      "location": "Konum",
+      "category": "Kategori",
+      "organizer": "Organizatör",
+      "description": "Açıklama",
+      "agenda": "Program",
+      "speakers": "Konuşmacılar",
+      "registration": "Kapasite",
+      "registration_closed": "Kayıt Kapandı",
+      "registration_full": "Etkinlik Dolu",
+      "registration_success": "Kayıt Başarılı",
+      "registration_error": "Kayıt Başarısız",
+      "share_event": "Etkinliği Paylaş",
+      "copy_link": "Linki Kopyala",
+      "link_copied": "Link Kopyalandı",
+      "related_events": "İlgili Etkinlikler",
+      "view_all_events": "Tüm Etkinlikleri Gör",
+      "contact_organizer": "Organizatörle İletişime Geç",
+      "download_calendar": "Takvime Ekle",
+      "event_ended": "Bu etkinlik sona erdi",
+      "event_upcoming": "Bu etkinlik yaklaşıyor",
+      "event_ongoing": "Bu etkinlik devam ediyor",
+      "time_remaining": "Kalan Süre",
+      "days": "gün",
+      "hours": "saat",
+      "minutes": "dakika",
+      "seconds": "saniye"
+    }
+  },
+  "events": [
+    {
+      "id": "1",
+      "title": "Küresel Gayrimenkul Yatırım Zirvesi",
+      "description": "Küresel gayrimenkul yatırım fırsatları, pazar trendleri ve gelecek tahminleri hakkında sektör uzmanlarıyla özel bir zirveye katılın.",
+      "date": "15.06.2024",
+      "time": "10:00 - 16:00",
+      "location": "İstanbul Kongre Merkezi",
+      "category": "Yatırım"
+    },
+    {
+      "id": "2",
+      "title": "Sanal Emlak Turu Ustalık Sınıfı",
+      "description": "Uluslararası alıcıları çeken ve satış sürecini kolaylaştıran etkileyici sanal emlak turları oluşturmayı öğrenin.",
+      "date": "20.06.2024",
+      "time": "14:00 - 16:00",
+      "location": "Çevrimiçi",
+      "category": "Teknoloji"
+    },
+    {
+      "id": "3",
+      "title": "Lüks Gayrimenkul Sempozyumu",
+      "description": "Lüks pazar trendlerini ve müşteri beklentilerini tartışan lüks gayrimenkul profesyonellerinin özel bir buluşması.",
+      "date": "05.07.2024",
+      "time": "09:00 - 17:00",
+      "location": "Four Seasons Hotel İstanbul",
+      "category": "Lüks"
+    },
+    {
+      "id": "4",
+      "title": "Uluslararası Emlak Yatırım Webinarı",
+      "description": "Uluslararası emlak yatırım stratejileri ve pazar fırsatları hakkında bilgilendirici bir webinara katılın.",
+      "date": "15.07.2024",
+      "time": "15:00 - 17:00",
+      "location": "Çevrimiçi",
+      "category": "Yatırım"
+    }
+  ]
+} 

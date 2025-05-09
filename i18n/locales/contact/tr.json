@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "badge": "İletişime Geçin",
+    "title": "Bizimle İletişim Kurun",
+    "description": "Emlak ihtiyaçlarınız için size yardımcı olmak üzere buradayız. Ekibimizle iletişime geçin, en kısa sürede size geri döneceğiz."
+  },
+  "tab_navigation": {
+    "contact_form": "İletişim Formu",
+    "faq": "Sık Sorulan Sorular"
+  },
+  "contact_form": {
+    "title": "Sorularınız mı var?",
+    "subtitle": "Aşağıdaki formu doldurun, en kısa sürede sizi arayacağız.",
+    "name": "Adınız",
+    "name_placeholder": "Ahmet Yılmaz",
+    "phone": "Telefon Numarası",
+    "phone_placeholder": "+44 1234 567890",
+    "optional_details": "İsteğe Bağlı Detaylar",
+    "email": "E-posta Adresi",
+    "email_placeholder": "ahmet@ornek.com",
+    "subject": "Konu",
+    "subject_placeholder": "Emlak Sorusu",
+    "message": "Mesajınız",
+    "message_placeholder": "Size nasıl yardımcı olabiliriz?",
+    "button": {
+      "send": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "sent": "Mesaj Gönderildi!"
+    }
+  },
+  "contact_info": {
+    "title": "İletişim Bilgileri",
+    "subtitle": "Doğrudan iletişime geçin veya ofisimizi ziyaret edin.",
+    "sections": [
+      {
+        "title": "Bizi Arayın"
+      },
+      {
+        "title": "Bizi Ziyaret Edin"
+      },
+      {
+        "title": "Çalışma Saatleri"
+      },
+      {
+        "title": "E-posta Gönderin"
+      }
+    ],
+    "working_hours": {
+      "weekdays": "Pazartesi-Cuma: 9:00-18:00",
+      "saturday": "Cumartesi: 10:00-16:00",
+      "sunday": "Pazar: Kapalı"
+    },
+    "follow_us": "Bizi Takip Edin"
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorularla Gayrimenkul Süreçlerinizi Basitleştirin",
+    "subtitle": "Emlak alım satım ve ipotek süreçleri hakkında en yaygın soruları yanıtlıyoruz. Burada, mülk satın alırken veya kiralarken size yardımcı olacak temel bilgileri bulabilirsiniz.",
+    "categories": {
+      "freehold": "Tam Mülkiyet",
+      "leasehold": "Kira Hakkı",
+      "mortgage": "İpotek",
+      "aip": "Prensip Anlaşması (AIP)",
+      "buying_process": "Satın Alma Süreci",
+      "documents": "Belgeler",
+      "additional_costs": "Ek Maliyetler",
+      "help_to_buy": "Alıma Yardım Programları",
+      "property_viewing": "Emlak Görüntüleme",
+      "offers": "Teklifler",
+      "after_offer": "Teklif Kabulünden Sonra",
+      "surveys": "Emlak Keşifleri",
+      "international_buyers": "Uluslararası Alıcılar",
+      "investment": "Yatırım Mülkleri"
+    },
+    "questions": [
+      {
+        "question": "Tam Mülkiyet ne demektir?",
+        "answer": "Tam Mülkiyet, hem gayrimenkulün hem de üzerinde bulunduğu arazinin süresiz olarak size ait olduğu anlamına gelir. Herhangi bir arsa kirası veya hizmet bedeli ödemeden, mülkünüz üzerinde tam mülkiyet haklarına ve kontrole sahipsiniz."
+      },
+      {
+        "question": "Kira Hakkı (Leasehold) mülkü nedir?",
+        "answer": "Kira Hakkı, belirli bir süre için (genellikle 99-999 yıl) mülkü kullanma hakkına sahip olduğunuz, ancak üzerinde bulunduğu arazinin sahibinin arsa sahibi olduğu anlamına gelir. Arsa kirası ve hizmet bedelleri ödemeniz gerekecek ve kira sözleşmesindeki belirli koşullara uymanız gerekecektir."
+      },
+      {
+        "question": "Hizmet bedelleri ve arsa kirası nedir?",
+        "answer": "Hizmet bedelleri, bir binanın koridorlar, asansörler, bahçeler ve yapısal unsurlar gibi ortak alanlarının ve tesislerinin bakımı için kira hakkı sahipleri tarafından ödenen ücretlerdir. Arsa kirası ise mülkün üzerinde bulunduğu arazi için arsa sahibine ödenen ayrı bir ücrettir."
+      },
+      {
+        "question": "Kira süresi uzatılabilir mi?",
+        "answer": "Evet, kira hakkı sahipleri kira sürelerini uzatabilir, ancak bu süreç maliyetli olabilir. Fiyat, kalan kira süresine, mülk değerine ve arsa kirası miktarına bağlı olarak değişir. Bir kirayı 80 yılın altına düşmeden önce uzatmak tavsiye edilir, çünkü bu noktadan sonra daha pahalı hale gelir."
+      },
+      {
+        "question": "İpotek nasıl çalışır?",
+        "answer": "İpotek, bir mülk satın almak için bir bankadan veya konut birliğinden alınan bir kredidir. Kredi tamamen geri ödenene kadar mülk, kredi için teminat görevi görür. Aylık geri ödemelerinizi genellikle 25-35 yıllık bir süre boyunca yapacaksınız ve bu ödeme, hem borç alınan ana para tutarını hem de faizi içerir."
+      },
+      {
+        "question": "İpotek faiz oranları nasıl belirlenir?",
+        "answer": "İpotek faiz oranları sabit veya değişken olabilir. Sabit oran, belirli bir süre (genellikle 2-5 yıl) aynı kalır ve ödeme kesinliği sağlar. Değişken oranlar, İngiltere Merkez Bankası taban oranına veya kredi verenin standart değişken oranına göre değişir ve bu, aylık ödemelerinizi etkileyebilir."
+      },
+      {
+        "question": "Prensip Anlaşması (AIP) nedir?",
+        "answer": "Prensip Anlaşması (AIP), aynı zamanda İpotek Prensibi olarak da bilinen, bir ipotek sağlayıcısının size ne kadar borç vermeye istekli olabileceğini gösteren bir ön onay belgesidir. Yumuşak bir kredi kontrolüne ve beyan ettiğiniz gelire dayanır. AIP, bütçenizi anlamanıza yardımcı olur ve satıcılara ciddi bir alıcı olduğunuzu gösterir."
+      },
+      {
+        "question": "Hangi tür emlak keşifleri vardır?",
+        "answer": "Üç ana tür vardır: Durum Raporları (temel genel bakış, yeni bina mülkleri için en iyisi), Alıcı Raporları (daha ayrıntılı, makul durumdaki geleneksel mülkler için uygun) ve Bina/Yapısal Keşifler (kapsamlı değerlendirme, eski, olağandışı veya yenileme mülkleri için önerilir). Her biri artan seviyelerde detay ve maliyet sunar."
+      },
+      {
+        "question": "İpotek bankası bir değerleme yapıyorsa, keşif gerçekten gerekli mi?",
+        "answer": "Evet. İpotek değerlemesi öncelikle kredi verenin yararına, mülkün kredi için yeterli teminat olduğunu teyit etmek içindir. Yapısal sorunları veya kusurları tespit etmek için tasarlanmamıştır. Uygun bir keşif, pahalı onarımlar gerektirebilecek veya mülkün değerini veya güvenliğini etkileyebilecek sorunları belirleyerek yatırımınızı korur."
+      },
+      {
+        "question": "Keşif sorunlar bulursa ne yapmalıyım?",
+        "answer": "Öncelikle, ciddiyet derecelerini anlamak için bulguları keşif görevlinizle görüşün. Önemli sorunlar için birkaç seçeneğiniz var: satıcıdan tamamlanmadan önce sorunları çözmesini istemek, fiyatı onarım maliyetlerini yansıtacak şekilde yeniden müzakere etmek, daha fazla uzman rapor istemek veya ciddi durumlarda satın almadan vazgeçmek. Birçok sorun anlaşma bozucudan ziyade müzakere edilebilir."
+      },
+      {
+        "question": "Uluslararası alıcılar için hangi ek hususlar geçerlidir?",
+        "answer": "Uluslararası alıcılar, daha yüksek damga vergisi oranları (Birleşik Krallık'ta ikamet etmeyenler için ek %2), potansiyel döviz kuru riskleri, daha karmaşık ipotek seçenekleri (ancak birçok Birleşik Krallık bankası uluslararası ürünler sunar) ve farklı vergi etkileri dahil olmak üzere ek hususlarla karşı karşıyadır. Ayrıca bir Birleşik Krallık banka hesabına ihtiyacınız olacak ve uluslararası işlemlerde uzmanlaşmış Birleşik Krallık merkezli bir avukat atamayı düşünmelisiniz."
+      },
+      {
+        "question": "Yabancı uyruklular Birleşik Krallık'ta mülk satın alabilir mi?",
+        "answer": "Evet, Birleşik Krallık emlak piyasası yabancı alıcılara açıktır ve mülk sahipliğinde herhangi bir kısıtlama yoktur. Ancak, Birleşik Krallık'ta ikamet etmeyenler ek %2 damga vergisi ek ücreti öderler. Birleşik Krallık'ta ikamet etmiyorsanız, Kara Para Aklamayla Mücadele düzenlemeleri kapsamında kimlik doğrulama prosedürlerini tamamlamanız gerekecek ve farklı ipotek kredi kriterlerine tabi olabilirsiniz."
+      },
+      {
+        "question": "Bir mülkü kiralık yatırım olarak satın alırken neleri göz önünde bulundurmalıyım?",
+        "answer": "Kira getirisi (genellikle %4-7 iyi kabul edilir), sermaye büyüme potansiyeli, bölgedeki kiracı talebi, mülk tipi uygunluğu, bakım gereksinimleri ve ev sahibi sigortası ve yönetim ücretleri gibi ek maliyetlere odaklanın. Ayrıca güvenlik sertifikaları, depozito koruması ve konuma bağlı olarak potansiyel ev sahibi lisanslama dahil olmak üzere yasal yükümlülüklere uymanız gerekecektir."
+      },
+      {
+        "question": "Kiralık mülk sahibi olmanın vergi etkileri nelerdir?",
+        "answer": "Kira geliri gelir vergisine tabidir ve bir öz değerlendirme vergi beyannamesi doldurmanız gerekecektir. İpotek faizi (temel oran vergi indirimle sınırlı), bakım maliyetleri, emlakçı ücretleri, sigorta ve doğrudan ödediğiniz fatura giderleri dahil olmak üzere izin verilen giderleri düşebilirsiniz. Kiralık bir mülkü satarken Sermaye Kazançları Vergisi uygulanır, ancak indirimler mevcut olabilir. Kişiselleştirilmiş tavsiye için bir vergi uzmanına danışmayı düşünün."
+      }
+    ]
+  },
+  "map": {
+    "title": "Konumumuz",
+    "subtitle": "Ofisimizi ziyaret edin"
+  },
+  "cta": {
+    "title": "Kişiselleştirilmiş Yardım Alın",
+    "subtitle": "Gayrimenkul uzmanlarımız size yardım etmeye hazır",
+    "button": "Şimdi İletişime Geçin"
+  }
+} 

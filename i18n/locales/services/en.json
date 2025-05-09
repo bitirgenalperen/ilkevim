@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "badge": "Our Services",
+    "title": "Our Comprehensive Services",
+    "description": "Discover our range of professional real estate services designed to make your property journey seamless and successful."
+  },
+  "benefits": {
+    "trusted_expertise": {
+      "title": "Trusted Expertise",
+      "description": "15+ years of industry experience"
+    },
+    "fast_response": {
+      "title": "Fast Response",
+      "description": "Quick and efficient service delivery"
+    },
+    "personal_touch": {
+      "title": "Personal Touch",
+      "description": "Tailored solutions for every client"
+    },
+    "competitive_rates": {
+      "title": "Competitive Rates",
+      "description": "Transparent and fair pricing"
+    }
+  },
+  "services": {
+    "property_sales": {
+      "title": "Property Sales",
+      "description": "Expert guidance through every step of selling your property, from valuation to completion.",
+      "features": [
+        "Professional property valuation",
+        "Strategic pricing analysis",
+        "Professional photography",
+        "Virtual tours",
+        "Targeted marketing campaigns"
+      ]
+    },
+    "property_management": {
+      "title": "Property Management",
+      "description": "Comprehensive property management services for landlords and property investors.",
+      "features": [
+        "Tenant screening & placement",
+        "Rent collection & accounting",
+        "Property maintenance",
+        "Regular inspections",
+        "24/7 emergency support"
+      ]
+    },
+    "investment_advisory": {
+      "title": "Investment Advisory",
+      "description": "Strategic investment advice to help you make informed property investment decisions.",
+      "features": [
+        "Market analysis & research",
+        "Investment strategy planning",
+        "Portfolio optimization",
+        "ROI calculations",
+        "Risk assessment"
+      ]
+    },
+    "legal_documentation": {
+      "title": "Legal & Documentation",
+      "description": "Expert handling of all legal aspects and documentation related to property transactions.",
+      "features": [
+        "Contract preparation",
+        "Legal compliance checks",
+        "Due diligence",
+        "Documentation review",
+        "Regulatory guidance"
+      ]
+    },
+    "learn_more": "Learn More"
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "description": "Contact us today to discuss how we can help you achieve your property goals.",
+    "consultation_button": "Schedule a Consultation",
+    "portfolio_button": "View Our Portfolio"
+  }
+} 

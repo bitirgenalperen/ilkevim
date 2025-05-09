@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "badge": "About Us",
+    "title": "Our Story",
+    "description": "Learn about our journey, our values, and our commitment to excellence in real estate."
+  },
+  "stats": [
+    { "number": "15+", "label": "Years Experience" },
+    { "number": "1000+", "label": "Properties Sold" },
+    { "number": "98%", "label": "Client Satisfaction" },
+    { "number": "£500M+", "label": "Property Value Handled" }
+  ],
+  "values": {
+    "section_title": "Our Core Values",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide exceptional real estate services while maintaining the highest standards of integrity and professionalism."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the most trusted and innovative real estate company, setting new standards in property services."
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "Trust, Excellence, Innovation, and Client-First approach in everything we do."
+    }
+  },
+  "team": {
+    "section_title": "Meet Our Team",
+    "members": [
+      {
+        "name": "Sarah Johnson",
+        "role": "CEO & Founder",
+        "description": "With 20+ years in real estate, Sarah leads with vision and expertise."
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Head of Property Sales",
+        "description": "Expert in luxury property sales with outstanding track record."
+      },
+      {
+        "name": "Emma Thompson",
+        "role": "Investment Director",
+        "description": "Specializes in property investment strategies and market analysis."
+      },
+      {
+        "name": "James Wilson",
+        "role": "Operations Manager",
+        "description": "Ensures smooth operation of all services and client satisfaction."
+      }
+    ]
+  },
+  "achievements": {
+    "section_title": "Our Achievements",
+    "items": [
+      "Best Real Estate Agency 2023",
+      "Top Property Management Company",
+      "Excellence in Customer Service Award",
+      "Sustainable Development Recognition",
+      "Industry Innovation Award 2023"
+    ]
+  },
+  "cta": {
+    "title": "Join Our Success Story",
+    "description": "Let's work together to achieve your property goals. Contact us today for a personalized consultation.",
+    "contact_button": "Get in Touch",
+    "properties_button": "View Our Properties"
+  }
+} 

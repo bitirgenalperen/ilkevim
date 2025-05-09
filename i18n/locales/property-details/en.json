@@ -1,0 +1,216 @@
+{
+  "breadcrumb": {
+    "properties": "Properties",
+    "property": "Property"
+  },
+  "status": {
+    "available": "Available",
+    "pending": "Pending"
+  },
+  "features": {
+    "title": "Property Features",
+    "bedrooms": {
+      "title": "Bedrooms",
+      "description": "Spacious and well-lit bedrooms"
+    },
+    "bathrooms": {
+      "title": "Bathrooms"
+    },
+    "square_footage": {
+      "title": "Square Footage"
+    },
+    "property_type": {
+      "title": "Property Type",
+      "property_type_list": {
+        "apartment": "Apartment",
+        "house": "House",
+        "villa": "Villa",
+        "penthouse": "Penthouse"
+      }
+    },
+    "year_built": {
+      "title": "Year Built",
+      "description": "Quality construction"
+    }
+  },
+  "description": {
+    "title": "Description"
+  },
+  "amenities": {
+    "title": "Amenities",
+    "subtitle": "Discover what makes this property special",
+    "spotlight": "Property Spotlight",
+    "list": {
+      "Concierge": {
+        "title": "Concierge",
+        "description": "24/7 dedicated concierge service"
+      },
+      "Parking": {
+        "title": "Parking",
+        "description": "Secure parking available"
+      },
+      "EV Charging": {
+        "title": "EV Charging",
+        "description": "Electric vehicle charging stations"
+      },
+      "Garden": {
+        "title": "Garden",
+        "description": "Beautiful landscaped garden"
+      },
+      "Balcony": {
+        "title": "Balcony",
+        "description": "Private outdoor space"
+      },
+      "Roof Terrace": {
+        "title": "Roof Terrace",
+        "description": "Stunning rooftop views"
+      },
+      "Private Elevator": {
+        "title": "Private Elevator",
+        "description": "Direct elevator access"
+      },
+      "Gym": {
+        "title": "Gym",
+        "description": "State-of-the-art fitness center"
+      },
+      "Swimming Pool": {
+        "title": "Swimming Pool",
+        "description": "Indoor/outdoor swimming facilities"
+      },
+      "Spa/Sauna": {
+        "title": "Spa/Sauna",
+        "description": "Relaxation and wellness area"
+      },
+      "Smart Home System": {
+        "title": "Smart Home",
+        "description": "Integrated smart home technology"
+      },
+      "Security System": {
+        "title": "Security System",
+        "description": "Advanced security systems"
+      },
+      "High-Speed Internet": {
+        "title": "High-Speed Internet",
+        "description": "Fiber optic connection"
+      },
+      "Home Cinema": {
+        "title": "Home Cinema",
+        "description": "Premium entertainment space"
+      },
+      "Wine Cellar": {
+        "title": "Wine Cellar",
+        "description": "Temperature-controlled wine storage"
+      },
+      "Chefs Kitchen": {
+        "title": "Chef's Kitchen",
+        "description": "Professional-grade kitchen"
+      },
+      "Walk-In Closet": {
+        "title": "Walk-In Closet",
+        "description": "Spacious storage solutions"
+      },
+      "Panoramic Views": {
+        "title": "Panoramic Views",
+        "description": "Breathtaking scenery"
+      },
+      "Fireplace": {
+        "title": "Fireplace",
+        "description": "Cozy indoor fireplace"
+      },
+      "Outdoor Kitchen/BBQ": {
+        "title": "Outdoor Kitchen",
+        "description": "Outdoor cooking and dining area"
+      }
+    }
+  },
+  "calculators": {
+    "stamp_duty": {
+      "title": "Stamp Duty Calculator",
+      "effective_date": "After April 2025",
+      "disclaimer": "Provides an estimate only.",
+      "options": {
+        "first_time_buyer": "First-time buyer",
+        "own_property": "Already own property",
+        "non_uk_resident": "Non-UK resident",
+        "replacing_main_residence": "Replacing main residence"
+      },
+      "summary": {
+        "property_price": "Property price:",
+        "stamp_duty": "Stamp duty:",
+        "effective_rate": "Effective rate:"
+      },
+      "breakdown": {
+        "show": "Show breakdown",
+        "hide": "Hide breakdown",
+        "title": "Calculation Breakdown",
+        "portion": "Portion:",
+        "rate": "Rate:",
+        "tax": "Tax:",
+        "total": "Total stamp duty:"
+      },
+      "rates": {
+        "title": "Stamp Duty Rates (from April 2025)",
+        "first_time_buyer": {
+          "band1": "£0 - £300,000:",
+          "band2": "£300,001 - £500,000:",
+          "band3": "Above £500,000:",
+          "rate1": "0%",
+          "rate2": "5%",
+          "rate3": "Standard rates apply"
+        },
+        "standard": {
+          "band1": "£0 - £125,000:",
+          "band2": "£125,001 - £250,000:",
+          "band3": "£250,001 - £925,000:",
+          "band4": "£925,001 - £1,500,000:",
+          "band5": "Above £1,500,000:",
+          "rate1": "0%",
+          "rate2": "2%",
+          "rate3": "5%",
+          "rate4": "10%",
+          "rate5": "12%"
+        },
+        "additional_property": "Additional property: +5%",
+        "non_uk_resident": "Non-UK resident: +2%"
+      }
+    },
+    "mortgage": {
+      "title": "Mortgage Calculator",
+      "down_payment": {
+        "label": "Down Payment",
+        "min": "5%",
+        "max": "50%"
+      },
+      "interest_rate": {
+        "label": "Interest Rate",
+        "min": "1%",
+        "max": "10%"
+      },
+      "loan_term": {
+        "label": "Loan Term",
+        "years": "years"
+      },
+      "summary": {
+        "monthly_payment": "Estimated Monthly Payment",
+        "loan_amount": "Loan Amount",
+        "total_interest": "Total Interest"
+      },
+      "disclaimer": "Provides an estimate only."
+    }
+  },
+  "location": {
+    "title": "Location"
+  },
+  "error": {
+    "title": "Error Loading Property",
+    "not_found": "Property not found",
+    "back_button": "Back to Properties"
+  },
+  "loading": {
+    "text": "Loading property details..."
+  },
+  "share": {
+    "button": "Share",
+    "copied": "Link copied to clipboard!"
+  }
+} 

@@ -92,13 +92,14 @@ export async function getPresignedUrl(
 /**
  * Generates a unique key for a file based on timestamp and original filename
  * @param file The file to generate a key for
+ * @param directory The directory to store the file in (e.g., 'properties', 'events')
  * @returns A unique key for the file
  */
-export function generateUniqueKey(file: File): string {
+export function generateUniqueKey(file: File, directory: string = 'properties'): string {
   const timestamp = Date.now();
   const randomString = Math.random().toString(36).substring(2, 15);
   const extension = file.name.split('.').pop();
-  return `properties/${timestamp}-${randomString}.${extension}`;
+  return `${directory}/${timestamp}-${randomString}.${extension}`;
 }
 
 /**

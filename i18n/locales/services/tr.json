@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "badge": "Hizmetlerimiz",
+    "title": "Kapsamlı Hizmetlerimiz",
+    "description": "Emlak yolculuğunuzu sorunsuz ve başarılı kılmak için tasarlanmış profesyonel gayrimenkul hizmetlerimizi keşfedin."
+  },
+  "benefits": {
+    "trusted_expertise": {
+      "title": "Güvenilir Uzmanlık",
+      "description": "15+ yıllık sektör deneyimi"
+    },
+    "fast_response": {
+      "title": "Hızlı Yanıt",
+      "description": "Hızlı ve verimli hizmet sunumu"
+    },
+    "personal_touch": {
+      "title": "Kişisel Dokunuş",
+      "description": "Her müşteri için özel çözümler"
+    },
+    "competitive_rates": {
+      "title": "Rekabetçi Fiyatlar",
+      "description": "Şeffaf ve adil fiyatlandırma"
+    }
+  },
+  "services": {
+    "property_sales": {
+      "title": "Emlak Satışları",
+      "description": "Değerlendirmeden tamamlanmaya kadar mülkünüzü satmanın her adımında uzman rehberlik.",
+      "features": [
+        "Profesyonel emlak değerlemesi",
+        "Stratejik fiyatlandırma analizi",
+        "Profesyonel fotoğrafçılık",
+        "Sanal turlar",
+        "Hedefli pazarlama kampanyaları"
+      ]
+    },
+    "property_management": {
+      "title": "Emlak Yönetimi",
+      "description": "Ev sahipleri ve mülk yatırımcıları için kapsamlı mülk yönetim hizmetleri.",
+      "features": [
+        "Kiracı tarama ve yerleştirme",
+        "Kira tahsilatı ve muhasebe",
+        "Mülk bakımı",
+        "Düzenli denetimler",
+        "7/24 acil destek"
+      ]
+    },
+    "investment_advisory": {
+      "title": "Yatırım Danışmanlığı",
+      "description": "Bilgili gayrimenkul yatırım kararları vermenize yardımcı olacak stratejik yatırım tavsiyeleri.",
+      "features": [
+        "Pazar analizi ve araştırması",
+        "Yatırım stratejisi planlama",
+        "Portföy optimizasyonu",
+        "ROI hesaplamaları",
+        "Risk değerlendirmesi"
+      ]
+    },
+    "legal_documentation": {
+      "title": "Hukuki ve Dokümantasyon",
+      "description": "Emlak işlemleriyle ilgili tüm yasal konuların ve belgelerin uzman yönetimi.",
+      "features": [
+        "Sözleşme hazırlığı",
+        "Yasal uyumluluk kontrolleri",
+        "Durum tespiti",
+        "Belge incelemesi",
+        "Mevzuat rehberliği"
+      ]
+    },
+    "learn_more": "Daha Fazla Bilgi"
+  },
+  "cta": {
+    "title": "Başlamaya Hazır mısınız?",
+    "description": "Emlak hedeflerinize ulaşmanıza nasıl yardımcı olabileceğimizi görüşmek için bugün bizimle iletişime geçin.",
+    "consultation_button": "Danışma Randevusu Alın",
+    "portfolio_button": "Portföyümüzü Görüntüleyin"
+  }
+} 
