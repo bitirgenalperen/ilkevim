@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { MessageCircle, X, Phone, Check, MessageSquare, Send, Home, Calendar, Mail, ArrowRight } from 'lucide-react'
+import { MessageCircle, X, Phone, Check, MessageSquare, Send, Home, Calendar, Mail, LucideIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
@@ -18,7 +18,15 @@ export function ChatButton() {
   const [isCopied, setIsCopied] = useState(false)
   const [isChatActive, setIsChatActive] = useState(false)
   const [message, setMessage] = useState('')
-  const [chatMessages, setChatMessages] = useState<{text: string, isUser: boolean, options?: Array<{text: string, action: string, icon: any}> }[]>([])
+  const [chatMessages, setChatMessages] = useState<{
+    text: string, 
+    isUser: boolean, 
+    options?: Array<{
+      text: string, 
+      action: string, 
+      icon: LucideIcon
+    }>
+  }[]>([])
   const [showEmailForm, setShowEmailForm] = useState(false)
   const [subscribeData, setSubscribeData] = useState({ name: '', email: '' })
   const chatContainerRef = useRef<HTMLDivElement>(null)
@@ -36,7 +44,7 @@ export function ChatButton() {
     console.log('Translation for title:', t('title'))
     console.log('Available languages:', i18n.languages)
     console.log('Has chatbot resources:', i18n.hasResourceBundle(i18n.language, 'chatbot'))
-  }, [i18n.language, t])
+  }, [i18n, t])
 
   const handlePhoneClick = async () => {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {

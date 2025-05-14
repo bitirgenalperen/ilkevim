@@ -57,7 +57,6 @@ export default function PropertiesPage() {
     squareFootage: [0, 10000],
     stayType: 'buy'
   })
-  const [error, setError] = useState<string | null>(null)
 
   const MAX_PRICE = 5000000
   const MAX_BEDROOMS = 6
@@ -138,7 +137,6 @@ export default function PropertiesPage() {
       setProperties(propertiesWithSignedUrls)
     } catch (error) {
       console.error('Error fetching properties:', error)
-      setError('There was an error loading the properties. Please try again.')
     } finally {
       setLoading(false)
     }

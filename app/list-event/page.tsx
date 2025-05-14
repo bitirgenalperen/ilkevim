@@ -6,7 +6,6 @@ import { Video, Upload, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-hot-toast'
-import { generateUniqueKey } from '@/lib/s3-client'
 
 interface EventFormData {
   title: string
@@ -58,11 +57,10 @@ export default function ListEventPage() {
       })
 
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.message || 'Failed to create event')
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'Failed to create event')
       }
 
-      const data = await response.json()
       toast.success(t('success'))
       router.push('/events')
     } catch (err) {

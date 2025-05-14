@@ -123,9 +123,11 @@ export default function EventDetailsPage({ params }: { params: Promise<{ id: str
           </div>
         ) : (
           <>
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${event.image}')`, filter: 'brightness(0.7)' }}
+            <img
+              src={event.image}
+              alt={event.title}
+              className="absolute inset-0 w-full h-full object-cover brightness-[0.7]"
+              onError={handleImageError}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent" />
           </>

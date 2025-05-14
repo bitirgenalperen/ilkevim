@@ -32,7 +32,6 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { commonAmenities } from '@/data/properties'
-import { generateUniqueKey } from '@/lib/s3-client'
 
 // Property type options
 const propertyTypes = [
@@ -196,9 +195,6 @@ export default function ListPropertyPage() {
 
   const uploadImage = async (file: File, index: number) => {
     try {
-      // Create a unique key for the file
-      const key = generateUniqueKey(file)
-      
       // Create form data
       const formData = new FormData()
       formData.append('file', file)

@@ -18,7 +18,6 @@ export default function HomePage() {
   const [featuredProperties, setFeaturedProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [error, setError] = useState<string | null>(null)
 
   // Initialize language from localStorage
   useEffect(() => {
@@ -92,7 +91,6 @@ export default function HomePage() {
         setFeaturedProperties(propertiesWithSignedUrls)
       } catch (error) {
         console.error('Error fetching featured properties:', error)
-        setError('Failed to load featured properties')
       } finally {
         setLoading(false)
       }

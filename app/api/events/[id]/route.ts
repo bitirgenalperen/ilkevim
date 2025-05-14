@@ -3,12 +3,18 @@ import { DatabaseService } from '@/lib/db'
 
 const db = new DatabaseService()
 
+type Props = {
+  params: {
+    id: string
+  }
+}
+
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  props: Props
 ) {
   try {
-    const event = await db.getEvent(params.id)
+    const event = await db.getEvent(props.params.id)
     
     if (!event) {
       return NextResponse.json(
